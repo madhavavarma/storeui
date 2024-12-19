@@ -22,8 +22,8 @@ const Home: React.FC = () => {
         <MainCarousel />
       </section>
       <section className="">
-        <ProductCarousel />
-        <ProductCarousel />        
+        <ProductCarousel heading="Deals" />
+        <ProductCarousel heading="Newly Added" />        
       </section>
       <Footer />
       </Fragment>

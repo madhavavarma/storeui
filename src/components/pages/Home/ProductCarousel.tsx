@@ -3,8 +3,13 @@ import { Button } from '../../ui/button';
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from '../../ui/carousel';
 import { CardContent } from '../../ui/card';
 import Product2 from './Product2';
+import { ArrowRight } from 'lucide-react';
 
-const ProductCarousel = () => {
+interface IProps {
+  heading: string
+}
+
+const ProductCarousel = (props: IProps) => {
   const [products] = useState([
     { id: 1, name: 'Product 1', description: 'Description for product 1', price: '$19.99', imageUrl: 'https://cdn.pixabay.com/photo/2023/11/29/03/44/e-commerce-8418610_1280.png' },
     { id: 2, name: 'Product 2', description: 'Description for product 2', price: '$29.99', imageUrl: 'https://cdn.pixabay.com/photo/2023/11/29/03/44/e-commerce-8418610_1280.png' },
@@ -29,10 +34,10 @@ const ProductCarousel = () => {
 
   return (
     <div className="py-8 px-4 bg-gray-50 relative">
-      <div className="flex justify-between items-center">
-        <h2 className="text-2xl font-bold">Our Products</h2>
-        <Button variant="outline" onClick={() => alert('Redirecting to all products...')}>
-          View More
+      <div className="flex justify-between items-center mt-6 mb-4 ml-4 mr-4 px-4">
+        <h2 className="text-2xl font-bold">{props.heading}</h2>
+        <Button variant="outline" onClick={() => alert('Redirecting to all products...')} className="bg-green-800 text-white">
+          View More <ArrowRight />
         </Button>
       </div>
 
