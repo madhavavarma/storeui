@@ -1,9 +1,10 @@
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
-import { Star } from "lucide-react";
+import { ArrowRightCircle, EyeIcon, PlusCircleIcon, ScanEyeIcon, ShoppingCartIcon, Star } from "lucide-react";
 import { Select, SelectContent, SelectItem, SelectTrigger } from "@/components/ui/select"; // Importing SelectContent and SelectTrigger
 import { useState } from "react";
 import { Badge } from "@/components/ui/badge";
+import { ScrollArea, ScrollBar } from "@/components/ui/scroll-area";
 
 const Product2 = (props: any) => {
   const { name, price, imageUrl } = props.product;
@@ -33,6 +34,8 @@ const Product2 = (props: any) => {
             ))}
           </div>
         </section>
+
+        
         
         
         {/* Product Image */}
@@ -42,7 +45,18 @@ const Product2 = (props: any) => {
             alt={name}
             className="object-cover w-full h-full"
           />
+
+         
         </div>
+
+        <section className="relative ">
+          {/* <ArrowRightCircle className="w-4 h-4 m-1 absolute right-[-15px] top-[3px] "/> */}
+
+         
+
+        </section>
+
+       
 
         {/* Product Info */}
         <div className="mt-3">
@@ -65,7 +79,7 @@ const Product2 = (props: any) => {
 
           {/* Size Selection (Dropdown) */}
           <div className="mt-3">
-            <h5 className="text-xs font-medium text-gray-600">Size:</h5>
+            {/* <h5 className="text-xs font-medium text-gray-600">Size:</h5> */}
             <Select
               value={selectedSize}
               onValueChange={setSelectedSize}
@@ -97,15 +111,27 @@ const Product2 = (props: any) => {
               />
             </div>
 
-            {/* Add to Cart Button */}
-            <Button
-              variant="default"
-              size="sm"
-              onClick={handleAddToCart}
-              className="px-3 py-1 text-xs font-medium bg-[#5DBF13]"
-            >
-              Add to Cart
-            </Button>
+            <section>
+              {/* Add to Cart Button */}
+              <Button
+                variant="default"
+                size="sm"
+                onClick={handleAddToCart}
+                className="px-3 py-1 text-xs font-medium bg-[#5DBF13]"
+              >
+                <ShoppingCartIcon /> 
+              </Button>
+
+              {/* Add to Cart Button */}
+              <Button
+                variant="default"
+                size="sm"
+                onClick={handleAddToCart}
+                className="px-3 py-1 text-xs font-medium bg-[#5DBF13] ml-1"
+              >
+                <EyeIcon /> 
+              </Button>
+            </section>
           </div>
         </div>
       </Card>
