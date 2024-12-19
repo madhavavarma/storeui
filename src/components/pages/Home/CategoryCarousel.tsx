@@ -14,7 +14,7 @@ const CategoryCarousel = () => {
   ]);
 
   return (
-    <div className="bg-[#f4f5f7] text-center w-full">
+    <div className="bg-[#fff] text-center w-full">
       {/* "Choose Categories" Text in Green */}
       <p className="text-sm text-green-500 mb-1  pt-6">Choose Categories</p>
 

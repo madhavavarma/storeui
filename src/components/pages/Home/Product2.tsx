@@ -1,12 +1,12 @@
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
-import { Eye, Tag, Star } from "lucide-react";
+import { Star } from "lucide-react";
 import { Select, SelectContent, SelectItem, SelectTrigger } from "@/components/ui/select"; // Importing SelectContent and SelectTrigger
 import { useState } from "react";
 import { Badge } from "@/components/ui/badge";
 
 const Product2 = (props: any) => {
-  const { name, price, imageUrl, id } = props.product;
+  const { name, price, imageUrl } = props.product;
   const [quantity, setQuantity] = useState(1);
   const [selectedSize, setSelectedSize] = useState("Medium");
 

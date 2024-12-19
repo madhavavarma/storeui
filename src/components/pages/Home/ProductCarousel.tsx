@@ -33,12 +33,10 @@ const ProductCarousel = (props: IProps) => {
   // };
 
   return (
-    <div className="py-8 px-4 bg-gray-50 relative mb-24">
+    <div className="py-8 px-4 bg-gray-50 relative bg-[#fff] ">
       <div className="flex justify-between items-center mt-6 mb-4 ml-4 mr-4 px-4">
         <h2 className="text-2xl font-bold">{props.heading}</h2>
-        <Button variant="outline" onClick={() => alert('Redirecting to all products...')} className="bg-green-800 text-white">
-          View More <ArrowRight />
-        </Button>
+       
       </div>
 
       <Carousel opts={{ align: "start" }} className=" w-[98%] m-auto">
@@ -54,17 +52,22 @@ const ProductCarousel = (props: IProps) => {
             ))}
         </CarouselContent>
          {/* Left Arrow */}
-         <div className="absolute left-10 top-1/2 transform -translate-y-1/2 z-10">
+         <div className="absolute left-10 top-1/2 transform -translate-y-1/2 z-1">
           <CarouselPrevious className="bg-gray-800 text-white p-3 rounded-full shadow-lg hover:bg-gray-600">
             &#9664; {/* Left Arrow */}
           </CarouselPrevious>
         </div>
 
         {/* Right Arrow */}
-        <div className="absolute right-10 top-1/2 transform -translate-y-1/2 z-10">
+        <div className="absolute right-10 top-1/2 transform -translate-y-1/2 z-1">
           <CarouselNext className="bg-gray-800 text-white p-3 rounded-full shadow-lg hover:bg-gray-600">
             &#9654; {/* Right Arrow */}
           </CarouselNext>
+        </div>
+        <div className="flex justify-end">
+          <Button variant="outline" onClick={() => alert('Redirecting to all products...')} className="bg-green-800 text-white ">
+            View More <ArrowRight />
+          </Button>
         </div>
     </Carousel>
     </div>

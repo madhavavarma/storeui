@@ -5,7 +5,7 @@ import Routing from './Routing';
 
 const App: React.FC = () => {
   return (
-    <main >
+    <main className='bg-[#fcf8f8]' >
       <Routing />
       
     </main>
