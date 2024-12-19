@@ -3,6 +3,7 @@ import { Card } from "@/components/ui/card";
 import { Eye, Tag, Star } from "lucide-react";
 import { Select, SelectContent, SelectItem, SelectTrigger } from "@/components/ui/select"; // Importing SelectContent and SelectTrigger
 import { useState } from "react";
+import { Badge } from "@/components/ui/badge";
 
 const Product2 = (props: any) => {
   const { name, price, imageUrl, id } = props.product;
@@ -16,11 +17,24 @@ const Product2 = (props: any) => {
   return (
     <div className="max-w-xs mx-auto">
       <Card className="p-4 bg-white  relative">
-        {/* Product Tag */}
-        <Tag color="red" className="absolute top-2 left-2">
-          Hot
-        </Tag>
 
+        <section className="flex justify-between">
+          {/* Product Name */}
+          <Badge variant="default">{name}</Badge>
+          
+          {/* Rating */}
+          <div className="mt-1 flex items-center">
+            {/* 5 Stars */}
+            {[...Array(5)].map((_, index) => (
+              <Star
+                key={index}
+                className={`w-4 h-4 text-yellow-400 ${index < 4 ? "fill-current" : "text-gray-300"}`}
+              />
+            ))}
+          </div>
+        </section>
+        
+        
         {/* Product Image */}
         <div className="relative h-48 overflow-hidden rounded-lg">
           <img
@@ -33,7 +47,7 @@ const Product2 = (props: any) => {
         {/* Product Info */}
         <div className="mt-3">
           {/* Product Title and Price with View Icon */}
-          <div className="flex justify-between items-center">
+          {/* <div className="flex justify-between items-center">
             <div className="flex items-center space-x-2">
               <h4 className="text-sm font-semibold text-gray-800 truncate">{name}</h4>
               <Button
@@ -45,18 +59,9 @@ const Product2 = (props: any) => {
               </Button>
             </div>
             <span className="text-lg font-bold text-gray-800">{price}</span>
-          </div>
+          </div> */}
 
-          {/* Rating */}
-          <div className="mt-1 flex items-center">
-            {/* 5 Stars */}
-            {[...Array(5)].map((_, index) => (
-              <Star
-                key={index}
-                className={`w-4 h-4 text-yellow-400 ${index < 4 ? "fill-current" : "text-gray-300"}`}
-              />
-            ))}
-          </div>
+          
 
           {/* Size Selection (Dropdown) */}
           <div className="mt-3">
@@ -67,12 +72,12 @@ const Product2 = (props: any) => {
             //   className="text-xs w-full px-3 py-1 border rounded-md"
             >
               <SelectTrigger>
-                <span>{selectedSize}</span>
+                <span>{selectedSize} - {price}</span>
               </SelectTrigger>
               <SelectContent>
-                <SelectItem value="Small">Small</SelectItem>
-                <SelectItem value="Medium">Medium</SelectItem>
-                <SelectItem value="Large">Large</SelectItem>
+                <SelectItem value="Small">Small {price}</SelectItem>
+                <SelectItem value="Medium">Medium {price}</SelectItem>
+                <SelectItem value="Large">Large {price}</SelectItem>
               </SelectContent>
             </Select>
           </div>

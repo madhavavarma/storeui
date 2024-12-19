@@ -33,7 +33,7 @@ const ProductCarousel = (props: IProps) => {
   // };
 
   return (
-    <div className="py-8 px-4 bg-gray-50 relative">
+    <div className="py-8 px-4 bg-gray-50 relative mb-24">
       <div className="flex justify-between items-center mt-6 mb-4 ml-4 mr-4 px-4">
         <h2 className="text-2xl font-bold">{props.heading}</h2>
         <Button variant="outline" onClick={() => alert('Redirecting to all products...')} className="bg-green-800 text-white">
