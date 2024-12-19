@@ -3,6 +3,9 @@ import Footer from "../../base/Footer";
 import ProductCarousel from "./ProductCarousel";
 import MainCarousel from "../../base/HeroCarousel";
 import Header from "@/components/base/Header";
+import Features from "@/components/base/Features";
+import CategoryCarousel from "./CategoryCarousel";
+import MiniProductList from "./MiniProductList";
 
 const Home: React.FC = () => {
 
@@ -13,10 +16,13 @@ const Home: React.FC = () => {
       <Header />
       <section >
         <MainCarousel />
+        <Features />
+        <CategoryCarousel />
+        <MiniProductList />
+        <MainCarousel />
       </section>
       <section className="">
         <ProductCarousel />
-        <ProductCarousel />        
         <ProductCarousel />        
       </section>
       <Footer />

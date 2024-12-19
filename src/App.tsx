@@ -1,12 +1,12 @@
 import './App.css'
 import 'tailwindcss/tailwind.css'
-import Home from './components/pages/Home/Home';
+import Routing from './Routing';
  
 
 const App: React.FC = () => {
   return (
     <main >
-      <Home />
+      <Routing />
       
     </main>
   );

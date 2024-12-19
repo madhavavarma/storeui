@@ -1,8 +1,8 @@
 import { useState } from 'react';
 import { Button } from '../../ui/button';
-import Product from './Product';
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from '../../ui/carousel';
 import { CardContent } from '../../ui/card';
+import Product2 from './Product2';
 
 const ProductCarousel = () => {
   const [products] = useState([
@@ -14,20 +14,18 @@ const ProductCarousel = () => {
     { id: 6, name: 'Product 6', description: 'Description for product 6', price: '$69.99', imageUrl: 'https://cdn.pixabay.com/photo/2023/11/29/03/44/e-commerce-8418610_1280.png' },
   ]);
 
-  const [currentIndex, setCurrentIndex] = useState(0);
-  const itemsPerPage = 3; // Number of items to show at once
 
-  const goToNext = () => {
-    if (currentIndex < products.length - itemsPerPage) {
-      setCurrentIndex((prevIndex) => prevIndex + 1);
-    }
-  };
+  // const goToNext = () => {
+  //   if (currentIndex < products.length - itemsPerPage) {
+  //     setCurrentIndex((prevIndex) => prevIndex + 1);
+  //   }
+  // };
 
-  const goToPrevious = () => {
-    if (currentIndex > 0) {
-      setCurrentIndex((prevIndex) => prevIndex - 1);
-    }
-  };
+  // const goToPrevious = () => {
+  //   if (currentIndex > 0) {
+  //     setCurrentIndex((prevIndex) => prevIndex - 1);
+  //   }
+  // };
 
   return (
     <div className="py-8 px-4 bg-gray-50 relative">
@@ -38,13 +36,13 @@ const ProductCarousel = () => {
         </Button>
       </div>
 
-      <Carousel opts={{ align: "start" }} className="w-full">
+      <Carousel opts={{ align: "start" }} className=" w-[98%] m-auto">
         <CarouselContent>
             {products.map((product, index) => (
-            <CarouselItem key={index} className="md:basis-1/2 lg:basis-1/2 -ml-10">
+            <CarouselItem key={index} className="basis-1/8 md:basis-1/6 lg:basis-1/4">
                 <div >
                     <CardContent className="flex  ">
-                        <Product key={product.id} product={product} />
+                        <Product2 key={product.id} product={product}/>
                     </CardContent>
                 </div>
             </CarouselItem>
