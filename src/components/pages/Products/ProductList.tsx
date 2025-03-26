@@ -2,9 +2,8 @@ import { Fragment, useState } from 'react';
 import Product2 from '../Home/Product2';
 import Header from '@/components/base/Header';
 import Footer from '@/components/base/Footer';
-import { Search, ShoppingCart, MenuIcon, Star, ShoppingCartIcon, EyeIcon, EyeClosedIcon } from 'lucide-react';
+import { Search, Star, ShoppingCartIcon, EyeIcon, EyeClosedIcon } from 'lucide-react';
 import { FloatingButtonWithTT } from '../Shared/FloatingButtonsWithTT';
-import CategoryCarousel from '../Home/CategoryCarousel';
 import { Drawer, DrawerClose, DrawerContent, DrawerDescription, DrawerFooter, DrawerHeader, DrawerTitle, DrawerTrigger } from '@/components/ui/drawer';
 import { Button } from '@/components/ui/button';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
@@ -24,7 +23,7 @@ const ProductList = () => {
 
     const [searchQuery, setSearchQuery] = useState('');
     const [showSearch, setShowSearch] = useState(false); 
-    const [showCategories, setShowCategories] = useState(false); 
+    const [showCategories] = useState(false); 
     const [showProductDetail, setShowProductDetail] = useState(false); 
     const [category, setCategory] = useState("");
 
