@@ -23,7 +23,7 @@ const MiniProductList = () => {
       <h2 className="text-3xl font-bold text-gray-800 mb-6">Fresh Vegetables</h2>
 
       {/* Product Grid */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8 w-[90%] m-auto">
+      <div className="flex flex-wrap gap-1 md:gap-4 justify-center">
         {products.map((product) => (
           <div key={product.id}>
             <Product2 product={product} />

@@ -1,29 +1,22 @@
 import { Button } from "@/components/ui/button";
-import { Card } from "@/components/ui/card";
-import { EyeIcon, ShoppingCartIcon, Star } from "lucide-react";
+import { ShoppingCartIcon, Star } from "lucide-react";
 import { Select, SelectContent, SelectItem, SelectTrigger } from "@/components/ui/select"; // Importing SelectContent and SelectTrigger
 import { useState } from "react";
 import { Badge } from "@/components/ui/badge";
-import { useNavigationHelper } from "@/hooks/use-navigate-helper";
 
-const Product2 = (props: any) => {
+const Product3 = (props: any) => {
   const { name, price, imageUrl } = props.product;
   const [quantity] = useState(1);
   const [selectedSize, setSelectedSize] = useState("Medium");
-
-  const navigationHelper = useNavigationHelper();
-
-
 
   const handleAddToCart = () => {
     console.log(`Added ${quantity} of ${name} to the cart.`);
   };
 
   return (
-    <div className="max-w-xs mx-auto min-w-[180px]">
-      <Card className="p-2 md:p-5 bg-white  relative">
+    <div className="max-w-xs mx-auto min-w-[180px] flex-col">
 
-        <section className="flex justify-between flex-col">
+        <section className="flex justify-between flex-col mb-4">
          
 
           
@@ -43,7 +36,7 @@ const Product2 = (props: any) => {
         
         
         {/* Product Image */}
-        <div className="relative h-32 md:h-48  overflow-hidden rounded-lg">
+        <div className="relative h-48 md:h-48  overflow-hidden rounded-lg  mb-4">
           <img
             src={imageUrl}
             alt={name}
@@ -132,26 +125,18 @@ const Product2 = (props: any) => {
               <Button
                 variant="default"
                 size="sm"
-                onClick={() => navigationHelper.goToProductDetail("1")}
-                className="px-3 py-1 text-xs font-medium bg-[#5DBF13] "
-              >
-                <EyeIcon /> 
-              </Button>
-              {/* Add to Cart Button */}
-              <Button
-                variant="default"
-                size="sm"
                 onClick={handleAddToCart}
-                className="px-3 py-1 text-xs font-medium bg-[#5DBF13] ml-1"
+                className="px-3 py-1 text-xs font-medium bg-[#5DBF13]"
               >
-                <ShoppingCartIcon /> 
+                <ShoppingCartIcon /> Add to Cart
               </Button>
+
+             
             </section>
           </div>
         </div>
-      </Card>
     </div>
   );
 };
 
-export default Product2;
+export default Product3;

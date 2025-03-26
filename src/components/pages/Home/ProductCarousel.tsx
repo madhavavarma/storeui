@@ -4,6 +4,7 @@ import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious
 import { CardContent } from '../../ui/card';
 import Product2 from './Product2';
 import { ArrowRight } from 'lucide-react';
+import { useNavigate } from 'react-router-dom';
 
 interface IProps {
   heading: string
@@ -18,6 +19,8 @@ const ProductCarousel = (props: IProps) => {
     { id: 5, name: 'Product 5', description: 'Description for product 5', price: '$59.99', imageUrl: 'https://cdn.pixabay.com/photo/2023/11/29/03/44/e-commerce-8418610_1280.png' },
     { id: 6, name: 'Product 6', description: 'Description for product 6', price: '$69.99', imageUrl: 'https://cdn.pixabay.com/photo/2023/11/29/03/44/e-commerce-8418610_1280.png' },
   ]);
+
+  var navigate = useNavigate();
 
 
   // const goToNext = () => {
@@ -42,7 +45,7 @@ const ProductCarousel = (props: IProps) => {
       <Carousel opts={{ align: "start" }} className=" w-[98%] m-auto">
         <CarouselContent>
             {products.map((product, index) => (
-            <CarouselItem key={index} className="basis-1/8 md:basis-1/6 lg:basis-1/4">
+            <CarouselItem key={index} className="basis-1/8 md:basis-1/4 lg:basis-1/4">
                 <div >
                     <CardContent className="flex  ">
                         <Product2 key={product.id} product={product}/>
@@ -65,7 +68,7 @@ const ProductCarousel = (props: IProps) => {
           </CarouselNext>
         </div>
         <div className="flex justify-end">
-          <Button variant="outline" onClick={() => alert('Redirecting to all products...')} className="bg-green-800 text-white ">
+          <Button variant="outline" onClick={() => navigate("/products")} className="bg-green-800 text-white ">
             View More <ArrowRight />
           </Button>
         </div>

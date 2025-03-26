@@ -1,11 +1,14 @@
 import React from 'react';
 import { Card, CardContent } from '../ui/card';
 import { Carousel, CarouselApi, CarouselContent, CarouselItem } from '../ui/carousel';
+import { useNavigationHelper } from '@/hooks/use-navigate-helper';
 
 export default function MainCarousel() {
   const [api, setApi] = React.useState<CarouselApi | undefined>(undefined);
   const [current, setCurrent] = React.useState(0);
   const [count, setCount] = React.useState(0);
+
+  const navigationHelper = useNavigationHelper();
 
   React.useEffect(() => {
     if (!api) {
@@ -64,7 +67,9 @@ export default function MainCarousel() {
                     <p className="text-xs sm:text-sm md:text-base lg:text-lg mb-4 text-gray">
                       {slide.contentText}
                     </p>
-                    <button className="bg-green-800 text-white px-4 py-2 sm:px-6 sm:py-3 md:px-8 md:py-4 lg:px-10 lg:py-5 rounded-lg hover:bg-green-700 transition-all"> 
+                    <button className="bg-green-800 text-white px-4 py-2 sm:px-6 sm:py-3 md:px-8 md:py-4 lg:px-10 lg:py-5 rounded-lg hover:bg-green-700 transition-all"
+                            onClick={() => navigationHelper.goToProducts()}
+                    > 
                         Shop
                     </button>
                   </div>

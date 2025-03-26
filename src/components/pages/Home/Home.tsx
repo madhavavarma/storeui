@@ -8,11 +8,9 @@ import CategoryCarousel from "./CategoryCarousel";
 import MiniProductList from "./MiniProductList";
 
 const Home: React.FC = () => {
-
-  
-  
   return (
     <Fragment>
+
       <Header />
       <section >
         <MainCarousel />
@@ -27,6 +25,8 @@ const Home: React.FC = () => {
         <ProductCarousel heading="Newly Added" />        
       </section>
       <Footer />
+
+       
       </Fragment>
   );
 };

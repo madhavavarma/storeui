@@ -1,11 +1,13 @@
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { NavMenu } from "./NavMenu";
 import { useEffect, useState } from "react";
+import { useNavigationHelper } from "@/hooks/use-navigate-helper";
  
 
 const Header: React.FC = () => {
 
   const [scrolled, setScrolled] = useState(false);
+  const navigationHelper = useNavigationHelper();
 
   const handleScroll = () => {
     if (window.scrollY > 10) {
@@ -41,6 +43,7 @@ const Header: React.FC = () => {
                   src="https://themezhub.net/odex-live/odex/assets/img/logo-light.png"
                   className="max-w-[120px]"
                   alt="Logo"
+                  onClick={() => navigationHelper.goToHome()}
                 />
               </span>
               <span>
