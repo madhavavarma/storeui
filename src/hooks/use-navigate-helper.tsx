@@ -11,8 +11,16 @@ class NavigationHelper {
     this.navigate('/');
   };
 
-  goToProducts = () => {
-    this.navigate('/products');
+  goToProducts = (category?: string, search?: string) => {
+    let queryParams = new URLSearchParams();
+  
+    if (category) queryParams.set("category", category);
+    if (search) queryParams.set("search", search);
+  
+    const queryString = queryParams.toString();
+    const url = queryString ? `/products?${queryString}` : "/products";
+  
+    this.navigate(url);
   };
 
   goToProductDetail = (id: string | number) => {

@@ -4,7 +4,7 @@ import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious
 import { CardContent } from '../../ui/card';
 import Product2 from './Product2';
 import { ArrowRight } from 'lucide-react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigationHelper } from '@/hooks/use-navigate-helper';
 
 interface IProps {
   heading: string
@@ -20,7 +20,7 @@ const ProductCarousel = (props: IProps) => {
     { id: 6, name: 'Product 6', description: 'Description for product 6', price: '$69.99', imageUrl: 'https://cdn.pixabay.com/photo/2023/11/29/03/44/e-commerce-8418610_1280.png' },
   ]);
 
-  var navigate = useNavigate();
+  var navigationHelper = useNavigationHelper();
 
 
   // const goToNext = () => {
@@ -68,7 +68,7 @@ const ProductCarousel = (props: IProps) => {
           </CarouselNext>
         </div>
         <div className="flex justify-end">
-          <Button variant="outline" onClick={() => navigate("/products")} className="bg-green-800 text-white ">
+          <Button variant="outline" onClick={() => navigationHelper.goToProducts("", props.heading)} className="bg-green-800 text-white ">
             View More <ArrowRight />
           </Button>
         </div>

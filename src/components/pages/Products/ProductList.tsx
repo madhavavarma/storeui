@@ -8,6 +8,7 @@ import { Drawer, DrawerClose, DrawerContent, DrawerDescription, DrawerFooter, Dr
 import { Button } from '@/components/ui/button';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import { ProductDetailTabs } from './ProductDetailTabs';
+import { useSearchParams } from "react-router-dom";
 
 const ProductList = () => {
     const [products] = useState([
@@ -21,11 +22,17 @@ const ProductList = () => {
         { id: 8, name: 'Product 8', description: 'Description for product 8', price: '$69.99', imageUrl: 'https://cdn.pixabay.com/photo/2023/11/29/03/44/e-commerce-8418610_1280.png' },
     ]);
 
-    const [searchQuery, setSearchQuery] = useState('');
-    const [showSearch, setShowSearch] = useState(false); 
+    const [searchParams] = useSearchParams();
+    const categoryParam = searchParams.get("category");
+    const searchParam = searchParams.get("search");
+
+    const [searchQuery, setSearchQuery] = useState(searchParam || "");
+    const [showSearch, setShowSearch] = useState(categoryParam || searchParam ? true : false); 
     const [showCategories] = useState(false); 
     const [showProductDetail, setShowProductDetail] = useState(false); 
-    const [category, setCategory] = useState("");
+    const [category, setCategory] = useState(categoryParam);
+
+   
 
     // Filter products based on search query
     const filteredProducts = products.filter(product =>
@@ -179,20 +186,21 @@ const ProductList = () => {
 
             {/* Fixed Search Input (visible when clicked on search icon) */}
             {showSearch && (
-                 <div className="fixed bottom-0 left-0 right-0 bg-green-900 p-4 z-50">
+                 <div className="fixed top-0 left-0 right-0 bg-green-900 p-4 z-50">
                  <div className="relative w-full">
                    <div className="flex items-center border border-gray-300 rounded-md bg-white">
-                     <Select value={category} onValueChange={setCategory}>
+                     <Select value={category || ""} onValueChange={setCategory}>
                        <SelectTrigger className="px-4 py-2 border-r border-gray-300 bg-gray-100 text-black w-36 rounded-l-md">
                          <SelectValue placeholder="All" />
                        </SelectTrigger>
                        <SelectContent>
-                         <SelectItem value="all">All</SelectItem>
-                         <SelectItem value="electronics">Electronics</SelectItem>
-                         <SelectItem value="fashion">Fashion</SelectItem>
-                         <SelectItem value="home">Home & Kitchen</SelectItem>
-                         <SelectItem value="books">Books</SelectItem>
-                         <SelectItem value="toys">Toys</SelectItem>
+                         <SelectItem value="0">All</SelectItem>
+                         <SelectItem value="1">Category 1</SelectItem>
+                         <SelectItem value="2">Category 2</SelectItem>
+                         <SelectItem value="3">Category 3</SelectItem>
+                         <SelectItem value="4">Category 4</SelectItem>
+                         <SelectItem value="5">Category 5</SelectItem>
+                         <SelectItem value="6">Category 6</SelectItem>
                        </SelectContent>
                      </Select>
            
