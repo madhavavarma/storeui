@@ -2,13 +2,12 @@ import { Fragment, useState } from 'react';
 import Product2 from '../Home/Product2';
 import Header from '@/components/base/Header';
 import Footer from '@/components/base/Footer';
-import { Search, Star, ShoppingCartIcon, EyeIcon, EyeClosedIcon } from 'lucide-react';
+import { Search,  } from 'lucide-react';
 import { FloatingButtonWithTT } from '../Shared/FloatingButtonsWithTT';
-import { Drawer, DrawerClose, DrawerContent, DrawerDescription, DrawerFooter, DrawerHeader, DrawerTitle, DrawerTrigger } from '@/components/ui/drawer';
-import { Button } from '@/components/ui/button';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
-import { ProductDetailTabs } from './ProductDetailTabs';
 import { useSearchParams } from "react-router-dom";
+import RightDrawer from '../Shared/RightDrawer';
+import ProductDetail from './ProductDetail';
 
 const ProductList = () => {
     const [products] = useState([
@@ -29,7 +28,7 @@ const ProductList = () => {
     const [searchQuery, setSearchQuery] = useState(searchParam || "");
     const [showSearch, setShowSearch] = useState(categoryParam || searchParam ? true : false); 
     const [showCategories] = useState(false); 
-    const [showProductDetail, setShowProductDetail] = useState(false); 
+    const [showProductDetail, setShowProductDetail] = useState(null); 
     const [category, setCategory] = useState(categoryParam);
 
    
@@ -40,11 +39,8 @@ const ProductList = () => {
         product.description.toLowerCase().includes(searchQuery.toLowerCase())
     );
 
-    const handleViewProduct = (product: any) => {
-        console.log(product);
-        setShowProductDetail(true);
-        // setSelectedProduct(product);
-        // setIsDrawerOpen(true); // Open the Drawer when the product is selected
+    const handleViewProduct = (product?: any) => {
+        setShowProductDetail(product);
     };
 
     return (
@@ -62,9 +58,9 @@ const ProductList = () => {
                 <div className="flex flex-wrap gap-1 md:gap-4 justify-center">
                     {filteredProducts.length > 0 ? (
                         filteredProducts.map((product) => (
-                            <div key={product.id} onClick={() => handleViewProduct(product)} className="cursor-pointer">
+                            <div key={product.id}  className="cursor-pointer">
                                      
-                                    <Product2 product={product} />
+                                    <Product2 product={product} view={handleViewProduct}/>
                             </div>
                         ))
                     ) : (
@@ -73,116 +69,21 @@ const ProductList = () => {
                 </div>
             </div>
 
-            <Drawer open={showProductDetail}>
-                <DrawerTrigger asChild>
-                    {/* Trigger component here */}
-                </DrawerTrigger>
-
-                <DrawerContent className="bg-white">
-                    <div className="mx-auto w-full">
-                    <DrawerHeader>
-                        <DrawerTitle className="text-left flex justify-between">
-                            <section>
-                                {products[0].name}
-                                {/* Rating */}
-                                <div className="mt-1 flex">
-                                    {/* 5 Stars */}
-                                    {[...Array(5)].map((_, index) => (
-                                    <Star
-                                        key={index}
-                                        className={`w-4 h-4 text-yellow-400 ${index < 4 ? "fill-current" : "text-gray-300"}`}
-                                    />
-                                    ))}
-                                </div>
-                            </section>
-                            <section>
-                                <DrawerClose asChild><EyeClosedIcon onClick={() => setShowProductDetail(false)} /></DrawerClose>
-                            </section>
-                        </DrawerTitle>
-                    </DrawerHeader>
-
-                    <DrawerDescription>
-                        <ProductDetailTabs />
-                    </DrawerDescription>
-
-                    <DrawerFooter>
-                        <div className="mt-3">
-                        <Select>
-                            {/* value={selectedSize} onValueChange={setSelectedSize} */}
-                            <SelectTrigger>
-                            <span>Small {100}</span>
-                            </SelectTrigger>
-                            <SelectContent>
-                            <SelectItem value="Small">Small {100}</SelectItem>
-                            <SelectItem value="Medium">Medium {200}</SelectItem>
-                            <SelectItem value="Large">Large {300}</SelectItem>
-                            </SelectContent>
-                        </Select>
-                        </div>
-
-                        <div className="mt-3 flex items-center justify-between">
-                        <div className="relative">
-                            <input
-                            id="quantity"
-                            type="number"
-                            min="1"
-                            defaultValue={1}
-                            className="w-10 text-center text-xs border border-gray-300 rounded-md p-2"
-                            />
-                        </div>
-
-                        <section>
-                            {/* Add to Cart Button */}
-                            <Button
-                            variant="default"
-                            size="sm"
-                            // onClick={handleAddToCart}
-                            className="px-3 py-1 text-xs font-medium bg-[#5DBF13]"
-                            >
-                            <ShoppingCartIcon />
-                            </Button>
-
-                            {/* View Product Button */}
-                            <Button
-                            variant="default"
-                            size="sm"
-                            // onClick={() => navigate("product/1")}
-                            className="px-3 py-1 text-xs font-medium bg-[#5DBF13] ml-1"
-                            >
-                            <EyeIcon />
-                            </Button>
-                        </section>
-                        </div>
-                    </DrawerFooter>
-                    </div>
-                </DrawerContent>
-            </Drawer>
+            <RightDrawer isOpen={showProductDetail || false} onClose={() => setShowProductDetail(null)}>
+                <ProductDetail  />
+            </RightDrawer> 
 
 
-            {/* Fixed Bottom Navigation Menu */}
-            {/* <div className="fixed bottom-32 left-2 z-50">
-                        <FloatingButtonWithTT
-                            icon={<ShoppingCart />} // Passing the icon
-                            onClick={() => setShowSearch(!showSearch)} // Passing the click handler
-                            tooltipContent="Search for products with Name, Tags" // Custom tooltip text
-                        />
-                </div> */}
-            
-            {/* <div className="fixed bottom-32 left-2 z-50">
-                <FloatingButtonWithTT
-                    icon={<MenuIcon />} // Passing the icon
-                    onClick={() => setShowCategories(!showCategories)} // Passing the click handler
-                    tooltipContent="Search for products with Name, Tags" // Custom tooltip text
-                />
-            </div> */}
-            
-            <div className="fixed bottom-20 right-2 z-50">
+
+
+
+            {!showProductDetail && <div className="fixed bottom-20 right-2 z-50">
                 <FloatingButtonWithTT
                     icon={<Search />} // Passing the icon
                     onClick={() => setShowSearch(!showSearch)} // Passing the click handler
                     tooltipContent="Search for products with Name, Tags" // Custom tooltip text
                 />
-            </div>
+            </div>}
 
             {/* Fixed Search Input (visible when clicked on search icon) */}
             {showSearch && (

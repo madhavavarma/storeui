@@ -22,19 +22,6 @@ const ProductCarousel = (props: IProps) => {
 
   var navigationHelper = useNavigationHelper();
 
-
-  // const goToNext = () => {
-  //   if (currentIndex < products.length - itemsPerPage) {
-  //     setCurrentIndex((prevIndex) => prevIndex + 1);
-  //   }
-  // };
-
-  // const goToPrevious = () => {
-  //   if (currentIndex > 0) {
-  //     setCurrentIndex((prevIndex) => prevIndex - 1);
-  //   }
-  // };
-
   return (
     <div className="py-8 px-4 bg-gray-50 relative bg-[#fff] ">
       <div className="flex justify-between items-center mt-6 mb-4 ml-4 mr-4 px-4">

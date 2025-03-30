@@ -1,179 +1,153 @@
-import { Fragment } from "react";
-import Header from "@/components/base/Header";
-import Footer from "@/components/base/Footer";
-import Product3 from "./Product3";
-import ProductCarousel from "../Home/ProductCarousel";
+import { Fragment, useState } from "react";
+import { AnimatePresence, motion } from "framer-motion";
+import { ChevronDown, Minus, Plus } from "lucide-react";
+import { Button } from "@/components/ui/button";
 import {
-    Tabs,
-    TabsContent,
-    TabsList,
-    TabsTrigger,
-  } from "@/components/ui/tabs";
-  import {
-    Card,
-    CardContent,
-    CardHeader,
-    CardTitle,
-  } from "@/components/ui/card";
-
-// Custom Carousel component using ShadCN's state management and styling
-// const Carousel = ({ images }: { images: string[] }) => {
-//   const [currentIndex, setCurrentIndex] = useState(0);
-
-//   const goToNext = () => {
-//     setCurrentIndex((prevIndex) => (prevIndex + 1) % images.length);
-//   };
-
-//   const goToPrev = () => {
-//     setCurrentIndex(
-//       (prevIndex) => (prevIndex - 1 + images.length) % images.length
-//     );
-//   };
-
-//   return (
-//     <div className="relative">
-//       <div className="overflow-hidden rounded-lg h-96">
-//         <img
-//           src={images[currentIndex]}
-//           alt={`Product image ${currentIndex + 1}`}
-//           className="object-cover w-full h-full transition-transform duration-300 ease-in-out"
-//         />
-//       </div>
-
-//       {/* Navigation buttons */}
-//       <button
-//         onClick={goToPrev}
-//         className="absolute left-4 top-1/2 transform -translate-y-1/2 text-white bg-gray-500 p-2 rounded-full"
-//       >
-//         &lt;
-//       </button>
-//       <button
-//         onClick={goToNext}
-//         className="absolute right-4 top-1/2 transform -translate-y-1/2 text-white bg-gray-500 p-2 rounded-full"
-//       >
-//         &gt;
-//       </button>
-
-//       {/* Dots for navigation */}
-//       <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 flex space-x-2">
-//         {images.map((_, index) => (
-//           <button
-//             key={index}
-//             onClick={() => setCurrentIndex(index)}
-//             className={`w-3 h-3 rounded-full ${currentIndex === index ? "bg-white" : "bg-gray-500"}`}
-//           />
-//         ))}
-//       </div>
-//     </div>
-//   );
-// };
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselNext,
+  CarouselPrevious,
+} from "@/components/ui/carousel";
+import { CardContent } from "@/components/ui/card";
+import { Select, SelectContent, SelectItem, SelectTrigger } from "@/components/ui/select";
 
 const ProductDetail = () => {
-  const product = { 
-    id: 1, 
-    name: 'Product 1', 
-    description: 'Description for product 1', 
-    price: '$19.99', 
-    imageUrl: 'https://cdn.pixabay.com/photo/2023/11/29/03/44/e-commerce-8418610_1280.png',
+  const product = {
+    id: 1,
+    name: "Multi Millet Cookies",
+    description:
+      "These high-protein multi-millet cookies are made with natural ingredients, free from preservatives, added sugars, and maida.",
+    price: "₹199",
     imageUrls: [
-      'https://cdn.pixabay.com/photo/2023/11/29/03/44/e-commerce-8418610_1280.png',
-      'https://cdn.pixabay.com/photo/2023/11/29/03/48/e-commerce-8418611_1280.png',
-      'https://cdn.pixabay.com/photo/2023/11/29/03/50/e-commerce-8418612_1280.png',
-    ]
+      "https://cdn.pixabay.com/photo/2023/11/29/03/44/e-commerce-8418610_1280.png",
+      "https://cdn.pixabay.com/photo/2023/11/29/03/44/e-commerce-8418610_1280.png",
+      "https://cdn.pixabay.com/photo/2023/11/29/03/44/e-commerce-8418610_1280.png",
+    ],
+    specifications:
+      "100g contains 20g protein, gluten-free, rich in fiber and essential nutrients.",
+    howToUse:
+      "Enjoy with milk, tea, or as a snack. Store in an airtight container.",
+    ingredients: "Millets, jaggery, nuts, seeds, natural flavors.",
   };
-  
-  // const { name, price, imageUrls, description } = product;
-  // const [quantity, setQuantity] = useState(1);
-  // const [selectedSize, setSelectedSize] = useState("Medium");
 
-  // const handleAddToCart = () => {
-  //   console.log(`Added ${quantity} of ${name} to the cart.`);
-  // };
+  const [openSections, setOpenSections] = useState<{ [key: string]: boolean }>(
+    {
+      description: false,
+      specifications: false,
+      howToUse: false,
+      ingredients: false,
+    }
+  );
+
+  const [quantity, setQuantity] = useState(1);
+
+  const toggleSection = (section: string) => {
+    setOpenSections((prev) => ({ ...prev, [section]: !prev[section] }));
+  };
+
+  const [selectedSize, setSelectedSize] = useState("Medium");
 
   return (
     <Fragment>
-        <Header />
-
-        <section className="max-w-6xl mx-auto p-10">
-        
-            {/* Image Card with Product Info */}
-            <Card className="p-5 bg-white shadow-md rounded-lg mb-8 flex flex-col sm:flex-row sm:flex-wrap">
-                <div className="w-full sm:w-1/2">
-                    <Product3 product={product} className="" />
+      <div className="max-w-md mx-auto p-4 pb-20">
+        {/* Product Image Slider */}
+        <Carousel className="w-full max-w-md mx-auto">
+          <CarouselContent className="-ml-1">
+            {product.imageUrls.map((image, index) => (
+              <CarouselItem key={index} className="basis-full">
+                <div className="p-1">
+                  <CardContent className="flex items-center justify-center p-2 h-[300px]">
+                    <img
+                      src={image}
+                      className="rounded-lg w-full h-full object-cover"
+                      alt={`Product Image ${index + 1}`}
+                    />
+                  </CardContent>
                 </div>
-                
+              </CarouselItem>
+            ))}
+          </CarouselContent>
+          <CarouselPrevious className="left-2" />
+          <CarouselNext className="right-2" />
+        </Carousel>
 
-                <Tabs defaultValue="details" className="w-full sm:w-1/2">
-            <TabsList className="grid w-full grid-cols-4">
-    <TabsTrigger value="details">Details</TabsTrigger>
-    <TabsTrigger value="ingredients">Ingredients</TabsTrigger>
-    <TabsTrigger value="reviews">Reviews</TabsTrigger>
-    <TabsTrigger value="images">Images</TabsTrigger>
-  </TabsList>
-  <TabsContent value="details">
-    <Card>
-      <CardHeader>
-        <CardTitle>Description</CardTitle>
-      </CardHeader>
-      <CardContent className="text-gray-700 mt-2">
-        {/* {product.description} */}
-      </CardContent>
-    </Card>
-  </TabsContent>
+        {/* Product Title */}
+        <h2 className="text-2xl font-bold mt-4">{product.name}</h2>
 
-  <TabsContent value="ingredients">
-    <Card>
-      <CardHeader>
-        <CardTitle>Ingredients</CardTitle>
-      </CardHeader>
-      <CardContent className="text-gray-700 mt-2">
-        <ul className="list-disc pl-5">
-          <li>Ingredient 1</li>
-          <li>Ingredient 2</li>
-          <li>Ingredient 3</li>
-        </ul>
-      </CardContent>
-    </Card>
-  </TabsContent>
-
-  <TabsContent value="reviews">
-    <Card>
-      <CardHeader>
-        <CardTitle>Reviews</CardTitle>
-      </CardHeader>
-      <CardContent className="text-gray-700 mt-2">
-        <p>No reviews yet. Be the first to review this product!</p>
-      </CardContent>
-    </Card>
-  </TabsContent>
-
-  <TabsContent value="images">
-    <Card>
-      <CardHeader>
-        <CardTitle>Reviews</CardTitle>
-      </CardHeader>
-      <CardContent className="text-gray-700 mt-2">
-        <p>No reviews yet. Be the first to review this product!</p>
-      </CardContent>
-    </Card>
-  </TabsContent>
-
-  
-</Tabs>
-            </Card>
-
-            
-
-              
-           
+        <div>
+          
         
-        </section>
+          {/* Quantity Selector */}
+          <div className="flex items-center space-x-2 mb-4  mt-2">
 
-        <section className="">
-        <ProductCarousel heading="Related Products" />
-      </section>
+          <Select value={selectedSize} onValueChange={setSelectedSize}>
+            <SelectTrigger>
+              <span>{selectedSize} - {product.price}</span>
+            </SelectTrigger>
+            <SelectContent>
+              <SelectItem value="Small">Small {product.price}</SelectItem>
+              <SelectItem value="Medium">Medium {product.price}</SelectItem>
+              <SelectItem value="Large">Large {product.price}</SelectItem>
+            </SelectContent>
+          </Select>
 
-        <Footer />
+                <Button
+                  variant="outline"
+                  size="icon"
+                  onClick={() => setQuantity((q) => Math.max(1, q - 1))}
+                >
+                  <Minus className="h-4 w-4" />
+                </Button>
+                <span className="text-lg font-semibold">{quantity}</span>
+                <Button
+                  variant="outline"
+                  size="icon"
+                  onClick={() => setQuantity((q) => q + 1)}
+                >
+                  <Plus className="h-4 w-4" />
+                </Button>
+              </div>
+        </div>
+
+        {/* Expandable Sections */}
+        {[
+          { title: "Description", content: product.description },
+          { title: "Specifications", content: product.specifications },
+          { title: "How to Use", content: product.howToUse },
+          { title: "Ingredients", content: product.ingredients },
+        ].map(({ title, content }) => (
+          <div key={title} className="border-b py-2">
+            <button
+              className="flex justify-between w-full text-lg font-medium"
+              onClick={() => toggleSection(title.toLowerCase())}
+            >
+              {title}
+              <ChevronDown
+                className={`transition-transform ${
+                  openSections[title.toLowerCase()] ? "rotate-180" : ""
+                }`}
+              />
+            </button>
+            <AnimatePresence>
+              {openSections[title.toLowerCase()] && (
+                <motion.div
+                  initial={{ height: 0, opacity: 0 }}
+                  animate={{ height: "auto", opacity: 1 }}
+                  exit={{ height: 0, opacity: 0 }}
+                  className="text-gray-600 text-sm mt-2"
+                >
+                  {content}
+                </motion.div>
+              )}
+            </AnimatePresence>
+          </div>
+        ))}
+
+
+       </div>
+
+     
     </Fragment>
   );
 };

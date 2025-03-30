@@ -12,6 +12,7 @@ const Home: React.FC = () => {
     <Fragment>
 
       <Header />
+      
       <section >
         <MainCarousel />
         <Features />
@@ -19,15 +20,17 @@ const Home: React.FC = () => {
         <MiniProductList />
         <MainCarousel />
       </section>
+
       <section className="">
         <ProductCarousel heading="Welcome Offer" />
         <ProductCarousel heading="Deals" />        
         <ProductCarousel heading="Newly Added" />        
       </section>
+
       <Footer />
 
        
-      </Fragment>
+    </Fragment>
   );
 };
 
