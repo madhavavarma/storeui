@@ -31,6 +31,8 @@ const MiniProductList = () => {
         ))}
       </div>
     </div>
+
+    
   );
 };
 

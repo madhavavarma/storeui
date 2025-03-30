@@ -2,12 +2,14 @@ import { Fragment, useState } from 'react';
 import Product2 from '../Home/Product2';
 import Header from '@/components/base/Header';
 import Footer from '@/components/base/Footer';
-import { Search,  } from 'lucide-react';
+import { Search, ShoppingCartIcon,  } from 'lucide-react';
 import { FloatingButtonWithTT } from '../Shared/FloatingButtonsWithTT';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import { useSearchParams } from "react-router-dom";
 import RightDrawer from '../Shared/RightDrawer';
 import ProductDetail from './ProductDetail';
+import CartDrawer from '../Cart/CartDrawer';
+import Cart from '../Cart/Cart';
 
 const ProductList = () => {
     const [products] = useState([
@@ -29,6 +31,7 @@ const ProductList = () => {
     const [showSearch, setShowSearch] = useState(categoryParam || searchParam ? true : false); 
     const [showCategories] = useState(false); 
     const [showProductDetail, setShowProductDetail] = useState(null); 
+    const [showCart, setShowCart] = useState(false); 
     const [category, setCategory] = useState(categoryParam);
 
    
@@ -73,17 +76,27 @@ const ProductList = () => {
                 <ProductDetail  />
             </RightDrawer> 
 
+            <CartDrawer isOpen={showCart} onClose={() => setShowCart(false)}>
+                <Cart />
+            </CartDrawer> 
 
 
 
 
-            {!showProductDetail && <div className="fixed bottom-20 right-2 z-50">
+
+            {!showProductDetail && !showCart && <div className="fixed bottom-20 right-2 z-50 flex flex-col space-y-2">
+                <FloatingButtonWithTT
+                    icon={<ShoppingCartIcon />} // Passing the icon
+                    onClick={() => setShowCart(!showCart)} // Passing the click handler
+                    tooltipContent="See your cart" // Custom tooltip text
+                />
                 <FloatingButtonWithTT
                     icon={<Search />} // Passing the icon
                     onClick={() => setShowSearch(!showSearch)} // Passing the click handler
                     tooltipContent="Search for products with Name, Tags" // Custom tooltip text
                 />
-            </div>}
+                </div>
+                }
 
             {/* Fixed Search Input (visible when clicked on search icon) */}
             {showSearch && (

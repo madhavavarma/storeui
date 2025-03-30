@@ -27,6 +27,8 @@ const Home: React.FC = () => {
         <ProductCarousel heading="Newly Added" />        
       </section>
 
+      
+
       <Footer />
 
        

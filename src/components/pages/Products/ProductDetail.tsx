@@ -144,6 +144,8 @@ const ProductDetail = () => {
           </div>
         ))}
 
+       
+
 
        </div>
 
