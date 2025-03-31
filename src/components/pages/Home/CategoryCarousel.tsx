@@ -5,12 +5,12 @@ import Category from './Category';
 
 const CategoryCarousel = () => {
   const [categories] = useState([
-    { id: 1, name: 'Category 1', imageUrl: 'https://cdn.pixabay.com/photo/2023/11/29/03/44/e-commerce-8418610_1280.png' },
-    { id: 2, name: 'Category 2', imageUrl: 'https://cdn.pixabay.com/photo/2023/11/29/03/44/e-commerce-8418610_1280.png' },
-    { id: 3, name: 'Category 3', imageUrl: 'https://cdn.pixabay.com/photo/2023/11/29/03/44/e-commerce-8418610_1280.png' },
-    { id: 4, name: 'Category 4', imageUrl: 'https://cdn.pixabay.com/photo/2023/11/29/03/44/e-commerce-8418610_1280.png' },
-    { id: 5, name: 'Category 5', imageUrl: 'https://cdn.pixabay.com/photo/2023/11/29/03/44/e-commerce-8418610_1280.png' },
-    { id: 6, name: 'Category 6', imageUrl: 'https://cdn.pixabay.com/photo/2023/11/29/03/44/e-commerce-8418610_1280.png' },
+    { id: 1, name: 'Category 1', image: 'https://cdn.pixabay.com/photo/2023/11/29/03/44/e-commerce-8418610_1280.png' },
+    { id: 2, name: 'Category 2', image: 'https://cdn.pixabay.com/photo/2023/11/29/03/44/e-commerce-8418610_1280.png' },
+    { id: 3, name: 'Category 3', image: 'https://cdn.pixabay.com/photo/2023/11/29/03/44/e-commerce-8418610_1280.png' },
+    { id: 4, name: 'Category 4', image: 'https://cdn.pixabay.com/photo/2023/11/29/03/44/e-commerce-8418610_1280.png' },
+    { id: 5, name: 'Category 5', image: 'https://cdn.pixabay.com/photo/2023/11/29/03/44/e-commerce-8418610_1280.png' },
+    { id: 6, name: 'Category 6', image: 'https://cdn.pixabay.com/photo/2023/11/29/03/44/e-commerce-8418610_1280.png' },
   ]);
 
   return (

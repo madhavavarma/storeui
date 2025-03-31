@@ -3,14 +3,20 @@ import { Button } from "@/components/ui/button";
 import { ShoppingCartIcon, Star } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 import { Select, SelectContent, SelectItem, SelectTrigger } from "@/components/ui/select";
+import { CartActions } from "@/store/CartSlice";
+import { IProduct } from "@/interfaces/IProduct";
+import { useDispatch } from "react-redux";
 
-const Product3 = ({ product }: { product: { name: string; price: string; imageUrl: string } }) => {
-  const { name, price, imageUrl } = product;
+const Product3 = ({ product }: { product: IProduct }) => {
+  const { name, price, image } = product;
   const [quantity, setQuantity] = useState(1);
   const [selectedSize, setSelectedSize] = useState("Medium");
 
-  const handleAddToCart = () => {
+  const dispatch = useDispatch();
+
+  const handleAddToCart = (product: IProduct) => {
     console.log(`Added ${quantity} of ${name} (${selectedSize}) to the cart.`);
+    dispatch(CartActions.addItem(product));
   };
 
   return (
@@ -29,7 +35,7 @@ const Product3 = ({ product }: { product: { name: string; price: string; imageUr
 
       {/* Product Image */}
       <div className="relative h-48 overflow-hidden rounded-lg mb-4">
-        <img src={imageUrl} alt={name} className="object-cover w-full h-full" />
+        <img src={image} alt={name} className="object-cover w-full h-full" />
       </div>
 
       {/* Product Name */}
@@ -69,7 +75,7 @@ const Product3 = ({ product }: { product: { name: string; price: string; imageUr
           <Button
             variant="default"
             size="sm"
-            onClick={handleAddToCart}
+            onClick={() => handleAddToCart(product)}
             className="px-3 py-1 text-xs font-medium bg-[#5DBF13] flex items-center"
           >
             <ShoppingCartIcon className="w-4 h-4 mr-1" /> Add to Cart

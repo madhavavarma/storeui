@@ -1,126 +1,75 @@
-import { useState } from "react";
 import { Minus, Plus, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
-
-const initialCart = [
-  {
-    id: 1,
-    name: "Cotton T-shirt",
-    type: "Shirt",
-    price: 44.0,
-    quantity: 1,
-    image: "https://cdn.pixabay.com/photo/2023/11/29/03/44/e-commerce-8418610_1280.png",
-  },
-  {
-    id: 2,
-    name: "Cotton T-shirt",
-    type: "Shirt",
-    price: 44.0,
-    quantity: 1,
-    image: "https://cdn.pixabay.com/photo/2023/11/29/03/44/e-commerce-8418610_1280.png",
-  },
-  {
-    id: 3,
-    name: "Cotton T-shirt",
-    type: "Shirt",
-    price: 44.0,
-    quantity: 1,
-    image: "https://cdn.pixabay.com/photo/2023/11/29/03/44/e-commerce-8418610_1280.png",
-  },
-  {
-    id: 1,
-    name: "Cotton T-shirt",
-    type: "Shirt",
-    price: 44.0,
-    quantity: 1,
-    image: "https://cdn.pixabay.com/photo/2023/11/29/03/44/e-commerce-8418610_1280.png",
-  },
-  {
-    id: 2,
-    name: "Cotton T-shirt",
-    type: "Shirt",
-    price: 44.0,
-    quantity: 1,
-    image: "https://cdn.pixabay.com/photo/2023/11/29/03/44/e-commerce-8418610_1280.png",
-  },
-  {
-    id: 3,
-    name: "Cotton T-shirt",
-    type: "Shirt",
-    price: 44.0,
-    quantity: 1,
-    image: "https://cdn.pixabay.com/photo/2023/11/29/03/44/e-commerce-8418610_1280.png",
-  },
-];
+import { ICartItem } from "@/store/interfaces/ICart";
+import { useDispatch, useSelector } from "react-redux";
+import { IState } from "@/store/interfaces/IState";
+import { CartActions } from "@/store/CartSlice";
 
 export default function ShoppingCart() {
-  const [cart, setCart] = useState(initialCart);
+  const cartItems = useSelector((state: IState) => state.Cart.cartItems);
+  const dispatch = useDispatch();
 
-  const updateQuantity = (id: number, amount: number) => {
-    setCart((prev) =>
-      prev.map((item) =>
-        item.id === id
-          ? { ...item, quantity: Math.max(1, item.quantity + amount) }
-          : item
-      )
-    );
+  const updateQuantity = (id: number, isIncrease = true) => {
+    isIncrease
+      ? dispatch(CartActions.increaseQuantity(id))
+      : dispatch(CartActions.decreaseQuantity(id));
   };
 
   const removeItem = (id: number) => {
-    setCart((prev) => prev.filter((item) => item.id !== id));
+    dispatch(CartActions.removeItem(id));
   };
 
   return (
-    <div className="w-full bg-white shadow-md rounded-none">
-     
-
-      {/* Cart Items */}
-      {cart.map((item) => (
+    <div className="w-full bg-white shadow-md rounded-md p-4">
+      {cartItems.map((item: ICartItem) => (
         <div
-          key={item.id}
-          className="flex items-center justify-between border-b py-4 px-4"
+          key={item.product.id}
+          className="flex items-center justify-between py-3 border-b border-gray-200"
         >
-          {/* Image and Details - Column Layout */}
-          <div className="flex flex-col items-center w-24">
+          {/* Product Image & Name */}
+          <div className="flex items-center w-28">
             <img
-              src={item.image}
-              alt={item.name}
-              className="w-16 h-16 rounded object-cover"
+              src={item.product.image}
+              alt={item.product.name}
+              className="w-12 h-12 rounded object-cover"
             />
-            <p className="font-semibold text-sm text-center mt-2">{item.name}</p>
+            <p className="ml-3 font-medium text-sm">{item.product.name}</p>
           </div>
 
-          {/* Quantity Selector - Row Layout */}
-          <div className="flex items-center space-x-2">
+          {/* Quantity Selector */}
+          <div className="flex items-center bg-gray-100 rounded-full px-2 py-1">
             <Button
-              variant="outline"
               size="icon"
-              className="h-6 w-6 flex items-center justify-center"
-              onClick={() => updateQuantity(item.id, -1)}
+              className="w-7 h-7 bg-[#5DBF13] text-white rounded-full hover:bg-green-700"
+              onClick={() => updateQuantity(item.product.id || 0, false)}
             >
-              <Minus className="h-3 w-3" />
+              <Minus size={14} />
             </Button>
-            <span className="text-sm font-semibold">{item.quantity}</span>
+
+            <span className="text-sm font-semibold w-6 text-center">
+              {item.quantity}
+            </span>
+
             <Button
-              variant="outline"
               size="icon"
-              className="h-6 w-6 flex items-center justify-center"
-              onClick={() => updateQuantity(item.id, 1)}
+              className="w-7 h-7 bg-[#5DBF13] text-white rounded-full hover:bg-green-700"
+              onClick={() => updateQuantity(item.product.id || 0)}
             >
-              <Plus className="h-3 w-3" />
+              <Plus size={14} />
             </Button>
           </div>
 
-          {/* Price & Remove Button - Row Layout */}
+          {/* Price & Remove */}
           <div className="flex items-center space-x-4">
-            <p className="font-semibold text-sm">€ {item.price.toFixed(2)}</p>
+            <p className="text-[#5DBF13] font-semibold text-sm">
+              ₹{item.totalPrice.toFixed(2)}
+            </p>
             <Button
-              variant="ghost"
               size="icon"
-              className="h-6 w-6 flex items-center justify-center"
-              onClick={() => removeItem(item.id)}
+              className="w-7 h-7 text-gray-500 hover:text-red-500"
+              onClick={() => removeItem(item.product.id || 0)}
             >
-              <X className="h-4 w-4 text-gray-500 hover:text-red-500" />
+              <X size={16} />
             </Button>
           </div>
         </div>
