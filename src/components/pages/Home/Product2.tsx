@@ -95,7 +95,7 @@ const Product2 = ({ product }: { product: IProduct }) => {
           <div className={`flex items-center gap-0 bg-gray-100 px-2 py-0.5 rounded-full ${cartItem ? "" : "invisible"}`}>
             <button
               onClick={handleDecrease}
-              className="w-7 h-7 flex items-center justify-center rounded-full bg-[#5DBF13] text-white hover:bg-green-700 disabled:bg-gray-300 disabled:cursor-not-allowed"
+              className="w-5 h-5 flex items-center justify-center rounded-full bg-[#5DBF13] text-white hover:bg-green-700 disabled:bg-gray-300 disabled:cursor-not-allowed"
               disabled={!cartItem}
             >
               <MinusIcon size={14} />
@@ -105,7 +105,7 @@ const Product2 = ({ product }: { product: IProduct }) => {
 
             <button
               onClick={handleIncrease}
-              className="w-7 h-7 flex items-center justify-center rounded-full bg-[#5DBF13] text-white hover:bg-green-700"
+              className="w-5 h-5 flex items-center justify-center rounded-full bg-[#5DBF13] text-white hover:bg-green-700"
             >
               <PlusIcon size={14} />
             </button>
