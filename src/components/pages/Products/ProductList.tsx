@@ -1,4 +1,4 @@
-import { Fragment, useState } from "react";
+import { Fragment, useEffect, useRef, useState } from "react";
 import Product2 from "../Home/Product2";
 import Header from "@/components/base/Header";
 import Footer from "@/components/base/Footer";
@@ -17,6 +17,8 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
+import { useSelector } from "react-redux";
+import { IState } from "@/store/interfaces/IState";
 
 const ProductList = () => {
   const [searchParams] = useSearchParams();
@@ -24,7 +26,7 @@ const ProductList = () => {
   const categoryParam = searchParams.get("category");
 
   const [searchQuery, setSearchQuery] = useState(searchParam || "");
-  const [category, setCategory] = useState(categoryParam || "0"); // Default to "All"
+  const [category, setCategory] = useState(categoryParam || "0");
   const [showSearch, setShowSearch] = useState(!!searchParam || !!categoryParam);
   const [showCart, setShowCart] = useState(false);
   const [showProductDetail, setShowProductDetail] = useState<IProduct | null>(null);
@@ -36,7 +38,7 @@ const ProductList = () => {
       description: "Fresh red tomatoes",
       price: 19.99,
       imageUrls: ["https://cdn.pixabay.com/photo/2023/11/29/03/44/e-commerce-8418610_1280.png"],
-      category: "1", // Veggies
+      category: "1",
       productVariants: [],
     },
     {
@@ -54,7 +56,7 @@ const ProductList = () => {
       description: "Green Broccoli",
       price: 39.99,
       imageUrls: ["https://cdn.pixabay.com/photo/2023/11/29/03/44/e-commerce-8418610_1280.png"],
-      category: "2", // Leafy
+      category: "2",
       productVariants: [],
     },
     {
@@ -77,7 +79,6 @@ const ProductList = () => {
     },
   ]);
 
-  // Filter logic
   const filteredProducts = products.filter((product) => {
     const matchesSearch =
       product.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
@@ -87,6 +88,23 @@ const ProductList = () => {
 
     return matchesSearch && matchesCategory;
   });
+
+  // 🛒 Redux cart state
+  const cartItems = useSelector((state: IState) => state.Cart.cartItems);
+  const cartItemCount = cartItems.reduce((total, item) => total + item.quantity, 0);
+
+  // 💥 Shake animation state
+  const [shake, setShake] = useState(false);
+  const prevCartRef = useRef<number>(cartItemCount);
+
+  useEffect(() => {
+    if (prevCartRef.current !== cartItemCount) {
+      setShake(true);
+      const timer = setTimeout(() => setShake(false), 500);
+      prevCartRef.current = cartItemCount;
+      return () => clearTimeout(timer);
+    }
+  }, [cartItemCount]);
 
   return (
     <Fragment>
@@ -101,7 +119,7 @@ const ProductList = () => {
           {filteredProducts.length > 0 ? (
             filteredProducts.map((product) => (
               <div key={product.id} className="w-full">
-                <Product2 product={product} isHideDrawer={false}/>
+                <Product2 product={product} isHideDrawer={false} />
               </div>
             ))
           ) : (
@@ -123,11 +141,21 @@ const ProductList = () => {
       {/* Floating Buttons */}
       {!showProductDetail && !showCart && (
         <div className="fixed bottom-20 right-2 z-50 flex flex-col space-y-2">
-          <FloatingButtonWithTT
-            icon={<ShoppingCartIcon />}
-            onClick={() => setShowCart(!showCart)}
-            tooltipContent="See your cart"
-          />
+          {/* 🛒 Cart button with badge and shake */}
+          <div className={`relative ${shake ? "animate-shake" : ""}`}>
+            <FloatingButtonWithTT
+              icon={<ShoppingCartIcon />}
+              onClick={() => setShowCart(!showCart)}
+              tooltipContent="See your cart"
+            />
+            {cartItemCount > 0 && (
+              <div className="absolute -top-1 -right-1 bg-red-500 text-white text-xs w-5 h-5 rounded-full flex items-center justify-center">
+                {cartItemCount}
+              </div>
+            )}
+          </div>
+
+          {/* 🔍 Search button */}
           <FloatingButtonWithTT
             icon={<Search />}
             onClick={() => setShowSearch(!showSearch)}

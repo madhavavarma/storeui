@@ -1,10 +1,12 @@
-import { useState } from "react";
-import Product2 from "./Product2"; // Import the Product2 component
+import { useEffect, useRef, useState } from "react";
+import Product2 from "./Product2";
 import FloatingButtonWithTT from "../Shared/FloatingButtonsWithTT";
 import { ShoppingCartIcon } from "lucide-react";
 import CartDrawer from "../Cart/CartDrawer";
 import Cart from "../Cart/Cart";
 import { IProduct } from "@/interfaces/IProduct";
+import { useSelector } from "react-redux";
+import { IState } from "@/store/interfaces/IState";
 
 const MiniProductList = () => {
   const [products] = useState<IProduct[]>([
@@ -13,68 +15,85 @@ const MiniProductList = () => {
       name: "Product 1",
       description: "Description for product 1",
       price: 19.99,
-      imageUrls:
-        ["https://cdn.pixabay.com/photo/2023/11/29/03/44/e-commerce-8418610_1280.png"],
+      category: "1",
+      imageUrls: ["https://cdn.pixabay.com/photo/2023/11/29/03/44/e-commerce-8418610_1280.png"],
     },
     {
       id: 2,
       name: "Product 2",
       description: "Description for product 2",
       price: 29.99,
-      imageUrls:
-      ["https://cdn.pixabay.com/photo/2023/11/29/03/44/e-commerce-8418610_1280.png"],
-  },
+      category: "1",
+      imageUrls: ["https://cdn.pixabay.com/photo/2023/11/29/03/44/e-commerce-8418610_1280.png"],
+    },
     {
       id: 3,
       name: "Product 3",
       description: "Description for product 3",
       price: 39.99,
-      imageUrls:
-      ["https://cdn.pixabay.com/photo/2023/11/29/03/44/e-commerce-8418610_1280.png"],
-  },
+      category: "1",
+      imageUrls: ["https://cdn.pixabay.com/photo/2023/11/29/03/44/e-commerce-8418610_1280.png"],
+    },
     {
       id: 4,
       name: "Product 4",
       description: "Description for product 4",
       price: 49.99,
-      imageUrls:
-      ["https://cdn.pixabay.com/photo/2023/11/29/03/44/e-commerce-8418610_1280.png"],
-  },
+      category: "1",
+      imageUrls: ["https://cdn.pixabay.com/photo/2023/11/29/03/44/e-commerce-8418610_1280.png"],
+    },
     {
       id: 5,
       name: "Product 5",
       description: "Description for product 5",
       price: 59.99,
-      imageUrls:
-      ["https://cdn.pixabay.com/photo/2023/11/29/03/44/e-commerce-8418610_1280.png"],
-  },
+      category: "1",
+      imageUrls: ["https://cdn.pixabay.com/photo/2023/11/29/03/44/e-commerce-8418610_1280.png"],
+    },
     {
       id: 6,
       name: "Product 6",
       description: "Description for product 6",
       price: 69.99,
-      imageUrls:
-      ["https://cdn.pixabay.com/photo/2023/11/29/03/44/e-commerce-8418610_1280.png"],
-  },
+      category: "1",
+      imageUrls: ["https://cdn.pixabay.com/photo/2023/11/29/03/44/e-commerce-8418610_1280.png"],
+    },
     {
       id: 7,
       name: "Product 7",
       description: "Description for product 7",
       price: 69.99,
-      imageUrls:
-        ["https://cdn.pixabay.com/photo/2023/11/29/03/44/e-commerce-8418610_1280.png"],
+      category: "1",
+      imageUrls: ["https://cdn.pixabay.com/photo/2023/11/29/03/44/e-commerce-8418610_1280.png"],
     },
     {
       id: 8,
       name: "Product 8",
       description: "Description for product 8",
       price: 69.99,
-      imageUrls:
-      ["https://cdn.pixabay.com/photo/2023/11/29/03/44/e-commerce-8418610_1280.png"],
-  },
+      category: "1",
+      imageUrls: ["https://cdn.pixabay.com/photo/2023/11/29/03/44/e-commerce-8418610_1280.png"],
+    },
   ]);
 
   const [showCart, setShowCart] = useState(false);
+
+  // Redux cart state
+  const cartItems = useSelector((state: IState) => state.Cart.cartItems);
+  const cartItemCount = cartItems.reduce((total, item) => total + item.quantity, 0);
+
+  // Shake animation state
+  const [shake, setShake] = useState(false);
+  const prevCartRef = useRef<number>(cartItemCount);
+
+  useEffect(() => {
+    if (prevCartRef.current !== cartItemCount) {
+      setShake(true);
+      const timer = setTimeout(() => setShake(false), 500);
+      prevCartRef.current = cartItemCount;
+      return () => clearTimeout(timer);
+    }
+  }, [cartItemCount]);
 
   return (
     <div className="max-w-7xl mx-auto p-4 text-center">
@@ -86,7 +105,7 @@ const MiniProductList = () => {
       <div className="flex flex-wrap gap-1 md:gap-4 justify-center">
         {products.map((product) => (
           <div key={product.id}>
-            <Product2 product={product} isHideDrawer={false}/>
+            <Product2 product={product} isHideDrawer={false} />
           </div>
         ))}
       </div>
@@ -99,11 +118,18 @@ const MiniProductList = () => {
 
         {!showCart && (
           <div className="fixed bottom-20 right-2 z-50 flex flex-col space-y-2">
-            <FloatingButtonWithTT
-              icon={<ShoppingCartIcon />}
-              onClick={() => setShowCart(!showCart)}
-              tooltipContent="See your cart"
-            />
+            <div className={`relative ${shake ? "animate-shake" : ""}`}>
+              <FloatingButtonWithTT
+                icon={<ShoppingCartIcon />}
+                onClick={() => setShowCart(!showCart)}
+                tooltipContent="See your cart"
+              />
+              {cartItemCount > 0 && (
+                <div className="absolute -top-1 -right-1 bg-red-500 text-white text-xs w-5 h-5 rounded-full flex items-center justify-center">
+                  {cartItemCount}
+                </div>
+              )}
+            </div>
           </div>
         )}
       </div>
