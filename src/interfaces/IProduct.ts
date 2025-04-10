@@ -1,35 +1,31 @@
 export interface IProduct {
     id?: number,
     name: string,
-    image: string,
+    image?: string,
+    imageUrls: string[],
     description: string,
 
     isPublished?: boolean,
+    category: string,
     
     price: number,
     discount?: number,
     tax?: number, 
 
-    productVariants?: IProductVariant[],
-    productCategories?: number[],
-    productSubCategories?: number[],
-    productMiniCategories?: number[],
-    productTags?: number[]
+    productVariants?: IVariant[]
 }
 
-export interface IProductVariant {
-    productId?: number,
-    variantId: number,
+export interface IVariant {
+    id: number,
+    name: string,
     isPublished: boolean,
-    productvariantoptions: IProductVariantOption[]
+    productvariantoptions: IOption[]
 }
 
-export interface IProductVariantOption {
-    optionId: number,
+export interface IOption {
+    id: number,
+    name: string,
     price: number,
-    isPublished: boolean
+    isPublished: boolean,
+    isOutOfStock: boolean
 }
-
-
-
-

@@ -30,6 +30,14 @@ class NavigationHelper {
   goToCart = () => {
     this.navigate('/cart');
   };
+
+  goToCheckout = () => {
+    this.navigate('/checkout');
+  };
+
+  goToThankYou = () => {
+    this.navigate('/thankyou');
+  };
 }
 
 export const useNavigationHelper = () => {

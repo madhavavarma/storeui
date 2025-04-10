@@ -1,6 +1,6 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-import { ICartState } from "./interfaces/ICart";
-import { IProduct } from "@/interfaces/IProduct";
+import { ICartState, ICartItem } from "./interfaces/ICart";
+import { IOption } from "@/interfaces/IProduct";
 
 const initialState: ICartState = {
   cartItems: [],
@@ -10,35 +10,78 @@ const initialState: ICartState = {
 
 const formatPrice = (price: number) => parseFloat(price.toFixed(2));
 
+const areOptionsEqual = (
+  options1: { [variantName: string]: IOption },
+  options2: { [variantName: string]: IOption }
+) => {
+  const keys1 = Object.keys(options1 || {});
+  const keys2 = Object.keys(options2 || {});
+  if (keys1.length !== keys2.length) return false;
+
+  return keys1.every(
+    (key) => options2[key] && options1[key]?.id === options2[key]?.id
+  );
+};
+
 const CartSlice = createSlice({
   name: "cart",
   initialState,
   reducers: {
-    addItem: (state: ICartState, action: PayloadAction<IProduct>) => {
-      const existingItem = state.cartItems.find(item => item.product.id === action.payload.id);
+    addItem: (state: ICartState, action: PayloadAction<ICartItem>) => {
+      const { product, selectedOptions, quantity } = action.payload;
+
+      const existingItem = state.cartItems.find(
+        item =>
+          item.product.id === product.id &&
+          areOptionsEqual(item.selectedOptions, selectedOptions)
+      );
+
       if (existingItem) {
-        existingItem.quantity += 1;
-        existingItem.totalPrice = formatPrice(existingItem.totalPrice + action.payload.price);
+        existingItem.quantity += quantity;
+        existingItem.totalPrice = formatPrice(
+          existingItem.totalPrice + product.price * quantity
+        );
       } else {
-        state.cartItems.push({ 
-          product: action.payload, 
-          quantity: 1, 
-          totalPrice: formatPrice(action.payload.price) 
+        state.cartItems.push({
+          product,
+          selectedOptions,
+          quantity,
+          totalPrice: formatPrice(product.price * quantity),
         });
       }
-      state.totalQuantity += 1;
-      state.totalPrice = formatPrice(state.totalPrice + action.payload.price);
+
+      state.totalQuantity += quantity;
+      state.totalPrice = formatPrice(state.totalPrice + product.price * quantity);
     },
-    removeItem: (state: ICartState, action: PayloadAction<number>) => {
-      const itemIndex = state.cartItems.findIndex(item => item.product.id === action.payload);
-      if (itemIndex !== -1) {
-        state.totalQuantity -= state.cartItems[itemIndex].quantity;
-        state.totalPrice = formatPrice(state.totalPrice - state.cartItems[itemIndex].totalPrice);
-        state.cartItems.splice(itemIndex, 1);
+
+    removeItem: (
+      state: ICartState,
+      action: PayloadAction<{ productId: number; selectedOptions: { [variantName: string]: IOption } }>
+    ) => {
+      const index = state.cartItems.findIndex(
+        item =>
+          item.product.id === action.payload.productId &&
+          areOptionsEqual(item.selectedOptions, action.payload.selectedOptions)
+      );
+
+      if (index !== -1) {
+        const item = state.cartItems[index];
+        state.totalQuantity -= item.quantity;
+        state.totalPrice = formatPrice(state.totalPrice - item.totalPrice);
+        state.cartItems.splice(index, 1);
       }
     },
-    increaseQuantity: (state: ICartState, action: PayloadAction<number>) => {
-      const item = state.cartItems.find(item => item.product.id === action.payload);
+
+    increaseQuantity: (
+      state: ICartState,
+      action: PayloadAction<{ productId: number; selectedOptions: { [variantName: string]: IOption } }>
+    ) => {
+      const item = state.cartItems.find(
+        item =>
+          item.product.id === action.payload.productId &&
+          areOptionsEqual(item.selectedOptions, action.payload.selectedOptions)
+      );
+
       if (item) {
         item.quantity += 1;
         item.totalPrice = formatPrice(item.totalPrice + item.product.price);
@@ -46,8 +89,17 @@ const CartSlice = createSlice({
         state.totalPrice = formatPrice(state.totalPrice + item.product.price);
       }
     },
-    decreaseQuantity: (state: ICartState, action: PayloadAction<number>) => {
-      const item = state.cartItems.find(item => item.product.id === action.payload);
+
+    decreaseQuantity: (
+      state: ICartState,
+      action: PayloadAction<{ productId: number; selectedOptions: { [variantName: string]: IOption } }>
+    ) => {
+      const item = state.cartItems.find(
+        item =>
+          item.product.id === action.payload.productId &&
+          areOptionsEqual(item.selectedOptions, action.payload.selectedOptions)
+      );
+
       if (item && item.quantity > 1) {
         item.quantity -= 1;
         item.totalPrice = formatPrice(item.totalPrice - item.product.price);
@@ -55,6 +107,7 @@ const CartSlice = createSlice({
         state.totalPrice = formatPrice(state.totalPrice - item.product.price);
       }
     },
+
     clearCart: (state: ICartState) => {
       state.cartItems = [];
       state.totalQuantity = 0;
@@ -63,8 +116,5 @@ const CartSlice = createSlice({
   },
 });
 
-// Export actions
 export const CartActions = CartSlice.actions;
-
-// Export reducer
 export default CartSlice;

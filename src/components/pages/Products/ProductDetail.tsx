@@ -10,25 +10,16 @@ import {
   CarouselPrevious,
 } from "@/components/ui/carousel";
 import { Card, CardContent } from "@/components/ui/card";
+import { useDispatch } from "react-redux";
+import { IProduct, IOption } from "@/interfaces/IProduct";
+import { CartActions } from "@/store/CartSlice";
 
-const ProductDetail = () => {
-  const product = {
-    id: 1,
-    name: "Multi Millet Cookies",
-    description:
-      "These high-protein multi-millet cookies are made with natural ingredients, free from preservatives, added sugars, and maida.",
-    price: "₹199",
-    imageUrls: [
-      "https://cdn.pixabay.com/photo/2023/11/29/03/44/e-commerce-8418610_1280.png",
-      "https://cdn.pixabay.com/photo/2023/11/29/03/44/e-commerce-8418610_1280.png",
-      "https://cdn.pixabay.com/photo/2023/11/29/03/44/e-commerce-8418610_1280.png",
-    ],
-    specifications:
-      "100g contains 20g protein, gluten-free, rich in fiber and essential nutrients.",
-    howToUse:
-      "Enjoy with milk, tea, or as a snack. Store in an airtight container.",
-    ingredients: "Millets, jaggery, nuts, seeds, natural flavors.",
-  };
+interface IProps {
+  product: IProduct;
+}
+
+const ProductDetail = ({ product }: IProps) => {
+  const dispatch = useDispatch();
 
   const [openSections, setOpenSections] = useState<{ [key: string]: boolean }>({
     description: false,
@@ -38,22 +29,45 @@ const ProductDetail = () => {
   });
 
   const [quantity, setQuantity] = useState(1);
-  const [selectedSize, setSelectedSize] = useState("Medium");
-  const [selectedColor, setSelectedColor] = useState("Red");
+  const [selectedOptions, setSelectedOptions] = useState<{ [variantName: string]: IOption | null }>();
 
   const toggleSection = (section: string) => {
     setOpenSections((prev) => ({ ...prev, [section]: !prev[section] }));
   };
 
+  const handleOptionSelect = (variantName: string, option: IOption) => {
+    setSelectedOptions((prev) => ({ ...prev, [variantName]: option }));
+  };
+
+  const handleAddToCart = () => {
+    const selectedVariantOptions = selectedOptions && Object.values(selectedOptions).filter(Boolean);
+  
+    if (selectedOptions && selectedVariantOptions?.length !== (product.productVariants?.length || 0)) {
+      alert("Please select all variant options before adding to cart.");
+      return;
+    }
+  
+    const cartItem = {
+      product,
+      selectedOptions: selectedOptions as { [variantName: string]: IOption },
+      quantity,
+      totalPrice: parseFloat((product.price * quantity).toFixed(2)),
+    };
+  
+    console.log("Added to cart:", cartItem);
+    dispatch(CartActions.addItem(cartItem));
+  };
+  
+
   return (
     <Fragment>
-      <div className="max-w-xs mx-auto pb-10 space-y-4">
+      <div className="w-full px-4 pb-10 space-y-4 mb-[60px] sm:max-w-md sm:mx-auto">
         {/* Product Image Slider */}
         <Carousel className="w-full max-w-xs mx-auto">
           <CarouselContent>
             {product.imageUrls.map((image, index) => (
               <CarouselItem key={index} className="basis-full">
-                <CardContent className="flex items-center justify-center p-2 h-[200px]">
+                <CardContent className="flex items-center justify-center p-0 h-[200px]">
                   <img
                     src={image}
                     className="rounded-lg w-full h-full object-cover"
@@ -70,44 +84,43 @@ const ProductDetail = () => {
         {/* Product Title & Price */}
         <div className="flex justify-between items-center">
           <h2 className="text-lg font-bold">{product.name}</h2>
-          <span className="text-lg font-semibold text-primary">{product.price}</span>
+          <span className="text-lg font-semibold text-primary">₹{product.price}</span>
         </div>
 
-        {/* Variant Selection Card */}
+        {/* Variant and Quantity Card */}
         <Card className="p-4 bg-gray-200 rounded-lg shadow-md">
           <div className="space-y-3">
-            <div className="flex items-center justify-between">
-              <h3 className="text-sm font-semibold">Size</h3>
-              <div className="flex gap-2">
-                {["Small", "Medium", "Large"].map((size) => (
-                  <Button
-                    key={size}
-                    size="sm"
-                    variant={selectedSize === size ? "default" : "outline"}
-                    onClick={() => setSelectedSize(size)}
-                    className="text-xs px-3 py-1"
-                  >
-                    {size}
-                  </Button>
-                ))}
-              </div>
-            </div>
-            <div className="flex items-center justify-between">
-              <h3 className="text-sm font-semibold">Color</h3>
-              <div className="flex gap-2">
-                {["Red", "Blue", "Green"].map((color) => (
-                  <Button
-                    key={color}
-                    size="sm"
-                    variant={selectedColor === color ? "default" : "outline"}
-                    onClick={() => setSelectedColor(color)}
-                    className="text-xs px-3 py-1"
-                  >
-                    {color}
-                  </Button>
-                ))}
-              </div>
-            </div>
+            {/* Dynamic Product Variants */}
+            {product.productVariants?.map((variant) =>
+              variant.isPublished ? (
+                <div key={variant.name} className="flex items-center justify-between">
+                  <h3 className="text-sm font-semibold">{variant.name}</h3>
+                  <div className="flex gap-2">
+                    {variant.productvariantoptions
+                      .filter((option) => option.isPublished)
+                      .map((option) => {
+                        const selectedOption = selectedOptions && selectedOptions[variant.name];
+                        const isSelected = selectedOption?.name === option.name;
+
+                        return (
+                          <Button
+                            key={option.id}
+                            size="sm"
+                            variant={isSelected ? "default" : "outline"}
+                            onClick={() => handleOptionSelect(variant.name, option)}
+                            disabled={option.isOutOfStock}
+                            className="text-xs px-3 py-1 disabled:opacity-50"
+                          >
+                            {option.name}
+                          </Button>
+                        );
+                      })}
+                  </div>
+                </div>
+              ) : null
+            )}
+
+            {/* Quantity Control */}
             <div className="flex items-center justify-between">
               <h3 className="text-sm font-semibold">Quantity</h3>
               <div className="flex items-center gap-2">
@@ -133,10 +146,12 @@ const ProductDetail = () => {
 
         {/* Expandable Sections */}
         <div className="space-y-3">
-          {[{ title: "Description", content: product.description },
-            { title: "Specifications", content: product.specifications },
-            { title: "How to Use", content: product.howToUse },
-            { title: "Ingredients", content: product.ingredients }].map(({ title, content }) => (
+          {[
+            { title: "Description", content: product.description },
+            { title: "Specifications", content: product.description },
+            { title: "How to Use", content: product.description },
+            { title: "Ingredients", content: product.description },
+          ].map(({ title, content }) => (
             <div key={title} className="border-b py-2">
               <button
                 className="flex justify-between w-full text-sm font-medium"
@@ -164,6 +179,16 @@ const ProductDetail = () => {
             </div>
           ))}
         </div>
+      </div>
+
+      {/* Footer */}
+      <div className="fixed w-[400px] bottom-0 right-0 p-4 bg-white shadow-md">
+        <Button
+          className="bg-[#5DBF13] text-white px-4 py-2 rounded-lg w-full hover:bg-green-700"
+          onClick={handleAddToCart}
+        >
+          Add to Cart
+        </Button>
       </div>
     </Fragment>
   );

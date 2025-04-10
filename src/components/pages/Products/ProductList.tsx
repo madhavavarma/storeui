@@ -1,143 +1,171 @@
-import { Fragment, useState } from 'react';
-import Product2 from '../Home/Product2';
-import Header from '@/components/base/Header';
-import Footer from '@/components/base/Footer';
-import { Search, ShoppingCartIcon,  } from 'lucide-react';
-import { FloatingButtonWithTT } from '../Shared/FloatingButtonsWithTT';
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
+import { Fragment, useState } from "react";
+import Product2 from "../Home/Product2";
+import Header from "@/components/base/Header";
+import Footer from "@/components/base/Footer";
+import { Search, ShoppingCartIcon } from "lucide-react";
+import { FloatingButtonWithTT } from "../Shared/FloatingButtonsWithTT";
 import { useSearchParams } from "react-router-dom";
-import RightDrawer from '../Shared/RightDrawer';
-import ProductDetail from './ProductDetail';
-import CartDrawer from '../Cart/CartDrawer';
-import Cart from '../Cart/Cart';
-import { IProduct } from '@/interfaces/IProduct';
+import RightDrawer from "../Shared/RightDrawer";
+import ProductDetail from "./ProductDetail";
+import CartDrawer from "../Cart/CartDrawer";
+import Cart from "../Cart/Cart";
+import { IProduct } from "@/interfaces/IProduct";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
 
 const ProductList = () => {
-    const [products] = useState<IProduct[]>([
-        { id: 1, name: 'Product 1', description: 'Description for product 1', price: 19.99, image: 'https://cdn.pixabay.com/photo/2023/11/29/03/44/e-commerce-8418610_1280.png' },
-        { id: 2, name: 'Product 2', description: 'Description for product 2', price: 29.99, image: 'https://cdn.pixabay.com/photo/2023/11/29/03/44/e-commerce-8418610_1280.png' },
-        { id: 3, name: 'Product 3', description: 'Description for product 3', price: 39.99, image: 'https://cdn.pixabay.com/photo/2023/11/29/03/44/e-commerce-8418610_1280.png' },
-        { id: 4, name: 'Product 4', description: 'Description for product 4', price: 49.99, image: 'https://cdn.pixabay.com/photo/2023/11/29/03/44/e-commerce-8418610_1280.png' },
-        { id: 5, name: 'Product 5', description: 'Description for product 5', price: 59.99, image: 'https://cdn.pixabay.com/photo/2023/11/29/03/44/e-commerce-8418610_1280.png' },
-        { id: 6, name: 'Product 6', description: 'Description for product 6', price: 69.99, image: 'https://cdn.pixabay.com/photo/2023/11/29/03/44/e-commerce-8418610_1280.png' },
-        { id: 7, name: 'Product 7', description: 'Description for product 7', price: 69.99, image: 'https://cdn.pixabay.com/photo/2023/11/29/03/44/e-commerce-8418610_1280.png' },
-        { id: 8, name: 'Product 8', description: 'Description for product 8', price: 69.99, image: 'https://cdn.pixabay.com/photo/2023/11/29/03/44/e-commerce-8418610_1280.png' },
-    ]);
+  const [searchParams] = useSearchParams();
+  const searchParam = searchParams.get("search");
+  const categoryParam = searchParams.get("category");
 
-    const [searchParams] = useSearchParams();
-    const categoryParam = searchParams.get("category");
-    const searchParam = searchParams.get("search");
+  const [searchQuery, setSearchQuery] = useState(searchParam || "");
+  const [category, setCategory] = useState(categoryParam || "0"); // Default to "All"
+  const [showSearch, setShowSearch] = useState(!!searchParam || !!categoryParam);
+  const [showCart, setShowCart] = useState(false);
+  const [showProductDetail, setShowProductDetail] = useState<IProduct | null>(null);
 
-    const [searchQuery, setSearchQuery] = useState(searchParam || "");
-    const [showSearch, setShowSearch] = useState(categoryParam || searchParam ? true : false); 
-    const [showCategories] = useState(false); 
-    const [showProductDetail, setShowProductDetail] = useState(null); 
-    const [showCart, setShowCart] = useState(false); 
-    const [category, setCategory] = useState(categoryParam);
+  const [products] = useState<IProduct[]>([
+    {
+      id: 1,
+      name: "Tomato",
+      description: "Fresh red tomatoes",
+      price: 19.99,
+      imageUrls: ["https://cdn.pixabay.com/photo/2023/11/29/03/44/e-commerce-8418610_1280.png"],
+      category: "1", // Veggies
+      productVariants: [],
+    },
+    {
+      id: 2,
+      name: "Carrot",
+      description: "Organic carrots",
+      price: 29.99,
+      imageUrls: ["https://cdn.pixabay.com/photo/2023/11/29/03/44/e-commerce-8418610_1280.png"],
+      category: "1",
+      productVariants: [],
+    },
+    {
+      id: 3,
+      name: "Broccoli",
+      description: "Green Broccoli",
+      price: 39.99,
+      imageUrls: ["https://cdn.pixabay.com/photo/2023/11/29/03/44/e-commerce-8418610_1280.png"],
+      category: "2", // Leafy
+      productVariants: [],
+    },
+    {
+      id: 4,
+      name: "Onion",
+      description: "Spicy onions",
+      price: 25.5,
+      imageUrls: ["https://cdn.pixabay.com/photo/2023/11/29/03/44/e-commerce-8418610_1280.png"],
+      category: "1",
+      productVariants: [],
+    },
+    {
+      id: 5,
+      name: "Spinach",
+      description: "Leafy spinach",
+      price: 15.0,
+      imageUrls: ["https://cdn.pixabay.com/photo/2023/11/29/03/44/e-commerce-8418610_1280.png"],
+      category: "2",
+      productVariants: [],
+    },
+  ]);
 
-   
+  // Filter logic
+  const filteredProducts = products.filter((product) => {
+    const matchesSearch =
+      product.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
+      product.description.toLowerCase().includes(searchQuery.toLowerCase());
 
-    // Filter products based on search query
-    const filteredProducts = products.filter(product =>
-        product.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
-        product.description.toLowerCase().includes(searchQuery.toLowerCase())
-    );
+    const matchesCategory = category === "0" || product.category === category;
 
-    
+    return matchesSearch && matchesCategory;
+  });
 
-    return (
-        <Fragment>
-            <Header />
-            <div className="max-w-7xl mx-auto p-4 text-center">
-                {/* "Choose Categories" Text in Green */}
-                <p className="text-sm text-green-500 mb-1 pt-6">Select Vegetables</p>
+  return (
+    <Fragment>
+      <Header />
 
-                {/* "Explore Categories" Heading */}
-                <h2 className="text-3xl font-bold text-gray-800 mb-6">Fresh Vegetables</h2>
+      <div className="max-w-7xl mx-auto p-4 text-center">
+        <p className="text-sm text-green-500 mb-1 pt-6">Select Vegetables</p>
+        <h2 className="text-3xl font-bold text-gray-800 mb-4">Fresh Vegetables</h2>
 
-                {/* Product Grid */}
-               
-                <div className="flex flex-wrap gap-1 md:gap-4 justify-center">
-                    {filteredProducts.length > 0 ? (
-                        filteredProducts.map((product) => (
-                            <div key={product.id}  className="cursor-pointer">
-                                     
-                                    <Product2 product={product}/>
-                            </div>
-                        ))
-                    ) : (
-                        <p className="text-gray-600">No products found</p>
-                    )}
-                </div>
-            </div>
+        {/* Product Grid */}
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-2">
+          {filteredProducts.length > 0 ? (
+            filteredProducts.map((product) => (
+              <div key={product.id} className="w-full">
+                <Product2 product={product} />
+              </div>
+            ))
+          ) : (
+            <p className="text-gray-600 col-span-2 md:col-span-4">No products found</p>
+          )}
+        </div>
+      </div>
 
-            <RightDrawer isOpen={showProductDetail || false} onClose={() => setShowProductDetail(null)}>
-                <ProductDetail  />
-            </RightDrawer> 
+      {/* Product Detail Drawer */}
+      <RightDrawer isOpen={!!showProductDetail} onClose={() => setShowProductDetail(null)}>
+        <ProductDetail product={showProductDetail || ({} as IProduct)} />
+      </RightDrawer>
 
-            <CartDrawer isOpen={showCart} onClose={() => setShowCart(false)}>
-                <Cart />
-            </CartDrawer> 
+      {/* Cart Drawer */}
+      <CartDrawer isOpen={showCart} onClose={() => setShowCart(false)}>
+        <Cart />
+      </CartDrawer>
 
+      {/* Floating Buttons */}
+      {!showProductDetail && !showCart && (
+        <div className="fixed bottom-20 right-2 z-50 flex flex-col space-y-2">
+          <FloatingButtonWithTT
+            icon={<ShoppingCartIcon />}
+            onClick={() => setShowCart(!showCart)}
+            tooltipContent="See your cart"
+          />
+          <FloatingButtonWithTT
+            icon={<Search />}
+            onClick={() => setShowSearch(!showSearch)}
+            tooltipContent="Search for products"
+          />
+        </div>
+      )}
 
+      {/* Search + Category Bar */}
+      {showSearch && (
+        <div className="fixed top-0 left-0 right-0 bg-green-900 p-4 z-50 shadow-md">
+          <div className="flex items-center gap-2 border border-gray-300 rounded-md bg-white p-2">
+            <Select value={category} onValueChange={setCategory}>
+              <SelectTrigger className="w-36 bg-gray-100 text-black rounded-md">
+                <SelectValue placeholder="Category" />
+              </SelectTrigger>
+              <SelectContent>
+                <SelectItem value="0">All</SelectItem>
+                <SelectItem value="1">Vegetables</SelectItem>
+                <SelectItem value="2">Leafy Greens</SelectItem>
+                <SelectItem value="3">Fruits</SelectItem>
+              </SelectContent>
+            </Select>
 
+            <input
+              type="text"
+              value={searchQuery}
+              onChange={(e) => setSearchQuery(e.target.value)}
+              placeholder="Search products..."
+              className="w-full p-2 outline-none bg-white"
+            />
+          </div>
+        </div>
+      )}
 
-
-            {!showProductDetail && !showCart && <div className="fixed bottom-20 right-2 z-50 flex flex-col space-y-2">
-                <FloatingButtonWithTT
-                    icon={<ShoppingCartIcon />} // Passing the icon
-                    onClick={() => setShowCart(!showCart)} // Passing the click handler
-                    tooltipContent="See your cart" // Custom tooltip text
-                />
-                <FloatingButtonWithTT
-                    icon={<Search />} // Passing the icon
-                    onClick={() => setShowSearch(!showSearch)} // Passing the click handler
-                    tooltipContent="Search for products with Name, Tags" // Custom tooltip text
-                />
-                </div>
-                }
-
-            {/* Fixed Search Input (visible when clicked on search icon) */}
-            {showSearch && (
-                 <div className="fixed top-0 left-0 right-0 bg-green-900 p-4 z-50">
-                 <div className="relative w-full">
-                   <div className="flex items-center border border-gray-300 rounded-md bg-white">
-                     <Select value={category || ""} onValueChange={setCategory}>
-                       <SelectTrigger className="px-4 py-2 border-r border-gray-300 bg-gray-100 text-black w-36 rounded-l-md">
-                         <SelectValue placeholder="All" />
-                       </SelectTrigger>
-                       <SelectContent>
-                         <SelectItem value="0">All</SelectItem>
-                         <SelectItem value="1">Category 1</SelectItem>
-                         <SelectItem value="2">Category 2</SelectItem>
-                         <SelectItem value="3">Category 3</SelectItem>
-                         <SelectItem value="4">Category 4</SelectItem>
-                         <SelectItem value="5">Category 5</SelectItem>
-                         <SelectItem value="6">Category 6</SelectItem>
-                       </SelectContent>
-                     </Select>
-           
-                     <input
-                       type="text"
-                       value={searchQuery}
-                       onChange={(e) => setSearchQuery(e.target.value)}
-                       placeholder="Search products..."
-                       className="w-full p-2 outline-none"
-                     />
-                   </div>
-                 </div>
-               </div>
-            )}
-
-            {showCategories && (
-                <div className="fixed bottom-0 left-0 right-0 bg-green-900 p-4  z-50">
-                    {/* <CategoryCarousel /> */}
-                </div>
-            )}
-
-            <Footer />
-        </Fragment>
-    );
+      <Footer />
+    </Fragment>
+  );
 };
 
 export default ProductList;

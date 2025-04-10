@@ -1,23 +1,16 @@
 import { useState } from "react";
-import { Button } from "@/components/ui/button";
-import { ShoppingCartIcon, Star } from "lucide-react";
+import { Star } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 import { Select, SelectContent, SelectItem, SelectTrigger } from "@/components/ui/select";
-import { CartActions } from "@/store/CartSlice";
 import { IProduct } from "@/interfaces/IProduct";
-import { useDispatch } from "react-redux";
 
 const Product3 = ({ product }: { product: IProduct }) => {
-  const { name, price, image } = product;
+  const { name, price, imageUrls } = product;
   const [quantity, setQuantity] = useState(1);
   const [selectedSize, setSelectedSize] = useState("Medium");
 
-  const dispatch = useDispatch();
 
-  const handleAddToCart = (product: IProduct) => {
-    console.log(`Added ${quantity} of ${name} (${selectedSize}) to the cart.`);
-    dispatch(CartActions.addItem(product));
-  };
+ 
 
   return (
     <div className="max-w-xs mx-auto min-w-[180px] flex-col">
@@ -35,7 +28,7 @@ const Product3 = ({ product }: { product: IProduct }) => {
 
       {/* Product Image */}
       <div className="relative h-48 overflow-hidden rounded-lg mb-4">
-        <img src={image} alt={name} className="object-cover w-full h-full" />
+        <img src={imageUrls[0]} alt={name} className="object-cover w-full h-full" />
       </div>
 
       {/* Product Name */}
@@ -72,14 +65,14 @@ const Product3 = ({ product }: { product: IProduct }) => {
           />
 
           {/* Add to Cart Button */}
-          <Button
+          {/* <Button
             variant="default"
             size="sm"
             onClick={() => handleAddToCart(product)}
             className="px-3 py-1 text-xs font-medium bg-[#5DBF13] flex items-center"
           >
             <ShoppingCartIcon className="w-4 h-4 mr-1" /> Add to Cart
-          </Button>
+          </Button> */}
         </div>
       </div>
     </div>

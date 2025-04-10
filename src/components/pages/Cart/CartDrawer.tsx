@@ -3,6 +3,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { useSelector } from "react-redux";
 import { IState } from "@/store/interfaces/IState";
+import { useNavigationHelper } from "@/hooks/use-navigate-helper";
 
 interface CartDrawerProps {
   isOpen: boolean;
@@ -12,6 +13,8 @@ interface CartDrawerProps {
 
 export default function CartDrawer({ isOpen, onClose, children }: CartDrawerProps) {
   const cart = useSelector((state: IState) => state.Cart);
+
+  const navigationHelper = useNavigationHelper();
 
   return (
     <AnimatePresence>
@@ -44,7 +47,7 @@ export default function CartDrawer({ isOpen, onClose, children }: CartDrawerProp
 
             {/* Cart Summary */}
             <div className="border-b px-4 py-3 flex justify-between items-center bg-gray-100">
-              <h2 className="text-gray-600 text-sm">{cart.cartItems.length} items</h2>
+              <h2 className="text-gray-600 text-sm">{cart?.cartItems?.length} items</h2>
               <p className="text-lg font-bold text-[#5DBF13]">₹{cart.totalPrice.toFixed(2)}</p>
             </div>
 
@@ -53,7 +56,8 @@ export default function CartDrawer({ isOpen, onClose, children }: CartDrawerProp
 
             {/* Footer */}
             <div className="border-t p-4 bg-white shadow-md">
-              <Button className="bg-[#5DBF13] text-white px-4 py-2 rounded-lg w-full hover:bg-green-700">
+              <Button className="bg-[#5DBF13] text-white px-4 py-2 rounded-lg w-full hover:bg-green-700"
+              onClick={() => navigationHelper.goToCheckout()} >
                 Checkout
               </Button>
             </div>
