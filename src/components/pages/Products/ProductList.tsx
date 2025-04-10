@@ -31,98 +31,10 @@ const ProductList = () => {
   const [showCart, setShowCart] = useState(false);
   const [showProductDetail, setShowProductDetail] = useState<IProduct | null>(null);
 
-  const [products] = useState<IProduct[]>([
-    {
-      id: 1,
-      name: "Tomato",
-      description: "Fresh red tomatoes",
-      price: 19.99,
-      imageUrls: ["https://cdn.pixabay.com/photo/2023/11/29/03/44/e-commerce-8418610_1280.png"],
-      category: "1",
-      productVariants: [
-        {
-          id: 0,
-          name: "Weight",
-          isPublished: true,
-          productvariantoptions: [
-            {
-              id: 3,
-              name: "500g",
-              isPublished: true,
-              isOutOfStock: false,
-              price: 0
-            },
-            {
-              id: 4,
-              name: "1kg",
-              isPublished: true,
-              isOutOfStock: false,
-              price: 0
-            },
-          ],
-        },
-        {
-          id: 1,
-          name: "Type",
-          isPublished: true,
-          productvariantoptions: [
-            {
-              id: 1,
-              name: "Organic",
-              isPublished: true,
-              isOutOfStock: false,
-              price: 0
-            },
-            {
-              id: 2,
-              name: "Hybrid",
-              isPublished: true,
-              isOutOfStock: true,
-              price: 0
-            },
-          ],
-        },
-      ],
-    },
-    {
-      id: 2,
-      name: "Carrot",
-      description: "Organic carrots",
-      price: 29.99,
-      imageUrls: ["https://cdn.pixabay.com/photo/2023/11/29/03/44/e-commerce-8418610_1280.png"],
-      category: "1",
-      productVariants: [],
-    },
-    {
-      id: 3,
-      name: "Broccoli",
-      description: "Green Broccoli",
-      price: 39.99,
-      imageUrls: ["https://cdn.pixabay.com/photo/2023/11/29/03/44/e-commerce-8418610_1280.png"],
-      category: "2",
-      productVariants: [],
-    },
-    {
-      id: 4,
-      name: "Onion",
-      description: "Spicy onions",
-      price: 25.5,
-      imageUrls: ["https://cdn.pixabay.com/photo/2023/11/29/03/44/e-commerce-8418610_1280.png"],
-      category: "1",
-      productVariants: [],
-    },
-    {
-      id: 5,
-      name: "Spinach",
-      description: "Leafy spinach",
-      price: 15.0,
-      imageUrls: ["https://cdn.pixabay.com/photo/2023/11/29/03/44/e-commerce-8418610_1280.png"],
-      category: "2",
-      productVariants: [],
-    },
-  ]);
+  const products = useSelector((state: IState) => state.Products.products);
+  const categories = useSelector((state: IState) => state.Categories.categories);
 
-  const filteredProducts = products.filter((product) => {
+  const filteredProducts = products.filter((product: IProduct) => {
     const matchesSearch =
       product.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
       product.description.toLowerCase().includes(searchQuery.toLowerCase());
@@ -154,8 +66,8 @@ const ProductList = () => {
       <Header />
 
       <div className="max-w-7xl mx-auto p-4 text-center">
-        <p className="text-sm text-green-500 mb-1 pt-6">Select Vegetables</p>
-        <h2 className="text-3xl font-bold text-gray-800 mb-4">Fresh Vegetables</h2>
+        <p className="text-sm text-green-500 mb-1 pt-6">Select Products</p>
+        <h2 className="text-3xl font-bold text-gray-800 mb-4">Products</h2>
 
         {/* Product Grid */}
         <div className="grid grid-cols-2 md:grid-cols-4 gap-2">
@@ -211,17 +123,18 @@ const ProductList = () => {
       {showSearch && (
         <div className="fixed top-0 left-0 right-0 bg-green-900 p-4 z-50 shadow-md">
           <div className="flex items-center gap-2 border border-gray-300 rounded-md bg-white p-2">
-            <Select value={category} onValueChange={setCategory}>
-              <SelectTrigger className="w-36 bg-gray-100 text-black rounded-md">
-                <SelectValue placeholder="Category" />
-              </SelectTrigger>
-              <SelectContent>
-                <SelectItem value="0">All</SelectItem>
-                <SelectItem value="1">Vegetables</SelectItem>
-                <SelectItem value="2">Leafy Greens</SelectItem>
-                <SelectItem value="3">Fruits</SelectItem>
-              </SelectContent>
-            </Select>
+          <Select value={category} onValueChange={setCategory}>
+            <SelectTrigger className="w-36 bg-gray-100 text-black rounded-md">
+              <SelectValue placeholder="Category" />
+            </SelectTrigger>
+            <SelectContent>
+              {categories.map(cat => (
+                <SelectItem key={cat.id} value={cat.id.toString()}>
+                  {cat.name}
+                </SelectItem>
+              ))}
+            </SelectContent>
+          </Select>
 
             <input
               type="text"

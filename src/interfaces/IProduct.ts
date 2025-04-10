@@ -7,6 +7,7 @@ export interface IProduct {
 
     isPublished?: boolean,
     category: string,
+    labels: string[],
     
     price: number,
     discount?: number,

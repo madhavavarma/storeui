@@ -1,25 +1,18 @@
-import { useState } from 'react';
 import { Button } from '../../ui/button';
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from '../../ui/carousel';
 import { CardContent } from '../../ui/card';
 import Product2 from './Product2';
 import { ArrowRight } from 'lucide-react';
 import { useNavigationHelper } from '@/hooks/use-navigate-helper';
-import { IProduct } from '@/interfaces/IProduct';
+import { useSelector } from 'react-redux';
+import { IState } from '@/store/interfaces/IState';
 
 interface IProps {
   heading: string
 }
 
 const ProductCarousel = (props: IProps) => {
-  const [products] = useState<IProduct[]>([
-    { id: 1, category: "1", name: 'Product 1', description: 'Description for product 1', price: 19.99, imageUrls: ['https://cdn.pixabay.com/photo/2023/11/29/03/44/e-commerce-8418610_1280.png'] },
-    { id: 2, category: "1", name: 'Product 2', description: 'Description for product 2', price: 29.99, imageUrls: ['https://cdn.pixabay.com/photo/2023/11/29/03/44/e-commerce-8418610_1280.png'] },
-    { id: 3, category: "1", name: 'Product 3', description: 'Description for product 3', price: 39.99, imageUrls: ['https://cdn.pixabay.com/photo/2023/11/29/03/44/e-commerce-8418610_1280.png'] },
-    { id: 4, category: "1", name: 'Product 4', description: 'Description for product 4', price: 49.99, imageUrls: ['https://cdn.pixabay.com/photo/2023/11/29/03/44/e-commerce-8418610_1280.png'] },
-    { id: 5, category: "1", name: 'Product 5', description: 'Description for product 5', price: 59.99, imageUrls: ['https://cdn.pixabay.com/photo/2023/11/29/03/44/e-commerce-8418610_1280.png'] },
-    { id: 6, category: "1", name: 'Product 6', description: 'Description for product 6', price: 69.99, imageUrls: ['https://cdn.pixabay.com/photo/2023/11/29/03/44/e-commerce-8418610_1280.png'] },
-  ]);
+  const products = useSelector((state: IState) => state.Products.products);
 
   var navigationHelper = useNavigationHelper();
 

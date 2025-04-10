@@ -1,17 +1,11 @@
-import { useState } from 'react';
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from '../../ui/carousel';
 import { Card, CardContent } from '../../ui/card';
 import Category from './Category';
+import { IState } from '@/store/interfaces/IState';
+import { useSelector } from 'react-redux';
 
 const CategoryCarousel = () => {
-  const [categories] = useState([
-    { id: 1, name: 'Category 1', image: 'https://cdn.pixabay.com/photo/2023/11/29/03/44/e-commerce-8418610_1280.png' },
-    { id: 2, name: 'Category 2', image: 'https://cdn.pixabay.com/photo/2023/11/29/03/44/e-commerce-8418610_1280.png' },
-    { id: 3, name: 'Category 3', image: 'https://cdn.pixabay.com/photo/2023/11/29/03/44/e-commerce-8418610_1280.png' },
-    { id: 4, name: 'Category 4', image: 'https://cdn.pixabay.com/photo/2023/11/29/03/44/e-commerce-8418610_1280.png' },
-    { id: 5, name: 'Category 5', image: 'https://cdn.pixabay.com/photo/2023/11/29/03/44/e-commerce-8418610_1280.png' },
-    { id: 6, name: 'Category 6', image: 'https://cdn.pixabay.com/photo/2023/11/29/03/44/e-commerce-8418610_1280.png' },
-  ]);
+  const categories = useSelector((state: IState) => state.Categories.categories);
 
   return (
     <div className="bg-[#fff] text-center w-full">

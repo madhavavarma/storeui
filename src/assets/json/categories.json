@@ -1,0 +1,33 @@
+[
+    {
+      "id": 1,
+      "name": "Men",
+      "imageUrl": "https://cdn.pixabay.com/photo/2023/11/29/03/44/e-commerce-8418610_1280.png",
+      "isPublished": true
+    },
+    {
+      "id": 2,
+      "name": "Women",
+      "imageUrl": "https://cdn.pixabay.com/photo/2023/11/29/03/44/e-commerce-8418610_1280.png",
+      "isPublished": true
+    },
+    {
+      "id": 3,
+      "name": "Unisex",
+      "imageUrl": "https://cdn.pixabay.com/photo/2023/11/29/03/44/e-commerce-8418610_1280.png",
+      "isPublished": true
+    },
+    {
+      "id": 4,
+      "name": "Ethnic",
+      "imageUrl": "https://cdn.pixabay.com/photo/2023/11/29/03/44/e-commerce-8418610_1280.png",
+      "isPublished": true
+    },
+    {
+      "id": 5,
+      "name": "Kids",
+      "imageUrl": "https://cdn.pixabay.com/photo/2023/11/29/03/44/e-commerce-8418610_1280.png",
+      "isPublished": true
+    }
+  ]
+  

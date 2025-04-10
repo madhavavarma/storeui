@@ -14,8 +14,6 @@ const Product2 = ({ product, labels = ["New"], isHideDrawer }: ProductProps) => 
   const { name, price, imageUrls } = product;
   const [showProductDetail, setShowProductDetail] = useState<IProduct | null>(null);
 
-
-
   return (
     <>
       {/* Full-Width Clickable Product */}
@@ -23,6 +21,7 @@ const Product2 = ({ product, labels = ["New"], isHideDrawer }: ProductProps) => 
         className="w-full cursor-pointer border border-gray-300 border-t-0 border-l-0 border-r-0 p-2 hover:bg-gray-100 transition-all bg-white shadow-md rounded-lg"
         onClick={() => setShowProductDetail(product)}
       >
+        {/* Product Image */}
         <div className="relative h-40 md:h-52 overflow-hidden">
           <img src={imageUrls[0]} alt={name} className="object-cover w-full h-full" />
 
@@ -42,9 +41,13 @@ const Product2 = ({ product, labels = ["New"], isHideDrawer }: ProductProps) => 
         </div>
 
         {/* Product Name & Price */}
-        <div className="flex justify-between items-center px-2 mt-2">
-          <h2 className="text-md font-semibold text-gray-900">{name}</h2>
-          <span className="text-md font-bold text-green-600">₹{price}</span>
+        <div className="px-2 mt-2">
+          <h2 className="text-md font-semibold text-gray-900 line-clamp-2 h-10 leading-tight">
+            {name}
+          </h2>
+          <div className="flex justify-between items-center mt-1">
+            <span className="text-sm font-bold text-green-600">₹{price}</span>
+          </div>
         </div>
 
         {/* Star Rating */}

@@ -1,0 +1,253 @@
+[
+    {
+      "id": 1,
+      "name": "Men's Casual T-Shirt",
+      "description": "Comfortable and stylish casual t-shirt for men",
+      "price": 499,
+      "imageUrls": ["https://cdn.pixabay.com/photo/2023/11/29/03/44/e-commerce-8418610_1280.png"],
+      "category": "1",
+      "labels": [],
+      "productVariants": []
+    },
+    {
+      "id": 2,
+      "name": "Women's Floral Dress",
+      "description": "Elegant floral dress for casual outings",
+      "price": 899,
+      "imageUrls": ["https://cdn.pixabay.com/photo/2023/11/29/03/44/e-commerce-8418610_1280.png"],
+      "category": "2",
+      "labels": [],
+      "productVariants": []
+    },
+    {
+      "id": 3,
+      "name": "Unisex Hoodie",
+      "description": "Warm and trendy hoodie for all",
+      "price": 1199,
+      "imageUrls": ["https://cdn.pixabay.com/photo/2023/11/29/03/44/e-commerce-8418610_1280.png"],
+      "category": "3",
+      "labels": [],
+      "productVariants": []
+    },
+    {
+      "id": 4,
+      "name": "Men's Formal Shirt",
+      "description": "Perfect shirt for office and formal occasions",
+      "price": 799,
+      "imageUrls": ["https://cdn.pixabay.com/photo/2023/11/29/03/44/e-commerce-8418610_1280.png"],
+      "category": "1",
+      "labels": [],
+      "productVariants": []
+    },
+    {
+      "id": 5,
+      "name": "Women's Leggings",
+      "description": "Comfort-fit leggings for everyday wear",
+      "price": 499,
+      "imageUrls": ["https://cdn.pixabay.com/photo/2023/11/29/03/44/e-commerce-8418610_1280.png"],
+      "category": "2",
+      "labels": [],
+      "productVariants": []
+    },
+    {
+      "id": 6,
+      "name": "Kids' Cartoon T-Shirt",
+      "description": "Colorful cartoon-themed t-shirt for kids",
+      "price": 299,
+      "imageUrls": ["https://cdn.pixabay.com/photo/2023/11/29/03/44/e-commerce-8418610_1280.png"],
+      "category": "5",
+      "labels": [],
+      "productVariants": []
+    },
+    {
+      "id": 7,
+      "name": "Men's Denim Jeans",
+      "description": "Classic blue jeans with a regular fit",
+      "price": 1099,
+      "imageUrls": ["https://cdn.pixabay.com/photo/2023/11/29/03/44/e-commerce-8418610_1280.png"],
+      "category": "1",
+      "labels": [],
+      "productVariants": []
+    },
+    {
+      "id": 8,
+      "name": "Women's Ethnic Kurti",
+      "description": "Traditional kurti with embroidered patterns",
+      "price": 699,
+      "imageUrls": ["https://cdn.pixabay.com/photo/2023/11/29/03/44/e-commerce-8418610_1280.png"],
+      "category": "4",
+      "labels": [],
+      "productVariants": []
+    },
+    {
+      "id": 9,
+      "name": "Unisex Track Pants",
+      "description": "Breathable and stretchy activewear pants",
+      "price": 599,
+      "imageUrls": ["https://cdn.pixabay.com/photo/2023/11/29/03/44/e-commerce-8418610_1280.png"],
+      "category": "3",
+      "labels": [],
+      "productVariants": []
+    },
+    {
+      "id": 10,
+      "name": "Men's Leather Jacket",
+      "description": "Premium faux leather jacket for winter",
+      "price": 2299,
+      "imageUrls": ["https://cdn.pixabay.com/photo/2023/11/29/03/44/e-commerce-8418610_1280.png"],
+      "category": "1",
+      "labels": [],
+      "productVariants": []
+    },
+    {
+      "id": 11,
+      "name": "Women's Denim Skirt",
+      "description": "Stylish mini skirt made of soft denim",
+      "price": 799,
+      "imageUrls": ["https://cdn.pixabay.com/photo/2023/11/29/03/44/e-commerce-8418610_1280.png"],
+      "category": "2",
+      "labels": [],
+      "productVariants": []
+    },
+    {
+      "id": 12,
+      "name": "Kids' Shorts",
+      "description": "Casual cotton shorts for summer",
+      "price": 349,
+      "imageUrls": ["https://cdn.pixabay.com/photo/2023/11/29/03/44/e-commerce-8418610_1280.png"],
+      "category": "5",
+      "labels": [],
+      "productVariants": []
+    },
+    {
+      "id": 13,
+      "name": "Men's Kurta Set",
+      "description": "Ethnic kurta with churidar pants",
+      "price": 1499,
+      "imageUrls": ["https://cdn.pixabay.com/photo/2023/11/29/03/44/e-commerce-8418610_1280.png"],
+      "category": "4",
+      "labels": [],
+      "productVariants": []
+    },
+    {
+      "id": 14,
+      "name": "Women's Saree",
+      "description": "Elegant saree with rich colors and pallu",
+      "price": 1999,
+      "imageUrls": ["https://cdn.pixabay.com/photo/2023/11/29/03/44/e-commerce-8418610_1280.png"],
+      "category": "4",
+      "labels": [],
+      "productVariants": []
+    },
+    {
+      "id": 15,
+      "name": "Unisex Raincoat",
+      "description": "Waterproof lightweight raincoat",
+      "price": 799,
+      "imageUrls": ["https://cdn.pixabay.com/photo/2023/11/29/03/44/e-commerce-8418610_1280.png"],
+      "category": "3",
+      "labels": [],
+      "productVariants": []
+    },
+    {
+      "id": 16,
+      "name": "Men's Track Jacket",
+      "description": "Slim-fit sports jacket for men",
+      "price": 1299,
+      "imageUrls": ["https://cdn.pixabay.com/photo/2023/11/29/03/44/e-commerce-8418610_1280.png"],
+      "category": "1",
+      "labels": [],
+      "productVariants": []
+    },
+    {
+      "id": 17,
+      "name": "Women's Crop Top",
+      "description": "Trendy crop top for party and casual wear",
+      "price": 599,
+      "imageUrls": ["https://cdn.pixabay.com/photo/2023/11/29/03/44/e-commerce-8418610_1280.png"],
+      "category": "2",
+      "labels": [],
+      "productVariants": []
+    },
+    {
+      "id": 18,
+      "name": "Kids' Nightwear Set",
+      "description": "Soft and cute printed pajama set",
+      "price": 499,
+      "imageUrls": ["https://cdn.pixabay.com/photo/2023/11/29/03/44/e-commerce-8418610_1280.png"],
+      "category": "5",
+      "labels": [],
+      "productVariants": []
+    },
+    {
+      "id": 19,
+      "name": "Men's Workout Tank",
+      "description": "Breathable gym wear for workouts",
+      "price": 399,
+      "imageUrls": ["https://cdn.pixabay.com/photo/2023/11/29/03/44/e-commerce-8418610_1280.png"],
+      "category": "1",
+      "labels": [],
+      "productVariants": []
+    },
+    {
+      "id": 20,
+      "name": "Women's Sports Bra",
+      "description": "Comfortable and supportive sports bra",
+      "price": 699,
+      "imageUrls": ["https://cdn.pixabay.com/photo/2023/11/29/03/44/e-commerce-8418610_1280.png"],
+      "category": "2",
+      "labels": [],
+      "productVariants": []
+    },
+    {
+      "id": 21,
+      "name": "Unisex Sunglasses",
+      "description": "UV protection sunglasses with modern design",
+      "price": 999,
+      "imageUrls": ["https://cdn.pixabay.com/photo/2023/11/29/03/44/e-commerce-8418610_1280.png"],
+      "category": "3",
+      "labels": [],
+      "productVariants": []
+    },
+    {
+      "id": 22,
+      "name": "Men's Cargo Shorts",
+      "description": "Utility-style shorts with pockets",
+      "price": 899,
+      "imageUrls": ["https://cdn.pixabay.com/photo/2023/11/29/03/44/e-commerce-8418610_1280.png"],
+      "category": "1",
+      "labels": [],
+      "productVariants": []
+    },
+    {
+      "id": 23,
+      "name": "Women's Palazzo Pants",
+      "description": "Flared pants with comfort stretch fabric",
+      "price": 899,
+      "imageUrls": ["https://cdn.pixabay.com/photo/2023/11/29/03/44/e-commerce-8418610_1280.png"],
+      "category": "2",
+      "labels": [],
+      "productVariants": []
+    },
+    {
+      "id": 24,
+      "name": "Kids' Hoodie",
+      "description": "Fleece-lined hoodie for kids",
+      "price": 549,
+      "imageUrls": ["https://cdn.pixabay.com/photo/2023/11/29/03/44/e-commerce-8418610_1280.png"],
+      "category": "5",
+      "labels": [],
+      "productVariants": []
+    },
+    {
+      "id": 25,
+      "name": "Unisex Graphic Tee",
+      "description": "Trendy t-shirt with graphic prints",
+      "price": 599,
+      "imageUrls": ["https://cdn.pixabay.com/photo/2023/11/29/03/44/e-commerce-8418610_1280.png"],
+      "category": "3",
+      "labels": [],
+      "productVariants": []
+    }
+  ]
+  

@@ -1,10 +1,5 @@
 import { useNavigationHelper } from "@/hooks/use-navigate-helper";
-
-interface ICategory {
-  id: number;
-  name: string;
-  image: string;
-}
+import { ICategory } from "@/interfaces/ICategory";
 
 interface IProps {
   category: ICategory;
@@ -20,7 +15,7 @@ const Category = (props: IProps) => {
             <div className="woo_cat_thumb">
             <a onClick={() => navigationHelper.goToProducts(props.category.id?.toString())}>
               <img
-                src={props.category.image}
+                src={props.category.imageUrl}
                 className="img-fluid w-full h-[100px] w-auto mx-auto"
                 alt={props.category.name}
               />
