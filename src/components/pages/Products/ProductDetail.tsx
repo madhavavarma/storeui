@@ -1,4 +1,4 @@
-import { Fragment, useState } from "react";
+import { Fragment, useEffect, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { CircleMinus, CirclePlus } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -29,7 +29,19 @@ const ProductDetail = ({ product }: IProps) => {
   });
 
   const [quantity, setQuantity] = useState(1);
-  const [selectedOptions, setSelectedOptions] = useState<{ [variantName: string]: IOption | null }>();
+  const [selectedOptions, setSelectedOptions] = useState<{ [variantName: string]: IOption | null }>({});
+
+  useEffect(() => {
+    if (product.productVariants) {
+      const initialOptions: { [variantName: string]: IOption | null } = {};
+      product.productVariants.forEach((variant) => {
+        if (variant.isPublished) {
+          initialOptions[variant.name] = null;
+        }
+      });
+      setSelectedOptions(initialOptions);
+    }
+  }, [product]);
 
   const toggleSection = (section: string) => {
     setOpenSections((prev) => ({ ...prev, [section]: !prev[section] }));
@@ -40,24 +52,21 @@ const ProductDetail = ({ product }: IProps) => {
   };
 
   const handleAddToCart = () => {
-    const selectedVariantOptions = selectedOptions && Object.values(selectedOptions).filter(Boolean);
-  
-    if (selectedOptions && selectedVariantOptions?.length !== (product.productVariants?.length || 0)) {
-      alert("Please select all variant options before adding to cart.");
-      return;
-    }
-  
     const cartItem = {
       product,
       selectedOptions: selectedOptions as { [variantName: string]: IOption },
       quantity,
       totalPrice: parseFloat((product.price * quantity).toFixed(2)),
     };
-  
+
     console.log("Added to cart:", cartItem);
     dispatch(CartActions.addItem(cartItem));
   };
-  
+
+  const allOptionsSelected =
+    selectedOptions &&
+    Object.values(selectedOptions).every((option) => option !== null) &&
+    Object.keys(selectedOptions).length === (product.productVariants?.filter(v => v.isPublished).length || 0);
 
   return (
     <Fragment>
@@ -91,33 +100,34 @@ const ProductDetail = ({ product }: IProps) => {
         <Card className="p-4 bg-gray-200 rounded-lg shadow-md">
           <div className="space-y-3">
             {/* Dynamic Product Variants */}
-            {product.productVariants?.map((variant) =>
-              variant.isPublished ? (
-                <div key={variant.name} className="flex items-center justify-between">
-                  <h3 className="text-sm font-semibold">{variant.name}</h3>
-                  <div className="flex gap-2">
-                    {variant.productvariantoptions
-                      .filter((option) => option.isPublished)
-                      .map((option) => {
-                        const selectedOption = selectedOptions && selectedOptions[variant.name];
-                        const isSelected = selectedOption?.name === option.name;
+            {product.productVariants?.map(
+              (variant) =>
+                variant.isPublished && (
+                  <div key={variant.name} className="flex items-center justify-between">
+                    <h3 className="text-sm font-semibold">{variant.name}</h3>
+                    <div className="flex gap-2 flex-wrap">
+                      {variant.productvariantoptions
+                        .filter((option) => option.isPublished)
+                        .map((option) => {
+                          const selectedOption = selectedOptions && selectedOptions[variant.name];
+                          const isSelected = selectedOption?.name === option.name;
 
-                        return (
-                          <Button
-                            key={option.id}
-                            size="sm"
-                            variant={isSelected ? "default" : "outline"}
-                            onClick={() => handleOptionSelect(variant.name, option)}
-                            disabled={option.isOutOfStock}
-                            className="text-xs px-3 py-1 disabled:opacity-50"
-                          >
-                            {option.name}
-                          </Button>
-                        );
-                      })}
+                          return (
+                            <Button
+                              key={option.id}
+                              size="sm"
+                              variant={isSelected ? "default" : "outline"}
+                              onClick={() => handleOptionSelect(variant.name, option)}
+                              disabled={option.isOutOfStock}
+                              className="text-xs px-3 py-1 disabled:opacity-50"
+                            >
+                              {option.name}
+                            </Button>
+                          );
+                        })}
+                    </div>
                   </div>
-                </div>
-              ) : null
+                )
             )}
 
             {/* Quantity Control */}
@@ -184,8 +194,9 @@ const ProductDetail = ({ product }: IProps) => {
       {/* Footer */}
       <div className="fixed w-[400px] bottom-0 right-0 p-4 bg-white shadow-md">
         <Button
-          className="bg-[#5DBF13] text-white px-4 py-2 rounded-lg w-full hover:bg-green-700"
+          className="bg-[#5DBF13] text-white px-4 py-2 rounded-lg w-full hover:bg-green-700 disabled:opacity-50"
           onClick={handleAddToCart}
+          disabled={!allOptionsSelected}
         >
           Add to Cart
         </Button>

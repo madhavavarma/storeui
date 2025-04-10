@@ -307,6 +307,7 @@ export default function CheckoutPage() {
             <Button
               onClick={handlePlaceOrder}
               className="w-full bg-[#5DBF13] hover:bg-green-700 text-white rounded-xl"
+              disabled={cartItems.length === 0}
             >
               Place Order
             </Button>

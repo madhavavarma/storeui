@@ -39,7 +39,50 @@ const ProductList = () => {
       price: 19.99,
       imageUrls: ["https://cdn.pixabay.com/photo/2023/11/29/03/44/e-commerce-8418610_1280.png"],
       category: "1",
-      productVariants: [],
+      productVariants: [
+        {
+          id: 0,
+          name: "Weight",
+          isPublished: true,
+          productvariantoptions: [
+            {
+              id: 3,
+              name: "500g",
+              isPublished: true,
+              isOutOfStock: false,
+              price: 0
+            },
+            {
+              id: 4,
+              name: "1kg",
+              isPublished: true,
+              isOutOfStock: false,
+              price: 0
+            },
+          ],
+        },
+        {
+          id: 1,
+          name: "Type",
+          isPublished: true,
+          productvariantoptions: [
+            {
+              id: 1,
+              name: "Organic",
+              isPublished: true,
+              isOutOfStock: false,
+              price: 0
+            },
+            {
+              id: 2,
+              name: "Hybrid",
+              isPublished: true,
+              isOutOfStock: true,
+              price: 0
+            },
+          ],
+        },
+      ],
     },
     {
       id: 2,
