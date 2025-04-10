@@ -86,7 +86,7 @@ const MiniProductList = () => {
       <div className="flex flex-wrap gap-1 md:gap-4 justify-center">
         {products.map((product) => (
           <div key={product.id}>
-            <Product2 product={product}/>
+            <Product2 product={product} isHideDrawer={false}/>
           </div>
         ))}
       </div>

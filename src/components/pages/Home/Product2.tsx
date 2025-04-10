@@ -7,9 +7,10 @@ import { Star } from "lucide-react";
 interface ProductProps {
   product: IProduct;
   labels?: string[];
+  isHideDrawer?: boolean;
 }
 
-const Product2 = ({ product, labels = ["New"] }: ProductProps) => {
+const Product2 = ({ product, labels = ["New"], isHideDrawer }: ProductProps) => {
   const { name, price, imageUrls } = product;
   const [showProductDetail, setShowProductDetail] = useState<IProduct | null>(null);
 
@@ -55,7 +56,7 @@ const Product2 = ({ product, labels = ["New"] }: ProductProps) => {
       </div>
 
       {/* Product Detail Drawer */}
-      {showProductDetail && (
+      {showProductDetail && !isHideDrawer && (
         <RightDrawer isOpen={!!showProductDetail} onClose={() => setShowProductDetail(null)}>
           <ProductDetail product={product} />
         </RightDrawer>

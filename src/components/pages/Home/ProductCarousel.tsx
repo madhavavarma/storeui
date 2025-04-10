@@ -36,7 +36,7 @@ const ProductCarousel = (props: IProps) => {
             <CarouselItem key={index} className="basis-1/8 md:basis-1/4 lg:basis-1/4">
                 <div >
                     <CardContent className="flex  ">
-                        <Product2 key={product.id} product={product}/>
+                        <Product2 key={product.id} product={product} isHideDrawer={true}/>
                     </CardContent>
                 </div>
             </CarouselItem>

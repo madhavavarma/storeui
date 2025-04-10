@@ -101,7 +101,7 @@ const ProductList = () => {
           {filteredProducts.length > 0 ? (
             filteredProducts.map((product) => (
               <div key={product.id} className="w-full">
-                <Product2 product={product} />
+                <Product2 product={product} isHideDrawer={false}/>
               </div>
             ))
           ) : (
