@@ -140,7 +140,7 @@ const ProductList = () => {
 
       {/* Floating Buttons */}
       {!showProductDetail && !showCart && (
-        <div className="fixed bottom-20 right-2 z-50 flex flex-col space-y-2">
+        <div className="fixed bottom-20 right-2 z-[9999] flex flex-col space-y-2">
           {/* 🛒 Cart button with badge and shake */}
           <div className={`relative ${shake ? "animate-shake" : ""}`}>
             <FloatingButtonWithTT

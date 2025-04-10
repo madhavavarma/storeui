@@ -14,7 +14,7 @@ export default function RightDrawer({ isOpen, onClose, children }: RightDrawerPr
         <>
           {/* Overlay */}
           <motion.div
-            className="fixed inset-0 bg-black bg-opacity-40 backdrop-blur-sm z-50"
+            className="fixed inset-0 bg-black bg-opacity-40 backdrop-blur-sm z-[9998]"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0, transition: { duration: 0.2 } }}
@@ -23,7 +23,7 @@ export default function RightDrawer({ isOpen, onClose, children }: RightDrawerPr
 
           {/* Drawer */}
           <motion.div
-            className="fixed inset-y-0 right-0 w-full sm:w-[400px] bg-white shadow-lg z-50 flex flex-col sm:rounded-l-xl rounded-none m-0 p-0"
+            className="fixed inset-y-0 right-0 w-full sm:w-[400px] bg-white shadow-lg z-[9998] flex flex-col sm:rounded-l-xl rounded-none m-0 p-0"
             initial={{ x: "100%", opacity: 0.5, scale: 0.95 }}
             animate={{ x: 0, opacity: 1, scale: 1 }}
             exit={{
