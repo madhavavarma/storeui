@@ -8,7 +8,6 @@ import { useSelector } from "react-redux";
 import { IState } from "@/store/interfaces/IState";
 
 const MiniProductList = () => {
-  
   const products = useSelector((state: IState) => state.Products.products);
 
   const [showCart, setShowCart] = useState(false);
@@ -37,9 +36,12 @@ const MiniProductList = () => {
       <h2 className="text-3xl font-bold text-gray-800 mb-6">Products</h2>
 
       {/* Product Grid */}
-      <div className="flex flex-wrap gap-1 md:gap-4 justify-center">
+      <div className="flex flex-wrap  justify-center">
         {products.slice(0, 8).map((product) => (
-          <div key={product.id}>
+          <div
+            key={product.id}
+            className="w-1/2 sm:w-[180px] md:w-[200px] lg:w-[220px] px-1"
+          >
             <Product2 product={product} isHideDrawer={false} />
           </div>
         ))}

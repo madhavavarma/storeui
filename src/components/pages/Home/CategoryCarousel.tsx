@@ -1,8 +1,9 @@
-import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from '../../ui/carousel';
-import { Card, CardContent } from '../../ui/card';
-import Category from './Category';
-import { IState } from '@/store/interfaces/IState';
 import { useSelector } from 'react-redux';
+import { IState } from '@/store/interfaces/IState';
+import Category from './Category';
+
+import { Swiper, SwiperSlide } from 'swiper/react';
+import 'swiper/swiper.min.css'
 
 const CategoryCarousel = () => {
   const categories = useSelector((state: IState) => state.Categories.categories);
@@ -10,28 +11,32 @@ const CategoryCarousel = () => {
   return (
     <div className="bg-[#fff] text-center w-full">
       {/* "Choose Categories" Text in Green */}
-      <p className="text-sm text-green-500 mb-1  pt-6">Choose Categories</p>
+      <p className="text-sm text-green-500 mb-1 pt-6">Choose Categories</p>
 
       {/* "Explore Categories" Heading */}
       <h2 className="text-3xl font-bold text-gray-800 mb-6">Explore Categories</h2>
 
-      <Carousel className="w-full h-[200px] w-[80%] m-auto">
-      <CarouselContent className="-ml-1">
-        {categories.map((_, index) => (
-          <CarouselItem key={index} className="basis-1/2 md:basis-1/4 lg:basis-1/5">
-            <div className="p-1">
-              <Card>
-                <CardContent className="flex aspect-square items-center justify-center p-2">
-                  <Category category={_} />
-                </CardContent>
-              </Card>
-            </div>
-          </CarouselItem>
-        ))}
-      </CarouselContent >
-      <CarouselPrevious className=""/>
-      <CarouselNext className=""/>
-    </Carousel>
+      <div className="w-[90%] mx-auto">
+        <Swiper
+          spaceBetween={10}
+          breakpoints={{
+            320: { slidesPerView: 2 },
+            640: { slidesPerView: 3 },
+            768: { slidesPerView: 4 },
+            1024: { slidesPerView: 5 },
+          }}
+        >
+          {categories.map((category, index) => (
+            <SwiperSlide key={index}>
+              <div className="p-1">
+                <div className="rounded-none border-none bg-transparent shadow-none">
+                  <Category category={category} />
+                </div>
+              </div>
+            </SwiperSlide>
+          ))}
+        </Swiper>
+      </div>
     </div>
   );
 };

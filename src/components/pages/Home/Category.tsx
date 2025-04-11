@@ -6,32 +6,31 @@ interface IProps {
 }
 
 const Category = (props: IProps) => {
-  
   const navigationHelper = useNavigationHelper();
 
-  return (
+  const handleClick = () => {
+    navigationHelper.goToProducts(props.category.id?.toString());
+  };
 
-          <div className="border-0 rounded-lg overflow-hidden duration-300">
-            <div className="woo_cat_thumb">
-            <a onClick={() => navigationHelper.goToProducts(props.category.id?.toString())}>
-              <img
-                src={props.category.imageUrl}
-                className="img-fluid w-full h-[100px] w-auto mx-auto"
-                alt={props.category.name}
-              />
-            </a>
-            </div>
-            <div className="text-center mt-2">
-              <h4>
-              <a
-                onClick={() => navigationHelper.goToProducts(props.category.id?.toString())}
-                className="text-sm font-semibold text-gray-800 hover:text-green-500 transition-colors duration-200 cursor-pointer"
-              >
-                {props.category.name}
-              </a>
-              </h4>
-            </div>
-          </div>
+  return (
+    <div
+      className="relative w-full aspect-[16/9] rounded-lg overflow-hidden cursor-pointer group"
+      onClick={handleClick}
+    >
+      {/* Background Image */}
+      <img
+        src={props.category.imageUrl}
+        alt={props.category.name}
+        className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
+      />
+
+      {/* Overlay Text */}
+      <div className="absolute inset-0 bg-black/30 flex items-start justify-start p-3">
+        <span className="text-white text-lg font-semibold drop-shadow">
+          {props.category.name}
+        </span>
+      </div>
+    </div>
   );
 };
 
