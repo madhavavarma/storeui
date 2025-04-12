@@ -1,5 +1,5 @@
 import { Button } from "@/components/ui/button";
-import { TrashIcon } from "lucide-react";
+import { Trash2 } from "lucide-react";
 
 const CartItem = ({ product, onRemove, onUpdateQuantity }: any) => {
   const { name, imageUrls, price } = product.product;
@@ -41,8 +41,9 @@ const CartItem = ({ product, onRemove, onUpdateQuantity }: any) => {
           onClick={() => onRemove(product.product.id)}
           className="text-red-500"
         >
-          <TrashIcon className="w-5 h-5" />
+          <Trash2 className="w-5 h-5" />
         </Button>
+        
       </div>
     </div>
   );

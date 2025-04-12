@@ -22,9 +22,9 @@ const Home: React.FC = () => {
       </section>
 
       <section className="">
-        <ProductCarousel heading="Welcome Offer" />
-        <ProductCarousel heading="Deals" />        
-        <ProductCarousel heading="Newly Added" />        
+        <ProductCarousel heading="Welcome Offer" label="welcome" />
+        <ProductCarousel heading="Deals" label="deal" />        
+        <ProductCarousel heading="Newly Added" label="new" />        
       </section>
       <Footer />
     </Fragment>

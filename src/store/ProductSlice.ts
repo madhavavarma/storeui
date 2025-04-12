@@ -4,6 +4,7 @@ import { IProduct } from "@/interfaces/IProduct";
 
 const initialState: IProductState = {
   products: [],
+  productDetail: null
 };
 
 
@@ -13,7 +14,12 @@ const ProductSlice = createSlice({
     reducers: {
         setProducts: (state:IProductState, action: PayloadAction<IProduct[]>) => {
             state.products = action.payload
+        },
+
+        setProductDetail: (state:IProductState, action: PayloadAction<IProduct | null>) => {
+            state.productDetail = action.payload
         }
+
     }
 });
 

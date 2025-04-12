@@ -2,312 +2,976 @@
   {
     "id": 2,
     "name": "Women's Floral Dress",
-    "description": "Elegant floral print summer dress for women.",
-    "price": 1299,
-    "category": "2",
-    "labels": ["Bestseller"],
-    "variants": {
-      "size": ["S", "M", "L", "XL"],
-      "color": ["Floral Pink", "Floral Blue"]
-    },
     "imageUrls": [
       "https://images.pexels.com/photos/1036620/pexels-photo-1036620.jpeg?auto=compress&cs=tinysrgb&w=600",
       "https://images.pexels.com/photos/1036622/pexels-photo-1036622.jpeg?auto=compress&cs=tinysrgb&w=600"
+    ],
+    "description": "Elegant floral print summer dress for women.",
+    "isPublished": true,
+    "category": "2",
+    "labels": [
+      "Deal"
+    ],
+    "price": 1299,
+    "productVariants": [
+      {
+        "id": 1,
+        "name": "size",
+        "isPublished": true,
+        "productvariantoptions": [
+          {
+            "id": 1,
+            "name": "S",
+            "price": 1299,
+            "isPublished": true,
+            "isOutOfStock": false
+          },
+          {
+            "id": 2,
+            "name": "M",
+            "price": 1299,
+            "isPublished": true,
+            "isOutOfStock": false
+          },
+          {
+            "id": 3,
+            "name": "L",
+            "price": 1299,
+            "isPublished": true,
+            "isOutOfStock": false
+          },
+          {
+            "id": 4,
+            "name": "XL",
+            "price": 1299,
+            "isPublished": true,
+            "isOutOfStock": false
+          }
+        ]
+      },
+      {
+        "id": 2,
+        "name": "color",
+        "isPublished": true,
+        "productvariantoptions": [
+          {
+            "id": 1,
+            "name": "Floral Pink",
+            "price": 1299,
+            "isPublished": true,
+            "isOutOfStock": false
+          },
+          {
+            "id": 2,
+            "name": "Floral Blue",
+            "price": 1299,
+            "isPublished": true,
+            "isOutOfStock": false
+          }
+        ]
+      }
     ]
   },
   {
     "id": 3,
     "name": "Men's Casual Shirt",
-    "description": "Slim fit casual shirt perfect for everyday wear.",
-    "price": 999,
-    "category": "1",
-    "labels": ["New Arrival"],
-    "variants": {
-      "size": ["M", "L", "XL"],
-      "color": ["White", "Grey", "Navy Blue"]
-    },
     "imageUrls": [
       "https://images.pexels.com/photos/1082529/pexels-photo-1082529.jpeg?auto=compress&cs=tinysrgb&w=600",
       "https://images.pexels.com/photos/1082528/pexels-photo-1082528.jpeg?auto=compress&cs=tinysrgb&w=600"
+    ],
+    "description": "Slim fit casual shirt perfect for everyday wear.",
+    "isPublished": true,
+    "category": "1",
+    "labels": [
+      "Welcome"
+    ],
+    "price": 999,
+    "productVariants": [
+      {
+        "id": 1,
+        "name": "size",
+        "isPublished": true,
+        "productvariantoptions": [
+          {
+            "id": 1,
+            "name": "M",
+            "price": 999,
+            "isPublished": true,
+            "isOutOfStock": false
+          },
+          {
+            "id": 2,
+            "name": "L",
+            "price": 999,
+            "isPublished": true,
+            "isOutOfStock": false
+          },
+          {
+            "id": 3,
+            "name": "XL",
+            "price": 999,
+            "isPublished": true,
+            "isOutOfStock": false
+          }
+        ]
+      },
+      {
+        "id": 2,
+        "name": "color",
+        "isPublished": true,
+        "productvariantoptions": [
+          {
+            "id": 1,
+            "name": "White",
+            "price": 999,
+            "isPublished": true,
+            "isOutOfStock": false
+          },
+          {
+            "id": 2,
+            "name": "Grey",
+            "price": 999,
+            "isPublished": true,
+            "isOutOfStock": false
+          },
+          {
+            "id": 3,
+            "name": "Navy Blue",
+            "price": 999,
+            "isPublished": true,
+            "isOutOfStock": false
+          }
+        ]
+      }
     ]
   },
   {
     "id": 4,
     "name": "Women's Denim Jacket",
-    "description": "Classic blue denim jacket with a modern fit.",
-    "price": 1499,
-    "category": "2",
-    "labels": ["Trending"],
-    "variants": {
-      "size": ["S", "M", "L"],
-      "color": ["Light Blue", "Dark Blue"]
-    },
     "imageUrls": [
       "https://images.pexels.com/photos/1231643/pexels-photo-1231643.jpeg?auto=compress&cs=tinysrgb&w=600",
       "https://images.pexels.com/photos/1231644/pexels-photo-1231644.jpeg?auto=compress&cs=tinysrgb&w=600"
+    ],
+    "description": "Classic blue denim jacket with a modern fit.",
+    "isPublished": true,
+    "category": "2",
+    "labels": [
+      "New"
+    ],
+    "price": 1499,
+    "productVariants": [
+      {
+        "id": 1,
+        "name": "size",
+        "isPublished": true,
+        "productvariantoptions": [
+          {
+            "id": 1,
+            "name": "S",
+            "price": 1499,
+            "isPublished": true,
+            "isOutOfStock": false
+          },
+          {
+            "id": 2,
+            "name": "M",
+            "price": 1499,
+            "isPublished": true,
+            "isOutOfStock": false
+          },
+          {
+            "id": 3,
+            "name": "L",
+            "price": 1499,
+            "isPublished": true,
+            "isOutOfStock": false
+          }
+        ]
+      },
+      {
+        "id": 2,
+        "name": "color",
+        "isPublished": true,
+        "productvariantoptions": [
+          {
+            "id": 1,
+            "name": "Light Blue",
+            "price": 1499,
+            "isPublished": true,
+            "isOutOfStock": false
+          },
+          {
+            "id": 2,
+            "name": "Dark Blue",
+            "price": 1499,
+            "isPublished": true,
+            "isOutOfStock": false
+          }
+        ]
+      }
     ]
   },
   {
     "id": 5,
     "name": "Men's Running Shoes",
-    "description": "Breathable and durable running shoes for daily workouts.",
-    "price": 1999,
-    "category": "1",
-    "labels": ["Popular"],
-    "variants": {
-      "size": ["7", "8", "9", "10"],
-      "color": ["Black", "Grey", "Blue"]
-    },
     "imageUrls": [
       "https://images.pexels.com/photos/1025469/pexels-photo-1025469.jpeg?auto=compress&cs=tinysrgb&w=600",
       "https://images.pexels.com/photos/1025468/pexels-photo-1025468.jpeg?auto=compress&cs=tinysrgb&w=600"
+    ],
+    "description": "Breathable and durable running shoes for daily workouts.",
+    "isPublished": true,
+    "category": "1",
+    "labels": [],
+    "price": 1999,
+    "productVariants": [
+      {
+        "id": 1,
+        "name": "size",
+        "isPublished": true,
+        "productvariantoptions": [
+          {
+            "id": 1,
+            "name": "7",
+            "price": 1999,
+            "isPublished": true,
+            "isOutOfStock": false
+          },
+          {
+            "id": 2,
+            "name": "8",
+            "price": 1999,
+            "isPublished": true,
+            "isOutOfStock": false
+          },
+          {
+            "id": 3,
+            "name": "9",
+            "price": 1999,
+            "isPublished": true,
+            "isOutOfStock": false
+          },
+          {
+            "id": 4,
+            "name": "10",
+            "price": 1999,
+            "isPublished": true,
+            "isOutOfStock": false
+          }
+        ]
+      },
+      {
+        "id": 2,
+        "name": "color",
+        "isPublished": true,
+        "productvariantoptions": [
+          {
+            "id": 1,
+            "name": "Black",
+            "price": 1999,
+            "isPublished": true,
+            "isOutOfStock": false
+          },
+          {
+            "id": 2,
+            "name": "Grey",
+            "price": 1999,
+            "isPublished": true,
+            "isOutOfStock": false
+          },
+          {
+            "id": 3,
+            "name": "Blue",
+            "price": 1999,
+            "isPublished": true,
+            "isOutOfStock": false
+          }
+        ]
+      }
     ]
   },
   {
     "id": 6,
     "name": "Unisex Sports Watch",
-    "description": "Digital watch with water resistance and multiple features.",
-    "price": 899,
-    "category": "3",
-    "labels": ["Hot"],
-    "variants": {
-      "color": ["Black", "Red", "Green"]
-    },
     "imageUrls": [
       "https://images.pexels.com/photos/1565982/pexels-photo-1565982.jpeg?auto=compress&cs=tinysrgb&w=600",
       "https://images.pexels.com/photos/1565983/pexels-photo-1565983.jpeg?auto=compress&cs=tinysrgb&w=600"
+    ],
+    "description": "Digital watch with water resistance and multiple features.",
+    "isPublished": true,
+    "category": "3",
+    "labels": [
+      "Best Seller"
+    ],
+    "price": 899,
+    "productVariants": [
+      {
+        "id": 1,
+        "name": "color",
+        "isPublished": true,
+        "productvariantoptions": [
+          {
+            "id": 1,
+            "name": "Black",
+            "price": 899,
+            "isPublished": true,
+            "isOutOfStock": false
+          },
+          {
+            "id": 2,
+            "name": "Red",
+            "price": 899,
+            "isPublished": true,
+            "isOutOfStock": false
+          },
+          {
+            "id": 3,
+            "name": "Green",
+            "price": 899,
+            "isPublished": true,
+            "isOutOfStock": false
+          }
+        ]
+      }
     ]
   },
   {
     "id": 7,
     "name": "Men's Formal Trousers",
-    "description": "Smart fit trousers for office and formal occasions.",
-    "price": 1199,
-    "category": "1",
-    "labels": [],
-    "variants": {
-      "size": ["30", "32", "34", "36"],
-      "color": ["Black", "Navy", "Beige"]
-    },
     "imageUrls": [
       "https://images.pexels.com/photos/1183266/pexels-photo-1183266.jpeg?auto=compress&cs=tinysrgb&w=600",
       "https://images.pexels.com/photos/1183267/pexels-photo-1183267.jpeg?auto=compress&cs=tinysrgb&w=600"
+    ],
+    "description": "Smart fit trousers for office and formal occasions.",
+    "isPublished": true,
+    "category": "1",
+    "labels": [
+      "New"
+    ],
+    "price": 1199,
+    "productVariants": [
+      {
+        "id": 1,
+        "name": "size",
+        "isPublished": true,
+        "productvariantoptions": [
+          {
+            "id": 1,
+            "name": "30",
+            "price": 1199,
+            "isPublished": true,
+            "isOutOfStock": false
+          },
+          {
+            "id": 2,
+            "name": "32",
+            "price": 1199,
+            "isPublished": true,
+            "isOutOfStock": false
+          },
+          {
+            "id": 3,
+            "name": "34",
+            "price": 1199,
+            "isPublished": true,
+            "isOutOfStock": false
+          },
+          {
+            "id": 4,
+            "name": "36",
+            "price": 1199,
+            "isPublished": true,
+            "isOutOfStock": false
+          }
+        ]
+      },
+      {
+        "id": 2,
+        "name": "color",
+        "isPublished": true,
+        "productvariantoptions": [
+          {
+            "id": 1,
+            "name": "Black",
+            "price": 1199,
+            "isPublished": true,
+            "isOutOfStock": false
+          },
+          {
+            "id": 2,
+            "name": "Navy",
+            "price": 1199,
+            "isPublished": true,
+            "isOutOfStock": false
+          },
+          {
+            "id": 3,
+            "name": "Beige",
+            "price": 1199,
+            "isPublished": true,
+            "isOutOfStock": false
+          }
+        ]
+      }
     ]
   },
   {
     "id": 8,
     "name": "Women's Leggings",
-    "description": "Stretchable cotton leggings for comfort all day.",
-    "price": 399,
-    "category": "2",
-    "labels": ["Best Value"],
-    "variants": {
-      "size": ["S", "M", "L", "XL"],
-      "color": ["Black", "Maroon", "Olive"]
-    },
     "imageUrls": [
       "https://images.pexels.com/photos/1231640/pexels-photo-1231640.jpeg?auto=compress&cs=tinysrgb&w=600",
       "https://images.pexels.com/photos/1231641/pexels-photo-1231641.jpeg?auto=compress&cs=tinysrgb&w=600"
+    ],
+    "description": "Stretchable cotton leggings for comfort all day.",
+    "isPublished": true,
+    "category": "2",
+    "labels": [
+      "Welcome"
+    ],
+    "price": 399,
+    "productVariants": [
+      {
+        "id": 1,
+        "name": "size",
+        "isPublished": true,
+        "productvariantoptions": [
+          {
+            "id": 1,
+            "name": "S",
+            "price": 399,
+            "isPublished": true,
+            "isOutOfStock": false
+          },
+          {
+            "id": 2,
+            "name": "M",
+            "price": 399,
+            "isPublished": true,
+            "isOutOfStock": false
+          },
+          {
+            "id": 3,
+            "name": "L",
+            "price": 399,
+            "isPublished": true,
+            "isOutOfStock": false
+          },
+          {
+            "id": 4,
+            "name": "XL",
+            "price": 399,
+            "isPublished": true,
+            "isOutOfStock": false
+          }
+        ]
+      },
+      {
+        "id": 2,
+        "name": "color",
+        "isPublished": true,
+        "productvariantoptions": [
+          {
+            "id": 1,
+            "name": "Black",
+            "price": 399,
+            "isPublished": true,
+            "isOutOfStock": false
+          },
+          {
+            "id": 2,
+            "name": "Maroon",
+            "price": 399,
+            "isPublished": true,
+            "isOutOfStock": false
+          },
+          {
+            "id": 3,
+            "name": "Olive",
+            "price": 399,
+            "isPublished": true,
+            "isOutOfStock": false
+          }
+        ]
+      }
     ]
   },
   {
     "id": 9,
     "name": "Men's Hoodie",
-    "description": "Warm fleece hoodie with kangaroo pockets.",
-    "price": 1399,
-    "category": "1",
-    "labels": ["Winter"],
-    "variants": {
-      "size": ["M", "L", "XL"],
-      "color": ["Charcoal", "Navy", "White"]
-    },
     "imageUrls": [
       "https://images.pexels.com/photos/1139682/pexels-photo-1139682.jpeg?auto=compress&cs=tinysrgb&w=600",
       "https://images.pexels.com/photos/1139683/pexels-photo-1139683.jpeg?auto=compress&cs=tinysrgb&w=600"
+    ],
+    "description": "Warm fleece hoodie with kangaroo pockets.",
+    "isPublished": true,
+    "category": "1",
+    "labels": [
+      "Deal"
+    ],
+    "price": 1399,
+    "productVariants": [
+      {
+        "id": 1,
+        "name": "size",
+        "isPublished": true,
+        "productvariantoptions": [
+          {
+            "id": 1,
+            "name": "M",
+            "price": 1399,
+            "isPublished": true,
+            "isOutOfStock": false
+          },
+          {
+            "id": 2,
+            "name": "L",
+            "price": 1399,
+            "isPublished": true,
+            "isOutOfStock": false
+          },
+          {
+            "id": 3,
+            "name": "XL",
+            "price": 1399,
+            "isPublished": true,
+            "isOutOfStock": false
+          }
+        ]
+      },
+      {
+        "id": 2,
+        "name": "color",
+        "isPublished": true,
+        "productvariantoptions": [
+          {
+            "id": 1,
+            "name": "Charcoal",
+            "price": 1399,
+            "isPublished": true,
+            "isOutOfStock": false
+          },
+          {
+            "id": 2,
+            "name": "Navy",
+            "price": 1399,
+            "isPublished": true,
+            "isOutOfStock": false
+          },
+          {
+            "id": 3,
+            "name": "White",
+            "price": 1399,
+            "isPublished": true,
+            "isOutOfStock": false
+          }
+        ]
+      }
     ]
   },
   {
     "id": 10,
     "name": "Kids' Printed T-Shirt",
-    "description": "Colorful and fun print t-shirt for kids.",
-    "price": 299,
-    "category": "5",
-    "labels": ["Cute"],
-    "variants": {
-      "size": ["2Y", "3Y", "4Y", "5Y"],
-      "color": ["Yellow", "Green", "Blue"]
-    },
     "imageUrls": [
       "https://images.pexels.com/photos/1579294/pexels-photo-1579294.jpeg?auto=compress&cs=tinysrgb&w=600",
       "https://images.pexels.com/photos/1579295/pexels-photo-1579295.jpeg?auto=compress&cs=tinysrgb&w=600"
+    ],
+    "description": "Colorful and fun print t-shirt for kids.",
+    "isPublished": true,
+    "category": "5",
+    "labels": [],
+    "price": 299,
+    "productVariants": [
+      {
+        "id": 1,
+        "name": "size",
+        "isPublished": true,
+        "productvariantoptions": [
+          {
+            "id": 1,
+            "name": "2Y",
+            "price": 299,
+            "isPublished": true,
+            "isOutOfStock": false
+          },
+          {
+            "id": 2,
+            "name": "3Y",
+            "price": 299,
+            "isPublished": true,
+            "isOutOfStock": false
+          },
+          {
+            "id": 3,
+            "name": "4Y",
+            "price": 299,
+            "isPublished": true,
+            "isOutOfStock": false
+          },
+          {
+            "id": 4,
+            "name": "5Y",
+            "price": 299,
+            "isPublished": true,
+            "isOutOfStock": false
+          }
+        ]
+      },
+      {
+        "id": 2,
+        "name": "color",
+        "isPublished": true,
+        "productvariantoptions": [
+          {
+            "id": 1,
+            "name": "Yellow",
+            "price": 299,
+            "isPublished": true,
+            "isOutOfStock": false
+          },
+          {
+            "id": 2,
+            "name": "Green",
+            "price": 299,
+            "isPublished": true,
+            "isOutOfStock": false
+          },
+          {
+            "id": 3,
+            "name": "Blue",
+            "price": 299,
+            "isPublished": true,
+            "isOutOfStock": false
+          }
+        ]
+      }
     ]
   },
   {
     "id": 11,
     "name": "Women's Handbag",
-    "description": "Stylish faux leather handbag with spacious compartments.",
-    "price": 1599,
-    "category": "6",
-    "labels": ["Stylish", "Trending"],
-    "variants": {
-      "color": ["Tan", "Black", "Red"]
-    },
     "imageUrls": [
       "https://images.pexels.com/photos/1270322/pexels-photo-1270322.jpeg?auto=compress&cs=tinysrgb&w=600",
       "https://images.pexels.com/photos/1270323/pexels-photo-1270323.jpeg?auto=compress&cs=tinysrgb&w=600"
+    ],
+    "description": "Stylish faux leather handbag with spacious compartments.",
+    "isPublished": true,
+    "category": "6",
+    "labels": [
+      "Best Seller"
+    ],
+    "price": 1599,
+    "productVariants": [
+      {
+        "id": 1,
+        "name": "color",
+        "isPublished": true,
+        "productvariantoptions": [
+          {
+            "id": 1,
+            "name": "Tan",
+            "price": 1599,
+            "isPublished": true,
+            "isOutOfStock": false
+          },
+          {
+            "id": 2,
+            "name": "Black",
+            "price": 1599,
+            "isPublished": true,
+            "isOutOfStock": false
+          },
+          {
+            "id": 3,
+            "name": "Red",
+            "price": 1599,
+            "isPublished": true,
+            "isOutOfStock": false
+          }
+        ]
+      }
     ]
   },
   {
     "id": 12,
     "name": "Men's Leather Wallet",
-    "description": "Premium genuine leather wallet with multiple compartments.",
-    "price": 899,
-    "category": "1",
-    "labels": ["Premium", "Classic"],
-    "variants": {
-      "color": ["Brown", "Black"]
-    },
     "imageUrls": [
       "https://images.pexels.com/photos/179909/pexels-photo-179909.jpeg?auto=compress&cs=tinysrgb&w=600",
       "https://images.pexels.com/photos/1166415/pexels-photo-1166415.jpeg?auto=compress&cs=tinysrgb&w=600"
+    ],
+    "description": "Premium genuine leather wallet with multiple compartments.",
+    "isPublished": true,
+    "category": "1",
+    "labels": [
+      "New"
+    ],
+    "price": 899,
+    "productVariants": [
+      {
+        "id": 1,
+        "name": "color",
+        "isPublished": true,
+        "productvariantoptions": [
+          {
+            "id": 1,
+            "name": "Brown",
+            "price": 899,
+            "isPublished": true,
+            "isOutOfStock": false
+          },
+          {
+            "id": 2,
+            "name": "Black",
+            "price": 899,
+            "isPublished": true,
+            "isOutOfStock": false
+          }
+        ]
+      }
     ]
   },
   {
     "id": 13,
     "name": "Women's Sunglasses",
-    "description": "Stylish oversized sunglasses with UV protection.",
-    "price": 599,
-    "category": "2",
-    "labels": ["Trending", "New"],
-    "variants": {
-      "color": ["Black", "Gold", "Tortoise"]
-    },
     "imageUrls": [
       "https://images.pexels.com/photos/1329464/pexels-photo-1329464.jpeg?auto=compress&cs=tinysrgb&w=600",
       "https://images.pexels.com/photos/46710/pexels-photo-46710.jpeg?auto=compress&cs=tinysrgb&w=600"
+    ],
+    "description": "Stylish oversized sunglasses with UV protection.",
+    "isPublished": true,
+    "category": "2",
+    "labels": [
+      "Welcome"
+    ],
+    "price": 599,
+    "productVariants": [
+      {
+        "id": 1,
+        "name": "color",
+        "isPublished": true,
+        "productvariantoptions": [
+          {
+            "id": 1,
+            "name": "Black",
+            "price": 599,
+            "isPublished": true,
+            "isOutOfStock": false
+          },
+          {
+            "id": 2,
+            "name": "Gold",
+            "price": 599,
+            "isPublished": true,
+            "isOutOfStock": false
+          },
+          {
+            "id": 3,
+            "name": "Tortoise",
+            "price": 599,
+            "isPublished": true,
+            "isOutOfStock": false
+          }
+        ]
+      }
     ]
   },
   {
     "id": 14,
     "name": "Men's Analog Watch",
-    "description": "Elegant analog wristwatch with leather strap.",
-    "price": 1499,
-    "category": "1",
-    "labels": ["Bestseller"],
-    "variants": {
-      "color": ["Black", "Brown"]
-    },
     "imageUrls": [
       "https://images.pexels.com/photos/190819/pexels-photo-190819.jpeg?auto=compress&cs=tinysrgb&w=600",
       "https://images.pexels.com/photos/380782/pexels-photo-380782.jpeg?auto=compress&cs=tinysrgb&w=600"
+    ],
+    "description": "Elegant analog wristwatch with leather strap.",
+    "isPublished": true,
+    "category": "1",
+    "labels": [
+      "Deal"
+    ],
+    "price": 1499,
+    "productVariants": [
+      {
+        "id": 1,
+        "name": "color",
+        "isPublished": true,
+        "productvariantoptions": [
+          {
+            "id": 1,
+            "name": "Black",
+            "price": 1499,
+            "isPublished": true,
+            "isOutOfStock": false
+          },
+          {
+            "id": 2,
+            "name": "Brown",
+            "price": 1499,
+            "isPublished": true,
+            "isOutOfStock": false
+          }
+        ]
+      }
     ]
   },
   {
     "id": 15,
     "name": "Kids' Backpack",
-    "description": "Colorful and spacious backpack for school kids.",
-    "price": 799,
-    "category": "5",
-    "labels": ["Cute", "Durable"],
-    "variants": {
-      "color": ["Pink", "Blue", "Green"]
-    },
     "imageUrls": [
       "https://images.pexels.com/photos/1329711/pexels-photo-1329711.jpeg?auto=compress&cs=tinysrgb&w=600",
       "https://images.pexels.com/photos/1329713/pexels-photo-1329713.jpeg?auto=compress&cs=tinysrgb&w=600"
+    ],
+    "description": "Colorful and spacious backpack for school kids.",
+    "isPublished": true,
+    "category": "5",
+    "labels": [
+      "New"
+    ],
+    "price": 799,
+    "productVariants": [
+      {
+        "id": 1,
+        "name": "color",
+        "isPublished": true,
+        "productvariantoptions": [
+          {
+            "id": 1,
+            "name": "Pink",
+            "price": 799,
+            "isPublished": true,
+            "isOutOfStock": false
+          },
+          {
+            "id": 2,
+            "name": "Blue",
+            "price": 799,
+            "isPublished": true,
+            "isOutOfStock": false
+          },
+          {
+            "id": 3,
+            "name": "Green",
+            "price": 799,
+            "isPublished": true,
+            "isOutOfStock": false
+          }
+        ]
+      }
     ]
   },
   {
     "id": 16,
     "name": "Women's Heels",
-    "description": "Elegant block heels for party and office wear.",
-    "price": 1299,
-    "category": "4",
-    "labels": ["Stylish"],
-    "variants": {
-      "size": ["5", "6", "7", "8"],
-      "color": ["Beige", "Black"]
-    },
     "imageUrls": [
       "https://images.pexels.com/photos/2529148/pexels-photo-2529148.jpeg?auto=compress&cs=tinysrgb&w=600",
       "https://images.pexels.com/photos/298863/pexels-photo-298863.jpeg?auto=compress&cs=tinysrgb&w=600"
+    ],
+    "description": "Elegant block heels for party and office wear.",
+    "isPublished": true,
+    "category": "4",
+    "labels": [
+      "Welcome"
+    ],
+    "price": 1299,
+    "productVariants": [
+      {
+        "id": 1,
+        "name": "size",
+        "isPublished": true,
+        "productvariantoptions": [
+          {
+            "id": 1,
+            "name": "5",
+            "price": 1299,
+            "isPublished": true,
+            "isOutOfStock": false
+          },
+          {
+            "id": 2,
+            "name": "6",
+            "price": 1299,
+            "isPublished": true,
+            "isOutOfStock": false
+          },
+          {
+            "id": 3,
+            "name": "7",
+            "price": 1299,
+            "isPublished": true,
+            "isOutOfStock": false
+          },
+          {
+            "id": 4,
+            "name": "8",
+            "price": 1299,
+            "isPublished": true,
+            "isOutOfStock": false
+          }
+        ]
+      },
+      {
+        "id": 2,
+        "name": "color",
+        "isPublished": true,
+        "productvariantoptions": [
+          {
+            "id": 1,
+            "name": "Beige",
+            "price": 1299,
+            "isPublished": true,
+            "isOutOfStock": false
+          },
+          {
+            "id": 2,
+            "name": "Black",
+            "price": 1299,
+            "isPublished": true,
+            "isOutOfStock": false
+          }
+        ]
+      }
     ]
   },
   {
     "id": 17,
     "name": "Men's Sports Cap",
-    "description": "Breathable cap perfect for outdoor workouts.",
-    "price": 399,
-    "category": "4",
-    "labels": ["Outdoor", "Hot"],
-    "variants": {
-      "color": ["Navy", "Grey", "White"]
-    },
     "imageUrls": [
       "https://images.pexels.com/photos/6311394/pexels-photo-6311394.jpeg?auto=compress&cs=tinysrgb&w=600",
       "https://images.pexels.com/photos/6311400/pexels-photo-6311400.jpeg?auto=compress&cs=tinysrgb&w=600"
-    ]
-  },
-  {
-    "id": 18,
-    "name": "Women's Scarf",
-    "description": "Soft printed scarf for all seasons.",
-    "price": 499,
+    ],
+    "description": "Breathable cap perfect for outdoor workouts.",
+    "isPublished": true,
     "category": "4",
-    "labels": ["Elegant"],
-    "variants": {
-      "color": ["Peach", "White", "Blue"]
-    },
-    "imageUrls": [
-      "https://images.pexels.com/photos/3825767/pexels-photo-3825767.jpeg?auto=compress&cs=tinysrgb&w=600",
-      "https://images.pexels.com/photos/1040471/pexels-photo-1040471.jpeg?auto=compress&cs=tinysrgb&w=600"
-    ]
-  },
-  {
-    "id": 19,
-    "name": "Kids' Sneakers",
-    "description": "Colorful and comfortable sneakers for kids.",
-    "price": 1099,
-    "category": "6",
-    "labels": ["Trending"],
-    "variants": {
-      "size": ["1", "2", "3", "4"],
-      "color": ["Red", "Blue", "Yellow"]
-    },
-    "imageUrls": [
-      "https://images.pexels.com/photos/2529147/pexels-photo-2529147.jpeg?auto=compress&cs=tinysrgb&w=600",
-      "https://images.pexels.com/photos/1670766/pexels-photo-1670766.jpeg?auto=compress&cs=tinysrgb&w=600"
-    ]
-  },
-  {
-    "id": 20,
-    "name": "Unisex Travel Duffel Bag",
-    "description": "Spacious duffel bag perfect for short trips.",
-    "price": 1599,
-    "category": "7",
-    "labels": ["Durable", "Multipurpose"],
-    "variants": {
-      "color": ["Black", "Grey", "Green"]
-    },
-    "imageUrls": [
-      "https://images.pexels.com/photos/4394875/pexels-photo-4394875.jpeg?auto=compress&cs=tinysrgb&w=600",
-      "https://images.pexels.com/photos/4394876/pexels-photo-4394876.jpeg?auto=compress&cs=tinysrgb&w=600"
-    ]
-  },
-  {
-    "id": 21,
-    "name": "Men's Flip-Flops",
-    "description": "Lightweight and durable flip-flops for daily wear.",
-    "price": 499,
-    "category": "1S",
-    "labels": ["Comfort", "Best Value"],
-    "variants": {
-      "size": ["7", "8", "9", "10"],
-      "color": ["Black", "Grey"]
-    },
-    "imageUrls": [
-      "https://images.pexels.com/photos/1598505/pexels-photo-1598505.jpeg?auto=compress&cs=tinysrgb&w=600",
-      "https://images.pexels.com/photos/1598504/pexels-photo-1598504.jpeg?auto=compress&cs=tinysrgb&w=600"
+    "labels": [
+      "Deal"
+    ],
+    "price": 399,
+    "productVariants": [
+      {
+        "id": 1,
+        "name": "color",
+        "isPublished": true,
+        "productvariantoptions": [
+          {
+            "id": 1,
+            "name": "Navy",
+            "price": 399,
+            "isPublished": true,
+            "isOutOfStock": false
+          },
+          {
+            "id": 2,
+            "name": "Grey",
+            "price": 399,
+            "isPublished": true,
+            "isOutOfStock": false
+          },
+          {
+            "id": 3,
+            "name": "White",
+            "price": 399,
+            "isPublished": true,
+            "isOutOfStock": false
+          }
+        ]
+      }
     ]
   }
 ]

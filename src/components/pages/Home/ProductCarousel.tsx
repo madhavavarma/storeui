@@ -10,9 +10,10 @@ import 'swiper/swiper.min.css'
 
 interface IProps {
   heading: string;
+  label: string;
 }
 
-const ProductCarousel = ({ heading }: IProps) => {
+const ProductCarousel = ({ heading, label }: IProps) => {
   const products = useSelector((state: IState) => state.Products.products);
   const navigationHelper = useNavigationHelper();
 
@@ -49,7 +50,7 @@ const ProductCarousel = ({ heading }: IProps) => {
         }}
         className="px-2"
       >
-        {products.map((product) => (
+        {products.filter(p => p.labels.filter(lbl => lbl.toUpperCase() === label.toUpperCase()).length > 0).map((product) => (
           <SwiperSlide key={product.id}>
             <Product2 product={product} isHideDrawer={true} />
           </SwiperSlide>

@@ -1,8 +1,7 @@
-import { useState } from "react";
 import { IProduct } from "@/interfaces/IProduct";
-import RightDrawer from "../Shared/RightDrawer";
-import ProductDetail from "../Products/ProductDetail";
+import { ProductActions } from "@/store/ProductSlice";
 import { Star } from "lucide-react";
+import { useDispatch } from "react-redux";
 
 interface ProductProps {
   product: IProduct;
@@ -10,9 +9,15 @@ interface ProductProps {
   isHideDrawer?: boolean;
 }
 
-const Product2 = ({ product, isHideDrawer }: ProductProps) => {
+const Product2 = ({ product }: ProductProps) => {
+
+
   const { name, price, imageUrls } = product;
-  const [showProductDetail, setShowProductDetail] = useState<IProduct | null>(null);
+  const dispatch = useDispatch();
+
+  const setProudctDetail = () => {
+    dispatch(ProductActions.setProductDetail(product))
+  }
 
   const rating = 5;
   const reviews = 30;
@@ -20,8 +25,8 @@ const Product2 = ({ product, isHideDrawer }: ProductProps) => {
   return (
     <>
       <div
-        className="w-full bg-white border border-gray-200 rounded shadow-sm hover:shadow-md cursor-pointer transition-all h-[350px] flex flex-col"
-        onClick={() => setShowProductDetail(product)}
+        className="w-full bg-white border border-gray-200 rounded shadow-sm hover:shadow-md cursor-pointer transition-all h-[320px] flex flex-col"
+        onClick={() => setProudctDetail()}
       >
         {/* Product Image */}
         <div className="relative h-44 overflow-hidden rounded-t">
@@ -45,13 +50,6 @@ const Product2 = ({ product, isHideDrawer }: ProductProps) => {
           {/* Product Name */}
           <p className="text-sm text-gray-800 line-clamp-2 mt-1">{name}</p>
 
-          {/* Price Section */}
-          <div className="mt-auto">
-            <span className="text-base font-semibold text-green-600">₹{price}</span>
-            <span className="text-sm text-gray-500 line-through ml-1">₹{price + 200}</span>
-            <span className="text-sm text-orange-600 font-semibold ml-1">(10% OFF)</span>
-          </div>
-
           {/* Labels */}
           {product.labels.length > 0 && (
             <div className="flex gap-1 mt-1 flex-wrap">
@@ -65,15 +63,17 @@ const Product2 = ({ product, isHideDrawer }: ProductProps) => {
               ))}
             </div>
           )}
+
+          {/* Price Section */}
+          <div className="mt-auto">
+            <span className="text-base font-semibold text-green-600">₹{price}</span>
+            <span className="text-sm text-gray-500 line-through ml-1">₹{price + 200}</span>
+            <span className="text-sm text-orange-600 font-semibold ml-1">(10% OFF)</span>
+          </div>
+
+          
         </div>
       </div>
-
-      {/* Product Detail Drawer */}
-      {showProductDetail && !isHideDrawer && (
-        <RightDrawer isOpen onClose={() => setShowProductDetail(null)}>
-          <ProductDetail product={product} />
-        </RightDrawer>
-      )}
     </>
   );
 };

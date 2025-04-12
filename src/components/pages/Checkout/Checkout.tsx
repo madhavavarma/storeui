@@ -14,17 +14,22 @@ import {
   Minus,
   Plus,
 } from "lucide-react";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { toast } from "sonner";
 import { CartActions } from "@/store/CartSlice";
 import { useNavigationHelper } from "@/hooks/use-navigate-helper";
 import { IOption } from "@/interfaces/IProduct";
+import { ProductActions } from "@/store/ProductSlice";
 
 export default function CheckoutPage() {
   const cartItems = useSelector((state: IState) => state.Cart.cartItems);
   const totalAmount = cartItems.reduce((acc, item) => acc + item.totalPrice, 0);
   const navigationHelper = useNavigationHelper();
   const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(ProductActions.setProductDetail(null));
+  }, []);
 
   const [formData, setFormData] = useState({
     phone: "",
@@ -38,9 +43,11 @@ export default function CheckoutPage() {
   });
 
   const [sameAsPhone, setSameAsPhone] = useState(false);
+  const [fieldErrors, setFieldErrors] = useState<{ [key: string]: boolean }>({});
 
   const handleChange = (field: string, value: string) => {
     setFormData((prev) => ({ ...prev, [field]: value }));
+    setFieldErrors((prev) => ({ ...prev, [field]: false }));
   };
 
   const handleSameAsPhoneToggle = () => {
@@ -53,18 +60,31 @@ export default function CheckoutPage() {
   };
 
   const handlePlaceOrder = () => {
-    navigationHelper.goToThankYou();
-    
     const { phone, email, address, city, pincode, deliveryDate } = formData;
-    if (!phone || !email || !address || !city || !pincode || !deliveryDate) {
+    const errors: { [key: string]: boolean } = {};
+
+    if (!phone) errors.phone = true;
+    if (!email) errors.email = true;
+    if (!address) errors.address = true;
+    if (!city) errors.city = true;
+    if (!pincode) errors.pincode = true;
+    if (!deliveryDate) errors.deliveryDate = true;
+
+    if (Object.keys(errors).length > 0) {
+      setFieldErrors(errors);
       toast.error("Please fill all required fields");
       return;
     }
 
+    console.log(cartItems);
+    console.log(formData);
+
+    dispatch(CartActions.clearCart());
+
+    navigationHelper.goToThankYou();
+
     toast.success("Order placed successfully!");
     console.log("Order Data:", { ...formData, cartItems });
-
-   
   };
 
   const handleRemoveItem = (item: any) => {
@@ -108,7 +128,6 @@ export default function CheckoutPage() {
           <ArrowLeft className="w-4 h-4 mr-1" /> Continue Shopping
         </Button>
 
-        {/* Checkout Heading */}
         <motion.div
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -122,11 +141,10 @@ export default function CheckoutPage() {
           <div className="mt-2 h-1 w-24 bg-green-400 mx-auto rounded-full" />
         </motion.div>
 
-        <div className="w-32" /> {/* Placeholder for alignment */}
+        <div className="w-32" />
       </div>
 
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-        {/* Order Summary */}
         <div className="space-y-6">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -135,7 +153,9 @@ export default function CheckoutPage() {
           >
             <Card className="bg-green-50 border-green-200">
               <CardContent className="p-4 space-y-4">
-                <h2 className="text-lg font-semibold text-green-800">🛒 Order Items</h2>
+                <h2 className="text-lg font-semibold text-green-800">
+                  🛒 Order Items
+                </h2>
                 {cartItems.map((item, idx) => (
                   <div
                     key={idx}
@@ -151,12 +171,14 @@ export default function CheckoutPage() {
                         {item.product.name}
                       </p>
                       {item.selectedOptions &&
-                        Object.entries(item.selectedOptions).map(([variantId, option]: any) => (
-                          <div key={variantId} className="text-gray-500 text-xs">
-                            {option?.variantName}:{" "}
-                            <span className="font-medium">{option?.name}</span>
-                          </div>
-                        ))}
+                        Object.entries(item.selectedOptions).map(
+                          ([variantName, option]) => (
+                            <p key={variantName} className="text-gray-500 text-xs">
+                              {variantName}:{" "}
+                              <span className="font-medium">{option?.name}</span>
+                            </p>
+                          )
+                        )}
                     </div>
                     <div className="flex items-center space-x-2">
                       <Button
@@ -164,7 +186,11 @@ export default function CheckoutPage() {
                         variant="outline"
                         className="w-6 h-6 text-green-700 border-green-400"
                         onClick={() =>
-                          handleUpdateQuantity(item.product.id || 0, item.selectedOptions, false)
+                          handleUpdateQuantity(
+                            item.product.id || 0,
+                            item.selectedOptions,
+                            false
+                          )
                         }
                       >
                         <Minus className="w-4 h-4" />
@@ -177,7 +203,11 @@ export default function CheckoutPage() {
                         variant="outline"
                         className="w-6 h-6 text-green-700 border-green-400"
                         onClick={() =>
-                          handleUpdateQuantity(item.product.id || 0, item.selectedOptions, true)
+                          handleUpdateQuantity(
+                            item.product.id || 0,
+                            item.selectedOptions,
+                            true
+                          )
                         }
                       >
                         <Plus className="w-4 h-4" />
@@ -205,9 +235,7 @@ export default function CheckoutPage() {
           </motion.div>
         </div>
 
-        {/* User Info */}
         <div className="space-y-6">
-          {/* Contact Info */}
           <Card>
             <CardContent className="p-4 space-y-4">
               <h2 className="text-lg font-semibold flex items-center gap-2">
@@ -218,12 +246,14 @@ export default function CheckoutPage() {
                 placeholder="Phone Number"
                 value={formData.phone}
                 onChange={(e) => handleChange("phone", e.target.value)}
+                className={fieldErrors.phone ? "border-red-500" : ""}
               />
               <Input
                 type="email"
                 placeholder="Email"
                 value={formData.email}
                 onChange={(e) => handleChange("email", e.target.value)}
+                className={fieldErrors.email ? "border-red-500" : ""}
               />
               <Input
                 type="text"
@@ -242,7 +272,6 @@ export default function CheckoutPage() {
             </CardContent>
           </Card>
 
-          {/* Address */}
           <Card>
             <CardContent className="p-4 space-y-4">
               <h2 className="text-lg font-semibold flex items-center gap-2">
@@ -252,26 +281,29 @@ export default function CheckoutPage() {
                 placeholder="Full Address"
                 value={formData.address}
                 onChange={(e) => handleChange("address", e.target.value)}
+                className={fieldErrors.address ? "border-red-500" : ""}
               />
               <Input
                 placeholder="City"
                 value={formData.city}
                 onChange={(e) => handleChange("city", e.target.value)}
+                className={fieldErrors.city ? "border-red-500" : ""}
               />
               <Input
                 placeholder="Pincode"
                 value={formData.pincode}
                 onChange={(e) => handleChange("pincode", e.target.value)}
+                className={fieldErrors.pincode ? "border-red-500" : ""}
               />
               <Input
                 type="date"
                 value={formData.deliveryDate}
                 onChange={(e) => handleChange("deliveryDate", e.target.value)}
+                className={fieldErrors.deliveryDate ? "border-red-500" : ""}
               />
             </CardContent>
           </Card>
 
-          {/* Payment Method */}
           <Card>
             <CardContent className="p-4 space-y-4">
               <h2 className="text-lg font-semibold flex items-center gap-2">
@@ -298,7 +330,6 @@ export default function CheckoutPage() {
             </CardContent>
           </Card>
 
-          {/* Place Order */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}

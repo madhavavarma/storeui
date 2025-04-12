@@ -37,7 +37,7 @@ const MiniProductList = () => {
       {/* Product Grid */}
       <div className="w-full max-w-7xl">
         <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 md:gap-2 justify-start">
-          {products.slice(0,12).map((product) => (
+          {products.slice(0,10).map((product) => (
             <Product2 key={product.id} product={product} isHideDrawer={false} />
           ))}
         </div>
