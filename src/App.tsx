@@ -11,6 +11,8 @@ import { CategoryActions } from './store/CategorySlice';
 import RightDrawer from './components/pages/Shared/RightDrawer';
 import ProductDetail from './components/pages/Products/ProductDetail';
 import { IState } from './store/interfaces/IState';
+import { CartActions } from './store/CartSlice';
+import CartSynk from './components/pages/Cart/CartSynk';
  
 
 const App: React.FC = () => {
@@ -44,6 +46,19 @@ const App: React.FC = () => {
 
     fetchProducts();
     fetchCategories();
+
+    const savedCart = localStorage.getItem("cart");
+
+    if (savedCart) {
+      try {
+        const parsed = JSON.parse(savedCart);
+        dispatch(CartActions.loadCart(parsed)); // We'll add this reducer below
+      } catch (e) {
+        console.error("Failed to load cart from localStorage", e);
+      }
+    } else {
+      console.log("no cart items")
+    }
     
   }, [dispatch]);
   
@@ -57,6 +72,8 @@ const App: React.FC = () => {
           <ProductDetail product={productDetail} />
         </RightDrawer>
       )}
+
+      <CartSynk />
       
     </main>
   );
