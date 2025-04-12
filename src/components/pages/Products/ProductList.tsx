@@ -128,6 +128,9 @@ const ProductList = () => {
               <SelectValue placeholder="Category" />
             </SelectTrigger>
             <SelectContent>
+                <SelectItem key={"0"} value={"0"}>
+                  {"All"}
+                </SelectItem>
               {categories.map(cat => (
                 <SelectItem key={cat.id} value={cat.id.toString()}>
                   {cat.name}

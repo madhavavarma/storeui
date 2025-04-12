@@ -4,7 +4,7 @@
     "name": "Women's Floral Dress",
     "description": "Elegant floral print summer dress for women.",
     "price": 1299,
-    "category": "Women's Clothing",
+    "category": "2",
     "labels": ["Bestseller"],
     "variants": {
       "size": ["S", "M", "L", "XL"],
@@ -20,7 +20,7 @@
     "name": "Men's Casual Shirt",
     "description": "Slim fit casual shirt perfect for everyday wear.",
     "price": 999,
-    "category": "Men's Clothing",
+    "category": "1",
     "labels": ["New Arrival"],
     "variants": {
       "size": ["M", "L", "XL"],
@@ -36,7 +36,7 @@
     "name": "Women's Denim Jacket",
     "description": "Classic blue denim jacket with a modern fit.",
     "price": 1499,
-    "category": "Women's Clothing",
+    "category": "2",
     "labels": ["Trending"],
     "variants": {
       "size": ["S", "M", "L"],
@@ -52,7 +52,7 @@
     "name": "Men's Running Shoes",
     "description": "Breathable and durable running shoes for daily workouts.",
     "price": 1999,
-    "category": "Footwear",
+    "category": "1",
     "labels": ["Popular"],
     "variants": {
       "size": ["7", "8", "9", "10"],
@@ -68,7 +68,7 @@
     "name": "Unisex Sports Watch",
     "description": "Digital watch with water resistance and multiple features.",
     "price": 899,
-    "category": "Accessories",
+    "category": "3",
     "labels": ["Hot"],
     "variants": {
       "color": ["Black", "Red", "Green"]
@@ -83,7 +83,7 @@
     "name": "Men's Formal Trousers",
     "description": "Smart fit trousers for office and formal occasions.",
     "price": 1199,
-    "category": "Men's Clothing",
+    "category": "1",
     "labels": [],
     "variants": {
       "size": ["30", "32", "34", "36"],
@@ -99,7 +99,7 @@
     "name": "Women's Leggings",
     "description": "Stretchable cotton leggings for comfort all day.",
     "price": 399,
-    "category": "Women's Clothing",
+    "category": "2",
     "labels": ["Best Value"],
     "variants": {
       "size": ["S", "M", "L", "XL"],
@@ -115,7 +115,7 @@
     "name": "Men's Hoodie",
     "description": "Warm fleece hoodie with kangaroo pockets.",
     "price": 1399,
-    "category": "Men's Clothing",
+    "category": "1",
     "labels": ["Winter"],
     "variants": {
       "size": ["M", "L", "XL"],
@@ -131,7 +131,7 @@
     "name": "Kids' Printed T-Shirt",
     "description": "Colorful and fun print t-shirt for kids.",
     "price": 299,
-    "category": "Kids' Clothing",
+    "category": "5",
     "labels": ["Cute"],
     "variants": {
       "size": ["2Y", "3Y", "4Y", "5Y"],
@@ -147,7 +147,7 @@
     "name": "Women's Handbag",
     "description": "Stylish faux leather handbag with spacious compartments.",
     "price": 1599,
-    "category": "Accessories",
+    "category": "6",
     "labels": ["Stylish", "Trending"],
     "variants": {
       "color": ["Tan", "Black", "Red"]
@@ -162,7 +162,7 @@
     "name": "Men's Leather Wallet",
     "description": "Premium genuine leather wallet with multiple compartments.",
     "price": 899,
-    "category": "Accessories",
+    "category": "1",
     "labels": ["Premium", "Classic"],
     "variants": {
       "color": ["Brown", "Black"]
@@ -177,7 +177,7 @@
     "name": "Women's Sunglasses",
     "description": "Stylish oversized sunglasses with UV protection.",
     "price": 599,
-    "category": "Accessories",
+    "category": "2",
     "labels": ["Trending", "New"],
     "variants": {
       "color": ["Black", "Gold", "Tortoise"]
@@ -192,7 +192,7 @@
     "name": "Men's Analog Watch",
     "description": "Elegant analog wristwatch with leather strap.",
     "price": 1499,
-    "category": "Accessories",
+    "category": "1",
     "labels": ["Bestseller"],
     "variants": {
       "color": ["Black", "Brown"]
@@ -207,7 +207,7 @@
     "name": "Kids' Backpack",
     "description": "Colorful and spacious backpack for school kids.",
     "price": 799,
-    "category": "Kids' Accessories",
+    "category": "5",
     "labels": ["Cute", "Durable"],
     "variants": {
       "color": ["Pink", "Blue", "Green"]
@@ -222,7 +222,7 @@
     "name": "Women's Heels",
     "description": "Elegant block heels for party and office wear.",
     "price": 1299,
-    "category": "Footwear",
+    "category": "4",
     "labels": ["Stylish"],
     "variants": {
       "size": ["5", "6", "7", "8"],
@@ -238,7 +238,7 @@
     "name": "Men's Sports Cap",
     "description": "Breathable cap perfect for outdoor workouts.",
     "price": 399,
-    "category": "Accessories",
+    "category": "4",
     "labels": ["Outdoor", "Hot"],
     "variants": {
       "color": ["Navy", "Grey", "White"]
@@ -253,7 +253,7 @@
     "name": "Women's Scarf",
     "description": "Soft printed scarf for all seasons.",
     "price": 499,
-    "category": "Accessories",
+    "category": "4",
     "labels": ["Elegant"],
     "variants": {
       "color": ["Peach", "White", "Blue"]
@@ -268,7 +268,7 @@
     "name": "Kids' Sneakers",
     "description": "Colorful and comfortable sneakers for kids.",
     "price": 1099,
-    "category": "Footwear",
+    "category": "6",
     "labels": ["Trending"],
     "variants": {
       "size": ["1", "2", "3", "4"],
@@ -284,7 +284,7 @@
     "name": "Unisex Travel Duffel Bag",
     "description": "Spacious duffel bag perfect for short trips.",
     "price": 1599,
-    "category": "Accessories",
+    "category": "7",
     "labels": ["Durable", "Multipurpose"],
     "variants": {
       "color": ["Black", "Grey", "Green"]
@@ -299,7 +299,7 @@
     "name": "Men's Flip-Flops",
     "description": "Lightweight and durable flip-flops for daily wear.",
     "price": 499,
-    "category": "Footwear",
+    "category": "1S",
     "labels": ["Comfort", "Best Value"],
     "variants": {
       "size": ["7", "8", "9", "10"],
