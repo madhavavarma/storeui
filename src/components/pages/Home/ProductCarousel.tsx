@@ -24,7 +24,7 @@ const ProductCarousel = ({ heading, label }: IProps) => {
         <h2 className="text-2xl font-bold">{heading}</h2>
         <Button
           variant="outline"
-          onClick={() => navigationHelper.goToProducts("", heading)}
+          onClick={() => navigationHelper.goToProducts("", label)}
           className="bg-green-800 text-white"
         >
           View More <ArrowRight />

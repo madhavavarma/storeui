@@ -1,4 +1,4 @@
-import { Minus, Plus, Trash2, X } from "lucide-react";
+import { Minus, Plus, Trash2} from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { ICartItem } from "@/store/interfaces/ICartState";
 import { useDispatch, useSelector } from "react-redux";

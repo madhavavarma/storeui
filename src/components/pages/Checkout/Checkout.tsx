@@ -20,6 +20,7 @@ import { CartActions } from "@/store/CartSlice";
 import { useNavigationHelper } from "@/hooks/use-navigate-helper";
 import { IOption } from "@/interfaces/IProduct";
 import { ProductActions } from "@/store/ProductSlice";
+import emailjs from "@emailjs/browser";
 
 export default function CheckoutPage() {
   const cartItems = useSelector((state: IState) => state.Cart.cartItems);
@@ -38,12 +39,12 @@ export default function CheckoutPage() {
     address: "",
     city: "",
     pincode: "",
-    deliveryDate: "",
     paymentMethod: "cod",
   });
 
   const [sameAsPhone, setSameAsPhone] = useState(false);
   const [fieldErrors, setFieldErrors] = useState<{ [key: string]: boolean }>({});
+  const [isSendingEmail, setIsSendingEmail] = useState(false);
 
   const handleChange = (field: string, value: string) => {
     setFormData((prev) => ({ ...prev, [field]: value }));
@@ -59,8 +60,8 @@ export default function CheckoutPage() {
     }));
   };
 
-  const handlePlaceOrder = () => {
-    const { phone, email, address, city, pincode, deliveryDate } = formData;
+  const handlePlaceOrder = async () => {
+    const { phone, email, address, city, pincode } = formData;
     const errors: { [key: string]: boolean } = {};
 
     if (!phone) errors.phone = true;
@@ -68,23 +69,41 @@ export default function CheckoutPage() {
     if (!address) errors.address = true;
     if (!city) errors.city = true;
     if (!pincode) errors.pincode = true;
-    if (!deliveryDate) errors.deliveryDate = true;
 
     if (Object.keys(errors).length > 0) {
       setFieldErrors(errors);
       toast.error("Please fill all required fields");
       return;
     }
+    setIsSendingEmail(true);
+    try {
+      await emailjs.send(
+         "service_dek6sgr",
+         "template_ql4ymg9",
+        {
+          to_email: formData.email,
+          user_phone: formData.phone,
+          user_email: formData.email,
+          user_address: formData.address,
+          user_city: formData.city,
+          user_pincode: formData.pincode,
+          cart_items: JSON.stringify(cartItems, null, 2),
+          total_amount: totalAmount.toFixed(2),
+        },
+         "efiQJ5NNt1J3GJD--"
+      );
+      console.log("Order placed successfully! Confirmation email sent.");
+      
+      dispatch(CartActions.clearCart());
+      navigationHelper.goToThankYou();
+      setIsSendingEmail(false);
+      
+    } catch (error) {
+      console.error("Email sending error:", error);
+      console.log("Order placed, but email confirmation failed.");
+    }
 
-    console.log(cartItems);
-    console.log(formData);
-
-    dispatch(CartActions.clearCart());
-
-    navigationHelper.goToThankYou();
-
-    toast.success("Order placed successfully!");
-    console.log("Order Data:", { ...formData, cartItems });
+    
   };
 
   const handleRemoveItem = (item: any) => {
@@ -295,12 +314,6 @@ export default function CheckoutPage() {
                 onChange={(e) => handleChange("pincode", e.target.value)}
                 className={fieldErrors.pincode ? "border-red-500" : ""}
               />
-              <Input
-                type="date"
-                value={formData.deliveryDate}
-                onChange={(e) => handleChange("deliveryDate", e.target.value)}
-                className={fieldErrors.deliveryDate ? "border-red-500" : ""}
-              />
             </CardContent>
           </Card>
 
@@ -338,9 +351,9 @@ export default function CheckoutPage() {
             <Button
               onClick={handlePlaceOrder}
               className="w-full bg-[#5DBF13] hover:bg-green-700 text-white rounded-xl"
-              disabled={cartItems.length === 0}
+              disabled={cartItems.length === 0 || isSendingEmail}
             >
-              Place Order
+              {isSendingEmail ? "Placing Order..." : "Place Order"}
             </Button>
           </motion.div>
         </div>
