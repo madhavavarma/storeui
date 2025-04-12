@@ -35,8 +35,8 @@ class NavigationHelper {
     this.navigate('/checkout');
   };
 
-  goToThankYou = () => {
-    this.navigate('/thankyou');
+  goToThankYou = (orderId: string) => {
+    this.navigate(`/thankyou?orderId=${orderId}`);
   };
 }
 

@@ -2,9 +2,19 @@ import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { useNavigationHelper } from "@/hooks/use-navigate-helper";
 import { CheckCircle } from "lucide-react";
+import { useEffect, useState } from "react";
+import { useLocation } from "react-router-dom";
 
 export default function ThankYouPage() {
   const navigationHelper = useNavigationHelper();
+  const location = useLocation();
+  const [orderId, setOrderId] = useState<string | null>(null);
+
+  useEffect(() => {
+    const params = new URLSearchParams(location.search);
+    const id = params.get("orderId");
+    setOrderId(id);
+  }, [location]);
 
   return (
     <div className="min-h-screen flex flex-col justify-center items-center bg-gradient-to-br from-green-100 via-lime-200 to-yellow-100 text-center p-6">
@@ -40,6 +50,18 @@ export default function ThankYouPage() {
         >
           Your order was placed successfully. We’ll get started on it right away!
         </motion.p>
+
+        {orderId && (
+          <motion.div
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.4 }}
+            className="mt-4 p-4 bg-green-50 border border-green-200 rounded-xl text-sm text-green-800"
+          >
+            <p className="font-semibold">Order ID:</p>
+            <p className="break-all text-xs text-gray-700">{orderId}</p>
+          </motion.div>
+        )}
 
         <motion.div
           initial={{ opacity: 0, y: 20 }}

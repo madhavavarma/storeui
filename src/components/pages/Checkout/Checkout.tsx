@@ -75,35 +75,38 @@ export default function CheckoutPage() {
       toast.error("Please fill all required fields");
       return;
     }
+
+    const orderId = `${Date.now()}_${phone}`;
+
     setIsSendingEmail(true);
     try {
       await emailjs.send(
-         "service_dek6sgr",
-         "template_ql4ymg9",
+        "service_dek6sgr",
+        "template_ql4ymg9",
         {
-          to_email: formData.email,
-          user_phone: formData.phone,
-          user_email: formData.email,
-          user_address: formData.address,
-          user_city: formData.city,
-          user_pincode: formData.pincode,
+          to_email: email,
+          user_phone: phone,
+          user_email: email,
+          user_address: address,
+          user_city: city,
+          user_pincode: pincode,
           cart_items: JSON.stringify(cartItems, null, 2),
           total_amount: totalAmount.toFixed(2),
+          order_id: orderId,
         },
-         "efiQJ5NNt1J3GJD--"
+        "efiQJ5NNt1J3GJD--"
       );
+
       console.log("Order placed successfully! Confirmation email sent.");
-      
       dispatch(CartActions.clearCart());
-      navigationHelper.goToThankYou();
-      setIsSendingEmail(false);
-      
+
+      navigationHelper.goToThankYou(orderId);
     } catch (error) {
       console.error("Email sending error:", error);
-      console.log("Order placed, but email confirmation failed.");
+      toast.error("Order placed, but confirmation email failed.");
+    } finally {
+      setIsSendingEmail(false);
     }
-
-    
   };
 
   const handleRemoveItem = (item: any) => {
@@ -164,6 +167,7 @@ export default function CheckoutPage() {
       </div>
 
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+        {/* Left: Cart Summary */}
         <div className="space-y-6">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -254,6 +258,7 @@ export default function CheckoutPage() {
           </motion.div>
         </div>
 
+        {/* Right: Address + Contact */}
         <div className="space-y-6">
           <Card>
             <CardContent className="p-4 space-y-4">
