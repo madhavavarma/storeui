@@ -28,14 +28,11 @@ const Product2 = ({ product }: ProductProps) => {
         className="w-full bg-white border border-gray-200 rounded shadow-sm hover:shadow-md cursor-pointer transition-all h-[320px] flex flex-col"
         onClick={() => setProudctDetail()}
       >
-        {/* Product Image */}
-        <div className="relative h-44 overflow-hidden rounded-t">
-          <img
-            src={imageUrls[0]}
-            alt={name}
-            className="object-cover w-full h-full"
-          />
-        </div>
+       {/* Product Image */}
+       <div
+  className="relative h-44 w-full rounded-t bg-center bg-no-repeat bg-cover"
+  style={{ backgroundImage: `url(${imageUrls[0]})` }}
+></div>
 
         {/* Info Section */}
         <div className="flex flex-col justify-between flex-grow px-2 py-2">

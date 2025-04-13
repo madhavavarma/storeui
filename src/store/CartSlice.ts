@@ -1,11 +1,22 @@
+// store/CartSlice.ts
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { ICartState, ICartItem } from "./interfaces/ICartState";
 import { IOption } from "@/interfaces/IProduct";
+import { ICheckout } from "@/interfaces/ICheckout";
 
 const initialState: ICartState = {
   cartItems: [],
   totalQuantity: 0,
   totalPrice: 0,
+  checkoutData: {
+    phone: "",
+    email: "",
+    whatsapp: "",
+    address: "",
+    city: "",
+    pincode: "",
+    paymentMethod: "cod",
+  },
 };
 
 const formatPrice = (price: number) => parseFloat(price.toFixed(2));
@@ -31,13 +42,14 @@ const CartSlice = createSlice({
       state.cartItems = action.payload.cartItems;
       state.totalQuantity = action.payload.totalQuantity;
       state.totalPrice = action.payload.totalPrice;
+      state.checkoutData = action.payload.checkoutData;
     },
-    
+
     addItem: (state: ICartState, action: PayloadAction<ICartItem>) => {
       const { product, selectedOptions, quantity } = action.payload;
 
       const existingItem = state.cartItems.find(
-        item =>
+        (item) =>
           item.product.id === product.id &&
           areOptionsEqual(item.selectedOptions, selectedOptions)
       );
@@ -62,10 +74,13 @@ const CartSlice = createSlice({
 
     removeItem: (
       state: ICartState,
-      action: PayloadAction<{ productId: number; selectedOptions: { [variantName: string]: IOption } }>
+      action: PayloadAction<{
+        productId: number;
+        selectedOptions: { [variantName: string]: IOption };
+      }>
     ) => {
       const index = state.cartItems.findIndex(
-        item =>
+        (item) =>
           item.product.id === action.payload.productId &&
           areOptionsEqual(item.selectedOptions, action.payload.selectedOptions)
       );
@@ -80,10 +95,13 @@ const CartSlice = createSlice({
 
     increaseQuantity: (
       state: ICartState,
-      action: PayloadAction<{ productId: number; selectedOptions: { [variantName: string]: IOption } }>
+      action: PayloadAction<{
+        productId: number;
+        selectedOptions: { [variantName: string]: IOption };
+      }>
     ) => {
       const item = state.cartItems.find(
-        item =>
+        (item) =>
           item.product.id === action.payload.productId &&
           areOptionsEqual(item.selectedOptions, action.payload.selectedOptions)
       );
@@ -98,10 +116,13 @@ const CartSlice = createSlice({
 
     decreaseQuantity: (
       state: ICartState,
-      action: PayloadAction<{ productId: number; selectedOptions: { [variantName: string]: IOption } }>
+      action: PayloadAction<{
+        productId: number;
+        selectedOptions: { [variantName: string]: IOption };
+      }>
     ) => {
       const item = state.cartItems.find(
-        item =>
+        (item) =>
           item.product.id === action.payload.productId &&
           areOptionsEqual(item.selectedOptions, action.payload.selectedOptions)
       );
@@ -118,6 +139,10 @@ const CartSlice = createSlice({
       state.cartItems = [];
       state.totalQuantity = 0;
       state.totalPrice = 0;
+    },
+
+    setCheckoutData: (state: ICartState, action: PayloadAction<ICheckout>) => {
+      state.checkoutData = action.payload;
     },
   },
 });

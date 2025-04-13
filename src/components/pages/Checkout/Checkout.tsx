@@ -21,32 +21,41 @@ import { useNavigationHelper } from "@/hooks/use-navigate-helper";
 import { IOption } from "@/interfaces/IProduct";
 import { ProductActions } from "@/store/ProductSlice";
 import emailjs from "@emailjs/browser";
+import { ICheckout } from "@/store/interfaces/ICartState";
 
 export default function CheckoutPage() {
   const cartItems = useSelector((state: IState) => state.Cart.cartItems);
   const totalAmount = cartItems.reduce((acc, item) => acc + item.totalPrice, 0);
   const navigationHelper = useNavigationHelper();
   const dispatch = useDispatch();
+  const checkoutData = useSelector((state: IState) => state.Cart.checkoutData);
 
   useEffect(() => {
     dispatch(ProductActions.setProductDetail(null));
   }, []);
 
-  const [formData, setFormData] = useState({
-    phone: "",
-    email: "",
-    whatsapp: "",
-    address: "",
-    city: "",
-    pincode: "",
-    paymentMethod: "cod",
-  });
+  const [formData, setFormData] = useState<ICheckout>(
+    checkoutData || {
+      phone: "",
+      email: "",
+      whatsapp: "",
+      address: "",
+      city: "",
+      pincode: "",
+      paymentMethod: "cod",
+    }
+  );
 
   const [sameAsPhone, setSameAsPhone] = useState(false);
   const [fieldErrors, setFieldErrors] = useState<{ [key: string]: boolean }>({});
   const [isSendingEmail, setIsSendingEmail] = useState(false);
 
-  const handleChange = (field: string, value: string) => {
+  useEffect(() => {
+    dispatch(CartActions.setCheckoutData(formData));
+    setSameAsPhone(formData.whatsapp === formData.phone && formData.whatsapp !== "");
+  }, [formData]);
+
+  const handleChange = (field: keyof ICheckout, value: string) => {
     setFormData((prev) => ({ ...prev, [field]: value }));
     setFieldErrors((prev) => ({ ...prev, [field]: false }));
   };
