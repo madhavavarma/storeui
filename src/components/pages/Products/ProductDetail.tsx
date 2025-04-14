@@ -71,10 +71,10 @@ const ProductDetail = ({ product }: IProps) => {
           <CarouselContent>
             {product.imageUrls.map((image, index) => (
               <CarouselItem key={index} className="basis-full">
-                <CardContent className="flex items-center justify-center p-0 h-[200px]">
+                <CardContent className="flex items-center justify-center p-0 ">
                   <img
                     src={image}
-                    className="rounded-lg w-full h-full object-cover"
+                    className="rounded-lg h-[450px] object-contain"
                     alt={`Product Image ${index + 1}`}
                   />
                 </CardContent>

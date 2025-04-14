@@ -37,8 +37,8 @@ const ProductList = () => {
   const filteredProducts = products.filter((product: IProduct) => {
     const matchesSearch =
       product.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
-      product.labels.some(lbl => lbl.toLowerCase().includes(searchQuery.toLowerCase())) || // Corrected line
-      product.description.toLowerCase().includes(searchQuery.toLowerCase());
+      product.labels.some(lbl => lbl.toLowerCase().includes(searchQuery.toLowerCase())) // Corrected line
+      // product.description.toLowerCase().includes(searchQuery.toLowerCase());
   
     const matchesCategory = category === "0" || product.category === category;
   
