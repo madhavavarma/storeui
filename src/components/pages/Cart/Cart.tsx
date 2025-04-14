@@ -39,7 +39,7 @@ export default function ShoppingCart() {
         >
           <div className="flex justify-between items-start">
             {/* Product Image & Info */}
-            <div className="flex items-start w-40">
+            <div className="flex items-start w-full">
               <img
                 src={item.product.imageUrls[0]}
                 alt={item.product.name}

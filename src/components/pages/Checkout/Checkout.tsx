@@ -21,7 +21,7 @@ import { useNavigationHelper } from "@/hooks/use-navigate-helper";
 import { IOption } from "@/interfaces/IProduct";
 import { ProductActions } from "@/store/ProductSlice";
 import emailjs from "@emailjs/browser";
-import { ICheckout } from "@/store/interfaces/ICartState";
+import { ICheckout } from "@/interfaces/ICheckout";
 
 export default function CheckoutPage() {
   const cartItems = useSelector((state: IState) => state.Cart.cartItems);

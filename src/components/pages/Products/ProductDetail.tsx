@@ -21,12 +21,7 @@ interface IProps {
 const ProductDetail = ({ product }: IProps) => {
   const dispatch = useDispatch();
 
-  const [openSections, setOpenSections] = useState<{ [key: string]: boolean }>({
-    description: false,
-    specifications: false,
-    howToUse: false,
-    ingredients: false,
-  });
+  const [openSections, setOpenSections] = useState<number>(product.description[0]?.id);
 
   const [quantity, setQuantity] = useState(1);
   const [selectedOptions, setSelectedOptions] = useState<{ [variantName: string]: IOption | null }>({});
@@ -43,8 +38,8 @@ const ProductDetail = ({ product }: IProps) => {
     }
   }, [product]);
 
-  const toggleSection = (section: string) => {
-    setOpenSections((prev) => ({ ...prev, [section]: !prev[section] }));
+  const toggleSection = (id: number) => {
+    setOpenSections(id);
   };
 
   const handleOptionSelect = (variantName: string, option: IOption) => {
@@ -156,26 +151,21 @@ const ProductDetail = ({ product }: IProps) => {
 
         {/* Expandable Sections */}
         <div className="space-y-3">
-          {[
-            { title: "Description", content: product.description },
-            { title: "Specifications", content: product.description },
-            { title: "How to Use", content: product.description },
-            { title: "Ingredients", content: product.description },
-          ].map(({ title, content }) => (
+          {product.description.map(({ id, title, content }) => (
             <div key={title} className="border-b py-2">
               <button
                 className="flex justify-between w-full text-sm font-medium"
-                onClick={() => toggleSection(title.toLowerCase())}
+                onClick={() => toggleSection(id)}
               >
                 {title}
-                {openSections[title.toLowerCase()] ? (
+                {openSections === id ? (
                   <CircleMinus className="h-4 w-4" />
                 ) : (
                   <CirclePlus className="h-4 w-4" />
                 )}
               </button>
               <AnimatePresence>
-                {openSections[title.toLowerCase()] && (
+                {openSections === id && (
                   <motion.div
                     initial={{ height: 0, opacity: 0 }}
                     animate={{ height: "auto", opacity: 1 }}

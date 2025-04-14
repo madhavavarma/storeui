@@ -3,7 +3,7 @@ export interface IProduct {
     name: string,
     image?: string,
     imageUrls: string[],
-    description: string,
+    description: IDescription[],
 
     isPublished?: boolean,
     category: string,
@@ -29,4 +29,10 @@ export interface IOption {
     price: number,
     isPublished: boolean,
     isOutOfStock: boolean
+}
+
+export interface IDescription {
+    id: number,
+    title: string,
+    content: string
 }

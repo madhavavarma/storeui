@@ -71,7 +71,7 @@ const ProductList = () => {
         <h2 className="text-3xl font-bold text-gray-800 mb-4 text-center">Products</h2>
 
         {/* Product Grid */}
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-0">
+        <div className="grid grid-cols-2  md:grid-cols-4 md:gap-8 gap-0 p-2">
           {filteredProducts.length > 0 ? (
             filteredProducts.map((product) => (
               <div key={product.id} className="w-full">
