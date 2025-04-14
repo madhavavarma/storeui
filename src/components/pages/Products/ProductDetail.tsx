@@ -29,11 +29,17 @@ const ProductDetail = ({ product }: IProps) => {
   useEffect(() => {
     if (product.productVariants) {
       const initialOptions: { [variantName: string]: IOption | null } = {};
+      
       product.productVariants.forEach((variant) => {
         if (variant.isPublished) {
-          initialOptions[variant.name] = null;
+          // Check for the default option in the variant
+          const defaultOption = variant.productvariantoptions.find(option => option.isDefault);
+          
+          // If a default option exists, set it, otherwise set it as null
+          initialOptions[variant.name] = defaultOption || null;
         }
       });
+  
       setSelectedOptions(initialOptions);
     }
   }, [product]);
@@ -51,11 +57,19 @@ const ProductDetail = ({ product }: IProps) => {
       product,
       selectedOptions: selectedOptions as { [variantName: string]: IOption },
       quantity,
-      totalPrice: parseFloat((product.price * quantity).toFixed(2)),
+      totalPrice: calculateTotalPrice(),
     };
 
     console.log("Added to cart:", cartItem);
     dispatch(CartActions.addItem(cartItem));
+  };
+
+  const calculateTotalPrice = () => {
+    const selectedOptionPrices = Object.values(selectedOptions)
+      .filter((opt): opt is IOption => opt !== null)
+      .reduce((sum, option) => sum + (option.price || 0), 0);
+  
+    return parseFloat(((product.price + selectedOptionPrices) * quantity).toFixed(2));
   };
 
   const allOptionsSelected =
@@ -88,7 +102,7 @@ const ProductDetail = ({ product }: IProps) => {
         {/* Product Title & Price */}
         <div className="flex justify-between items-center">
           <h2 className="text-lg font-bold">{product.name}</h2>
-          <span className="text-lg font-semibold text-primary">₹{product.price}</span>
+          <span className="text-lg font-semibold text-primary">₹{calculateTotalPrice()}</span>
         </div>
 
         {/* Variant and Quantity Card */}

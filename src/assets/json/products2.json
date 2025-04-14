@@ -1,0 +1,1054 @@
+-,
+{
+  "id": 4,
+  "name": "Women's Denim Jacket",
+  "imageUrls": [
+    "https://images.pexels.com/photos/1231643/pexels-photo-1231643.jpeg?auto=compress&cs=tinysrgb&w=600",
+    "https://images.pexels.com/photos/1231644/pexels-photo-1231644.jpeg?auto=compress&cs=tinysrgb&w=600"
+  ],
+  "description": [
+    {
+      "id": 1,
+      "title": "Description",
+      "content": "Millet Vaan’s Premium Sprouted Millets Pro-Energy Mix is a wholesome and natural health drink made from sprouted millets. It’s designed to boost energy and support wellness, with zero refined sugar, preservatives, or dairy. A perfect daily nutrition partner for the health-conscious."
+    },
+    {
+      "id": 2,
+      "title": "Ingredients",
+      "content": "Sprouted millets (ragi, bajra, jowar, foxtail millet), green gram, chickpeas, soybeans, cardamom, dry ginger, and other natural herbs and spices."
+    },
+    {
+      "id": 3,
+      "title": "How to Use",
+      "content": "Mix 2 tablespoons with a cup of water or plant-based milk. Boil for 3–5 minutes while stirring. Optionally sweeten with jaggery or your preferred healthy sweetener. Enjoy warm as breakfast or a mid-day snack."
+    }
+  ],
+  "isPublished": true,
+  "category": "2",
+  "labels": [
+    "New"
+  ],
+  "price": 1499,
+  "productVariants": [
+    {
+      "id": 1,
+      "name": "size",
+      "isPublished": true,
+      "productvariantoptions": [
+        {
+          "id": 1,
+          "name": "S",
+          "price": 1499,
+          "isPublished": true,
+          "isOutOfStock": false
+        },
+        {
+          "id": 2,
+          "name": "M",
+          "price": 1499,
+          "isPublished": true,
+          "isOutOfStock": false
+        },
+        {
+          "id": 3,
+          "name": "L",
+          "price": 1499,
+          "isPublished": true,
+          "isOutOfStock": false
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "name": "color",
+      "isPublished": true,
+      "productvariantoptions": [
+        {
+          "id": 1,
+          "name": "Light Blue",
+          "price": 1499,
+          "isPublished": true,
+          "isOutOfStock": false
+        },
+        {
+          "id": 2,
+          "name": "Dark Blue",
+          "price": 1499,
+          "isPublished": true,
+          "isOutOfStock": false
+        }
+      ]
+    }
+  ]
+},
+{
+  "id": 5,
+  "name": "Men's Running Shoes",
+  "imageUrls": [
+    "https://images.pexels.com/photos/1025469/pexels-photo-1025469.jpeg?auto=compress&cs=tinysrgb&w=600",
+    "https://images.pexels.com/photos/1025468/pexels-photo-1025468.jpeg?auto=compress&cs=tinysrgb&w=600"
+  ],
+  "description": [
+    {
+      "id": 1,
+      "title": "Description",
+      "content": "Millet Vaan’s Premium Sprouted Millets Pro-Energy Mix is a wholesome and natural health drink made from sprouted millets. It’s designed to boost energy and support wellness, with zero refined sugar, preservatives, or dairy. A perfect daily nutrition partner for the health-conscious."
+    },
+    {
+      "id": 2,
+      "title": "Ingredients",
+      "content": "Sprouted millets (ragi, bajra, jowar, foxtail millet), green gram, chickpeas, soybeans, cardamom, dry ginger, and other natural herbs and spices."
+    },
+    {
+      "id": 3,
+      "title": "How to Use",
+      "content": "Mix 2 tablespoons with a cup of water or plant-based milk. Boil for 3–5 minutes while stirring. Optionally sweeten with jaggery or your preferred healthy sweetener. Enjoy warm as breakfast or a mid-day snack."
+    }
+  ],
+  "isPublished": true,
+  "category": "1",
+  "labels": [],
+  "price": 1999,
+  "productVariants": [
+    {
+      "id": 1,
+      "name": "size",
+      "isPublished": true,
+      "productvariantoptions": [
+        {
+          "id": 1,
+          "name": "7",
+          "price": 1999,
+          "isPublished": true,
+          "isOutOfStock": false
+        },
+        {
+          "id": 2,
+          "name": "8",
+          "price": 1999,
+          "isPublished": true,
+          "isOutOfStock": false
+        },
+        {
+          "id": 3,
+          "name": "9",
+          "price": 1999,
+          "isPublished": true,
+          "isOutOfStock": false
+        },
+        {
+          "id": 4,
+          "name": "10",
+          "price": 1999,
+          "isPublished": true,
+          "isOutOfStock": false
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "name": "color",
+      "isPublished": true,
+      "productvariantoptions": [
+        {
+          "id": 1,
+          "name": "Black",
+          "price": 1999,
+          "isPublished": true,
+          "isOutOfStock": false
+        },
+        {
+          "id": 2,
+          "name": "Grey",
+          "price": 1999,
+          "isPublished": true,
+          "isOutOfStock": false
+        },
+        {
+          "id": 3,
+          "name": "Blue",
+          "price": 1999,
+          "isPublished": true,
+          "isOutOfStock": false
+        }
+      ]
+    }
+  ]
+},
+{
+  "id": 6,
+  "name": "Unisex Sports Watch",
+  "imageUrls": [
+    "https://images.pexels.com/photos/1565982/pexels-photo-1565982.jpeg?auto=compress&cs=tinysrgb&w=600",
+    "https://images.pexels.com/photos/1565983/pexels-photo-1565983.jpeg?auto=compress&cs=tinysrgb&w=600"
+  ],
+  "description": [
+    {
+      "id": 1,
+      "title": "Description",
+      "content": "Millet Vaan’s Premium Sprouted Millets Pro-Energy Mix is a wholesome and natural health drink made from sprouted millets. It’s designed to boost energy and support wellness, with zero refined sugar, preservatives, or dairy. A perfect daily nutrition partner for the health-conscious."
+    },
+    {
+      "id": 2,
+      "title": "Ingredients",
+      "content": "Sprouted millets (ragi, bajra, jowar, foxtail millet), green gram, chickpeas, soybeans, cardamom, dry ginger, and other natural herbs and spices."
+    },
+    {
+      "id": 3,
+      "title": "How to Use",
+      "content": "Mix 2 tablespoons with a cup of water or plant-based milk. Boil for 3–5 minutes while stirring. Optionally sweeten with jaggery or your preferred healthy sweetener. Enjoy warm as breakfast or a mid-day snack."
+    }
+  ],
+  "isPublished": true,
+  "category": "3",
+  "labels": [
+    "Best Seller"
+  ],
+  "price": 899,
+  "productVariants": [
+    {
+      "id": 1,
+      "name": "color",
+      "isPublished": true,
+      "productvariantoptions": [
+        {
+          "id": 1,
+          "name": "Black",
+          "price": 899,
+          "isPublished": true,
+          "isOutOfStock": false
+        },
+        {
+          "id": 2,
+          "name": "Red",
+          "price": 899,
+          "isPublished": true,
+          "isOutOfStock": false
+        },
+        {
+          "id": 3,
+          "name": "Green",
+          "price": 899,
+          "isPublished": true,
+          "isOutOfStock": false
+        }
+      ]
+    }
+  ]
+},
+{
+  "id": 7,
+  "name": "Men's Formal Trousers",
+  "imageUrls": [
+    "https://images.pexels.com/photos/1183266/pexels-photo-1183266.jpeg?auto=compress&cs=tinysrgb&w=600",
+    "https://images.pexels.com/photos/1183267/pexels-photo-1183267.jpeg?auto=compress&cs=tinysrgb&w=600"
+  ],
+  "description":[
+    {
+      "id": 1,
+      "title": "Description",
+      "content": "Millet Vaan’s Premium Sprouted Millets Pro-Energy Mix is a wholesome and natural health drink made from sprouted millets. It’s designed to boost energy and support wellness, with zero refined sugar, preservatives, or dairy. A perfect daily nutrition partner for the health-conscious."
+    },
+    {
+      "id": 2,
+      "title": "Ingredients",
+      "content": "Sprouted millets (ragi, bajra, jowar, foxtail millet), green gram, chickpeas, soybeans, cardamom, dry ginger, and other natural herbs and spices."
+    },
+    {
+      "id": 3,
+      "title": "How to Use",
+      "content": "Mix 2 tablespoons with a cup of water or plant-based milk. Boil for 3–5 minutes while stirring. Optionally sweeten with jaggery or your preferred healthy sweetener. Enjoy warm as breakfast or a mid-day snack."
+    }
+  ],
+  "isPublished": true,
+  "category": "1",
+  "labels": [
+    "New"
+  ],
+  "price": 1199,
+  "productVariants": [
+    {
+      "id": 1,
+      "name": "size",
+      "isPublished": true,
+      "productvariantoptions": [
+        {
+          "id": 1,
+          "name": "30",
+          "price": 1199,
+          "isPublished": true,
+          "isOutOfStock": false
+        },
+        {
+          "id": 2,
+          "name": "32",
+          "price": 1199,
+          "isPublished": true,
+          "isOutOfStock": false
+        },
+        {
+          "id": 3,
+          "name": "34",
+          "price": 1199,
+          "isPublished": true,
+          "isOutOfStock": false
+        },
+        {
+          "id": 4,
+          "name": "36",
+          "price": 1199,
+          "isPublished": true,
+          "isOutOfStock": false
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "name": "color",
+      "isPublished": true,
+      "productvariantoptions": [
+        {
+          "id": 1,
+          "name": "Black",
+          "price": 1199,
+          "isPublished": true,
+          "isOutOfStock": false
+        },
+        {
+          "id": 2,
+          "name": "Navy",
+          "price": 1199,
+          "isPublished": true,
+          "isOutOfStock": false
+        },
+        {
+          "id": 3,
+          "name": "Beige",
+          "price": 1199,
+          "isPublished": true,
+          "isOutOfStock": false
+        }
+      ]
+    }
+  ]
+},
+{
+  "id": 8,
+  "name": "Women's Leggings",
+  "imageUrls": [
+    "https://images.pexels.com/photos/1231640/pexels-photo-1231640.jpeg?auto=compress&cs=tinysrgb&w=600",
+    "https://images.pexels.com/photos/1231641/pexels-photo-1231641.jpeg?auto=compress&cs=tinysrgb&w=600"
+  ],
+  "description": [
+    {
+      "id": 1,
+      "title": "Description",
+      "content": "Millet Vaan’s Premium Sprouted Millets Pro-Energy Mix is a wholesome and natural health drink made from sprouted millets. It’s designed to boost energy and support wellness, with zero refined sugar, preservatives, or dairy. A perfect daily nutrition partner for the health-conscious."
+    },
+    {
+      "id": 2,
+      "title": "Ingredients",
+      "content": "Sprouted millets (ragi, bajra, jowar, foxtail millet), green gram, chickpeas, soybeans, cardamom, dry ginger, and other natural herbs and spices."
+    },
+    {
+      "id": 3,
+      "title": "How to Use",
+      "content": "Mix 2 tablespoons with a cup of water or plant-based milk. Boil for 3–5 minutes while stirring. Optionally sweeten with jaggery or your preferred healthy sweetener. Enjoy warm as breakfast or a mid-day snack."
+    }
+  ],
+  "isPublished": true,
+  "category": "2",
+  "labels": [
+    "Welcome"
+  ],
+  "price": 399,
+  "productVariants": [
+    {
+      "id": 1,
+      "name": "size",
+      "isPublished": true,
+      "productvariantoptions": [
+        {
+          "id": 1,
+          "name": "S",
+          "price": 399,
+          "isPublished": true,
+          "isOutOfStock": false
+        },
+        {
+          "id": 2,
+          "name": "M",
+          "price": 399,
+          "isPublished": true,
+          "isOutOfStock": false
+        },
+        {
+          "id": 3,
+          "name": "L",
+          "price": 399,
+          "isPublished": true,
+          "isOutOfStock": false
+        },
+        {
+          "id": 4,
+          "name": "XL",
+          "price": 399,
+          "isPublished": true,
+          "isOutOfStock": false
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "name": "color",
+      "isPublished": true,
+      "productvariantoptions": [
+        {
+          "id": 1,
+          "name": "Black",
+          "price": 399,
+          "isPublished": true,
+          "isOutOfStock": false
+        },
+        {
+          "id": 2,
+          "name": "Maroon",
+          "price": 399,
+          "isPublished": true,
+          "isOutOfStock": false
+        },
+        {
+          "id": 3,
+          "name": "Olive",
+          "price": 399,
+          "isPublished": true,
+          "isOutOfStock": false
+        }
+      ]
+    }
+  ]
+},
+{
+  "id": 9,
+  "name": "Men's Hoodie",
+  "imageUrls": [
+    "https://images.pexels.com/photos/1139682/pexels-photo-1139682.jpeg?auto=compress&cs=tinysrgb&w=600",
+    "https://images.pexels.com/photos/1139683/pexels-photo-1139683.jpeg?auto=compress&cs=tinysrgb&w=600"
+  ],
+  "description": [
+    {
+      "id": 1,
+      "title": "Description",
+      "content": "Millet Vaan’s Premium Sprouted Millets Pro-Energy Mix is a wholesome and natural health drink made from sprouted millets. It’s designed to boost energy and support wellness, with zero refined sugar, preservatives, or dairy. A perfect daily nutrition partner for the health-conscious."
+    },
+    {
+      "id": 2,
+      "title": "Ingredients",
+      "content": "Sprouted millets (ragi, bajra, jowar, foxtail millet), green gram, chickpeas, soybeans, cardamom, dry ginger, and other natural herbs and spices."
+    },
+    {
+      "id": 3,
+      "title": "How to Use",
+      "content": "Mix 2 tablespoons with a cup of water or plant-based milk. Boil for 3–5 minutes while stirring. Optionally sweeten with jaggery or your preferred healthy sweetener. Enjoy warm as breakfast or a mid-day snack."
+    }
+  ],
+  "isPublished": true,
+  "category": "1",
+  "labels": [
+    "Deal"
+  ],
+  "price": 1399,
+  "productVariants": [
+    {
+      "id": 1,
+      "name": "size",
+      "isPublished": true,
+      "productvariantoptions": [
+        {
+          "id": 1,
+          "name": "M",
+          "price": 1399,
+          "isPublished": true,
+          "isOutOfStock": false
+        },
+        {
+          "id": 2,
+          "name": "L",
+          "price": 1399,
+          "isPublished": true,
+          "isOutOfStock": false
+        },
+        {
+          "id": 3,
+          "name": "XL",
+          "price": 1399,
+          "isPublished": true,
+          "isOutOfStock": false
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "name": "color",
+      "isPublished": true,
+      "productvariantoptions": [
+        {
+          "id": 1,
+          "name": "Charcoal",
+          "price": 1399,
+          "isPublished": true,
+          "isOutOfStock": false
+        },
+        {
+          "id": 2,
+          "name": "Navy",
+          "price": 1399,
+          "isPublished": true,
+          "isOutOfStock": false
+        },
+        {
+          "id": 3,
+          "name": "White",
+          "price": 1399,
+          "isPublished": true,
+          "isOutOfStock": false
+        }
+      ]
+    }
+  ]
+},
+{
+  "id": 10,
+  "name": "Kids' Printed T-Shirt",
+  "imageUrls": [
+    "https://images.pexels.com/photos/1579294/pexels-photo-1579294.jpeg?auto=compress&cs=tinysrgb&w=600",
+    "https://images.pexels.com/photos/1579295/pexels-photo-1579295.jpeg?auto=compress&cs=tinysrgb&w=600"
+  ],
+  "description": [
+    {
+      "id": 1,
+      "title": "Description",
+      "content": "Millet Vaan’s Premium Sprouted Millets Pro-Energy Mix is a wholesome and natural health drink made from sprouted millets. It’s designed to boost energy and support wellness, with zero refined sugar, preservatives, or dairy. A perfect daily nutrition partner for the health-conscious."
+    },
+    {
+      "id": 2,
+      "title": "Ingredients",
+      "content": "Sprouted millets (ragi, bajra, jowar, foxtail millet), green gram, chickpeas, soybeans, cardamom, dry ginger, and other natural herbs and spices."
+    },
+    {
+      "id": 3,
+      "title": "How to Use",
+      "content": "Mix 2 tablespoons with a cup of water or plant-based milk. Boil for 3–5 minutes while stirring. Optionally sweeten with jaggery or your preferred healthy sweetener. Enjoy warm as breakfast or a mid-day snack."
+    }
+  ],
+  "isPublished": true,
+  "category": "5",
+  "labels": [],
+  "price": 299,
+  "productVariants": [
+    {
+      "id": 1,
+      "name": "size",
+      "isPublished": true,
+      "productvariantoptions": [
+        {
+          "id": 1,
+          "name": "2Y",
+          "price": 299,
+          "isPublished": true,
+          "isOutOfStock": false
+        },
+        {
+          "id": 2,
+          "name": "3Y",
+          "price": 299,
+          "isPublished": true,
+          "isOutOfStock": false
+        },
+        {
+          "id": 3,
+          "name": "4Y",
+          "price": 299,
+          "isPublished": true,
+          "isOutOfStock": false
+        },
+        {
+          "id": 4,
+          "name": "5Y",
+          "price": 299,
+          "isPublished": true,
+          "isOutOfStock": false
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "name": "color",
+      "isPublished": true,
+      "productvariantoptions": [
+        {
+          "id": 1,
+          "name": "Yellow",
+          "price": 299,
+          "isPublished": true,
+          "isOutOfStock": false
+        },
+        {
+          "id": 2,
+          "name": "Green",
+          "price": 299,
+          "isPublished": true,
+          "isOutOfStock": false
+        },
+        {
+          "id": 3,
+          "name": "Blue",
+          "price": 299,
+          "isPublished": true,
+          "isOutOfStock": false
+        }
+      ]
+    }
+  ]
+},
+{
+  "id": 11,
+  "name": "Women's Handbag",
+  "imageUrls": [
+    "https://images.pexels.com/photos/1270322/pexels-photo-1270322.jpeg?auto=compress&cs=tinysrgb&w=600",
+    "https://images.pexels.com/photos/1270323/pexels-photo-1270323.jpeg?auto=compress&cs=tinysrgb&w=600"
+  ],
+  "description": [
+    {
+      "id": 1,
+      "title": "Description",
+      "content": "Millet Vaan’s Premium Sprouted Millets Pro-Energy Mix is a wholesome and natural health drink made from sprouted millets. It’s designed to boost energy and support wellness, with zero refined sugar, preservatives, or dairy. A perfect daily nutrition partner for the health-conscious."
+    },
+    {
+      "id": 2,
+      "title": "Ingredients",
+      "content": "Sprouted millets (ragi, bajra, jowar, foxtail millet), green gram, chickpeas, soybeans, cardamom, dry ginger, and other natural herbs and spices."
+    },
+    {
+      "id": 3,
+      "title": "How to Use",
+      "content": "Mix 2 tablespoons with a cup of water or plant-based milk. Boil for 3–5 minutes while stirring. Optionally sweeten with jaggery or your preferred healthy sweetener. Enjoy warm as breakfast or a mid-day snack."
+    }
+  ],
+  "isPublished": true,
+  "category": "6",
+  "labels": [
+    "Best Seller"
+  ],
+  "price": 1599,
+  "productVariants": [
+    {
+      "id": 1,
+      "name": "color",
+      "isPublished": true,
+      "productvariantoptions": [
+        {
+          "id": 1,
+          "name": "Tan",
+          "price": 1599,
+          "isPublished": true,
+          "isOutOfStock": false
+        },
+        {
+          "id": 2,
+          "name": "Black",
+          "price": 1599,
+          "isPublished": true,
+          "isOutOfStock": false
+        },
+        {
+          "id": 3,
+          "name": "Red",
+          "price": 1599,
+          "isPublished": true,
+          "isOutOfStock": false
+        }
+      ]
+    }
+  ]
+},
+{
+  "id": 12,
+  "name": "Men's Leather Wallet",
+  "imageUrls": [
+    "https://images.pexels.com/photos/179909/pexels-photo-179909.jpeg?auto=compress&cs=tinysrgb&w=600",
+    "https://images.pexels.com/photos/1166415/pexels-photo-1166415.jpeg?auto=compress&cs=tinysrgb&w=600"
+  ],
+  "description": [
+    {
+      "id": 1,
+      "title": "Description",
+      "content": "Millet Vaan’s Premium Sprouted Millets Pro-Energy Mix is a wholesome and natural health drink made from sprouted millets. It’s designed to boost energy and support wellness, with zero refined sugar, preservatives, or dairy. A perfect daily nutrition partner for the health-conscious."
+    },
+    {
+      "id": 2,
+      "title": "Ingredients",
+      "content": "Sprouted millets (ragi, bajra, jowar, foxtail millet), green gram, chickpeas, soybeans, cardamom, dry ginger, and other natural herbs and spices."
+    },
+    {
+      "id": 3,
+      "title": "How to Use",
+      "content": "Mix 2 tablespoons with a cup of water or plant-based milk. Boil for 3–5 minutes while stirring. Optionally sweeten with jaggery or your preferred healthy sweetener. Enjoy warm as breakfast or a mid-day snack."
+    }
+  ],
+  "isPublished": true,
+  "category": "1",
+  "labels": [
+    "New"
+  ],
+  "price": 899,
+  "productVariants": [
+    {
+      "id": 1,
+      "name": "color",
+      "isPublished": true,
+      "productvariantoptions": [
+        {
+          "id": 1,
+          "name": "Brown",
+          "price": 899,
+          "isPublished": true,
+          "isOutOfStock": false
+        },
+        {
+          "id": 2,
+          "name": "Black",
+          "price": 899,
+          "isPublished": true,
+          "isOutOfStock": false
+        }
+      ]
+    }
+  ]
+},
+{
+  "id": 13,
+  "name": "Women's Sunglasses",
+  "imageUrls": [
+    "https://images.pexels.com/photos/1329464/pexels-photo-1329464.jpeg?auto=compress&cs=tinysrgb&w=600",
+    "https://images.pexels.com/photos/46710/pexels-photo-46710.jpeg?auto=compress&cs=tinysrgb&w=600"
+  ],
+  "description": [
+    {
+      "id": 1,
+      "title": "Description",
+      "content": "Millet Vaan’s Premium Sprouted Millets Pro-Energy Mix is a wholesome and natural health drink made from sprouted millets. It’s designed to boost energy and support wellness, with zero refined sugar, preservatives, or dairy. A perfect daily nutrition partner for the health-conscious."
+    },
+    {
+      "id": 2,
+      "title": "Ingredients",
+      "content": "Sprouted millets (ragi, bajra, jowar, foxtail millet), green gram, chickpeas, soybeans, cardamom, dry ginger, and other natural herbs and spices."
+    },
+    {
+      "id": 3,
+      "title": "How to Use",
+      "content": "Mix 2 tablespoons with a cup of water or plant-based milk. Boil for 3–5 minutes while stirring. Optionally sweeten with jaggery or your preferred healthy sweetener. Enjoy warm as breakfast or a mid-day snack."
+    }
+  ],
+  "isPublished": true,
+  "category": "2",
+  "labels": [
+    "Welcome"
+  ],
+  "price": 599,
+  "productVariants": [
+    {
+      "id": 1,
+      "name": "color",
+      "isPublished": true,
+      "productvariantoptions": [
+        {
+          "id": 1,
+          "name": "Black",
+          "price": 599,
+          "isPublished": true,
+          "isOutOfStock": false
+        },
+        {
+          "id": 2,
+          "name": "Gold",
+          "price": 599,
+          "isPublished": true,
+          "isOutOfStock": false
+        },
+        {
+          "id": 3,
+          "name": "Tortoise",
+          "price": 599,
+          "isPublished": true,
+          "isOutOfStock": false
+        }
+      ]
+    }
+  ]
+},
+{
+  "id": 14,
+  "name": "Men's Analog Watch",
+  "imageUrls": [
+    "https://images.pexels.com/photos/190819/pexels-photo-190819.jpeg?auto=compress&cs=tinysrgb&w=600",
+    "https://images.pexels.com/photos/380782/pexels-photo-380782.jpeg?auto=compress&cs=tinysrgb&w=600"
+  ],
+  "description": [
+    {
+      "id": 1,
+      "title": "Description",
+      "content": "Millet Vaan’s Premium Sprouted Millets Pro-Energy Mix is a wholesome and natural health drink made from sprouted millets. It’s designed to boost energy and support wellness, with zero refined sugar, preservatives, or dairy. A perfect daily nutrition partner for the health-conscious."
+    },
+    {
+      "id": 2,
+      "title": "Ingredients",
+      "content": "Sprouted millets (ragi, bajra, jowar, foxtail millet), green gram, chickpeas, soybeans, cardamom, dry ginger, and other natural herbs and spices."
+    },
+    {
+      "id": 3,
+      "title": "How to Use",
+      "content": "Mix 2 tablespoons with a cup of water or plant-based milk. Boil for 3–5 minutes while stirring. Optionally sweeten with jaggery or your preferred healthy sweetener. Enjoy warm as breakfast or a mid-day snack."
+    }
+  ],
+  "isPublished": true,
+  "category": "1",
+  "labels": [
+    "Deal"
+  ],
+  "price": 1499,
+  "productVariants": [
+    {
+      "id": 1,
+      "name": "color",
+      "isPublished": true,
+      "productvariantoptions": [
+        {
+          "id": 1,
+          "name": "Black",
+          "price": 1499,
+          "isPublished": true,
+          "isOutOfStock": false
+        },
+        {
+          "id": 2,
+          "name": "Brown",
+          "price": 1499,
+          "isPublished": true,
+          "isOutOfStock": false
+        }
+      ]
+    }
+  ]
+},
+{
+  "id": 15,
+  "name": "Kids' Backpack",
+  "imageUrls": [
+    "https://images.pexels.com/photos/1329711/pexels-photo-1329711.jpeg?auto=compress&cs=tinysrgb&w=600",
+    "https://images.pexels.com/photos/1329713/pexels-photo-1329713.jpeg?auto=compress&cs=tinysrgb&w=600"
+  ],
+  "description": [
+    {
+      "id": 1,
+      "title": "Description",
+      "content": "Millet Vaan’s Premium Sprouted Millets Pro-Energy Mix is a wholesome and natural health drink made from sprouted millets. It’s designed to boost energy and support wellness, with zero refined sugar, preservatives, or dairy. A perfect daily nutrition partner for the health-conscious."
+    },
+    {
+      "id": 2,
+      "title": "Ingredients",
+      "content": "Sprouted millets (ragi, bajra, jowar, foxtail millet), green gram, chickpeas, soybeans, cardamom, dry ginger, and other natural herbs and spices."
+    },
+    {
+      "id": 3,
+      "title": "How to Use",
+      "content": "Mix 2 tablespoons with a cup of water or plant-based milk. Boil for 3–5 minutes while stirring. Optionally sweeten with jaggery or your preferred healthy sweetener. Enjoy warm as breakfast or a mid-day snack."
+    }
+  ],
+  "isPublished": true,
+  "category": "5",
+  "labels": [
+    "New"
+  ],
+  "price": 799,
+  "productVariants": [
+    {
+      "id": 1,
+      "name": "color",
+      "isPublished": true,
+      "productvariantoptions": [
+        {
+          "id": 1,
+          "name": "Pink",
+          "price": 799,
+          "isPublished": true,
+          "isOutOfStock": false
+        },
+        {
+          "id": 2,
+          "name": "Blue",
+          "price": 799,
+          "isPublished": true,
+          "isOutOfStock": false
+        },
+        {
+          "id": 3,
+          "name": "Green",
+          "price": 799,
+          "isPublished": true,
+          "isOutOfStock": false
+        }
+      ]
+    }
+  ]
+},
+{
+  "id": 16,
+  "name": "Women's Heels",
+  "imageUrls": [
+    "https://images.pexels.com/photos/2529148/pexels-photo-2529148.jpeg?auto=compress&cs=tinysrgb&w=600",
+    "https://images.pexels.com/photos/298863/pexels-photo-298863.jpeg?auto=compress&cs=tinysrgb&w=600"
+  ],
+  "description": [
+    {
+      "id": 1,
+      "title": "Description",
+      "content": "Millet Vaan’s Premium Sprouted Millets Pro-Energy Mix is a wholesome and natural health drink made from sprouted millets. It’s designed to boost energy and support wellness, with zero refined sugar, preservatives, or dairy. A perfect daily nutrition partner for the health-conscious."
+    },
+    {
+      "id": 2,
+      "title": "Ingredients",
+      "content": "Sprouted millets (ragi, bajra, jowar, foxtail millet), green gram, chickpeas, soybeans, cardamom, dry ginger, and other natural herbs and spices."
+    },
+    {
+      "id": 3,
+      "title": "How to Use",
+      "content": "Mix 2 tablespoons with a cup of water or plant-based milk. Boil for 3–5 minutes while stirring. Optionally sweeten with jaggery or your preferred healthy sweetener. Enjoy warm as breakfast or a mid-day snack."
+    }
+  ],
+  "isPublished": true,
+  "category": "4",
+  "labels": [
+    "Welcome"
+  ],
+  "price": 1299,
+  "productVariants": [
+    {
+      "id": 1,
+      "name": "size",
+      "isPublished": true,
+      "productvariantoptions": [
+        {
+          "id": 1,
+          "name": "5",
+          "price": 1299,
+          "isPublished": true,
+          "isOutOfStock": false
+        },
+        {
+          "id": 2,
+          "name": "6",
+          "price": 1299,
+          "isPublished": true,
+          "isOutOfStock": false
+        },
+        {
+          "id": 3,
+          "name": "7",
+          "price": 1299,
+          "isPublished": true,
+          "isOutOfStock": false
+        },
+        {
+          "id": 4,
+          "name": "8",
+          "price": 1299,
+          "isPublished": true,
+          "isOutOfStock": false
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "name": "color",
+      "isPublished": true,
+      "productvariantoptions": [
+        {
+          "id": 1,
+          "name": "Beige",
+          "price": 1299,
+          "isPublished": true,
+          "isOutOfStock": false
+        },
+        {
+          "id": 2,
+          "name": "Black",
+          "price": 1299,
+          "isPublished": true,
+          "isOutOfStock": false
+        }
+      ]
+    }
+  ]
+},
+{
+  "id": 17,
+  "name": "Men's Sports Cap",
+  "imageUrls": [
+    "https://images.pexels.com/photos/6311394/pexels-photo-6311394.jpeg?auto=compress&cs=tinysrgb&w=600",
+    "https://images.pexels.com/photos/6311400/pexels-photo-6311400.jpeg?auto=compress&cs=tinysrgb&w=600"
+  ],
+  "description": [
+    {
+      "id": 1,
+      "title": "Description",
+      "content": "Millet Vaan’s Premium Sprouted Millets Pro-Energy Mix is a wholesome and natural health drink made from sprouted millets. It’s designed to boost energy and support wellness, with zero refined sugar, preservatives, or dairy. A perfect daily nutrition partner for the health-conscious."
+    },
+    {
+      "id": 2,
+      "title": "Ingredients",
+      "content": "Sprouted millets (ragi, bajra, jowar, foxtail millet), green gram, chickpeas, soybeans, cardamom, dry ginger, and other natural herbs and spices."
+    },
+    {
+      "id": 3,
+      "title": "How to Use",
+      "content": "Mix 2 tablespoons with a cup of water or plant-based milk. Boil for 3–5 minutes while stirring. Optionally sweeten with jaggery or your preferred healthy sweetener. Enjoy warm as breakfast or a mid-day snack."
+    }
+  ],
+  "isPublished": true,
+  "category": "4",
+  "labels": [
+    "Deal"
+  ],
+  "price": 399,
+  "productVariants": [
+    {
+      "id": 1,
+      "name": "color",
+      "isPublished": true,
+      "productvariantoptions": [
+        {
+          "id": 1,
+          "name": "Navy",
+          "price": 399,
+          "isPublished": true,
+          "isOutOfStock": false
+        },
+        {
+          "id": 2,
+          "name": "Grey",
+          "price": 399,
+          "isPublished": true,
+          "isOutOfStock": false
+        },
+        {
+          "id": 3,
+          "name": "White",
+          "price": 399,
+          "isPublished": true,
+          "isOutOfStock": false
+        }
+      ]
+    }
+  ]
+}

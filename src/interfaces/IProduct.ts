@@ -28,7 +28,8 @@ export interface IOption {
     name: string,
     price: number,
     isPublished: boolean,
-    isOutOfStock: boolean
+    isOutOfStock: boolean,
+    isDefault: boolean
 }
 
 export interface IDescription {

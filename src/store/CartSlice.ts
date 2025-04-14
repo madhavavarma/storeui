@@ -1,4 +1,3 @@
-// store/CartSlice.ts
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { ICartState, ICartItem } from "./interfaces/ICartState";
 import { IOption } from "@/interfaces/IProduct";
@@ -48,6 +47,14 @@ const CartSlice = createSlice({
     addItem: (state: ICartState, action: PayloadAction<ICartItem>) => {
       const { product, selectedOptions, quantity } = action.payload;
 
+      // Calculate selected option prices
+      const selectedOptionPrices = Object.values(selectedOptions || {})
+        .filter((opt): opt is IOption => opt !== null)
+        .reduce((sum, option) => sum + (option.price || 0), 0);
+
+      // Total item price
+      const totalItemPrice = (product.price + selectedOptionPrices) * quantity;
+
       const existingItem = state.cartItems.find(
         (item) =>
           item.product.id === product.id &&
@@ -56,20 +63,18 @@ const CartSlice = createSlice({
 
       if (existingItem) {
         existingItem.quantity += quantity;
-        existingItem.totalPrice = formatPrice(
-          existingItem.totalPrice + product.price * quantity
-        );
+        existingItem.totalPrice = formatPrice(existingItem.totalPrice + totalItemPrice);
       } else {
         state.cartItems.push({
           product,
           selectedOptions,
           quantity,
-          totalPrice: formatPrice(product.price * quantity),
+          totalPrice: formatPrice(totalItemPrice),
         });
       }
 
       state.totalQuantity += quantity;
-      state.totalPrice = formatPrice(state.totalPrice + product.price * quantity);
+      state.totalPrice = formatPrice(state.totalPrice + totalItemPrice);
     },
 
     removeItem: (
@@ -107,10 +112,17 @@ const CartSlice = createSlice({
       );
 
       if (item) {
+        // Calculate selected option prices for updated item
+        const selectedOptionPrices = Object.values(item.selectedOptions || {})
+          .filter((opt): opt is IOption => opt !== null)
+          .reduce((sum, option) => sum + (option.price || 0), 0);
+
+        const totalItemPrice = (item.product.price + selectedOptionPrices);
+
         item.quantity += 1;
-        item.totalPrice = formatPrice(item.totalPrice + item.product.price);
+        item.totalPrice = formatPrice(item.totalPrice + totalItemPrice);
         state.totalQuantity += 1;
-        state.totalPrice = formatPrice(state.totalPrice + item.product.price);
+        state.totalPrice = formatPrice(state.totalPrice + totalItemPrice);
       }
     },
 
@@ -128,10 +140,17 @@ const CartSlice = createSlice({
       );
 
       if (item && item.quantity > 1) {
+        // Calculate selected option prices for updated item
+        const selectedOptionPrices = Object.values(item.selectedOptions || {})
+          .filter((opt): opt is IOption => opt !== null)
+          .reduce((sum, option) => sum + (option.price || 0), 0);
+
+        const totalItemPrice = (item.product.price + selectedOptionPrices);
+
         item.quantity -= 1;
-        item.totalPrice = formatPrice(item.totalPrice - item.product.price);
+        item.totalPrice = formatPrice(item.totalPrice - totalItemPrice);
         state.totalQuantity -= 1;
-        state.totalPrice = formatPrice(state.totalPrice - item.product.price);
+        state.totalPrice = formatPrice(state.totalPrice - totalItemPrice);
       }
     },
 
