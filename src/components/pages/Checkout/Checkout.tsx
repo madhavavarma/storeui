@@ -281,7 +281,7 @@ export default function CheckoutPage() {
                 
                 
                 ))}
-                 <div className="pt-4 border-t flex items-center justify-between text-green-800 font-semibold gap-4 flex-wrap sm:flex-nowrap">
+                 <div className="pt-2 flex items-center justify-between text-green-800 font-semibold gap-4 flex-wrap sm:flex-nowrap">
   
   <div className="flex flex-col sm:flex-row sm:items-center sm:gap-2">
     {/* Label */}

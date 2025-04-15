@@ -38,6 +38,10 @@ class NavigationHelper {
   goToThankYou = (orderId: string) => {
     this.navigate(`/thankyou?orderId=${orderId}`);
   };
+
+  goToAboutus = () => {
+    this.navigate('/aboutus');
+  };
 }
 
 export const useNavigationHelper = () => {

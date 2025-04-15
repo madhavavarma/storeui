@@ -106,7 +106,7 @@ export function NavMenu() {
               <ListItem onClick={() => navigationHelper.goToProducts()} title="Products">
                 Discover a wide range of nutritious and wholesome foods!
               </ListItem>
-              <ListItem href="/aboutus" title="About Us">
+              <ListItem onClick={() => navigationHelper.goToAboutus()} title="About Us">
                 Committed to a healthier you. Click to know about us.
               </ListItem>
             </ul>
