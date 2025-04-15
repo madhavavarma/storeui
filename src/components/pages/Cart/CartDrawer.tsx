@@ -4,6 +4,7 @@ import { Button } from "@/components/ui/button";
 import { useSelector } from "react-redux";
 import { IState } from "@/store/interfaces/IState";
 import { useNavigationHelper } from "@/hooks/use-navigate-helper";
+import { PackageCheck, ShoppingBag } from "lucide-react";
 
 interface CartDrawerProps {
   isOpen: boolean;
@@ -51,7 +52,15 @@ export default function CartDrawer({ isOpen, onClose, children }: CartDrawerProp
 
             {/* Cart Summary */}
             <div className="border-b px-4 py-3 flex justify-between items-center bg-gray-100">
-              <h2 className="text-gray-600 text-sm">{cart?.cartItems?.length} items</h2>
+            <h2 className="text-sm bg-green-100 text-green-800 px-3 py-1 rounded-full inline-block">
+              <div className="flex items-center gap-2 bg-green-50 px-3 py-1 rounded-lg text-sm text-green-800 font-medium w-fit">
+                <ShoppingBag className="w-4 h-4" />
+                {cart.cartItems.length} Product(s)
+                <span className="mx-1">•</span>
+                <PackageCheck className="w-4 h-4" />
+                {cart.cartItems.reduce((total, item) => total + item.quantity, 0)} Items
+              </div>
+            </h2>
               <p className="text-lg font-bold text-[#5DBF13]">
                 ₹{cart.totalPrice.toFixed(2)}
               </p>

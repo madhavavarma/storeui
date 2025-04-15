@@ -13,6 +13,8 @@ import {
   Trash2,
   Minus,
   Plus,
+  ShoppingBag,
+  PackageCheck,
 } from "lucide-react";
 import { useEffect, useState } from "react";
 import { toast } from "sonner";
@@ -185,80 +187,100 @@ export default function CheckoutPage() {
           >
             <Card className="bg-green-50 border-green-200">
               <CardContent className="p-4 space-y-4">
-                <h2 className="text-lg font-semibold text-green-800">
+                <h2 className="text-lg font-semibold text-green-800 flex justify-between pb-6 border-b">
                   🛒 Order Items
+
+                                <span className="flex items-center gap-2 bg-green-50 px-3 py-1 rounded-lg text-sm text-green-800 font-medium w-fit">
+                                  <ShoppingBag className="w-4 h-4" />
+                                  {cartItems.length} Product(s)
+                                  <span className="mx-1">•</span>
+                                  <PackageCheck className="w-4 h-4" />
+                                  {cartItems.reduce((total, item) => total + item.quantity, 0)} Items
+                                </span>
                 </h2>
                 {cartItems.map((item, idx) => (
                   <div
-                    key={idx}
-                    className="flex items-center justify-between gap-4 border-b py-3 text-sm"
-                  >
-                    <img
-                      src={item.product.imageUrls?.[0]}
-                      alt={item.product.name}
-                      className="w-14 h-14 object-cover rounded-md"
-                    />
-                    <div className="flex-1 min-w-0">
-                      <p className="font-medium text-gray-800 truncate">
-                        {item.product.name}
+                  key={idx}
+                  className="flex gap-4 border-b py-4 text-sm relative"
+                >
+                  {/* Product Image */}
+                  <img
+                    src={item.product.imageUrls?.[0]}
+                    alt={item.product.name}
+                    className="w-16 h-16 object-cover rounded-md"
+                  />
+                
+                  {/* Product Info */}
+                  <div className="flex-1 min-w-0">
+                    <p className="font-medium text-gray-800 truncate">
+                      {item.product.name}
+                    </p>
+                    {item.selectedOptions &&
+                      Object.entries(item.selectedOptions).map(([variantName, option]) => (
+                        <p key={variantName} className="text-gray-500 text-xs">
+                          {variantName}: <span className="font-medium">{option?.name}</span>
+                        </p>
+                      ))}
+                
+                    {/* Quantity & Price Section */}
+                    <div className="flex justify-between items-center mt-3 flex-wrap gap-2">
+                      {/* Quantity Controls */}
+                      <div className="flex items-center bg-gray-100 rounded-full px-2 py-1">
+                        <Button
+                          size="icon"
+                          className="w-7 h-7 bg-[#5DBF13] text-white rounded-full hover:bg-green-700"
+                          onClick={() =>
+                            handleUpdateQuantity(
+                              item.product.id || 0,
+                              item.selectedOptions,
+                              false
+                            )
+                          }
+                        >
+                          <Minus size={14} />
+                        </Button>
+                
+                        <span className="text-sm font-semibold w-6 text-center">
+                          {item.quantity}
+                        </span>
+                
+                        <Button
+                          size="icon"
+                          className="w-7 h-7 bg-[#5DBF13] text-white rounded-full hover:bg-green-700"
+                          onClick={() =>
+                            handleUpdateQuantity(
+                              item.product.id || 0,
+                              item.selectedOptions,
+                              true
+                            )
+                          }
+                        >
+                          <Plus size={14} />
+                        </Button>
+                      </div>
+                
+                      {/* Price */}
+                      <p className="text-[#5DBF13] font-semibold text-sm">
+                        ₹{item.totalPrice.toFixed(2)}
                       </p>
-                      {item.selectedOptions &&
-                        Object.entries(item.selectedOptions).map(
-                          ([variantName, option]) => (
-                            <p key={variantName} className="text-gray-500 text-xs">
-                              {variantName}:{" "}
-                              <span className="font-medium">{option?.name}</span>
-                            </p>
-                          )
-                        )}
                     </div>
-                    <div className="flex items-center space-x-2">
-                      <Button
-                        size="icon"
-                        variant="outline"
-                        className="w-6 h-6 text-green-700 border-green-400"
-                        onClick={() =>
-                          handleUpdateQuantity(
-                            item.product.id || 0,
-                            item.selectedOptions,
-                            false
-                          )
-                        }
-                      >
-                        <Minus className="w-4 h-4" />
-                      </Button>
-                      <span className="text-sm font-semibold w-5 text-center">
-                        {item.quantity}
-                      </span>
-                      <Button
-                        size="icon"
-                        variant="outline"
-                        className="w-6 h-6 text-green-700 border-green-400"
-                        onClick={() =>
-                          handleUpdateQuantity(
-                            item.product.id || 0,
-                            item.selectedOptions,
-                            true
-                          )
-                        }
-                      >
-                        <Plus className="w-4 h-4" />
-                      </Button>
-                    </div>
-                    <div className="text-right w-20 font-semibold">
-                      ₹{item.totalPrice.toFixed(2)}
-                    </div>
-                    <Button
-                      variant="ghost"
-                      size="icon"
-                      className="text-red-500"
-                      onClick={() => handleRemoveItem(item)}
-                    >
-                      <Trash2 className="w-4 h-4" />
-                    </Button>
                   </div>
+                
+                  {/* Delete Button */}
+                  <Button
+                    variant="ghost"
+                    size="icon"
+                    className="text-red-500 absolute top-2 right-2"
+                    onClick={() => handleRemoveItem(item)}
+                  >
+                    <Trash2 className="w-4 h-4" />
+                  </Button>
+                </div>
+                
+                
+                
                 ))}
-                <div className="border-t pt-2 flex justify-between font-bold text-green-800">
+                <div className=" pt-2 flex justify-between font-bold text-green-800">
                   <span>Total</span>
                   <span>₹{totalAmount.toFixed(2)}</span>
                 </div>
