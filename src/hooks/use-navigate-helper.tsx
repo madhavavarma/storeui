@@ -42,6 +42,10 @@ class NavigationHelper {
   goToAboutus = () => {
     this.navigate('/aboutus');
   };
+
+  goToFAQ = () => {
+    this.navigate('/faq');
+  };
 }
 
 export const useNavigationHelper = () => {

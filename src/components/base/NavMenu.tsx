@@ -120,7 +120,7 @@ export function NavMenu() {
                 <ListItem
                   key={component.title}
                   title={component.title}
-                  href={component.href}
+                  onClick={() => navigationHelper.goToAboutus()}
                 >
                   {component.description}
                 </ListItem>
@@ -136,7 +136,7 @@ export function NavMenu() {
                 <ListItem
                   key={component.title}
                   title={component.title}
-                  href={component.href}
+                  onClick={() => navigationHelper.goToFAQ()}
                 >
                   {component.description}
                 </ListItem>
