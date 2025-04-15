@@ -188,15 +188,7 @@ export default function CheckoutPage() {
             <Card className="bg-green-50 border-green-200">
               <CardContent className="p-4 space-y-4">
                 <h2 className="text-lg font-semibold text-green-800 flex justify-between pb-6 border-b">
-                  🛒 Order Items
-
-                                <span className="flex items-center gap-2 bg-green-50 px-3 py-1 rounded-lg text-sm text-green-800 font-medium w-fit">
-                                  <ShoppingBag className="w-4 h-4" />
-                                  {cartItems.length} Product(s)
-                                  <span className="mx-1">•</span>
-                                  <PackageCheck className="w-4 h-4" />
-                                  {cartItems.reduce((total, item) => total + item.quantity, 0)} Items
-                                </span>
+                  🛒 Order Items                              
                 </h2>
                 {cartItems.map((item, idx) => (
                   <div
@@ -280,10 +272,25 @@ export default function CheckoutPage() {
                 
                 
                 ))}
-                <div className=" pt-2 flex justify-between font-bold text-green-800">
-                  <span>Total</span>
-                  <span>₹{totalAmount.toFixed(2)}</span>
-                </div>
+<div className="pt-4 border-t flex items-center justify-between text-green-800 font-semibold gap-4 flex-wrap sm:flex-nowrap">
+  {/* Label */}
+  <span className="text-base whitespace-nowrap">Total</span>
+
+  {/* Product & Item Count */}
+  <span className="flex items-center gap-2 bg-green-50 px-3 py-1 rounded-full text-sm font-medium">
+    <ShoppingBag className="w-4 h-4" />
+    {cartItems.length} Product{cartItems.length > 1 && "s"}
+    <span className="mx-1">•</span>
+    <PackageCheck className="w-4 h-4" />
+    {cartItems.reduce((total, item) => total + item.quantity, 0)} Item
+    {cartItems.reduce((total, item) => total + item.quantity, 0) > 1 && "s"}
+  </span>
+
+  {/* Amount */}
+  <span className="text-lg text-green-900 whitespace-nowrap">
+    ₹{totalAmount.toFixed(2)}
+  </span>
+</div>
               </CardContent>
             </Card>
           </motion.div>
