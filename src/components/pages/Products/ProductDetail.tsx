@@ -102,7 +102,7 @@ const ProductDetail = ({ product }: IProps) => {
         {/* Product Title & Price */}
         <div className="flex justify-between items-center">
           <h2 className="text-lg font-bold">{product.name}</h2>
-          <span className="text-lg font-semibold text-primary">₹{calculateTotalPrice()}</span>
+          <span className="text-sm font-extrabold text-white bg-green-500 px-3 py-1 rounded-md shadow-sm">₹{calculateTotalPrice()}</span>
         </div>
 
         {/* Variant and Quantity Card */}

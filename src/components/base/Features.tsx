@@ -9,18 +9,18 @@ interface Feature {
 
 const featuresData: Feature[] = [
   {
-    title: 'Free Home Delivery',
-    description: 'Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut.',
+    title: 'Home Delivery',
+    description: 'Enjoy hassle-free delivery, on us!.',
     icon: <ShoppingCartIcon className="text-4xl text-green-500" />,
   },
   {
     title: 'Money Back Guarantee',
-    description: 'Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut.',
+    description: 'Not happy? Get a full refund, no questions asked.',
     icon: <DollarSignIcon className="text-4xl text-green-500" />,
   },
   {
     title: '24x7 Online Support',
-    description: 'Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut.',
+    description: 'Always here, anytime you need us.',
     icon: <HeadphonesIcon className="text-4xl text-green-500" />,
   },
 ];

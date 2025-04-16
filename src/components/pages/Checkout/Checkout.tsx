@@ -261,9 +261,9 @@ export default function CheckoutPage() {
                       </div>
                 
                       {/* Price */}
-                      <p className="text-[#5DBF13] font-semibold text-sm">
-                        ₹{item.totalPrice.toFixed(2)}
-                      </p>
+                      <span className="text-sm font-extrabold text-white bg-green-500 px-3 py-1 rounded-md shadow-sm">
+                        ₹{item.totalPrice}
+                      </span>
                     </div>
                   </div>
                 
@@ -291,9 +291,9 @@ export default function CheckoutPage() {
   </div>
 
   {/* Amount */}
-  <div className="text-lg text-green-900 whitespace-nowrap flex-shrink-0">
-    ₹{totalAmount.toFixed(2)}
-  </div>
+  <span className="text-sm font-extrabold text-white bg-green-500 px-3 py-1 rounded-md shadow-sm">
+    ₹{totalAmount}
+  </span>
 </div>
 
 

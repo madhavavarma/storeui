@@ -37,13 +37,13 @@ export default function MainCarousel() {
   const slides = [
     {
       image: 'https://themezhub.net/odex-live/odex/assets/img/banner-14.jpg',
-      headerText: 'Decorate Your Home with Plants',
-      contentText: 'Nemo enim ipsam voluptatem quia.'
+      headerText: 'Pure, natural, and healthy',
+      contentText: 'No checmicals, preservatices, refined sugar, or artificial additives for a better lifestyle!.'
     },
     {
       image: 'https://themezhub.net/odex-live/odex/assets/img/banner-15.jpg',
-      headerText: 'Fresh Greenery to Brighten Your Space',
-      contentText: 'Duis aute irure dolor in reprehenderit.'
+      headerText: 'Millet Vaan',
+      contentText: 'The way to healthy life style.'      
     },
   ];
 

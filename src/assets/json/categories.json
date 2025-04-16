@@ -1,44 +1,14 @@
 [
   {
     "id": 1,
-    "name": "Men",
+    "name": "Millet Vaan",
     "imageUrl": "https://images.pexels.com/photos/3777944/pexels-photo-3777944.jpeg",
     "isPublished": true
   },
   {
     "id": 2,
-    "name": "Women",
+    "name": "Viraat Harvest",
     "imageUrl": "https://images.pexels.com/photos/6311391/pexels-photo-6311391.jpeg",
-    "isPublished": true
-  },
-  {
-    "id": 3,
-    "name": "Unisex",
-    "imageUrl": "https://images.pexels.com/photos/6311605/pexels-photo-6311605.jpeg",
-    "isPublished": true
-  },
-  {
-    "id": 4,
-    "name": "Ethnic",
-    "imageUrl": "https://images.pexels.com/photos/5768314/pexels-photo-5768314.jpeg",
-    "isPublished": true
-  },
-  {
-    "id": 5,
-    "name": "Kids",
-    "imageUrl": "https://images.pexels.com/photos/17045318/pexels-photo-17045318.jpeg",
-    "isPublished": true
-  },
-  {
-    "id": 6,
-    "name": "Accessories",
-    "imageUrl": "https://images.pexels.com/photos/18225668/pexels-photo-18225668.jpeg",
-    "isPublished": true
-  },
-  {
-    "id": 7,
-    "name": "Sportswear",
-    "imageUrl": "https://images.pexels.com/photos/6455396/pexels-photo-6455396.jpeg",
     "isPublished": true
   }
 ]

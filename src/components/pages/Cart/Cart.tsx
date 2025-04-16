@@ -96,9 +96,9 @@ export default function ShoppingCart() {
             </div>
 
             {/* Price */}
-            <p className="text-[#5DBF13] font-semibold text-sm">
-              ₹{item.totalPrice.toFixed(2)}
-            </p>
+            <span className="text-sm font-extrabold text-white bg-green-500 px-3 py-1 rounded-md shadow-sm">
+              ₹{item.totalPrice}
+            </span>
           </div>
         </div>
       ))}

@@ -29,14 +29,15 @@ const Header: React.FC = () => {
           }`}
         >
           <div className="w-full pl-2 pr-2">
-            <div className="flex items-center justify-between">
+            <div className="flex items-center justify-between text-lg">
               <span>
                 <img
-                  src="https://themezhub.net/odex-live/odex/assets/img/logo-light.png"
+                  src="https://ik.imagekit.io/bzuspdt5r/MilletVaan/MilletVaan_Logo_Cropped.png?updatedAt=1744809564276"
                   className="max-w-[120px] cursor-pointer"
                   alt="Logo"
                   onClick={() => navigationHelper.goToHome()}
                 />
+                
               </span>
               <span>
                 <Avatar>

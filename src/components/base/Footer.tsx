@@ -15,8 +15,8 @@ const Footer = () => {
                   <ShoppingCartIcon />
                 </div>
                 <div className="facts_caption text-white">
-                  <h4 className="text-xl font-semibold mb-2">Free Home Delivery</h4>
-                  <p className="text-sm text-gray-400">Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut.</p>
+                  <h4 className="text-xl font-semibold mb-2">Home Delivery</h4>
+                  <p className="text-sm text-gray-400">Enjoy hassle-free delivery, on us!.</p>
                 </div>
               </CardContent>
             </Card>
@@ -31,7 +31,7 @@ const Footer = () => {
                 </div>
                 <div className="facts_caption text-white">
                   <h4 className="text-xl font-semibold mb-2">Money Back Guarantee</h4>
-                  <p className="text-sm text-gray-400">Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut.</p>
+                  <p className="text-sm text-gray-400">Not happy? Get a full refund, no questions asked.</p>
                 </div>
               </CardContent>
             </Card>
@@ -46,7 +46,7 @@ const Footer = () => {
                 </div>
                 <div className="facts_caption text-white">
                   <h4 className="text-xl font-semibold mb-2">24x7 Online Support</h4>
-                  <p className="text-sm text-gray-400">Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut.</p>
+                  <p className="text-sm text-gray-400">Always here, anytime you need us.</p>
                 </div>
               </CardContent>
             </Card>
@@ -102,15 +102,19 @@ const Footer = () => {
             <ul className="text-gray-400 space-y-2">
               <li className="flex items-center">
                 <HomeIcon className="text-green-500 mr-2" />
-                <span>#302 Brick Market, Jalsa California</span>
+                <span>Durganagar, Chandrampalem</span>
               </li>
               <li className="flex items-center">
                 <HomeIcon className="text-green-500 mr-2" />
-                <span>United States HQS1130</span>
+                <span>Madhurawada, Visakhapatnam</span>
+              </li>
+              <li className="flex items-center">
+                <HomeIcon className="text-green-500 mr-2" />
+                <span>Andhra Pradesh 530041</span>
               </li>
               <li className="flex items-center">
                 <PhoneIcon className="text-green-500 mr-2" />
-                (41) 254 758 4572
+                (+91) 9666030129
               </li>
             </ul>
           </div>
@@ -124,7 +128,7 @@ const Footer = () => {
           <div className="flex flex-col lg:flex-row justify-between items-center text-center lg:text-left">
             {/* Footer Left */}
             <div className="text-gray-400 mb-2 lg:mb-0">
-              <p className="mb-0">© Copyright 2020 SwapnaDesigns.Designed By <a href="https://bootstrapdesigns.net" className="text-green-500">Madhava</a>.</p>
+              <p className="mb-0">© Copyright 2020 Millet Vaan.Designed By <a href="https://bootstrapdesigns.net" className="text-green-500">Madhava</a>.</p>
             </div>
 
             {/* Footer Social Links */}

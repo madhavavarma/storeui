@@ -10,34 +10,34 @@ import {
 } from "@/components/ui/navigation-menu"
 import { useNavigationHelper } from "@/hooks/use-navigate-helper";
 
-const components: { title: string; href: string; description: string }[] = [
+const components: { title: string; href: string; description: string }[] = [  
   {
-    title: "Address",
+    title: "Email",
     href: "/#/aboutus",
-    description: "123 Main Street, Vizag, Andhra Pradesh, India - 530001",
+    description: "hello@milletvaan.com",
   },
   {
-    title: "Phone",
+    title: "Phone & Watsapp",
     href: "/#/aboutus",
-    description: "+91 98765 43210",
-  },
-  {
-    title: "WhatsApp",
-    href: "/#/aboutus",
-    description: "Chat with us on WhatsApp at +91 98765 43210",
+    description: "+91 9666030129",
   },
   {
     title: "Follow Us",
     href: "/#/aboutus",
     description: "Stay connected on Facebook, Instagram, and Twitter.",
   },
+  {
+    title: "Address",
+    href: "/#/aboutus",
+    description: "Durganagar, Chandrampalem, Madhurawada, Visakhapatnam, Andhra Pradesh - 530041",
+  }
 ];
 
 const components2: { title: string; href: string; description: string }[] = [
   {
     title: "How can I contact customer support?",
     href: "/#/faq",
-    description: "You can reach our support team via email at support@example.com or call us at +91 98765 43210.",
+    description: "You can reach our support team via email at hello@milletvaan.com or call/watsapp us at +91 9666030129.",
   },
   {
     title: "What payment methods do you accept?",
