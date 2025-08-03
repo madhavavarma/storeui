@@ -1,14 +1,32 @@
 [
   {
     "id": 1,
-    "name": "Millet Vaan",
-    "imageUrl": "https://images.pexels.com/photos/3777944/pexels-photo-3777944.jpeg",
+    "name": "Leafy Greens",
+    "imageUrl": "https://commons.wikimedia.org/wiki/Special:FilePath/Spinach_4.jpg",
     "isPublished": true
   },
   {
     "id": 2,
-    "name": "Viraat Harvest",
-    "imageUrl": "https://images.pexels.com/photos/6311391/pexels-photo-6311391.jpeg",
+    "name": "Cruciferous",
+    "imageUrl": "https://commons.wikimedia.org/wiki/Special:FilePath/Broccoli_and_cross_section_edit.jpg",
+    "isPublished": true
+  },
+  {
+    "id": 3,
+    "name": "Root Vegetables",
+    "imageUrl": "https://commons.wikimedia.org/wiki/Special:FilePath/Carrot_vegetables,_April_2023.jpg",
+    "isPublished": true
+  },
+  {
+    "id": 4,
+    "name": "Legumes",
+    "imageUrl": "https://commons.wikimedia.org/wiki/Special:FilePath/Fresh_peas.jpg",
+    "isPublished": true
+  },
+  {
+    "id": 5,
+    "name": "Alliums",
+    "imageUrl": "https://commons.wikimedia.org/wiki/Special:FilePath/Garlic.jpg",
     "isPublished": true
   }
 ]

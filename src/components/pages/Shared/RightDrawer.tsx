@@ -23,7 +23,7 @@ export default function RightDrawer({ isOpen, onClose, children }: RightDrawerPr
 
           {/* Drawer */}
           <motion.div
-            className="fixed inset-y-0 right-0 w-full sm:w-[400px] bg-white shadow-lg z-[9998] flex flex-col sm:rounded-l-xl rounded-none m-0 p-0"
+            className="fixed top-0 right-0 h-full w-[90%] bg-white shadow-lg z-[9999] flex flex-col rounded-l-xl"
             initial={{ x: "100%", opacity: 0.5, scale: 0.95 }}
             animate={{ x: 0, opacity: 1, scale: 1 }}
             exit={{

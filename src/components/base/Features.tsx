@@ -27,16 +27,16 @@ const featuresData: Feature[] = [
 
 const Features = ({ bgColor = 'bg-gray-0' }: { bgColor?: string }) => {
   return (
-    <div className={`${bgColor} pt-4 text-xs`}>
+    <div className={`${bgColor} mt-12 text-xs`}>
       <div className="flex flex-wrap justify-between gap-2">
         {featuresData.map(({ title, description, icon }, index) => (
           <div key={index} className="single_facts w-full md:w-[30%]">
-            <Card className={`${bgColor} transition-shadow duration-300 border-0`}>
+            <Card className={`${bgColor} transition-shadow duration-300 border-0 px-2 text-4xl`}>
               <CardContent className="flex items-center justify-start">
-                <div className="facts_icon mr-4">{icon}</div>
+                <div className="facts_icon mr-4 border-2 p-4">{icon}</div>
                 <div className="facts_caption text-gray">
-                  <h4 className="text-xs md:text-xl font-semibold mb-2">{title}</h4>
-                  <p className="text-xs md:text-sm text-gray-400">{description}</p>
+                  <h4 className="text-xs font-semibold mb-2">{title}</h4>
+                  <p className="text-xs text-gray-400">{description}</p>
                 </div>
               </CardContent>
             </Card>

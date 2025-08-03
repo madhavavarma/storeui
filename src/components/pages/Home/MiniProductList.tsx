@@ -27,15 +27,15 @@ const MiniProductList = () => {
   }, [cartItemCount]);
 
   return (
-    <div className="w-full min-h-screen flex flex-col items-center">
+    <div className="w-full flex flex-col items-center py-16 px-4">
       {/* Section Title */}
-      <div className="w-full max-w-7xl text-center">
+      <div className="w-full text-center">
         <p className="text-sm text-green-500 mb-1">Select Products</p>
-        <h2 className="text-3xl font-bold text-gray-800 mb-6">Products</h2>
+        <h2 className="text-3xl font-bold text-gray-800 mb-12">Products</h2>
       </div>
 
       {/* Product Grid */}
-      <div className="w-full max-w-7xl">
+      <div className="w-full">
         <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-6 lg:grid-cols-6 xl:grid-cols-5 md:gap-2 justify-start">
           {products.slice(0,10).map((product) => (
             <Product2 key={product.id} product={product} isHideDrawer={false} />

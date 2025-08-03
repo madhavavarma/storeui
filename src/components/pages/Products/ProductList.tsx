@@ -66,12 +66,12 @@ const ProductList = () => {
     <Fragment>
       <Header />
 
-      <div className="max-w-7xl mx-auto p-0">
+      <div className="mx-auto px-2">
         <p className="text-sm text-green-500 mb-1 pt-6 text-center">Select Products</p>
         <h2 className="text-3xl font-bold text-gray-800 mb-4 text-center">Products</h2>
 
         {/* Product Grid */}
-        <div className="grid grid-cols-2  md:grid-cols-4 md:gap-8 gap-0 p-2">
+        <div className="grid grid-cols-2  md:grid-cols-4 md:gap-2 gap-0 p-2">
           {filteredProducts.length > 0 ? (
             filteredProducts.map((product) => (
               <div key={product.id} className="w-full">

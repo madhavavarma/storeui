@@ -1,11 +1,11 @@
 import { Card, CardContent } from '../ui/card';
-import { ShoppingCartIcon, DollarSignIcon, HeadphonesIcon, HomeIcon, PhoneIcon } from 'lucide-react';
+import { ShoppingCartIcon, DollarSignIcon, HeadphonesIcon } from 'lucide-react';
 
 const Footer = () => {
   return (
     <footer className="dark-footer skin-dark-footer style-2 flex flex-col justify-between">
       {/* Before Footer */}
-      <div className="before-footer bg-gray-900 pt-4">
+      <div className="before-footer bg-gray-900 pt-4 hidden">
         <div className="flex flex-wrap justify-between gap-2">
           {/* Free Home Delivery */}
           <div className="single_facts w-full md:w-[30%]">
@@ -56,12 +56,12 @@ const Footer = () => {
 
 
       {/* Footer Middle */}
-      <div className="footer-middle bg-gray-800 p-8">
-        <div className="flex flex-wrap justify-between gap-6">
+      <div className="footer-middle bg-gray-800 py-8 px-4">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
           
 
           {/* Categories */}
-          <div className="footer_widget w-full md:w-[23%] text-left">
+          <div className="footer_widget text-left">
             <h4 className="text-white text-lg font-semibold">Categories</h4>
             <ul className="footer-menu text-gray-400 space-y-2">
               <li><a href="#">Organic</a></li>
@@ -72,7 +72,7 @@ const Footer = () => {
           </div>
 
           {/* Our Company */}
-          <div className="footer_widget w-full md:w-[23%] text-left">
+          <div className="footer_widget text-left">
             <h4 className="text-white text-lg font-semibold">Our Company</h4>
             <ul className="footer-menu text-gray-400 space-y-2">
               <li><a href="#">About Us</a></li>
@@ -83,7 +83,7 @@ const Footer = () => {
           </div>
 
           {/* Latest News */}
-          <div className="footer_widget w-full md:w-[23%] text-left">
+          <div className="footer_widget text-left">
             <h4 className="text-white text-lg font-semibold">Latest News</h4>
             <ul className="footer-menu text-gray-400 space-y-2">
               <li><a href="#">Offers &amp; Deals</a></li>
@@ -94,26 +94,26 @@ const Footer = () => {
           </div>
 
           {/* Contact Us */}
-          <div className="footer_widget w-full md:w-[23%] text-left">
+          <div className="footer_widget text-left text-xs">
             <h4 className="text-white text-lg font-semibold">Contact Us</h4>
-            <p className="text-gray-400">
+            <p className="text-gray-400 mb-4">
               Let's hear all about it! <a href="#" className="text-green-500">Get in touch</a>
             </p>
             <ul className="text-gray-400 space-y-2">
               <li className="flex items-center">
-                <HomeIcon className="text-green-500 mr-2" />
+                {/* <HomeIcon className="text-green-500 mr-2" /> */}
                 <span>Durganagar, Chandrampalem</span>
               </li>
               <li className="flex items-center">
-                <HomeIcon className="text-green-500 mr-2" />
+                {/* <HomeIcon className="text-green-500 mr-2" /> */}
                 <span>Madhurawada, Visakhapatnam</span>
               </li>
               <li className="flex items-center">
-                <HomeIcon className="text-green-500 mr-2" />
+                {/* <HomeIcon className="text-green-500 mr-2" /> */}
                 <span>Andhra Pradesh 530041</span>
               </li>
               <li className="flex items-center">
-                <PhoneIcon className="text-green-500 mr-2" />
+                {/* <PhoneIcon className="text-green-500 mr-2" /> */}
                 (+91) 9666030129
               </li>
             </ul>

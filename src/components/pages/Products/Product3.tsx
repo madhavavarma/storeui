@@ -20,15 +20,15 @@ const Product3 = ({ product }: { product: IProduct }) => {
           {[...Array(5)].map((_, index) => (
             <Star
               key={index}
-              className={`w-4 h-4 ${index < 4 ? "text-yellow-400 fill-current" : "text-gray-300"}`}
+              className={`w-4 h-4 ${index < 4 ? "text-green-400 fill-current" : "text-gray-300"}`}
             />
           ))}
         </div>
       </section>
 
       {/* Product Image */}
-      <div className="relative h-48 overflow-hidden rounded-lg mb-4">
-        <img src={imageUrls[0]} alt={name} className="object-cover w-full h-full" />
+      <div className="relative overflow-hidden rounded-lg mb-4">
+        <img src={imageUrls[0]} alt={name} className="object-cover" />
       </div>
 
       {/* Product Name */}

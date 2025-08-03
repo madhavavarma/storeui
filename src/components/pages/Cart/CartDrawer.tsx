@@ -31,7 +31,7 @@ export default function CartDrawer({ isOpen, onClose, children }: CartDrawerProp
 
           {/* Drawer */}
           <motion.div
-            className="fixed top-0 right-0 h-full w-[380px] bg-white shadow-lg z-[9999] flex flex-col rounded-l-xl"
+            className="fixed top-0 right-0 h-full w-[90%] bg-white shadow-lg z-[9999] flex flex-col rounded-l-xl"
             initial={{ x: "100%", opacity: 0.5, scale: 0.95 }}
             animate={{ x: 0, opacity: 1, scale: 1 }}
             exit={{

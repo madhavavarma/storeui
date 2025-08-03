@@ -22,12 +22,12 @@ const Product2 = ({ product }: ProductProps) => {
 
   return (
     <div
-      className="aspect-[2/3] bg-white border border-gray-200 rounded shadow-sm hover:shadow-md cursor-pointer transition-all flex flex-col"
+      className="aspect-[2/2] bg-white border border-gray-200 rounded shadow-sm hover:shadow-md cursor-pointer transition-all flex flex-col"
       onClick={setProudctDetail}
     >
       {/* Product Image */}
       <div
-        className="relative h-full w-full rounded-t bg-center bg-no-repeat bg-cover"
+        className="relative w-full h-48 rounded-t bg-center bg-no-repeat bg-cover"
         style={{ backgroundImage: `url(${imageUrls[0]})` }}
       >
         {/* Labels on Image */}

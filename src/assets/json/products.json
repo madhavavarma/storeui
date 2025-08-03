@@ -1,34 +1,27 @@
 [
   {
-    "id": 2,
-    "name": "Sprouted Millet Pro Energy Mix",
+    "id": 1,
+    "name": "New Spinach Bunch",
     "imageUrls": [
-      "https://ik.imagekit.io/bzuspdt5r/MilletVaan/MV_PSMPEM_01_cgpt_cmp.webp?updatedAt=1744563078925",
-      "https://ik.imagekit.io/bzuspdt5r/MilletVaan/MV_PSMPEM_01_cgpt_cmp.webp?updatedAt=1744563078925"
+      "https://commons.wikimedia.org/wiki/Special:FilePath/Spinach%204.jpg",
+      "https://commons.wikimedia.org/wiki/Special:FilePath/Spinach%202.jpg"
     ],
     "description": [
       {
         "id": 1,
         "title": "Description",
-        "content": "Millet Vaan’s Premium Sprouted Millets Pro-Energy Mix is a wholesome and natural health drink made from sprouted millets. It’s designed to boost energy and support wellness, with zero refined sugar, preservatives, or dairy. A perfect daily nutrition partner for the health-conscious."
+        "content": "New green spinach leaves, washed and ready to cook or serve in salads. High in iron and vitamin K."
       },
       {
         "id": 2,
-        "title": "Ingredients",
-        "content": "Sprouted millets (ragi, bajra, jowar, foxtail millet), green gram, chickpeas, soybeans, cardamom, dry ginger, and other natural herbs and spices."
-      },
-      {
-        "id": 3,
-        "title": "How to Use",
-        "content": "Mix 2 tablespoons with a cup of water or plant-based milk. Boil for 3–5 minutes while stirring. Optionally sweeten with jaggery or your preferred healthy sweetener. Enjoy warm as breakfast or a mid-day snack."
+        "title": "Benefits",
+        "content": "Rich in plant‑based protein, fibre, and essential micronutrients like iron, magnesium and folate."
       }
     ],
     "isPublished": true,
-    "category": "2",
-    "labels": [
-      "Deal"
-    ],
-    "price": 200,
+    "category": "vegetables",
+    "labels": ["New"],
+    "price": 50,
     "productVariants": [
       {
         "id": 1,
@@ -37,7 +30,7 @@
         "productvariantoptions": [
           {
             "id": 1,
-            "name": "200gm",
+            "name": "250 gm",
             "price": 0,
             "isPublished": true,
             "isOutOfStock": false,
@@ -45,8 +38,57 @@
           },
           {
             "id": 2,
-            "name": "500gm",
-            "price": 300,
+            "name": "500 gm",
+            "price": 25,
+            "isPublished": true,
+            "isOutOfStock": false,
+            "isDefault": false
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": 2,
+    "name": "Broccoli & Cauliflower Florets Mix",
+    "imageUrls": [
+      "https://commons.wikimedia.org/wiki/Special:FilePath/Broccoli%20and%20cross%20section%20edit.jpg",
+      "https://commons.wikimedia.org/wiki/Special:FilePath/Broccoli%20and%20cross%20section%20edit.jpg"
+    ],
+    "description": [
+      {
+        "id": 1,
+        "title": "Description",
+        "content": "A mix of Newly cut broccoli and cauliflower florets—great for stir‑fries, steaming or raw salads."
+      },
+      {
+        "id": 2,
+        "title": "Health Highlight",
+        "content": "Packed with vitamins C and K, dietary fibre, and antioxidants like sulforaphane for wellness support."
+      }
+    ],
+    "isPublished": true,
+    "category": "vegetables",
+    "labels": ["New"],
+    "price": 80,
+    "productVariants": [
+      {
+        "id": 1,
+        "name": "Weight",
+        "isPublished": true,
+        "productvariantoptions": [
+          {
+            "id": 1,
+            "name": "200 gm",
+            "price": 0,
+            "isPublished": true,
+            "isOutOfStock": false,
+            "isDefault": true
+          },
+          {
+            "id": 2,
+            "name": "500 gm",
+            "price": 200,
             "isPublished": true,
             "isOutOfStock": false,
             "isDefault": false
@@ -57,33 +99,27 @@
   },
   {
     "id": 3,
-    "name": "Sprouted Multi Millet Malt",
+    "name": "Baby Carrots (Bundle)",
     "imageUrls": [
-      "https://ik.imagekit.io/bzuspdt5r/MilletVaan/millet_malt_1024x1536.webp?updatedAt=1744564480887"
+      "https://commons.wikimedia.org/wiki/Special:FilePath/Carrots%20with%20stems.jpg",
+      "https://commons.wikimedia.org/wiki/Special:FilePath/Carrots%20with%20stems.jpg"
     ],
     "description": [
       {
         "id": 1,
         "title": "Description",
-        "content": "Millet Vaan’s Premium Sprouted Millets Pro-Energy Mix is a wholesome and natural health drink made from sprouted millets. It’s designed to boost energy and support wellness, with zero refined sugar, preservatives, or dairy. A perfect daily nutrition partner for the health-conscious."
+        "content": "Vibrant orange baby carrots with stems attached—crisp, sweet and perfect as snacks or in salads."
       },
       {
         "id": 2,
-        "title": "Ingredients",
-        "content": "Sprouted millets (ragi, bajra, jowar, foxtail millet), green gram, chickpeas, soybeans, cardamom, dry ginger, and other natural herbs and spices."
-      },
-      {
-        "id": 3,
-        "title": "How to Use",
-        "content": "Mix 2 tablespoons with a cup of water or plant-based milk. Boil for 3–5 minutes while stirring. Optionally sweeten with jaggery or your preferred healthy sweetener. Enjoy warm as breakfast or a mid-day snack."
+        "title": "Nutritional Tip",
+        "content": "Excellent source of beta‑carotene (vitamin A), fibre, and low in calories."
       }
     ],
     "isPublished": true,
-    "category": "1",
-    "labels": [
-      "Welcome"
-    ],
-    "price": 500,
+    "category": "vegetables",
+    "labels": ["New"],
+    "price": 60,
     "productVariants": [
       {
         "id": 1,
@@ -92,7 +128,7 @@
         "productvariantoptions": [
           {
             "id": 1,
-            "name": "250gm",
+            "name": "300 gm",
             "price": 0,
             "isPublished": true,
             "isOutOfStock": false,
@@ -100,16 +136,588 @@
           },
           {
             "id": 2,
-            "name": "500gm",
-            "price": 1000,
+            "name": "600 gm",
+            "price": 120,
             "isPublished": true,
             "isOutOfStock": false,
             "isDefault": false
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": 4,
+    "name": "Organic Cherry Tomatoes Pack",
+    "imageUrls": [
+      "https://commons.wikimedia.org/wiki/Special:FilePath/Cherry‑Tomatoes‑in‑Pack.jpg",
+      "https://commons.wikimedia.org/wiki/Special:FilePath/Cherry‑Tomatoes‑in‑Pack.jpg"
+    ],
+    "description": [
+      {
+        "id": 1,
+        "title": "Description",
+        "content": "A pulp basket of New, ripe cherry tomatoes—sweet, vibrant and ready to eat."
+      },
+      {
+        "id": 2,
+        "title": "Ideal For",
+        "content": "Perfect for salads, snacking straight from the pack, or as a colourful cooking ingredient."
+      }
+    ],
+    "isPublished": true,
+    "category": "vegetables",
+    "labels": ["New"],
+    "price": 90,
+    "productVariants": [
+      {
+        "id": 1,
+        "name": "Weight",
+        "isPublished": true,
+        "productvariantoptions": [
+          {
+            "id": 1,
+            "name": "250 gm",
+            "price": 0,
+            "isPublished": true,
+            "isOutOfStock": false,
+            "isDefault": true
           },
           {
-            "id": 3,
-            "name": "1kg",
-            "price": 2000,
+            "id": 2,
+            "name": "500 gm",
+            "price": 180,
+            "isPublished": true,
+            "isOutOfStock": false,
+            "isDefault": false
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": 5,
+    "name": "Slicing Tomatoes (Whole & Halved)",
+    "imageUrls": [
+      "https://commons.wikimedia.org/wiki/Special:FilePath/Tomatoes%20plain%20and%20sliced.jpg",
+      "https://commons.wikimedia.org/wiki/Special:FilePath/Tomatoes%20plain%20and%20sliced.jpg"
+    ],
+    "description": [
+      {
+        "id": 1,
+        "title": "Description",
+        "content": "Whole and sliced New tomatoes—perfect for sandwiches, sauces, or cooking."
+      },
+      {
+        "id": 2,
+        "title": "Serving",
+        "content": "Great for salads, making healthy tomato soup, or layering in burgers."
+      }
+    ],
+    "isPublished": true,
+    "category": "vegetables",
+    "labels": ["New"],
+    "price": 70,
+    "productVariants": [
+      {
+        "id": 1,
+        "name": "Weight",
+        "isPublished": true,
+        "productvariantoptions": [
+          {
+            "id": 1,
+            "name": "500 gm",
+            "price": 0,
+            "isPublished": true,
+            "isOutOfStock": false,
+            "isDefault": true
+          },
+          {
+            "id": 2,
+            "name": "1 kg",
+            "price": 140,
+            "isPublished": true,
+            "isOutOfStock": false,
+            "isDefault": false
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": 6,
+    "name": "Bell Pepper (Green / Red)",
+    "imageUrls": [
+      "https://commons.wikimedia.org/wiki/Special:FilePath/Capsicum%20annuum%2C%20paprika.jpg",
+      "https://commons.wikimedia.org/wiki/Special:FilePath/Capsicum%20annuum%20flower.JPG"
+    ],
+    "description": [
+      {
+        "id": 1,
+        "title": "Description",
+        "content": "Sweet bell peppers in green, yellow or red—crisp and flavourful."
+      },
+      {
+        "id": 2,
+        "title": "Nutrition Note",
+        "content": "Excellent source of vitamins A and C, low‑calorie and vibrant in colour."
+      }
+    ],
+    "isPublished": true,
+    "category": "vegetables",
+    "labels": ["New"],
+    "price": 120,
+    "productVariants": [
+      {
+        "id": 1,
+        "name": "Weight",
+        "isPublished": true,
+        "productvariantoptions": [
+          {
+            "id": 1,
+            "name": "500 gm",
+            "price": 0,
+            "isPublished": true,
+            "isOutOfStock": false,
+            "isDefault": true
+          },
+          {
+            "id": 2,
+            "name": "1 kg",
+            "price": 240,
+            "isPublished": true,
+            "isOutOfStock": false,
+            "isDefault": false
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": 7,
+    "name": "Eggplant / Brinjal – Local Variety",
+    "imageUrls": [
+      "https://commons.wikimedia.org/wiki/Special:FilePath/Egg%20plant%20or%20brinjal.jpg",
+      "https://commons.wikimedia.org/wiki/Special:FilePath/Egg%20plant%20or%20brinjal.jpg"
+    ],
+    "description": [
+      {
+        "id": 1,
+        "title": "Description",
+        "content": "New local‑variety purple brinjals—firm and glossy with tender flesh."
+      },
+      {
+        "id": 2,
+        "title": "Cooking Tips",
+        "content": "Ideal for curries like baingan bharta, stir‑fries or roasting with seasonings."
+      }
+    ],
+    "isPublished": true,
+    "category": "vegetables",
+    "labels": ["New"],
+    "price": 70,
+    "productVariants": [
+      {
+        "id": 1,
+        "name": "Weight",
+        "isPublished": true,
+        "productvariantoptions": [
+          {
+            "id": 1,
+            "name": "500 gm",
+            "price": 0,
+            "isPublished": true,
+            "isOutOfStock": false,
+            "isDefault": true
+          },
+          {
+            "id": 2,
+            "name": "1 kg",
+            "price": 140,
+            "isPublished": true,
+            "isOutOfStock": false,
+            "isDefault": false
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": 8,
+    "name": "Sweet Potato (Purple Skin)",
+    "imageUrls": [
+      "https://commons.wikimedia.org/wiki/Special:FilePath/Sweet%20potatoes%20(leaves)%20J1.jpg",
+      "https://commons.wikimedia.org/wiki/Special:FilePath/Sweet%20potatoes%20(exposed)%20DSCF7299.JPG"
+    ],
+    "description": [
+      {
+        "id": 1,
+        "title": "Description",
+        "content": "Purple‑skinned sweet potatoes—firm, naturally sweet and packed with fibre."
+      },
+      {
+        "id": 2,
+        "title": "Health Note",
+        "content": "High in beta‑carotene, antioxidants and supportive of digestive health."
+      }
+    ],
+    "isPublished": true,
+    "category": "vegetables",
+    "labels": ["New"],
+    "price": 85,
+    "productVariants": [
+      {
+        "id": 1,
+        "name": "Weight",
+        "isPublished": true,
+        "productvariantoptions": [
+          {
+            "id": 1,
+            "name": "500 gm",
+            "price": 0,
+            "isPublished": true,
+            "isOutOfStock": false,
+            "isDefault": true
+          },
+          {
+            "id": 2,
+            "name": "1 kg",
+            "price": 170,
+            "isPublished": true,
+            "isOutOfStock": false,
+            "isDefault": false
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": 9,
+    "name": "Whole Garlic Bulbs",
+    "imageUrls": [
+      "https://commons.wikimedia.org/wiki/Special:FilePath/Garlic%20bulb.jpg",
+      "https://commons.wikimedia.org/wiki/Special:FilePath/Garlic%20Bulbs%202.jpg"
+    ],
+    "description": [
+      {
+        "id": 1,
+        "title": "Description",
+        "content": "Whole garlic bulbs with tight, papery skin—ideal for cooking and seasoning."
+      },
+      {
+        "id": 2,
+        "title": "Flavor Profile",
+        "content": "Pungent when raw, mellow and aromatic when roasted or sautéed."
+      }
+    ],
+    "isPublished": true,
+    "category": "vegetables",
+    "labels": ["New"],
+    "price": 30,
+    "productVariants": [
+      {
+        "id": 1,
+        "name": "Weight",
+        "isPublished": true,
+        "productvariantoptions": [
+          {
+            "id": 1,
+            "name": "200 gm",
+            "price": 0,
+            "isPublished": true,
+            "isOutOfStock": false,
+            "isDefault": true
+          },
+          {
+            "id": 2,
+            "name": "400 gm",
+            "price": 60,
+            "isPublished": true,
+            "isOutOfStock": false,
+            "isDefault": false
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": 10,
+    "name": "Red Onion Bundle",
+    "imageUrls": [
+      "https://commons.wikimedia.org/wiki/Special:FilePath/Onion%20(Allium%20cepa).jpg",
+      "https://commons.wikimedia.org/wiki/Special:FilePath/Onion%20plant%20from%20lalbagh%202323.JPG"
+    ],
+    "description": [
+      {
+        "id": 1,
+        "title": "Description",
+        "content": "New red onions with firm white‑red layers—great for salads, curries and grilling."
+      },
+      {
+        "id": 2,
+        "title": "Tip",
+        "content": "Rich in quercetin, a bioflavonoid linked with anti‑inflammatory benefits."
+      }
+    ],
+    "isPublished": true,
+    "category": "vegetables",
+    "labels": ["New"],
+    "price": 40,
+    "productVariants": [
+      {
+        "id": 1,
+        "name": "Weight",
+        "isPublished": true,
+        "productvariantoptions": [
+          {
+            "id": 1,
+            "name": "500 gm",
+            "price": 0,
+            "isPublished": true,
+            "isOutOfStock": false,
+            "isDefault": true
+          },
+          {
+            "id": 2,
+            "name": "1 kg",
+            "price": 80,
+            "isPublished": true,
+            "isOutOfStock": false,
+            "isDefault": false
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": 11,
+    "name": "Slicing Cucumbers",
+    "imageUrls": [
+      "https://commons.wikimedia.org/wiki/Special:FilePath/Cucumber%20BNC.jpg",
+      "https://commons.wikimedia.org/wiki/Special:FilePath/Cucumber%20BNC.jpg"
+    ],
+    "description": [
+      {
+        "id": 1,
+        "title": "Description",
+        "content": "Long crisp slicing cucumbers—reNewing, crunchy and ideal for salads or pickles."
+      },
+      {
+        "id": 2,
+        "title": "New Tip",
+        "content": "Wash thoroughly and enjoy chilled with chaat masala for a summer snack."
+      }
+    ],
+    "isPublished": true,
+    "category": "vegetables",
+    "labels": ["New"],
+    "price": 55,
+    "productVariants": [
+      {
+        "id": 1,
+        "name": "Weight",
+        "isPublished": true,
+        "productvariantoptions": [
+          {
+            "id": 1,
+            "name": "500 gm",
+            "price": 0,
+            "isPublished": true,
+            "isOutOfStock": false,
+            "isDefault": true
+          },
+          {
+            "id": 2,
+            "name": "1 kg",
+            "price": 110,
+            "isPublished": true,
+            "isOutOfStock": false,
+            "isDefault": false
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": 12,
+    "name": "Savoy Cabbage Head",
+    "imageUrls": [
+      "https://commons.wikimedia.org/wiki/Special:FilePath/Savoy%20cabbage%20(Tundra).jpg",
+      "https://commons.wikimedia.org/wiki/Special:FilePath/Savoy%20cabbage%20King.jpg"
+    ],
+    "description": [
+      {
+        "id": 1,
+        "title": "Description",
+        "content": "Crispy dark green Savoy cabbage heads—crinkled leaves and mild flavour."
+      },
+      {
+        "id": 2,
+        "title": "Use",
+        "content": "Perfect for slaws, rolls, soups or lightly stir‑fried."
+      }
+    ],
+    "isPublished": true,
+    "category": "vegetables",
+    "labels": ["Deal"],
+    "price": 65,
+    "productVariants": [
+      {
+        "id": 1,
+        "name": "Weight",
+        "isPublished": true,
+        "productvariantoptions": [
+          {
+            "id": 1,
+            "name": "Whole head (~1.2 kg)",
+            "price": 0,
+            "isPublished": true,
+            "isOutOfStock": false,
+            "isDefault": true
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": 13,
+    "name": "Green Beans / French Beans",
+    "imageUrls": [
+      "https://commons.wikimedia.org/wiki/Special:FilePath/Green%20beans%20on%20bush.jpg",
+      "https://commons.wikimedia.org/wiki/Special:FilePath/Green%20beans%20packed.jpg"
+    ],
+    "description": [
+      {
+        "id": 1,
+        "title": "Description",
+        "content": "New long green beans—crisp, tender and ideal for steaming or sautéing."
+      },
+      {
+        "id": 2,
+        "title": "Tip",
+        "content": "Rich in fibre and vitamins; a great stir‑fry or subzi base."
+      }
+    ],
+    "isPublished": true,
+    "category": "vegetables",
+    "labels": ["New"],
+    "price": 75,
+    "productVariants": [
+      {
+        "id": 1,
+        "name": "Weight",
+        "isPublished": true,
+        "productvariantoptions": [
+          {
+            "id": 1,
+            "name": "500 gm",
+            "price": 0,
+            "isPublished": true,
+            "isOutOfStock": false,
+            "isDefault": true
+          },
+          {
+            "id": 2,
+            "name": "1 kg",
+            "price": 150,
+            "isPublished": true,
+            "isOutOfStock": false,
+            "isDefault": false
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": 14,
+    "name": "Green Peas (Pods)",
+    "imageUrls": [
+      "https://commons.wikimedia.org/wiki/Special:FilePath/Varanasi%20green%20peas.jpg",
+      "https://commons.wikimedia.org/wiki/Special:FilePath/Varanasi%20green%20peas.jpg"
+    ],
+    "description": [
+      {
+        "id": 1,
+        "title": "Description",
+        "content": "New green peas in pods—sweet and ready to shell."
+      },
+      {
+        "id": 2,
+        "title": "Nutrition",
+        "content": "High in plant protein and fibre; excellent for dals and stir‑fried sabzi."
+      }
+    ],
+    "isPublished": true,
+    "category": "vegetables",
+    "labels": ["Deal"],
+    "price": 95,
+    "productVariants": [
+      {
+        "id": 1,
+        "name": "Weight",
+        "isPublished": true,
+        "productvariantoptions": [
+          {
+            "id": 1,
+            "name": "500 gm",
+            "price": 0,
+            "isPublished": true,
+            "isOutOfStock": false,
+            "isDefault": true
+          },
+          {
+            "id": 2,
+            "name": "1 kg",
+            "price": 190,
+            "isPublished": true,
+            "isOutOfStock": false,
+            "isDefault": false
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": 15,
+    "name": "Zucchini / Courgette (Light Green)",
+    "imageUrls": [
+      "https://commons.wikimedia.org/wiki/Special:FilePath/Zucchini%20squash%20Market.jpg",
+      "https://commons.wikimedia.org/wiki/Special:FilePath/Zucchini%20slice.jpg"
+    ],
+    "description": [
+      {
+        "id": 1,
+        "title": "Description",
+        "content": "New light‑green zucchinis—snap crisp and mild, perfect for grilling or sauté."
+      },
+      {
+        "id": 2,
+        "title": "Cooking Tip",
+        "content": "Slice thin for stir‑fries, or grill with a dash of olive oil and herbs."
+      }
+    ],
+    "isPublished": true,
+    "category": "vegetables",
+    "labels": ["New"],
+    "price": 65,
+    "productVariants": [
+      {
+        "id": 1,
+        "name": "Weight",
+        "isPublished": true,
+        "productvariantoptions": [
+          {
+            "id": 1,
+            "name": "500 gm",
+            "price": 0,
+            "isPublished": true,
+            "isOutOfStock": false,
+            "isDefault": true
+          },
+          {
+            "id": 2,
+            "name": "1 kg",
+            "price": 130,
             "isPublished": true,
             "isOutOfStock": false,
             "isDefault": false

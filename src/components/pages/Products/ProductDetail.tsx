@@ -1,4 +1,4 @@
-import { Fragment, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { CircleMinus, CirclePlus } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -78,8 +78,8 @@ const ProductDetail = ({ product }: IProps) => {
     Object.keys(selectedOptions).length === (product.productVariants?.filter(v => v.isPublished).length || 0);
 
   return (
-    <Fragment>
-      <div className="w-full px-4 pb-10 space-y-4 mb-[60px] sm:max-w-md sm:mx-auto">
+    <div className="height-full flex flex-col">
+      <div className="w-full px-4 pb-10 space-y-4 mb-[60px]">
         {/* Product Image Slider */}
         <Carousel className="w-full max-w-xs mx-auto">
           <CarouselContent>
@@ -196,7 +196,7 @@ const ProductDetail = ({ product }: IProps) => {
       </div>
 
       {/* Footer */}
-      <div className="fixed w-[400px] bottom-0 right-0 p-4 bg-white shadow-md">
+      <div className="absolute w-full bottom-0 right-0 p-4 bg-white shadow-md">
         <Button
           className="bg-[#5DBF13] text-white px-4 py-2 rounded-lg w-full hover:bg-green-700 disabled:opacity-50"
           onClick={handleAddToCart}
@@ -205,7 +205,7 @@ const ProductDetail = ({ product }: IProps) => {
           Add to Cart
         </Button>
       </div>
-    </Fragment>
+    </div>
   );
 };
 

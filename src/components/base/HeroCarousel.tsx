@@ -38,7 +38,7 @@ export default function MainCarousel() {
     {
       image: 'https://themezhub.net/odex-live/odex/assets/img/banner-14.jpg',
       headerText: 'Pure, natural, and healthy',
-      contentText: 'No checmicals, preservatices, refined sugar, or artificial additives for a better lifestyle!.'
+      contentText: 'No checmicals, preservatices, refined sugar, or additives for a better lifestyle!.'
     },
     {
       image: 'https://themezhub.net/odex-live/odex/assets/img/banner-15.jpg',

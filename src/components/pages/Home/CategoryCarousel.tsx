@@ -9,14 +9,14 @@ const CategoryCarousel = () => {
   const categories = useSelector((state: IState) => state.Categories.categories);
 
   return (
-    <div className="bg-[#fff] text-center w-full">
+    <div className="bg-[#fff] text-center w-full py-16 px-2">
       {/* "Choose Categories" Text in Green */}
-      <p className="text-sm text-green-500 mb-1 pt-6">Choose Categories</p>
+      <p className="text-sm text-green-500 mb-">Choose Categories</p>
 
       {/* "Explore Categories" Heading */}
-      <h2 className="text-3xl font-bold text-gray-800 mb-6">Explore Categories</h2>
+      <h2 className="text-3xl font-bold text-gray-800 mb-12">Explore Categories</h2>
 
-      <div className="w-[90%] mx-auto">
+      <div className=" mx-auto">
         <Swiper
           spaceBetween={10}
           breakpoints={{
