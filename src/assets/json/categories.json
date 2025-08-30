@@ -1,32 +1,32 @@
 [
   {
     "id": 1,
-    "name": "Leafy Greens",
-    "imageUrl": "https://commons.wikimedia.org/wiki/Special:FilePath/Spinach_4.jpg",
+    "name": "Vegetables",
+    "imageUrl": "https://ik.imagekit.io/bzuspdt5r/StoreUI%20Images/Categories/Vegetables.jpg?updatedAt=1756444061851",
     "isPublished": true
   },
   {
     "id": 2,
-    "name": "Cruciferous",
-    "imageUrl": "https://commons.wikimedia.org/wiki/Special:FilePath/Broccoli_and_cross_section_edit.jpg",
+    "name": "Fruits",
+    "imageUrl": "https://ik.imagekit.io/bzuspdt5r/StoreUI%20Images/Categories/Fruits.jpg?updatedAt=1756444261894",
     "isPublished": true
   },
   {
     "id": 3,
-    "name": "Root Vegetables",
-    "imageUrl": "https://commons.wikimedia.org/wiki/Special:FilePath/Carrot_vegetables,_April_2023.jpg",
+    "name": "Dairy",
+    "imageUrl": "https://ik.imagekit.io/bzuspdt5r/StoreUI%20Images/Categories/Dairy.avif?updatedAt=1756444565618",
     "isPublished": true
   },
   {
     "id": 4,
-    "name": "Legumes",
-    "imageUrl": "https://commons.wikimedia.org/wiki/Special:FilePath/Fresh_peas.jpg",
+    "name": "Groceries",
+    "imageUrl": "https://ik.imagekit.io/bzuspdt5r/StoreUI%20Images/Categories/Groceries.jpg?updatedAt=1756444566417",
     "isPublished": true
   },
   {
     "id": 5,
-    "name": "Alliums",
-    "imageUrl": "https://commons.wikimedia.org/wiki/Special:FilePath/Garlic.jpg",
+    "name": "Others",
+    "imageUrl": "https://ik.imagekit.io/bzuspdt5r/StoreUI%20Images/Categories/Others.webp?updatedAt=1756444567309",
     "isPublished": true
   }
 ]

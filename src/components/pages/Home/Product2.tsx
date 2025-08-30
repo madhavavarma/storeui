@@ -27,7 +27,7 @@ const Product2 = ({ product }: ProductProps) => {
     >
       {/* Product Image */}
       <div
-        className="relative w-full h-48 rounded-t bg-center bg-no-repeat bg-cover"
+        className="relative w-full h-48 rounded-t bg-center bg-no-repeat bg-contain"
         style={{ backgroundImage: `url(${imageUrls[0]})` }}
       >
         {/* Labels on Image */}

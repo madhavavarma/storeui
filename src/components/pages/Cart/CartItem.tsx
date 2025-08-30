@@ -20,7 +20,7 @@ const CartItem = ({ productId, onRemove, onUpdateQuantity }: { productId: number
 
     const basePrice = product?.price || 0;
 
-    return parseFloat(((basePrice + selectedOptionPrices) * quantity).toFixed(2));
+    return parseFloat(((selectedOptionPrices || basePrice) * quantity).toFixed(2));
   };
 
   return (

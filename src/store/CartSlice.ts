@@ -53,7 +53,7 @@ const CartSlice = createSlice({
         .reduce((sum, option) => sum + (option.price || 0), 0);
 
       // Total item price
-      const totalItemPrice = (product.price + selectedOptionPrices) * quantity;
+      const totalItemPrice = (selectedOptionPrices) * quantity;
 
       const existingItem = state.cartItems.find(
         (item) =>
@@ -117,7 +117,7 @@ const CartSlice = createSlice({
           .filter((opt): opt is IOption => opt !== null)
           .reduce((sum, option) => sum + (option.price || 0), 0);
 
-        const totalItemPrice = (item.product.price + selectedOptionPrices);
+        const totalItemPrice = (selectedOptionPrices);
 
         item.quantity += 1;
         item.totalPrice = formatPrice(item.totalPrice + totalItemPrice);
@@ -145,7 +145,7 @@ const CartSlice = createSlice({
           .filter((opt): opt is IOption => opt !== null)
           .reduce((sum, option) => sum + (option.price || 0), 0);
 
-        const totalItemPrice = (item.product.price + selectedOptionPrices);
+        const totalItemPrice = (selectedOptionPrices);
 
         item.quantity -= 1;
         item.totalPrice = formatPrice(item.totalPrice - totalItemPrice);

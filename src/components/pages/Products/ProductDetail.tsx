@@ -69,7 +69,7 @@ const ProductDetail = ({ product }: IProps) => {
       .filter((opt): opt is IOption => opt !== null)
       .reduce((sum, option) => sum + (option.price || 0), 0);
   
-    return parseFloat(((product.price + selectedOptionPrices) * quantity).toFixed(2));
+    return parseFloat(((selectedOptionPrices) * quantity).toFixed(2));
   };
 
   const allOptionsSelected =

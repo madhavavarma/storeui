@@ -17,13 +17,15 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { IState } from "@/store/interfaces/IState";
+import { ProductActions } from "@/store/ProductSlice";
 
 const ProductList = () => {
   const [searchParams] = useSearchParams();
   const searchParam = searchParams.get("search");
   const categoryParam = searchParams.get("category");
+  const dispatch = useDispatch();
 
   const [searchQuery, setSearchQuery] = useState(searchParam || "");
   const [category, setCategory] = useState(categoryParam || "0");
@@ -34,16 +36,17 @@ const ProductList = () => {
   const products = useSelector((state: IState) => state.Products.products);
   const categories = useSelector((state: IState) => state.Categories.categories);
 
-  const filteredProducts = products.filter((product: IProduct) => {
-    const matchesSearch =
-      product.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
-      product.labels.some(lbl => lbl.toLowerCase().includes(searchQuery.toLowerCase())) // Corrected line
-      // product.description.toLowerCase().includes(searchQuery.toLowerCase());
-  
-    const matchesCategory = category === "0" || product.category === category;
-  
-    return matchesSearch && matchesCategory;
-  });
+
+  const filteredProducts = products
+    .filter((product: IProduct) => product.isPublished)
+    .filter((product: IProduct) => {
+      const matchesSearch =
+        product.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
+        product.labels.some(lbl => lbl.toLowerCase().includes(searchQuery.toLowerCase()));
+      const matchesCategory = category == "0" || product.category == category;
+      return matchesSearch && matchesCategory;
+    })
+    .sort((a, b) => a.name.localeCompare(b.name, undefined, { sensitivity: 'base' }));
 
   // 🛒 Redux cart state
   const cartItems = useSelector((state: IState) => state.Cart.cartItems);
@@ -61,6 +64,12 @@ const ProductList = () => {
       return () => clearTimeout(timer);
     }
   }, [cartItemCount]);
+
+  useEffect(() => { 
+    console.log(showCart)
+    if(showCart)
+    dispatch(ProductActions.setProductDetail(null))
+  }, [showCart])
 
   return (
     <Fragment>
@@ -105,7 +114,7 @@ const ProductList = () => {
               tooltipContent="See your cart"
             />
             {cartItemCount > 0 && (
-              <div className="absolute -top-1 -right-1 bg-red-500 text-white text-xs w-5 h-5 rounded-full flex items-center justify-center">
+              <div className="absolute -top-1 -right-1 bg-red-500 text-white text-xs w-5 h-5 rounded-full flex items-center justify-center z-9998">
                 {cartItemCount}
               </div>
             )}

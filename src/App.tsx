@@ -63,7 +63,7 @@ const App: React.FC = () => {
   }, [dispatch]);
   
   return (
-    <main className='bg-[#fcf8f8]' >
+    <main className='bg-[#fcf8f8]' style={{ maxWidth: '1300px', margin: '0 auto' }}>
       <Routing />
 
       {/* Product Detail Drawer */}
