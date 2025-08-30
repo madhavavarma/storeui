@@ -1912,5 +1912,289 @@
         ]
       }
     ]
+  },
+  {
+    "id": 41,
+    "name": "Ivy Gourd (దొండకాయ)",
+    "imageUrls": [
+      "https://ik.imagekit.io/bzuspdt5r/StoreUI%20Images/Vegetables/Ivy%20Gourd.jpg?updatedAt=1756540791755"
+    ],
+    "description": [
+      {
+        "id": 1,
+        "title": "Description",
+        "content": "Small, crisp ivy gourds (tindora), commonly used in Indian curries and stir-fries."
+      },
+      {
+        "id": 2,
+        "title": "Benefits",
+        "content": "Low in calories, good source of dietary fiber and vitamins."
+      }
+    ],
+    "isPublished": true,
+    "category": "1",
+    "labels": [
+      "Gourd",
+      "Green"
+    ],
+    "price": 36,
+    "productVariants": [
+      {
+        "id": 1,
+        "name": "Weight",
+        "isPublished": true,
+        "productvariantoptions": [
+          {
+            "id": 1,
+            "name": "1 kg",
+            "price": 36,
+            "isPublished": true,
+            "isOutOfStock": false,
+            "isDefault": true
+          },
+          {
+            "id": 2,
+            "name": "1/2 kg",
+            "price": 18,
+            "isPublished": true,
+            "isOutOfStock": false,
+            "isDefault": false
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": 42,
+    "name": "Brinjal (వంకాయ)",
+    "imageUrls": [
+      "https://ik.imagekit.io/bzuspdt5r/StoreUI%20Images/Vegetables/Brinjal.jpg?updatedAt=1756540791766"
+    ],
+    "description": [
+      {
+        "id": 1,
+        "title": "Description",
+        "content": "Fresh brinjal / eggplant used in many curries and stir-fries."
+      },
+      {
+        "id": 2,
+        "title": "Benefits",
+        "content": "Good source of fiber and antioxidants."
+      }
+    ],
+    "isPublished": true,
+    "category": "1",
+    "labels": [
+      "Gourd",
+      "Purple"
+    ],
+    "price": 40,
+    "productVariants": [
+      {
+        "id": 1,
+        "name": "Weight",
+        "isPublished": true,
+        "productvariantoptions": [
+          {
+            "id": 1,
+            "name": "1 kg",
+            "price": 40,
+            "isPublished": true,
+            "isOutOfStock": false,
+            "isDefault": true
+          },
+          {
+            "id": 2,
+            "name": "1/2 kg",
+            "price": 20,
+            "isPublished": true,
+            "isOutOfStock": false,
+            "isDefault": false
+          }
+        ]
+      }
+    ]
+  }
+,
+  {
+    "id": 43,
+    "name": "Elephant Yam (Elephant Yam)",
+    "imageUrls": [
+      "https://ik.imagekit.io/bzuspdt5r/StoreUI%20Images/Vegetables/Elephant%20Yam.webp?updatedAt=1756548205986"
+    ],
+    "description": [
+      { "id": 1, "title": "Description", "content": "Starchy elephant yam, used in curries and deep-fried preparations." },
+      { "id": 2, "title": "Benefits", "content": "Good source of fiber and complex carbohydrates." }
+    ],
+    "isPublished": true,
+    "category": "1",
+    "labels": ["Root", "Brown"],
+    "price": 60,
+    "productVariants": [
+      { "id": 1, "name": "Weight", "isPublished": true, "productvariantoptions": [ { "id": 1, "name": "1 kg", "price": 60, "isPublished": true, "isOutOfStock": false, "isDefault": true }, { "id": 2, "name": "1/2 kg", "price": 30, "isPublished": true, "isOutOfStock": false, "isDefault": false } ] }
+    ]
+  },
+  {
+    "id": 44,
+    "name": "Fenugreek Leaves (Methi)",
+    "imageUrls": [
+      "https://ik.imagekit.io/bzuspdt5r/StoreUI%20Images/Vegetables/Fenugreek%20Leaves.jpg?updatedAt=1756548205949"
+    ],
+    "description": [
+      { "id": 1, "title": "Description", "content": "Fresh fenugreek (methi) leaves, aromatic and slightly bitter." },
+      { "id": 2, "title": "Benefits", "content": "Rich in fiber and helps with digestion and blood sugar control." }
+    ],
+    "isPublished": true,
+    "category": "1",
+    "labels": ["Leafy", "Green"],
+    "price": 18,
+    "productVariants": [
+      { "id": 1, "name": "Weight", "isPublished": true, "productvariantoptions": [ { "id": 1, "name": "1 No", "price": 18, "isPublished": true, "isOutOfStock": false, "isDefault": true } ] }
+    ]
+  },
+  {
+    "id": 45,
+    "name": "French Beans (ఫ్రెంచ్ బీన్స్)",
+    "imageUrls": [
+      "https://ik.imagekit.io/bzuspdt5r/StoreUI%20Images/Vegetables/French%20Beans.jpg?updatedAt=1756548206092"
+    ],
+    "description": [
+      { "id": 1, "title": "Description", "content": "Tender French beans, good for stir-fries and curries." },
+      { "id": 2, "title": "Benefits", "content": "High in fiber and vitamins." }
+    ],
+    "isPublished": true,
+    "category": "1",
+    "labels": ["Beans", "Green"],
+    "price": 55,
+    "productVariants": [
+      { "id": 1, "name": "Weight", "isPublished": true, "productvariantoptions": [ { "id": 1, "name": "1 kg", "price": 55, "isPublished": true, "isOutOfStock": false, "isDefault": true }, { "id": 2, "name": "1/2 kg", "price": 28, "isPublished": true, "isOutOfStock": false, "isDefault": false } ] }
+    ]
+  },
+  {
+    "id": 46,
+    "name": "Garlic (వెల్లులి)",
+    "imageUrls": [
+      "https://ik.imagekit.io/bzuspdt5r/StoreUI%20Images/Vegetables/Garlic.jpg?updatedAt=1756548205938"
+    ],
+    "description": [
+      { "id": 1, "title": "Description", "content": "Fresh garlic bulbs used as a base flavor in many cuisines." },
+      { "id": 2, "title": "Benefits", "content": "Contains allicin which supports immunity and heart health." }
+    ],
+    "isPublished": true,
+    "category": "1",
+    "labels": ["Aromatic", "Bulb"],
+    "price": 180,
+    "productVariants": [
+      { "id": 1, "name": "Weight", "isPublished": true, "productvariantoptions": [ { "id": 1, "name": "1/4 kg", "price": 45, "isPublished": true, "isOutOfStock": false, "isDefault": true }, { "id": 2, "name": "1/2 kg", "price": 90, "isPublished": true, "isOutOfStock": false, "isDefault": false }, { "id": 3, "name": "1 kg", "price": 180, "isPublished": true, "isOutOfStock": false, "isDefault": false } ] }
+    ]
+  },
+  {
+    "id": 47,
+    "name": "Ginger (అదుర్క)",
+    "imageUrls": [
+      "https://ik.imagekit.io/bzuspdt5r/StoreUI%20Images/Vegetables/Ginger.jpg?updatedAt=1756548206029"
+    ],
+    "description": [
+      { "id": 1, "title": "Description", "content": "Fresh ginger root, used for flavor and health tonics." },
+      { "id": 2, "title": "Benefits", "content": "Aids digestion and has anti-inflammatory properties." }
+    ],
+    "isPublished": true,
+    "category": "1",
+    "labels": ["Aromatic", "Root"],
+    "price": 120,
+    "productVariants": [
+      { "id": 1, "name": "Weight", "isPublished": true, "productvariantoptions": [ { "id": 1, "name": "1/4 kg", "price": 30, "isPublished": true, "isOutOfStock": false, "isDefault": true }, { "id": 2, "name": "1/2 kg", "price": 60, "isPublished": true, "isOutOfStock": false, "isDefault": false }, { "id": 3, "name": "1 kg", "price": 120, "isPublished": true, "isOutOfStock": false, "isDefault": false } ] }
+    ]
+  },
+  {
+    "id": 48,
+    "name": "Green Peas (పచ్చి పప్పు)",
+    "imageUrls": [
+      "https://ik.imagekit.io/bzuspdt5r/StoreUI%20Images/Vegetables/Green%20Peas.avif?updatedAt=1756548671039"
+    ],
+    "description": [
+      { "id": 1, "title": "Description", "content": "Fresh green peas, sweet and tender." },
+      { "id": 2, "title": "Benefits", "content": "High in protein and fiber; great in pulao and curries." }
+    ],
+    "isPublished": true,
+    "category": "1",
+    "labels": ["Legume", "Green"],
+    "price": 80,
+    "productVariants": [
+      { "id": 1, "name": "Weight", "isPublished": true, "productvariantoptions": [ { "id": 1, "name": "1 kg", "price": 80, "isPublished": true, "isOutOfStock": false, "isDefault": true }, { "id": 2, "name": "1/2 kg", "price": 40, "isPublished": true, "isOutOfStock": false, "isDefault": false } ] }
+    ]
+  },
+  {
+    "id": 49,
+    "name": "Lemon (Lime) (నిమ్మ)",
+    "imageUrls": [
+      "https://ik.imagekit.io/bzuspdt5r/StoreUI%20Images/Vegetables/Lemon.jpg?updatedAt=1756548670816"
+    ],
+    "description": [
+      { "id": 1, "title": "Description", "content": "Fresh lemons/limes used for juices and garnishes." },
+      { "id": 2, "title": "Benefits", "content": "High in vitamin C and aids digestion." }
+    ],
+    "isPublished": true,
+    "category": "1",
+    "labels": ["Citrus", "Yellow"],
+    "price": 6,
+    "productVariants": [
+      { "id": 1, "name": "Piece", "isPublished": true, "productvariantoptions": [ { "id": 1, "name": "1 Pc", "price": 6, "isPublished": true, "isOutOfStock": false, "isDefault": true } ] }
+    ]
+  },
+  {
+    "id": 50,
+    "name": "Mango Raw (కాయ మామిడి)",
+    "imageUrls": [
+      "https://ik.imagekit.io/bzuspdt5r/StoreUI%20Images/Vegetables/Mango%20Raw.avif?updatedAt=1756548205913"
+    ],
+    "description": [
+      { "id": 1, "title": "Description", "content": "Raw mango used for pickles and tangy curries." },
+      { "id": 2, "title": "Benefits", "content": "Rich in vitamin C and used in seasonal dishes." }
+    ],
+    "isPublished": true,
+    "category": "Fruits",
+    "labels": ["Fruit", "Green"],
+    "price": 90,
+    "productVariants": [
+      { "id": 1, "name": "Weight", "isPublished": true, "productvariantoptions": [ { "id": 1, "name": "1 Kg", "price": 90, "isPublished": true, "isOutOfStock": false, "isDefault": true }, { "id": 2, "name": "1/2 kg", "price": 45, "isPublished": true, "isOutOfStock": false, "isDefault": false } ] }
+    ]
+  },
+  {
+    "id": 51,
+    "name": "Mint Leaves (పుదినా)",
+    "imageUrls": [
+      "https://ik.imagekit.io/bzuspdt5r/StoreUI%20Images/Vegetables/Mint%20Leaves.jpg?updatedAt=1756548205942"
+    ],
+    "description": [
+      { "id": 1, "title": "Description", "content": "Fresh mint leaves, aromatic and cooling." },
+      { "id": 2, "title": "Benefits", "content": "Good for digestion and used as garnish and in chutneys." }
+    ],
+    "isPublished": true,
+    "category": "1",
+    "labels": ["Leafy", "Green"],
+    "price": 15,
+    "productVariants": [
+      { "id": 1, "name": "Weight", "isPublished": true, "productvariantoptions": [ { "id": 1, "name": "1 No", "price": 15, "isPublished": true, "isOutOfStock": false, "isDefault": true } ] }
+    ]
+  },
+  {
+    "id": 52,
+    "name": "Mushroom (కూక్కుడి గుబ్బులు)",
+    "imageUrls": [
+      "https://ik.imagekit.io/bzuspdt5r/StoreUI%20Images/Vegetables/Mushroom.jpg?updatedAt=1756548206140"
+    ],
+    "description": [
+      { "id": 1, "title": "Description", "content": "Fresh mushrooms suitable for stir-fries and gravies." },
+      { "id": 2, "title": "Benefits", "content": "Low calorie and good source of B vitamins and protein." }
+    ],
+    "isPublished": true,
+    "category": "1",
+    "labels": ["Fungus", "White"],
+    "price": 150,
+    "productVariants": [
+      { "id": 1, "name": "Weight", "isPublished": true, "productvariantoptions": [ { "id": 1, "name": "1 kg", "price": 150, "isPublished": true, "isOutOfStock": false, "isDefault": true }, { "id": 2, "name": "1/2 kg", "price": 75, "isPublished": true, "isOutOfStock": false, "isDefault": false } ] }
+    ]
   }
 ]
+ 
