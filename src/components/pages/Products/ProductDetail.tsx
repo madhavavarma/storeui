@@ -21,19 +21,19 @@ interface IProps {
 const ProductDetail = ({ product }: IProps) => {
   const dispatch = useDispatch();
 
-  const [openSections, setOpenSections] = useState<number>(product.description[0]?.id);
+  const [openSections, setOpenSections] = useState<number>(product.productdescriptions[0]?.id);
 
   const [quantity, setQuantity] = useState(1);
   const [selectedOptions, setSelectedOptions] = useState<{ [variantName: string]: IOption | null }>({});
 
   useEffect(() => {
-    if (product.productVariants) {
+    if (product.productvariants) {
       const initialOptions: { [variantName: string]: IOption | null } = {};
       
-      product.productVariants.forEach((variant) => {
-        if (variant.isPublished) {
+      product.productvariants.forEach((variant) => {
+        if (variant.ispublished) {
           // Check for the default option in the variant
-          const defaultOption = variant.productvariantoptions.find(option => option.isDefault);
+          const defaultOption = variant.productvariantoptions.find(option => option.isdefault);
           
           // If a default option exists, set it, otherwise set it as null
           initialOptions[variant.name] = defaultOption || null;
@@ -75,7 +75,7 @@ const ProductDetail = ({ product }: IProps) => {
   const allOptionsSelected =
     selectedOptions &&
     Object.values(selectedOptions).every((option) => option !== null) &&
-    Object.keys(selectedOptions).length === (product.productVariants?.filter(v => v.isPublished).length || 0);
+    Object.keys(selectedOptions).length === (product.productvariants?.filter(v => v.ispublished).length || 0);
 
   return (
     <div className="height-full flex flex-col">
@@ -109,14 +109,14 @@ const ProductDetail = ({ product }: IProps) => {
         <Card className="p-4 bg-gray-200 rounded-lg shadow-md">
           <div className="space-y-3">
             {/* Dynamic Product Variants */}
-            {product.productVariants?.map(
+            {product.productvariants?.map(
               (variant) =>
-                variant.isPublished && (
+                variant.ispublished && (
                   <div key={variant.name} className="flex items-center justify-between">
                     <h3 className="text-sm font-semibold">{variant.name}</h3>
                     <div className="flex gap-2 flex-wrap">
                       {variant.productvariantoptions
-                        .filter((option) => option.isPublished)
+                        .filter((option) => option.ispublished)
                         .map((option) => {
                           const selectedOption = selectedOptions && selectedOptions[variant.name];
                           const isSelected = selectedOption?.name === option.name;
@@ -127,7 +127,7 @@ const ProductDetail = ({ product }: IProps) => {
                               size="sm"
                               variant={isSelected ? "default" : "outline"}
                               onClick={() => handleOptionSelect(variant.name, option)}
-                              disabled={option.isOutOfStock}
+                              disabled={option.isoutofstock}
                               className="text-xs px-3 py-1 disabled:opacity-50"
                             >
                               {option.name}
@@ -165,7 +165,7 @@ const ProductDetail = ({ product }: IProps) => {
 
         {/* Expandable Sections */}
         <div className="space-y-3">
-          {product.description.map(({ id, title, content }) => (
+          {product.productdescriptions.map(({ id, title, content }) => (
             <div key={title} className="border-b py-2">
               <button
                 className="flex justify-between w-full text-sm font-medium"

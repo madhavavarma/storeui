@@ -2,9 +2,13 @@ import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { NavMenu } from "./NavMenu";
 import { useEffect, useState } from "react";
 import { useNavigationHelper } from "@/hooks/use-navigate-helper";
+import { useSelector } from "react-redux";
+import { RootState } from "@/store/Store";
+
 
 const Header: React.FC = () => {
   const [scrolled, setScrolled] = useState(false);
+  const [logoUrl] = useState<string | undefined>(undefined);
   const navigationHelper = useNavigationHelper();
 
   const handleScroll = () => {
@@ -17,6 +21,11 @@ const Header: React.FC = () => {
       window.removeEventListener("scroll", handleScroll);
     };
   }, []);
+
+  const appLogo = useSelector((state: RootState) => state.AppSettings.logoUrl);
+  const logoSrc = appLogo ||
+    logoUrl ||
+    "https://ik.imagekit.io/bzuspdt5r/MilletVaan/MilletVaan_Logo_Cropped.png?updatedAt=1744809564276";
 
   return (
     <section className="flex flex-col mb-[140px]">
@@ -32,8 +41,8 @@ const Header: React.FC = () => {
             <div className="flex items-center justify-between text-lg">
               <span>
                 <img
-                  src="https://ik.imagekit.io/bzuspdt5r/MilletVaan/MilletVaan_Logo_Cropped.png?updatedAt=1744809564276"
-                  className="max-w-[120px] cursor-pointer"
+                  src={logoSrc}
+                  className="max-w-[80px] cursor-pointer"
                   alt="Logo"
                   onClick={() => navigationHelper.goToHome()}
                 />

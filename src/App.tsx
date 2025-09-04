@@ -4,7 +4,7 @@ import Routing from './Routing';
 import { useDispatch, useSelector } from 'react-redux';
 import { useEffect } from 'react';
 import { IProduct } from './interfaces/IProduct';
-import { getCategories, getProducts } from './helpers/api';
+import { getCategories, getProducts, getAppSettings } from './helpers/api';
 import { ProductActions } from './store/ProductSlice';
 import { ICategory } from './interfaces/ICategory';
 import { CategoryActions } from './store/CategorySlice';
@@ -12,6 +12,7 @@ import RightDrawer from './components/pages/Shared/RightDrawer';
 import ProductDetail from './components/pages/Products/ProductDetail';
 import { IState } from './store/interfaces/IState';
 import { CartActions } from './store/CartSlice';
+import { AppSettingsActions } from './store/AppSettingsSlice';
 import CartSynk from './components/pages/Cart/CartSynk';
  
 
@@ -44,8 +45,20 @@ const App: React.FC = () => {
       }
     };
 
-    fetchProducts();
-    fetchCategories();
+    // load app settings first so header/logo is available
+    const loadAppSettings = async () => {
+      try {
+        const settings = await getAppSettings();
+        dispatch(AppSettingsActions.setAppSettings(settings));
+      } catch (e) {
+        console.error('Failed to load app settings', e);
+      }
+    };
+
+    loadAppSettings().then(() => {
+      fetchProducts();
+      fetchCategories();
+    });
 
     const savedCart = localStorage.getItem("cart");
 

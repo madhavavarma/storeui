@@ -1,6 +1,6 @@
 export interface ICategory {
     id: number,
     name: string,
-    imageUrl: string,
-    isPublished: boolean
+    image_url: string,
+    is_published: boolean
 }

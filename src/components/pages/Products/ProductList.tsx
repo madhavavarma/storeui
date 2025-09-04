@@ -35,10 +35,11 @@ const ProductList = () => {
 
   const products = useSelector((state: IState) => state.Products.products);
   const categories = useSelector((state: IState) => state.Categories.categories);
+  console.log(products)
 
 
   const filteredProducts = products
-    .filter((product: IProduct) => product.isPublished)
+    // .filter((product: IProduct) => product.isPublished)
     .filter((product: IProduct) => {
       const matchesSearch =
         product.name.toLowerCase().includes(searchQuery.toLowerCase()) ||

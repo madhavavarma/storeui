@@ -128,7 +128,7 @@ const Footer = () => {
           <div className="flex flex-col lg:flex-row justify-between items-center text-center lg:text-left">
             {/* Footer Left */}
             <div className="text-gray-400 mb-2 lg:mb-0">
-              <p className="mb-0">© Copyright 2020 Millet Vaan.Designed By <a href="https://bootstrapdesigns.net" className="text-green-500">Madhava</a>.</p>
+              <p className="mb-0">© Copyright 2020 Farmers Vibe.Designed By <a href="https://bootstrapdesigns.net" className="text-green-500">Madhava</a>.</p>
             </div>
 
             {/* Footer Social Links */}

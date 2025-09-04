@@ -19,7 +19,7 @@ const Category = (props: IProps) => {
     >
       {/* Background Image */}
       <img
-        src={props.category.imageUrl}
+        src={props.category.image_url}
         alt={props.category.name}
         className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
       />

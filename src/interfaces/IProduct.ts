@@ -3,9 +3,9 @@ export interface IProduct {
     name: string,
     image?: string,
     imageUrls: string[],
-    description: IDescription[],
+    productdescriptions: IDescription[],
 
-    isPublished?: boolean,
+    ispublished?: boolean,
     category: string,
     labels: string[],
     
@@ -13,13 +13,13 @@ export interface IProduct {
     discount?: number,
     tax?: number, 
 
-    productVariants?: IVariant[]
+    productvariants?: IVariant[]
 }
 
 export interface IVariant {
     id: number,
     name: string,
-    isPublished: boolean,
+    ispublished: boolean,
     productvariantoptions: IOption[]
 }
 
@@ -27,9 +27,9 @@ export interface IOption {
     id: number,
     name: string,
     price: number,
-    isPublished: boolean,
-    isOutOfStock: boolean,
-    isDefault: boolean
+    ispublished: boolean,
+    isoutofstock: boolean,
+    isdefault: boolean
 }
 
 export interface IDescription {

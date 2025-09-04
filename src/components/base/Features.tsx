@@ -1,5 +1,7 @@
 import { ShoppingCartIcon, DollarSignIcon, HeadphonesIcon } from 'lucide-react';
 import { Card, CardContent } from '../ui/card';
+import { useSelector } from 'react-redux';
+import { RootState } from '@/store/Store';
 
 interface Feature {
   title: string;
@@ -7,7 +9,8 @@ interface Feature {
   icon: React.ReactNode;
 }
 
-const featuresData: Feature[] = [
+// default fallback features
+const defaultFeatures: Feature[] = [
   {
     title: 'Home Delivery',
     description: 'Enjoy hassle-free delivery, on us!.',
@@ -25,11 +28,28 @@ const featuresData: Feature[] = [
   },
 ];
 
+const iconMapper: Record<string, React.ReactNode> = {
+  'shopping-cart': <ShoppingCartIcon className="text-4xl text-green-500" />,
+  'dollar-sign': <DollarSignIcon className="text-4xl text-green-500" />,
+  'headphones': <HeadphonesIcon className="text-4xl text-green-500" />,
+};
+
 const Features = ({ bgColor = 'bg-gray-0' }: { bgColor?: string }) => {
+  const appSettings = useSelector((state: RootState) => state.AppSettings);
+  const featuresFromStore = appSettings?.branding?.features;
+
+  const featuresList: Feature[] = (featuresFromStore && featuresFromStore.length)
+    ? featuresFromStore.map((f: any) => ({
+        title: f.title || '',
+        description: f.description || '',
+        icon: iconMapper[f.icon || ''] || <ShoppingCartIcon className="text-4xl text-green-500" />,
+      }))
+    : defaultFeatures;
+
   return (
     <div className={`${bgColor} mt-12 text-xs`}>
       <div className="flex flex-wrap justify-between gap-2">
-        {featuresData.map(({ title, description, icon }, index) => (
+        {featuresList.map(({ title, description, icon }, index) => (
           <div key={index} className="single_facts w-full md:w-[30%]">
             <Card className={`${bgColor} transition-shadow duration-300 border-0 px-2 text-4xl`}>
               <CardContent className="flex items-center justify-start">

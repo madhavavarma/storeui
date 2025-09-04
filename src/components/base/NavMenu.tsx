@@ -9,61 +9,25 @@ import {
   NavigationMenuTrigger,
 } from "@/components/ui/navigation-menu"
 import { useNavigationHelper } from "@/hooks/use-navigate-helper";
+import { useSelector } from "react-redux";
+import { RootState } from "@/store/Store";
 
-const components: { title: string; href: string; description: string }[] = [  
-  {
-    title: "Email",
-    href: "/#/aboutus",
-    description: "hello@milletvaan.com",
-  },
-  {
-    title: "Phone & Watsapp",
-    href: "/#/aboutus",
-    description: "+91 9666030129",
-  },
-  {
-    title: "Follow Us",
-    href: "/#/aboutus",
-    description: "Stay connected on Facebook, Instagram, and Twitter.",
-  },
-  {
-    title: "Address",
-    href: "/#/aboutus",
-    description: "Durganagar, Chandrampalem, Madhurawada, Visakhapatnam, Andhra Pradesh - 530041",
-  }
+// default fallback contact items (used if branding.nav.contact is not provided)
+const defaultContact: { title: string; href: string; description: string }[] = [
+  { title: "Email", href: "/#/aboutus", description: "hello@milletvaan.com" },
+  { title: "Phone & Watsapp", href: "/#/aboutus", description: "+91 9666030129" },
+  { title: "Follow Us", href: "/#/aboutus", description: "Stay connected on Facebook, Instagram, and Twitter." },
+  { title: "Address", href: "/#/aboutus", description: "Durganagar, Chandrampalem, Madhurawada, Visakhapatnam, Andhra Pradesh - 530041" },
 ];
 
-const components2: { title: string; href: string; description: string }[] = [
-  {
-    title: "How can I contact customer support?",
-    href: "/#/faq",
-    description: "You can reach our support team via email at hello@milletvaan.com or call/watsapp us at +91 9666030129.",
-  },
-  {
-    title: "What payment methods do you accept?",
-    href: "/#/faq",
-    description: "We accept credit/debit cards, UPI, net banking, and wallets.",
-  },
-  {
-    title: "How can I track my order?",
-    href: "/#/faq",
-    description: "You can track your order from the 'My Orders' section after logging in.",
-  },
-  {
-    title: "What is your return policy?",
-    href: "/#/faq",
-    description: "We offer a 7-day return policy for most products. Check the return policy on the product page for details.",
-  },
-  {
-    title: "Do you offer cash on delivery (COD)?",
-    href: "/#/faq",
-    description: "Yes, COD is available for select locations. Check availability at checkout.",
-  },
-  {
-    title: "How long does delivery take?",
-    href: "/#/faq",
-    description: "Standard delivery takes 3-5 business days, while express delivery takes 1-2 days.",
-  },
+// default fallback faq items (used if branding.nav.faq is not provided)
+const defaultFAQ: { title: string; href: string; description: string }[] = [
+  { title: "How can I contact customer support?", href: "/#/faq", description: "You can reach our support team via email at hello@milletvaan.com or call/watsapp us at +91 9666030129." },
+  { title: "What payment methods do you accept?", href: "/#/faq", description: "We accept credit/debit cards, UPI, net banking, and wallets." },
+  { title: "How can I track my order?", href: "/#/faq", description: "You can track your order from the 'My Orders' section after logging in." },
+  { title: "What is your return policy?", href: "/#/faq", description: "We offer a 7-day return policy for most products. Check the return policy on the product page for details." },
+  { title: "Do you offer cash on delivery (COD)?", href: "/#/faq", description: "Yes, COD is available for select locations. Check availability at checkout." },
+  { title: "How long does delivery take?", href: "/#/faq", description: "Standard delivery takes 3-5 business days, while express delivery takes 1-2 days." },
 ];
   
 
@@ -71,6 +35,15 @@ const components2: { title: string; href: string; description: string }[] = [
 export function NavMenu() {
 
   const navigationHelper = useNavigationHelper();
+  const appSettings = useSelector((state: RootState) => state.AppSettings);
+  const branding = appSettings?.branding || {};
+  const siteTitle = branding.siteTitle || "Farmers Vibe";
+  const welcomeText = branding.welcomeText || "Welcome to Farmers Vibe. Your One-Stop Destination for Healthy & Nutritious Food!";
+  const tagline = branding.tagline || "Pure, natural, and healthy - no chemicals, refined sugar, preservatives or artificial additives for a better lifestyle!";
+  const menuTexts = branding.menu || {};
+  const menuHome = menuTexts.home || "Enjoy a wholesome shopping experience!";
+  const menuProducts = menuTexts.products || "Discover a wide range of nutritious and wholesome foods!";
+  const menuAbout = menuTexts.about || "Committed to a healthier you. Click to know about us.";
 
   return (
     <NavigationMenu>
@@ -86,28 +59,22 @@ export function NavMenu() {
                     onClick={() => navigationHelper.goToHome()}
                   >
                     {/* <Icons.logo className="h-6 w-6" /> */}
-                    <div className="mb-2 mt-4 text-lg font-medium">
-                      Millet Van
-                    </div>
-                    <p className="text-sm leading-tight text-muted-foreground"> 
-                      Welcome to Millet Van. Your One-Stop Destination for Healthy & Nutritious Food!
-                    </p>
-                    <p className="text-sm leading-tight text-muted-foreground mt-2">
-                      <i>Pure, natural, and healthy - no chemicals, refined sugar, preservatives or artificail additives for a better lifestyle!</i>
-                    </p>
+                    <div className="mb-2 mt-4 text-lg font-medium">{siteTitle}</div>
+                    <p className="text-sm leading-tight text-muted-foreground">{welcomeText}</p>
+                    <p className="text-sm leading-tight text-muted-foreground mt-2"><i>{tagline}</i></p>
                   </ListItem>
                 </NavigationMenuLink>
               </li>
               <li>
               <ListItem onClick={() => navigationHelper.goToHome()} title="Home">
-                Enjoy a wholesome shopping experience!
+                {menuHome}
               </ListItem>
               </li>
               <ListItem onClick={() => navigationHelper.goToProducts()} title="Products">
-                Discover a wide range of nutritious and wholesome foods!
+                {menuProducts}
               </ListItem>
               <ListItem onClick={() => navigationHelper.goToAboutus()} title="About Us">
-                Committed to a healthier you. Click to know about us.
+                {menuAbout}
               </ListItem>
             </ul>
           </NavigationMenuContent>
@@ -116,7 +83,7 @@ export function NavMenu() {
           <NavigationMenuTrigger>Contact</NavigationMenuTrigger>
           <NavigationMenuContent>
             <ul className="grid w-[400px] gap-3 p-4 md:w-[500px] md:grid-cols-2 lg:w-[600px] ">
-              {components.map((component) => (
+              {(branding?.nav?.contact || defaultContact).map((component: any) => (
                 <ListItem
                   key={component.title}
                   title={component.title}
@@ -132,7 +99,7 @@ export function NavMenu() {
           <NavigationMenuTrigger>Questions</NavigationMenuTrigger>
           <NavigationMenuContent>
             <ul className="grid w-[400px] gap-3  md:w-[500px] md:grid-cols-2 lg:w-[600px] ">
-              {components2.map((component) => (
+              {(branding?.nav?.faq || defaultFAQ).map((component: any) => (
                 <ListItem
                   key={component.title}
                   title={component.title}

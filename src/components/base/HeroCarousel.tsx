@@ -1,4 +1,6 @@
 import React from 'react';
+import { useSelector } from 'react-redux';
+import { RootState } from '@/store/Store';
 import { Card, CardContent } from '../ui/card';
 import { Carousel, CarouselApi, CarouselContent, CarouselItem } from '../ui/carousel';
 import { useNavigationHelper } from '@/hooks/use-navigate-helper';
@@ -34,18 +36,9 @@ export default function MainCarousel() {
     return () => clearInterval(interval);
   }, [api, count]);
 
-  const slides = [
-    {
-      image: 'https://themezhub.net/odex-live/odex/assets/img/banner-14.jpg',
-      headerText: 'Pure, natural, and healthy',
-      contentText: 'No checmicals, preservatices, refined sugar, or additives for a better lifestyle!.'
-    },
-    {
-      image: 'https://themezhub.net/odex-live/odex/assets/img/banner-15.jpg',
-      headerText: 'Millet Vaan',
-      contentText: 'The way to healthy life style.'      
-    },
-  ];
+  const appSettings = useSelector((state: RootState) => state.AppSettings);
+  // read slides from app settings (appSettings.json loaded into the store)
+  const slides = appSettings?.branding?.slides ?? [];
 
   return (
     <section className="w-full  relative mt-[60px]">
