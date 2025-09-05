@@ -11,8 +11,8 @@ const MiniProductList = () => {
   const products = useSelector((state: IState) => state.Products.products);
   const [showCart, setShowCart] = useState(false);
 
-  const cartItems = useSelector((state: IState) => state.Cart.cartItems);
-  const cartItemCount = cartItems.reduce((total, item) => total + item.quantity, 0);
+  const cartitems = useSelector((state: IState) => state.Cart.cartitems);
+  const cartItemCount = cartitems?.reduce((total, item) => total + item.quantity, 0);
 
   const [shake, setShake] = useState(false);
   const prevCartRef = useRef<number>(cartItemCount);

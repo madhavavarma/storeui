@@ -7,6 +7,7 @@ import CheckoutPage from "./components/pages/Checkout/Checkout";
 import ThankYouPage from "./components/pages/Checkout/ThankYou";
 import AboutUs from "./components/pages/AboutUs/AboutUs";
 import FAQPage from "./components/pages/AboutUs/Faq";
+import OrderList from "./components/pages/User/Orders";
 
 export default function Routing() {
     return (
@@ -24,6 +25,7 @@ export default function Routing() {
                 <Route path="thankyou" element={ <ThankYouPage />}></Route>
                 <Route path="aboutus" element={ <AboutUs />}></Route>
                 <Route path="faq" element={ <FAQPage />}></Route>
+                <Route path="orders" element={ <OrderList />}></Route>
             </Routes>
         </Router>
     )

@@ -31,7 +31,7 @@ class NavigationHelper {
     this.navigate('/cart');
   };
 
-  goToCheckout = () => {
+  cancel = () => {
     this.navigate('/checkout');
   };
 
@@ -45,6 +45,10 @@ class NavigationHelper {
 
   goToFAQ = () => {
     this.navigate('/faq');
+  };
+
+  goToOrders = () => {
+    this.navigate('/orders');
   };
 }
 

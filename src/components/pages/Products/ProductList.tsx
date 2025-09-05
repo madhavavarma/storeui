@@ -50,8 +50,8 @@ const ProductList = () => {
     .sort((a, b) => a.name.localeCompare(b.name, undefined, { sensitivity: 'base' }));
 
   // 🛒 Redux cart state
-  const cartItems = useSelector((state: IState) => state.Cart.cartItems);
-  const cartItemCount = cartItems.reduce((total, item) => total + item.quantity, 0);
+  const cartitems = useSelector((state: IState) => state.Cart.cartitems);
+  const cartItemCount = cartitems?.reduce((total, item) => total + item.quantity, 0);
 
   // 💥 Shake animation state
   const [shake, setShake] = useState(false);

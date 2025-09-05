@@ -4,10 +4,10 @@ import { IOption } from "@/interfaces/IProduct";
 import { ICheckout } from "@/interfaces/ICheckout";
 
 const initialState: ICartState = {
-  cartItems: [],
-  totalQuantity: 0,
-  totalPrice: 0,
-  checkoutData: {
+  cartitems: [],
+  totalquantity: 0,
+  totalprice: 0,
+  checkoutdata: {
     phone: "",
     email: "",
     whatsapp: "",
@@ -38,10 +38,10 @@ const CartSlice = createSlice({
   initialState,
   reducers: {
     loadCart: (state, action: PayloadAction<ICartState>) => {
-      state.cartItems = action.payload.cartItems;
-      state.totalQuantity = action.payload.totalQuantity;
-      state.totalPrice = action.payload.totalPrice;
-      state.checkoutData = action.payload.checkoutData;
+      state.cartitems = action.payload.cartitems;
+      state.totalquantity = action.payload.totalquantity;
+      state.totalprice = action.payload.totalprice;
+      state.checkoutdata = action.payload.checkoutdata;
     },
 
     addItem: (state: ICartState, action: PayloadAction<ICartItem>) => {
@@ -55,7 +55,11 @@ const CartSlice = createSlice({
       // Total item price
       const totalItemPrice = (selectedOptionPrices) * quantity;
 
-      const existingItem = state.cartItems.find(
+      console.log(state)
+
+      state.cartitems = state.cartitems || [];
+
+      const existingItem = state.cartitems?.find(
         (item) =>
           item.product.id === product.id &&
           areOptionsEqual(item.selectedOptions, selectedOptions)
@@ -65,7 +69,7 @@ const CartSlice = createSlice({
         existingItem.quantity += quantity;
         existingItem.totalPrice = formatPrice(existingItem.totalPrice + totalItemPrice);
       } else {
-        state.cartItems.push({
+        state.cartitems?.push({
           product,
           selectedOptions,
           quantity,
@@ -73,8 +77,8 @@ const CartSlice = createSlice({
         });
       }
 
-      state.totalQuantity += quantity;
-      state.totalPrice = formatPrice(state.totalPrice + totalItemPrice);
+      state.totalquantity += quantity;
+      state.totalprice = formatPrice(state.totalprice + totalItemPrice);
     },
 
     removeItem: (
@@ -84,17 +88,17 @@ const CartSlice = createSlice({
         selectedOptions: { [variantName: string]: IOption };
       }>
     ) => {
-      const index = state.cartItems.findIndex(
+      const index = state.cartitems.findIndex(
         (item) =>
           item.product.id === action.payload.productId &&
           areOptionsEqual(item.selectedOptions, action.payload.selectedOptions)
       );
 
       if (index !== -1) {
-        const item = state.cartItems[index];
-        state.totalQuantity -= item.quantity;
-        state.totalPrice = formatPrice(state.totalPrice - item.totalPrice);
-        state.cartItems.splice(index, 1);
+        const item = state.cartitems[index];
+        state.totalquantity -= item.quantity;
+        state.totalprice = formatPrice(state.totalprice - item.totalPrice);
+        state.cartitems.splice(index, 1);
       }
     },
 
@@ -105,7 +109,7 @@ const CartSlice = createSlice({
         selectedOptions: { [variantName: string]: IOption };
       }>
     ) => {
-      const item = state.cartItems.find(
+      const item = state.cartitems.find(
         (item) =>
           item.product.id === action.payload.productId &&
           areOptionsEqual(item.selectedOptions, action.payload.selectedOptions)
@@ -121,8 +125,8 @@ const CartSlice = createSlice({
 
         item.quantity += 1;
         item.totalPrice = formatPrice(item.totalPrice + totalItemPrice);
-        state.totalQuantity += 1;
-        state.totalPrice = formatPrice(state.totalPrice + totalItemPrice);
+        state.totalquantity += 1;
+        state.totalprice = formatPrice(state.totalprice + totalItemPrice);
       }
     },
 
@@ -133,7 +137,7 @@ const CartSlice = createSlice({
         selectedOptions: { [variantName: string]: IOption };
       }>
     ) => {
-      const item = state.cartItems.find(
+      const item = state.cartitems.find(
         (item) =>
           item.product.id === action.payload.productId &&
           areOptionsEqual(item.selectedOptions, action.payload.selectedOptions)
@@ -149,19 +153,19 @@ const CartSlice = createSlice({
 
         item.quantity -= 1;
         item.totalPrice = formatPrice(item.totalPrice - totalItemPrice);
-        state.totalQuantity -= 1;
-        state.totalPrice = formatPrice(state.totalPrice - totalItemPrice);
+        state.totalquantity -= 1;
+        state.totalprice = formatPrice(state.totalprice - totalItemPrice);
       }
     },
 
     clearCart: (state: ICartState) => {
-      state.cartItems = [];
-      state.totalQuantity = 0;
-      state.totalPrice = 0;
+      state.cartitems = [];
+      state.totalquantity = 0;
+      state.totalprice = 0;
     },
 
     setCheckoutData: (state: ICartState, action: PayloadAction<ICheckout>) => {
-      state.checkoutData = action.payload;
+      state.checkoutdata = action.payload;
     },
   },
 });

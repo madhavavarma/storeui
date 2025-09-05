@@ -48,9 +48,9 @@ const Header: React.FC = () => {
                 />
                 
               </span>
-              <span>
+              <span onClick={() => navigationHelper.goToOrders()} className="cursor-pointer">
                 <Avatar>
-                  <AvatarImage src="https://github.com/shadcn.png" />
+                  <AvatarImage src="https://github.com/shadcn.png"  />
                   <AvatarFallback>CN</AvatarFallback>
                 </Avatar>
               </span>

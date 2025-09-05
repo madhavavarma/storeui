@@ -53,7 +53,7 @@ const App: React.FC = () => {
       } catch (e) {
         console.error('Failed to load app settings', e);
       }
-    };
+    };     
 
     loadAppSettings().then(() => {
       fetchProducts();

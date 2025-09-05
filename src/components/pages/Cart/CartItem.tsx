@@ -6,7 +6,7 @@ import { useSelector } from "react-redux";
 
 const CartItem = ({ productId, onRemove, onUpdateQuantity }: { productId: number; onRemove: any; onUpdateQuantity: any }) => {
   const cartItem = useSelector((state: IState) =>
-    state.Cart.cartItems.find((ci) => ci.product.id === productId)
+    state.Cart.cartitems.find((ci) => ci.product.id === productId)
   );
 
   if (!cartItem) return null;

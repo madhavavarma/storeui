@@ -1,9 +1,7 @@
 import { ReactNode } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Button } from "@/components/ui/button";
 import { useSelector } from "react-redux";
 import { IState } from "@/store/interfaces/IState";
-import { useNavigationHelper } from "@/hooks/use-navigate-helper";
 import { PackageCheck, ShoppingBag } from "lucide-react";
 
 interface CartDrawerProps {
@@ -14,7 +12,7 @@ interface CartDrawerProps {
 
 export default function CartDrawer({ isOpen, onClose, children }: CartDrawerProps) {
   const cart = useSelector((state: IState) => state.Cart);
-  const navigationHelper = useNavigationHelper();
+//   const navigationHelper = useNavigationHelper();
 
   return (
     <AnimatePresence>
@@ -44,7 +42,7 @@ export default function CartDrawer({ isOpen, onClose, children }: CartDrawerProp
           >
             {/* Header */}
             <div className="border-b flex justify-between items-center px-4 py-4 bg-[#5DBF13] text-white">
-              <h2 className="text-lg font-bold">Shopping Cart</h2>
+              <h2 className="text-lg font-bold">Order Details</h2>
               <button onClick={onClose} className="text-white hover:text-gray-200 text-lg">
                 ✕
               </button>
@@ -71,12 +69,12 @@ export default function CartDrawer({ isOpen, onClose, children }: CartDrawerProp
 
             {/* Footer */}
             <div className="border-t p-4 bg-white shadow-md">
-              <Button
+              {/* <Button
                 className="bg-[#5DBF13] text-white px-4 py-2 rounded-lg w-full hover:bg-green-700"
-                onClick={() => navigationHelper.cancel()}
+                onClick={() => cancel()}
               >
-                Checkout
-              </Button>
+                Cancel
+              </Button> */}
             </div>
           </motion.div>
         </>

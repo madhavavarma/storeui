@@ -9,9 +9,9 @@ export interface ICartItem {
 }
 
 export interface ICartState {
-  cartItems: ICartItem[];
-  totalQuantity: number;
-  totalPrice: number;
-  checkoutData?: ICheckout;
+  cartitems: ICartItem[];
+  totalquantity: number;
+  totalprice: number;
+  checkoutdata?: ICheckout;
 }
   

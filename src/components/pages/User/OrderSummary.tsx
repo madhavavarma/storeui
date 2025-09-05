@@ -9,7 +9,6 @@ import {
   Phone,
   MapPin,
   Wallet,
-  ArrowLeft,
   Trash2,
   Minus,
   Plus,
@@ -18,24 +17,25 @@ import {
 } from "lucide-react";
 import { useEffect, useState } from "react";
 import { toast } from "sonner";
-import { CartActions } from "@/store/CartSlice";
 import { useNavigationHelper } from "@/hooks/use-navigate-helper";
 import { IOption } from "@/interfaces/IProduct";
 import { ProductActions } from "@/store/ProductSlice";
 import emailjs from "@emailjs/browser";
 import { ICheckout } from "@/interfaces/ICheckout";
-import { createOrder } from "@/helpers/api";
-import { ICartState } from "@/store/interfaces/ICartState";
+import { updateOrder } from "@/helpers/api";
+import { IOrder, OrdersActions } from "@/store/OrdersSlice";
 
-export default function CheckoutPage() {
-  const cart = useSelector((state: IState) => state.Cart);
-  const cartitems = useSelector((state: IState) => state.Cart.cartitems);
+export default function OrderSummary() {
+  const cart = useSelector((state: IState) => state.Orders.showOrder);
+  const cartitems = useSelector((state: IState) => state.Orders.showOrder?.cartitems || []);
   const totalAmount = cartitems?.reduce((acc, item) => acc + item.totalPrice, 0);
   const navigationHelper = useNavigationHelper();
   const dispatch = useDispatch();
-  const checkoutData = useSelector((state: IState) => state.Cart.checkoutdata);
+  const checkoutData = useSelector((state: IState) => state.Orders.showOrder?.checkoutdata);
 
-  useEffect(() => {
+  
+
+  useEffect(() => {    
     dispatch(ProductActions.setProductDetail(null));
   }, []);
 
@@ -56,7 +56,6 @@ export default function CheckoutPage() {
   const [isSendingEmail, setIsSendingEmail] = useState(false);
 
   useEffect(() => {
-    dispatch(CartActions.setCheckoutData(formData));
     setSameAsPhone(formData.whatsapp === formData.phone && formData.whatsapp !== "");
   }, [formData]);
 
@@ -90,12 +89,20 @@ export default function CheckoutPage() {
       return;
     }
 
-    const orderId = `${Date.now()}_${phone}`;
+    const orderId = cart?.id || "";
 
-    createOrder(cart as ICartState).then(async (order) => {
+    if (cart) {
+      console.log("Updating checkout data in store:", formData);
+      dispatch(OrdersActions.updateCheckoutData(formData));
+    }
+
+    var data = JSON.parse(JSON.stringify(cart)) as IOrder; // Deep clone to avoid mutating store
+    data.checkoutdata = formData;
+
+    updateOrder(orderId, data as IOrder).then(async (order) => {
 
       if (!order) {
-        toast.error("Failed to create order. Please try again.");
+        toast.error("Failed to update order. Please try again.");
         return;
       }
 
@@ -117,13 +124,13 @@ export default function CheckoutPage() {
             },
             "efiQJ5NNt1J3GJD--"
           );
-          console.log("Order placed successfully! Confirmation email sent.");
-          dispatch(CartActions.clearCart());
+          console.log("Order updated successfully! Confirmation email sent.");
+          dispatch(OrdersActions.clearCart());
 
           navigationHelper.goToThankYou(orderId);
         } catch (error) {
           console.error("Email sending error:", error);
-          toast.error("Order placed, but confirmation email failed.");
+          toast.error("Order updated, but confirmation email failed.");
         } finally {
           setIsSendingEmail(false);
         }
@@ -132,7 +139,7 @@ export default function CheckoutPage() {
 
   const handleRemoveItem = (item: any) => {
     dispatch(
-      CartActions.removeItem({
+      OrdersActions.removeItem({
         productId: item.product.id,
         selectedOptions: item.selectedOptions,
       })
@@ -155,21 +162,21 @@ export default function CheckoutPage() {
 
     dispatch(
       isIncrease
-        ? CartActions.increaseQuantity({ productId, selectedOptions })
-        : CartActions.decreaseQuantity({ productId, selectedOptions })
+        ? OrdersActions.increaseQuantity({ productId, selectedOptions })
+        : OrdersActions.decreaseQuantity({ productId, selectedOptions })
     );
   };
 
   return (
     <div className="p-4 max-w-7xl mx-auto space-y-6">
       <div className="flex justify-between items-center">
-        <Button
+        {/* <Button
           variant="ghost"
           className="flex items-center text-sm text-gray-600 hover:text-green-700"
           onClick={() => navigationHelper.goToProducts()}
         >
           <ArrowLeft className="w-4 h-4 mr-1" /> Continue Shopping
-        </Button>
+        </Button> */}
 
         <motion.div
           initial={{ opacity: 0, y: -20 }}
@@ -177,17 +184,17 @@ export default function CheckoutPage() {
           transition={{ duration: 0.4 }}
           className="w-full text-center"
         >
-          <h1 className="text-4xl font-extrabold tracking-tight bg-gradient-to-r from-green-600 to-lime-500 text-transparent bg-clip-text flex justify-center items-center gap-2">
+          {/* <h1 className="text-4xl font-extrabold tracking-tight bg-gradient-to-r from-green-600 to-lime-500 text-transparent bg-clip-text flex justify-center items-center gap-2">
             <Wallet className="w-8 h-8" />
-            Checkout
-          </h1>
-          <div className="mt-2 h-1 w-24 bg-green-400 mx-auto rounded-full" />
+             Summary
+          </h1> */}
+          {/* <div className="mt-2 h-1 w-24 bg-green-400 mx-auto rounded-full" /> */}
         </motion.div>
 
         <div className="w-32" />
       </div>
 
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+      <div className="grid grid-cols-1 lg:grid-cols-1 gap-6">
         {/* Left: Cart Summary */}
         <div className="space-y-6">
           <motion.div
@@ -412,7 +419,7 @@ export default function CheckoutPage() {
               className="w-full bg-[#5DBF13] hover:bg-green-700 text-white rounded-xl"
               disabled={cartitems.length === 0 || isSendingEmail}
             >
-              {isSendingEmail ? "Placing Order..." : "Place Order"}
+              {isSendingEmail ? "Updating Order..." : "Update Order"}
             </Button>
           </motion.div>
         </div>
