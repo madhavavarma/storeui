@@ -9,25 +9,6 @@ interface Feature {
   icon: React.ReactNode;
 }
 
-// default fallback features
-const defaultFeatures: Feature[] = [
-  {
-    title: 'Home Delivery',
-    description: 'Enjoy hassle-free delivery, on us!.',
-    icon: <ShoppingCartIcon className="text-4xl text-green-500" />,
-  },
-  {
-    title: 'Money Back Guarantee',
-    description: 'Not happy? Get a full refund, no questions asked.',
-    icon: <DollarSignIcon className="text-4xl text-green-500" />,
-  },
-  {
-    title: '24x7 Online Support',
-    description: 'Always here, anytime you need us.',
-    icon: <HeadphonesIcon className="text-4xl text-green-500" />,
-  },
-];
-
 const iconMapper: Record<string, React.ReactNode> = {
   'shopping-cart': <ShoppingCartIcon className="text-4xl text-green-500" />,
   'dollar-sign': <DollarSignIcon className="text-4xl text-green-500" />,
@@ -44,7 +25,7 @@ const Features = ({ bgColor = 'bg-gray-0' }: { bgColor?: string }) => {
         description: f.description || '',
         icon: iconMapper[f.icon || ''] || <ShoppingCartIcon className="text-4xl text-green-500" />,
       }))
-    : defaultFeatures;
+    : [];
 
   return (
     <div className={`${bgColor} mt-12 text-xs`}>

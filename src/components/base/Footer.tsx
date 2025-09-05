@@ -56,7 +56,7 @@ const Footer = () => {
 
 
       {/* Footer Middle */}
-      <div className="footer-middle bg-gray-800 py-8 px-4">
+      {false && <div className="footer-middle bg-gray-800 py-8 px-4">
         <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
           
 
@@ -119,7 +119,7 @@ const Footer = () => {
             </ul>
           </div>
         </div>
-      </div>
+      </div> }
 
 
       {/* Footer Bottom */}

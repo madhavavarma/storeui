@@ -23,9 +23,7 @@ const Header: React.FC = () => {
   }, []);
 
   const appLogo = useSelector((state: RootState) => state.AppSettings.logoUrl);
-  const logoSrc = appLogo ||
-    logoUrl ||
-    "https://ik.imagekit.io/bzuspdt5r/MilletVaan/MilletVaan_Logo_Cropped.png?updatedAt=1744809564276";
+  const logoSrc = appLogo || logoUrl || "";
 
   return (
     <section className="flex flex-col mb-[140px]">
