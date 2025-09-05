@@ -99,35 +99,35 @@ export default function CheckoutPage() {
         return;
       }
 
-        setIsSendingEmail(true);
-        try {
-          await emailjs.send(
-            "service_dek6sgr",
-            "template_ql4ymg9",
-            {
-              to_email: email,
-              user_phone: phone,
-              user_email: email,
-              user_address: address,
-              user_city: city,
-              user_pincode: pincode,
-              cart_items: JSON.stringify(cartitems, null, 2),
-              total_amount: totalAmount.toFixed(2),
-              order_id: orderId,
-            },
-            "efiQJ5NNt1J3GJD--"
-          );
-          console.log("Order placed successfully! Confirmation email sent.");
-          dispatch(CartActions.clearCart());
+      setIsSendingEmail(true);
+      try {
+        await emailjs.send(
+          "service_dek6sgr",
+          "template_ql4ymg9",
+          {
+            to_email: email,
+            user_phone: phone,
+            user_email: email,
+            user_address: address,
+            user_city: city,
+            user_pincode: pincode,
+            cart_items: JSON.stringify(cartitems, null, 2),
+            total_amount: totalAmount.toFixed(2),
+            order_id: orderId,
+          },
+          "efiQJ5NNt1J3GJD--"
+        );
+        console.log("Order placed successfully! Confirmation email sent.");
+        dispatch(CartActions.clearCart());
 
-          navigationHelper.goToThankYou(orderId);
-        } catch (error) {
-          console.error("Email sending error:", error);
-          toast.error("Order placed, but confirmation email failed.");
-        } finally {
-          setIsSendingEmail(false);
-        }
-      })
+        navigationHelper.goToThankYou(orderId);
+      } catch (error) {
+        console.error("Email sending error:", error);
+        toast.error("Order placed, but confirmation email failed.");
+      } finally {
+        setIsSendingEmail(false);
+      }
+    })
   };
 
   const handleRemoveItem = (item: any) => {
@@ -198,7 +198,7 @@ export default function CheckoutPage() {
             <Card className="bg-green-50 border-green-200">
               <CardContent className="p-4 space-y-4">
                 <h2 className="text-lg font-semibold text-green-800 flex-row  pb-3 border-b">
-                  🛒 Order Items     
+                  🛒 Order Items
                   {/* Product & Item Count */}
                   <div className="pl-1 flex items-center gap-2 bg-green-50 rounded-full text-sm font-medium flex-shrink-0">
                     <ShoppingBag className="w-4 h-4" />
@@ -207,106 +207,99 @@ export default function CheckoutPage() {
                     <PackageCheck className="w-4 h-4" />
                     {cartitems?.reduce((total, item) => total + item.quantity, 0)} Item
                     {cartitems?.reduce((total, item) => total + item.quantity, 0) > 1 && "s"}
-                  </div>                         
+                  </div>
                 </h2>
                 {cartitems.map((item, idx) => (
                   <div
-                  key={idx}
-                  className="flex gap-4 border-b py-4 text-sm relative"
-                >
-                  {/* Product Image */}
-                  <img
-                    src={item.product.imageUrls?.[0]}
-                    alt={item.product.name}
-                    className="w-16 h-16 object-cover rounded-md"
-                  />
-                
-                  {/* Product Info */}
-                  <div className="flex-1 min-w-0">
-                    <p className="font-medium text-gray-800 truncate">
-                      {item.product.name}
-                    </p>
-                    {item.selectedOptions &&
-                      Object.entries(item.selectedOptions).map(([variantName, option]) => (
-                        <p key={variantName} className="text-gray-500 text-xs">
-                          {variantName}: <span className="font-medium">{option?.name}</span>
-                        </p>
-                      ))}
-                
-                    {/* Quantity & Price Section */}
-                    <div className="flex justify-between items-center mt-3 flex-wrap gap-2">
-                      {/* Quantity Controls */}
-                      <div className="flex items-center bg-gray-100 rounded-full px-2 py-1">
-                        <Button
-                          size="icon"
-                          className="w-7 h-7 bg-[#5DBF13] text-white rounded-full hover:bg-green-700"
-                          onClick={() =>
-                            handleUpdateQuantity(
-                              item.product.id || 0,
-                              item.selectedOptions,
-                              false
-                            )
-                          }
-                        >
-                          <Minus size={14} />
-                        </Button>
-                
-                        <span className="text-sm font-semibold w-6 text-center">
-                          {item.quantity}
-                        </span>
-                
-                        <Button
-                          size="icon"
-                          className="w-7 h-7 bg-[#5DBF13] text-white rounded-full hover:bg-green-700"
-                          onClick={() =>
-                            handleUpdateQuantity(
-                              item.product.id || 0,
-                              item.selectedOptions,
-                              true
-                            )
-                          }
-                        >
-                          <Plus size={14} />
-                        </Button>
-                      </div>
-                
-                      {/* Price */}
-                      <span className="text-sm font-extrabold text-white bg-green-500 px-3 py-1 rounded-md shadow-sm">
-                        ₹{item.totalPrice}
-                      </span>
-                    </div>
-                  </div>
-                
-                  {/* Delete Button */}
-                  <Button
-                    variant="ghost"
-                    size="icon"
-                    className="text-red-500 absolute top-2 right-2"
-                    onClick={() => handleRemoveItem(item)}
+                    key={idx}
+                    className="flex gap-4 border-b py-4 text-sm relative"
                   >
-                    <Trash2 className="w-4 h-4" />
-                  </Button>
-                </div>
-                
-                
-                
+                    {/* Product Image */}
+                    <img
+                      src={item.product.imageUrls?.[0]}
+                      alt={item.product.name}
+                      className="w-16 h-16 object-cover rounded-md"
+                    />
+
+                    {/* Product Info */}
+                    <div className="flex-1 min-w-0">
+                      <p className="font-medium text-gray-800 truncate">
+                        {item.product.name}
+                      </p>
+                      {item.selectedOptions &&
+                        Object.entries(item.selectedOptions).map(([variantName, option]) => (
+                          <p key={variantName} className="text-gray-500 text-xs">
+                            {variantName}: <span className="font-medium">{option?.name}</span>
+                          </p>
+                        ))}
+
+                      {/* Quantity & Price Section */}
+                      <div className="flex justify-between items-center mt-3 flex-wrap gap-2">
+                        {/* Quantity Controls */}
+                        <div className="flex items-center bg-gray-100 rounded-full px-2 py-1">
+                          <Button
+                            size="icon"
+                            className="w-7 h-7 bg-[#5DBF13] text-white rounded-full hover:bg-green-700"
+                            onClick={() =>
+                              handleUpdateQuantity(
+                                item.product.id || 0,
+                                item.selectedOptions,
+                                false
+                              )
+                            }
+                          >
+                            <Minus size={14} />
+                          </Button>
+
+                          <span className="text-sm font-semibold w-6 text-center">
+                            {item.quantity}
+                          </span>
+
+                          <Button
+                            size="icon"
+                            className="w-7 h-7 bg-[#5DBF13] text-white rounded-full hover:bg-green-700"
+                            onClick={() =>
+                              handleUpdateQuantity(
+                                item.product.id || 0,
+                                item.selectedOptions,
+                                true
+                              )
+                            }
+                          >
+                            <Plus size={14} />
+                          </Button>
+                        </div>
+
+                        {/* Price */}
+                        <span className="text-sm font-extrabold text-white bg-green-500 px-3 py-1 rounded-md shadow-sm">
+                          ₹{item.totalPrice}
+                        </span>
+                      </div>
+                    </div>
+
+                    {/* Delete Button */}
+                    <Button
+                      variant="ghost"
+                      size="icon"
+                      className="text-red-500 absolute top-2 right-2"
+                      onClick={() => handleRemoveItem(item)}
+                    >
+                      <Trash2 className="w-4 h-4" />
+                    </Button>
+                  </div>
                 ))}
-                 <div className="pt-2 flex items-center justify-between text-green-800 font-semibold gap-4 flex-wrap sm:flex-nowrap">
-  
-  <div className="flex flex-col sm:flex-row sm:items-center sm:gap-2">
-    {/* Label */}
-    <span className="text-base whitespace-nowrap">Total</span>
+                <div className="pt-2 flex items-center justify-between text-green-800 font-semibold gap-4 flex-wrap sm:flex-nowrap">
 
-    
-  </div>
+                  <div className="flex flex-col sm:flex-row sm:items-center sm:gap-2">
+                    {/* Label */}
+                    <span className="text-base whitespace-nowrap">Total</span>
+                  </div>
 
-  {/* Amount */}
-  <span className="text-sm font-extrabold text-white bg-green-500 px-3 py-1 rounded-md shadow-sm">
-    ₹{totalAmount}
-  </span>
-</div>
-
-
+                  {/* Amount */}
+                  <span className="text-sm font-extrabold text-white bg-green-500 px-3 py-1 rounded-md shadow-sm">
+                    ₹{totalAmount}
+                  </span>
+                </div>
               </CardContent>
             </Card>
           </motion.div>
