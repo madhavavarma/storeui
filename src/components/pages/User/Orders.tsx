@@ -5,7 +5,7 @@ import { Button } from "@/components/ui/button";
 import { ICartState } from "@/store/interfaces/ICartState";
 import { useDispatch, useSelector } from "react-redux";
 import { IState } from "@/store/interfaces/IState";
-import { OrdersActions, OrderStatus } from "@/store/OrdersSlice";
+import { OrdersActions } from "@/store/OrdersSlice";
 import OrderDrawer from "./OrderDrawer";
 import Header from "@/components/base/Header";
 import Footer from "@/components/base/Footer";
@@ -37,10 +37,6 @@ export default function OrderList() {
   const handleViewOrder = (order: ICartState) => {
     dispatch(OrdersActions.showOrderDetail(order as any));
     setIsDrawerOpen(true);
-  };
-
-  const handleCancelOrder = (orderId: string | number) => {
-    setConfirm({ orderId });
   };
 
   const confirmCancelOrder = async () => {

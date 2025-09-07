@@ -43,7 +43,7 @@ export default function OrderSummary() {
   // Cancel order logic (copied from Orders.tsx)
   const handleCancelOrder = async () => {
     setDeleting(true);
-     deleteOrder(cart.id)
+     deleteOrder(cart?.id || -1)
     // await fetchOrders();
     setTimeout(() => {
       setDeleting(false);
