@@ -120,7 +120,7 @@ export default function CheckoutPage() {
         console.log("Order placed successfully! Confirmation email sent.");
         dispatch(CartActions.clearCart());
 
-        navigationHelper.goToThankYou(orderId);
+        navigationHelper.goToThankYou(order.id || "");
       } catch (error) {
         console.error("Email sending error:", error);
         toast.error("Order placed, but confirmation email failed.");
@@ -161,7 +161,7 @@ export default function CheckoutPage() {
   };
 
   return (
-    <div className="p-4 max-w-7xl mx-auto space-y-6">
+    <div className="bg-[#fff] p-4 max-w-7xl mx-auto space-y-6 mt-8">
       <div className="flex justify-between items-center">
         <Button
           variant="ghost"

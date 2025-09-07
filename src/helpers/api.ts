@@ -1,15 +1,22 @@
-import productsMock from '../assets/json/products.json';
-import categoriesMock from '../assets/json/categories.json';
+import productsMock from '../assets/json/MotherEarth/products.json';
+import categoriesMock from '../assets/json/MotherEarth/categories.json';
+import appSettingsMock from '../assets/json/MotherEarth/appSettings.json';
 import { IProduct } from '@/interfaces/IProduct';
 import { ICategory } from '@/interfaces/ICategory';
 import { IAppSettings } from '@/interfaces/IAppSettings';
-import appSettingsMock from '../assets/json/appSettings.json';
 import { supabase } from '@/supabaseClient';
 import { ICartState } from '@/store/interfaces/ICartState';
 import { IOrder } from '@/store/OrdersSlice';
 
-export const isMock = false; // Toggle this to false for real API calls
+export const isMock = true; // Toggle this to false for real API calls
 
+// prepare sql scripts for supabase
+// create schema, insert sample data
+// prepare sample data from json files
+
+// pickup drop time to be in checkout
+// pickup drop in checkout page (new card)
+// notes in checkout page
 
 export const getProducts = async (): Promise<IProduct[]> => {
   if (isMock) {
@@ -114,6 +121,11 @@ export async function createOrder(cartState: ICartState) {
 }
 
 export async function getOrders(): Promise<IOrder[] | null> {
+
+  if(isMock) {
+    return [];
+  }
+
   const { data, error } = await supabase
     .from('orders')
     .select('*')
@@ -131,6 +143,10 @@ export async function getOrders(): Promise<IOrder[] | null> {
 }
 
 export async function updateOrder(id: string, updates: Partial<IOrder>): Promise<IOrder | null> {
+
+  if(isMock) {
+    return null;
+  }
 
   console.log("Updating order:", id, updates);
   const { data, error } = await supabase

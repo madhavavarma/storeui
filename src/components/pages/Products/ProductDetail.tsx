@@ -16,9 +16,10 @@ import { CartActions } from "@/store/CartSlice";
 
 interface IProps {
   product: IProduct;
+  closeRightDrawer: any;
 }
 
-const ProductDetail = ({ product }: IProps) => {
+const ProductDetail = ({ product, closeRightDrawer }: IProps) => {
   const dispatch = useDispatch();
 
   const [openSections, setOpenSections] = useState<number>(product.productdescriptions[0]?.id);
@@ -62,6 +63,7 @@ const ProductDetail = ({ product }: IProps) => {
 
     console.log("Added to cart:", cartItem);
     dispatch(CartActions.addItem(cartItem));
+    closeRightDrawer(null);
   };
 
   const calculateTotalPrice = () => {

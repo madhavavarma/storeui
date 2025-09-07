@@ -76,13 +76,13 @@ const App: React.FC = () => {
   }, [dispatch]);
   
   return (
-    <main className='bg-[#fcf8f8]' style={{ maxWidth: '1300px', margin: '0 auto' }}>
+    <main className='bg-[#fff]' style={{ maxWidth: '1300px', margin: '0 auto' }}>
       <Routing />
 
       {/* Product Detail Drawer */}
       {productDetail && (
         <RightDrawer isOpen onClose={() => hideProductDetail()}>
-          <ProductDetail product={productDetail} />
+          <ProductDetail product={productDetail} closeRightDrawer={hideProductDetail} />
         </RightDrawer>
       )}
 
