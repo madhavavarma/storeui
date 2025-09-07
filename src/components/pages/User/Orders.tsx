@@ -12,6 +12,8 @@ import Footer from "@/components/base/Footer";
 import OrderSummary from "./OrderSummary";
 import { getOrders, deleteOrder } from "@/helpers/api";
 import { motion, AnimatePresence } from "framer-motion";
+import { useIsMobile } from "@/hooks/use-mobile";
+import { ChevronDown, ChevronUp } from "lucide-react";
 
 export default function OrderList() {
   const dispatch = useDispatch();
@@ -20,6 +22,25 @@ export default function OrderList() {
   const orders = useSelector((state: IState) => state.Orders.orders);
   const [toast, setToast] = useState<{ message: string; type?: "success" | "error" | "info" } | null>(null);
   const [confirm, setConfirm] = useState<{ orderId: string | number } | null>(null);
+
+  // Filters
+  const statusOptions = [
+    "Pending",
+    "Processing",
+    "Shipped",
+    "Delivered",
+    "Completed",
+    "Cancelled",
+    "Failed",
+    "Returned",
+    "All"
+  ];
+  const [statusFilter, setStatusFilter] = useState<string>("All");
+  const [dateFrom, setDateFrom] = useState<string>("");
+  const [dateTo, setDateTo] = useState<string>("");
+  // Pagination
+  const [currentPage, setCurrentPage] = useState(1);
+  const ORDERS_PER_PAGE = 5;
 
   const fetchOrders = async () => {
     try {
@@ -52,6 +73,41 @@ export default function OrderList() {
     }
     setDeletingId(null);
   };
+
+  // Filtering logic
+  const filteredOrders = orders?.filter(order => {
+    const statusMatch = statusFilter === "All" ? true : order.status === statusFilter;
+    let dateMatch = true;
+    if (dateFrom) {
+      dateMatch = dateMatch && new Date(order.created_at) >= new Date(dateFrom);
+    }
+    if (dateTo) {
+      // Add 1 day to include the end date
+      const toDate = new Date(dateTo);
+      toDate.setDate(toDate.getDate() + 1);
+      dateMatch = dateMatch && new Date(order.created_at) < toDate;
+    }
+    return statusMatch && dateMatch;
+  }) || [];
+  const totalPages = Math.ceil(filteredOrders.length / ORDERS_PER_PAGE);
+  const paginatedOrders = filteredOrders.slice(
+    (currentPage - 1) * ORDERS_PER_PAGE,
+    currentPage * ORDERS_PER_PAGE
+  );
+  useEffect(() => {
+    setCurrentPage(1); // Reset to first page when filters change
+  }, [statusFilter, dateFrom, dateTo]);
+
+  const isMobile = useIsMobile();
+  const [showFilters, setShowFilters] = useState(() => {
+    // Closed by default on mobile, open on desktop
+    return !isMobile;
+  });
+
+  // Keep showFilters in sync with isMobile if screen size changes
+  useEffect(() => {
+    setShowFilters(!isMobile);
+  }, [isMobile]);
 
   return (
     <Fragment>
@@ -90,6 +146,76 @@ export default function OrderList() {
       <div className="p-6 min-h-[80vh] bg-gray-50">
         <h1 className="text-3xl font-bold mb-6 text-gray-800">My Orders</h1>
 
+        {/* Filters with up/down arrow toggle */}
+        <div className="mb-6">
+          <div
+            className="bg-white/90 border border-gray-200 rounded-xl shadow-sm px-3 py-2 cursor-pointer flex items-center justify-between select-none"
+            onClick={() => isMobile && setShowFilters((v) => !v)}
+          >
+            <span className="text-sm font-semibold text-gray-700">Filters</span>
+            {isMobile && (
+              showFilters ? (
+                <ChevronUp className="w-5 h-5 text-[#5dbf13] transition-transform" />
+              ) : (
+                <ChevronDown className="w-5 h-5 text-[#5dbf13] transition-transform" />
+              )
+            )}
+          </div>
+          {showFilters && (
+            <div className="bg-white/90 border-x border-b border-gray-200 rounded-b-xl shadow-sm px-3 py-3 flex flex-col gap-3 md:flex-row md:items-center md:justify-between animate-fade-in-up">
+              <div className="flex flex-col gap-2 w-full md:flex-row md:items-center md:w-auto md:justify-start">
+                <label htmlFor="status-select" className="text-xs md:text-sm text-gray-700 font-medium md:mr-2">Status</label>
+                <select
+                  id="status-select"
+                  className="border rounded px-3 py-2 text-xs md:text-sm focus:ring-2 focus:ring-[#5dbf13] focus:outline-none bg-white font-semibold w-full md:w-auto"
+                  value={statusFilter}
+                  onChange={e => setStatusFilter(e.target.value)}
+                  onClick={e => e.stopPropagation()}
+                >
+                  {statusOptions.map((status) => (
+                    <option key={status} value={status}>{status}</option>
+                  ))}
+                </select>
+              </div>
+              <div className="flex flex-col gap-2 w-full md:flex-row md:items-center md:w-auto md:justify-end">
+                <div className="flex gap-2 items-center w-full md:w-auto">
+                  <label className="text-xs md:text-sm text-gray-700">From</label>
+                  <input
+                    type="date"
+                    className="border rounded px-2 py-2 text-xs md:text-sm w-full md:w-auto"
+                    value={dateFrom}
+                    onChange={e => setDateFrom(e.target.value)}
+                    max={dateTo || undefined}
+                    onClick={e => e.stopPropagation()}
+                  />
+                </div>
+                <div className="flex gap-2 items-center w-full md:w-auto">
+                  <label className="text-xs md:text-sm text-gray-700">To</label>
+                  <input
+                    type="date"
+                    className="border rounded px-2 py-2 text-xs md:text-sm w-full md:w-auto"
+                    value={dateTo}
+                    onChange={e => setDateTo(e.target.value)}
+                    min={dateFrom || undefined}
+                    onClick={e => e.stopPropagation()}
+                  />
+                </div>
+                <button
+                  className="px-3 py-2 rounded bg-gray-200 text-gray-700 hover:bg-gray-300 text-xs md:text-sm font-semibold border border-gray-300 w-full md:w-auto"
+                  onClick={e => {
+                    e.stopPropagation();
+                    setStatusFilter("All");
+                    setDateFrom("");
+                    setDateTo("");
+                  }}
+                >
+                  Clear Filters
+                </button>
+              </div>
+            </div>
+          )}
+        </div>
+
         {/* Table for md+ screens */}
         <div className="overflow-hidden rounded-xl shadow border border-gray-200 hidden md:block">
           <table className="min-w-full bg-white">
@@ -104,7 +230,7 @@ export default function OrderList() {
             </thead>
             <tbody className="divide-y divide-gray-200">
               <AnimatePresence>
-                {orders?.map((order, idx) => {
+                {paginatedOrders.map((order, idx) => {
                   let orderDate = '';
                   if (order.created_at) {
                     const d = new Date(order.created_at);
@@ -147,7 +273,7 @@ export default function OrderList() {
         {/* Card layout for mobile */}
         <div className="flex flex-col gap-4 md:hidden">
           <AnimatePresence>
-            {orders?.map((order, idx) => {
+            {paginatedOrders.map((order, idx) => {
               let orderDate = '';
               if (order.created_at) {
                 const d = new Date(order.created_at);
@@ -191,6 +317,29 @@ export default function OrderList() {
             })}
           </AnimatePresence>
         </div>
+
+        {/* Pagination Controls */}
+        {totalPages > 1 && (
+          <div className="flex justify-center items-center gap-2 mt-6">
+            <button
+              className="px-3 py-1 rounded border bg-white text-gray-700 disabled:opacity-50"
+              onClick={() => setCurrentPage((p) => Math.max(1, p - 1))}
+              disabled={currentPage === 1}
+            >
+              Previous
+            </button>
+            <span className="text-sm font-semibold text-gray-700">
+              Page {currentPage} of {totalPages}
+            </span>
+            <button
+              className="px-3 py-1 rounded border bg-white text-gray-700 disabled:opacity-50"
+              onClick={() => setCurrentPage((p) => Math.min(totalPages, p + 1))}
+              disabled={currentPage === totalPages}
+            >
+              Next
+            </button>
+          </div>
+        )}
       </div>
 
       {/* Order Drawer */}
