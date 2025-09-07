@@ -23,26 +23,14 @@ import { IOption } from "@/interfaces/IProduct";
 import { ProductActions } from "@/store/ProductSlice";
 import emailjs from "@emailjs/browser";
 import { ICheckout } from "@/interfaces/ICheckout";
-import { updateOrder } from "@/helpers/api";
+import { deleteOrder, updateOrder } from "@/helpers/api";
 import { IOrder, OrdersActions } from "@/store/OrdersSlice";
 
 export default function OrderSummary() {
   const [showCancelDialog, setShowCancelDialog] = useState(false);
   const [deleting, setDeleting] = useState(false);
 
-  // Cancel order logic (copied from Orders.tsx)
-  const handleCancelOrder = async () => {
-    setDeleting(true);
-    // You may want to call your deleteOrder API here
-    // For now, just simulate success
-    // TODO: Replace with actual deleteOrder(cart.id)
-    // await fetchOrders();
-    setTimeout(() => {
-      setDeleting(false);
-      setShowCancelDialog(false);
-      window.location.reload(); // Or dispatch an action to refresh orders
-    }, 1200);
-  };
+  
   const cart = useSelector((state: IState) => state.Orders.showOrder);
   const cartitems = useSelector((state: IState) => state.Orders.showOrder?.cartitems || []);
   const totalAmount = cartitems?.reduce((acc, item) => acc + item.totalPrice, 0);
@@ -51,6 +39,18 @@ export default function OrderSummary() {
   const checkoutData = useSelector((state: IState) => state.Orders.showOrder?.checkoutdata);
   const isPending = cart?.status === 'Pending';
   
+
+  // Cancel order logic (copied from Orders.tsx)
+  const handleCancelOrder = async () => {
+    setDeleting(true);
+     deleteOrder(cart.id)
+    // await fetchOrders();
+    setTimeout(() => {
+      setDeleting(false);
+      setShowCancelDialog(false);
+      window.location.reload(); // Or dispatch an action to refresh orders
+    }, 1200);
+  };
   
 
   useEffect(() => {    

@@ -1,11 +1,14 @@
-// Delete order by id
+// Cancel order by id (set status to 'Cancelled')
 export async function deleteOrder(id: string | number): Promise<boolean> {
   try {
-    const { error } = await supabase.from('orders').delete().eq('id', id);
+    const { error } = await supabase
+      .from('orders')
+      .update({ status: 'Cancelled' })
+      .eq('id', id);
     if (error) throw error;
     return true;
   } catch (err) {
-    console.error('Error deleting order:', err);
+    console.error('Error cancelling order:', err);
     return false;
   }
 }
