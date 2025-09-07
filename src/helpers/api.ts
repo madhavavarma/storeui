@@ -8,7 +8,7 @@ import { supabase } from '@/supabaseClient';
 import { ICartState } from '@/store/interfaces/ICartState';
 import { IOrder } from '@/store/OrdersSlice';
 
-export const isMock = false; // Toggle this to false for real API calls
+const isMock = false; // toggle to switch between mock data and supabase
 
 // prepare sql scripts for supabase
 // create schema, insert sample data

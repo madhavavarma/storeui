@@ -1,3 +1,12 @@
+export enum OrderStatus {
+  Pending = 'Pending',
+  Confirmed = 'Confirmed',
+  Processing = 'Processing',
+  Shipped = 'Shipped',
+  Delivered = 'Delivered',
+  Cancelled = 'Cancelled',
+  Returned = 'Returned',
+}
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { ICartState } from "./interfaces/ICartState";
 import { IOption } from "@/interfaces/IProduct";
@@ -6,6 +15,7 @@ import { ICheckout } from "@/interfaces/ICheckout";
 export interface IOrder extends ICartState {
   id: string;            // unique order id
   created_at: string;     // timestamp
+  status?: OrderStatus;
 }
 
 export interface IOrderState {
