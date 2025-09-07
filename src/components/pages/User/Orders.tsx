@@ -3,17 +3,18 @@ import { Button } from "@/components/ui/button";
 import { ICartState } from "@/store/interfaces/ICartState";
 import { useDispatch, useSelector } from "react-redux";
 import { IState } from "@/store/interfaces/IState";
-import { OrdersActions } from "@/store/OrdersSlice";
+import { OrdersActions, OrderStatus } from "@/store/OrdersSlice";
 import OrderDrawer from "./OrderDrawer";
 import Header from "@/components/base/Header";
 import Footer from "@/components/base/Footer";
 import OrderSummary from "./OrderSummary";
-import { getOrders } from "@/helpers/api";
+import { getOrders, deleteOrder } from "@/helpers/api";
 import { motion, AnimatePresence } from "framer-motion";
 
 export default function OrderList() {
   const dispatch = useDispatch();
   const [isDrawerOpen, setIsDrawerOpen] = useState(false);
+  const [deletingId, setDeletingId] = useState<string | number | null>(null);
   const orders = useSelector((state: IState) => state.Orders.orders);
 
   const fetchOrders = async () => {
@@ -32,6 +33,22 @@ export default function OrderList() {
   const handleViewOrder = (order: ICartState) => {
     dispatch(OrdersActions.showOrderDetail(order as any));
     setIsDrawerOpen(true);
+  };
+
+  const handleCancelOrder = async (orderId: string | number) => {
+    setDeletingId(orderId);
+    const ok = window.confirm("Are you sure you want to cancel this order?");
+    if (!ok) {
+      setDeletingId(null);
+      return;
+    }
+    const success = await deleteOrder(orderId);
+    if (success) {
+      await fetchOrders();
+    } else {
+      alert("Failed to cancel order. Please try again.");
+    }
+    setDeletingId(null);
   };
 
   return (
@@ -78,13 +95,22 @@ export default function OrderList() {
                         {` ${order.totalquantity} item${order.totalquantity === 1 ? '' : 's'}`}
                       </td>
                       <td className="px-4 py-3 text-sm text-gray-700">{order.status || 'Pending'}</td>
-                      <td className="px-4 py-3 text-center">
+                      <td className="px-4 py-3 text-center flex gap-2 justify-center">
                         <Button
                           className="bg-[#5DBF13] text-white px-4 py-1 rounded-lg hover:bg-green-700 shadow-sm"
                           onClick={() => handleViewOrder(order)}
                         >
                           View
                         </Button>
+                        {order.status === OrderStatus.Pending && (
+                          <Button
+                            className="bg-red-500 text-white px-4 py-1 rounded-lg hover:bg-red-700 shadow-sm"
+                            onClick={() => handleCancelOrder(order.id)}
+                            disabled={deletingId === order.id}
+                          >
+                            {deletingId === order.id ? 'Cancelling...' : 'Cancel'}
+                          </Button>
+                        )}
                       </td>
                     </motion.tr>
                   );
@@ -126,12 +152,23 @@ export default function OrderList() {
                       {order.status || 'Pending'}
                     </span>
                   </div>
-                  <Button
-                    className="bg-[#5DBF13] text-white px-4 py-1 rounded-lg hover:bg-green-700 shadow-sm mt-2 w-full"
-                    onClick={() => handleViewOrder(order)}
-                  >
-                    View
-                  </Button>
+                  <div className="flex gap-2 mt-2">
+                    <Button
+                      className="bg-[#5DBF13] text-white px-4 py-1 rounded-lg hover:bg-green-700 shadow-sm flex-1"
+                      onClick={() => handleViewOrder(order)}
+                    >
+                      View
+                    </Button>
+                    {order.status === OrderStatus.Pending && (
+                      <Button
+                        className="bg-red-500 text-white px-4 py-1 rounded-lg hover:bg-red-700 shadow-sm flex-1"
+                        onClick={() => handleCancelOrder(order.id)}
+                        disabled={deletingId === order.id}
+                      >
+                        {deletingId === order.id ? 'Cancelling...' : 'Cancel'}
+                      </Button>
+                    )}
+                  </div>
                 </motion.div>
               );
             })}

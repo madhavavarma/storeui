@@ -1,3 +1,14 @@
+// Delete order by id
+export async function deleteOrder(id: string | number): Promise<boolean> {
+  try {
+    const { error } = await supabase.from('orders').delete().eq('id', id);
+    if (error) throw error;
+    return true;
+  } catch (err) {
+    console.error('Error deleting order:', err);
+    return false;
+  }
+}
 import productsMock from '../assets/json/MotherEarth/products.json';
 import categoriesMock from '../assets/json/MotherEarth/categories.json';
 import appSettingsMock from '../assets/json/MotherEarth/appSettings.json';
@@ -109,7 +120,8 @@ export async function createOrder(cartState: ICartState) {
           totalquantity: cartState.totalquantity,
           totalprice: cartState.totalprice,
           checkoutdata: cartState.checkoutdata,
-          userid: user.id
+          userid: user.id,
+          status: cartState.status || 'Pending' // Capitalized to match enum/UI
         }
       ])
       .select(); // return inserted row(s)
