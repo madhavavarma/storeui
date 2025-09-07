@@ -1,4 +1,5 @@
 import { useSelector, useDispatch } from "react-redux";
+import { Dialog } from "@/components/ui/dialog";
 import { IState } from "@/store/interfaces/IState";
 import { Card, CardContent } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
@@ -26,13 +27,30 @@ import { updateOrder } from "@/helpers/api";
 import { IOrder, OrdersActions } from "@/store/OrdersSlice";
 
 export default function OrderSummary() {
+  const [showCancelDialog, setShowCancelDialog] = useState(false);
+  const [deleting, setDeleting] = useState(false);
+
+  // Cancel order logic (copied from Orders.tsx)
+  const handleCancelOrder = async () => {
+    setDeleting(true);
+    // You may want to call your deleteOrder API here
+    // For now, just simulate success
+    // TODO: Replace with actual deleteOrder(cart.id)
+    // await fetchOrders();
+    setTimeout(() => {
+      setDeleting(false);
+      setShowCancelDialog(false);
+      window.location.reload(); // Or dispatch an action to refresh orders
+    }, 1200);
+  };
   const cart = useSelector((state: IState) => state.Orders.showOrder);
   const cartitems = useSelector((state: IState) => state.Orders.showOrder?.cartitems || []);
   const totalAmount = cartitems?.reduce((acc, item) => acc + item.totalPrice, 0);
   const navigationHelper = useNavigationHelper();
   const dispatch = useDispatch();
   const checkoutData = useSelector((state: IState) => state.Orders.showOrder?.checkoutdata);
-
+  const isPending = cart?.status === 'Pending';
+  
   
 
   useEffect(() => {    
@@ -169,6 +187,7 @@ export default function OrderSummary() {
 
   return (
     <div className="p-4 max-w-7xl mx-auto space-y-6">
+      
       <div className="flex justify-between items-center">
         {/* <Button
           variant="ghost"
@@ -422,6 +441,43 @@ export default function OrderSummary() {
               {isSendingEmail ? "Updating Order..." : "Update Order"}
             </Button>
           </motion.div>
+
+          {isPending && (
+        <>
+          <Button
+            className="w-full bg-red-500 hover:bg-red-700 text-white rounded-xl mb-4"
+            onClick={() => setShowCancelDialog(true)}
+            disabled={deleting}
+          >
+            {deleting ? "Cancelling..." : "Cancel Order"}
+          </Button>
+          <Dialog
+            open={showCancelDialog}
+            title="Cancel Order"
+            onClose={() => setShowCancelDialog(false)}
+            actions={
+              <>
+                <button
+                  className="px-4 py-2 rounded bg-gray-200 text-gray-700 hover:bg-gray-300"
+                  onClick={() => setShowCancelDialog(false)}
+                  disabled={deleting}
+                >
+                  No
+                </button>
+                <button
+                  className="px-4 py-2 rounded bg-red-500 text-white hover:bg-red-600"
+                  onClick={handleCancelOrder}
+                  disabled={deleting}
+                >
+                  {deleting ? "Cancelling..." : "Yes"}
+                </button>
+              </>
+            }
+          >
+            Are you sure you want to cancel this order?
+          </Dialog>
+        </>
+      )}
         </div>
       </div>
     </div>

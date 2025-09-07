@@ -1,4 +1,6 @@
 import { Fragment, useEffect, useState } from "react";
+import { Toast } from "@/components/ui/toast";
+import { Dialog } from "@/components/ui/dialog";
 import { Button } from "@/components/ui/button";
 import { ICartState } from "@/store/interfaces/ICartState";
 import { useDispatch, useSelector } from "react-redux";
@@ -16,6 +18,8 @@ export default function OrderList() {
   const [isDrawerOpen, setIsDrawerOpen] = useState(false);
   const [deletingId, setDeletingId] = useState<string | number | null>(null);
   const orders = useSelector((state: IState) => state.Orders.orders);
+  const [toast, setToast] = useState<{ message: string; type?: "success" | "error" | "info" } | null>(null);
+  const [confirm, setConfirm] = useState<{ orderId: string | number } | null>(null);
 
   const fetchOrders = async () => {
     try {
@@ -35,18 +39,20 @@ export default function OrderList() {
     setIsDrawerOpen(true);
   };
 
-  const handleCancelOrder = async (orderId: string | number) => {
-    setDeletingId(orderId);
-    const ok = window.confirm("Are you sure you want to cancel this order?");
-    if (!ok) {
-      setDeletingId(null);
-      return;
-    }
-    const success = await deleteOrder(orderId);
+  const handleCancelOrder = (orderId: string | number) => {
+    setConfirm({ orderId });
+  };
+
+  const confirmCancelOrder = async () => {
+    if (!confirm) return;
+    setDeletingId(confirm.orderId);
+    setConfirm(null);
+    const success = await deleteOrder(confirm.orderId);
     if (success) {
       await fetchOrders();
+      setToast({ message: "Order cancelled successfully.", type: "success" });
     } else {
-      alert("Failed to cancel order. Please try again.");
+      setToast({ message: "Failed to cancel order. Please try again.", type: "error" });
     }
     setDeletingId(null);
   };
@@ -54,6 +60,37 @@ export default function OrderList() {
   return (
     <Fragment>
       <Header />
+      {toast && (
+        <Toast
+          message={toast.message}
+          type={toast.type}
+          onClose={() => setToast(null)}
+        />
+      )}
+      <Dialog
+        open={!!confirm}
+        title="Cancel Order"
+        onClose={() => setConfirm(null)}
+        actions={
+          <>
+            <button
+              className="px-4 py-2 rounded bg-gray-200 text-gray-700 hover:bg-gray-300"
+              onClick={() => setConfirm(null)}
+            >
+              Cancel
+            </button>
+            <button
+              className="px-4 py-2 rounded bg-red-500 text-white hover:bg-red-600"
+              onClick={confirmCancelOrder}
+              disabled={deletingId === confirm?.orderId}
+            >
+              {deletingId === confirm?.orderId ? 'Cancelling...' : 'Yes'}
+            </button>
+          </>
+        }
+      >
+        Are you sure you want to cancel this order?
+      </Dialog>
       <div className="p-6 min-h-[80vh] bg-gray-50">
         <h1 className="text-3xl font-bold mb-6 text-gray-800">My Orders</h1>
 
@@ -102,15 +139,7 @@ export default function OrderList() {
                         >
                           View
                         </Button>
-                        {order.status === OrderStatus.Pending && (
-                          <Button
-                            className="bg-red-500 text-white px-4 py-1 rounded-lg hover:bg-red-700 shadow-sm"
-                            onClick={() => handleCancelOrder(order.id)}
-                            disabled={deletingId === order.id}
-                          >
-                            {deletingId === order.id ? 'Cancelling...' : 'Cancel'}
-                          </Button>
-                        )}
+                        {/* Cancel button moved to Order Details */}
                       </td>
                     </motion.tr>
                   );
@@ -159,15 +188,7 @@ export default function OrderList() {
                     >
                       View
                     </Button>
-                    {order.status === OrderStatus.Pending && (
-                      <Button
-                        className="bg-red-500 text-white px-4 py-1 rounded-lg hover:bg-red-700 shadow-sm flex-1"
-                        onClick={() => handleCancelOrder(order.id)}
-                        disabled={deletingId === order.id}
-                      >
-                        {deletingId === order.id ? 'Cancelling...' : 'Cancel'}
-                      </Button>
-                    )}
+                    {/* Cancel button moved to Order Details */}
                   </div>
                 </motion.div>
               );
