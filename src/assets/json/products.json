@@ -2053,8 +2053,7 @@
         ]
       }
     ]
-  }
-,
+  },
   {
     "id": 43,
     "name": "Elephant Yam (Elephant Yam)",
@@ -2234,8 +2233,7 @@
     "productvariants": [
       { "id": 1, "name": "Weight", "ispublished": true, "productvariantoptions": [ { "id": 1, "name": "1 kg", "price": 150, "ispublished": true, "isoutofstock": false, "isdefault": true }, { "id": 2, "name": "1/2 kg", "price": 75, "ispublished": true, "isoutofstock": false, "isdefault": false } ] }
     ]
-  }
-,
+  },
   {
     "id": 53,
     "name": "Mango (మామిడి)",

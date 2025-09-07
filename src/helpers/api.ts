@@ -8,7 +8,7 @@ import { supabase } from '@/supabaseClient';
 import { ICartState } from '@/store/interfaces/ICartState';
 import { IOrder } from '@/store/OrdersSlice';
 
-export const isMock = true; // Toggle this to false for real API calls
+export const isMock = false; // Toggle this to false for real API calls
 
 // prepare sql scripts for supabase
 // create schema, insert sample data
@@ -96,17 +96,23 @@ export async function createOrder(cartState: ICartState) {
   if(isMock) {
     return cartState;
   } else {
-      const { data, error } = await supabase
-    .from('orders')
-    .insert([
-      {
-        cartitems: cartState.cartitems,
-        totalquantity: cartState.totalquantity,
-        totalprice: cartState.totalprice,
-        checkoutdata: cartState.checkoutdata
-      }
-    ])
-    .select(); // return inserted row(s)
+    const { data: userData } = await supabase.auth.getUser();
+    const user = userData?.user;
+    if (!user) {
+      throw new Error('User not authenticated');
+    }
+    const { data, error } = await supabase
+      .from('orders')
+      .insert([
+        {
+          cartitems: cartState.cartitems,
+          totalquantity: cartState.totalquantity,
+          totalprice: cartState.totalprice,
+          checkoutdata: cartState.checkoutdata,
+          userid: user.id
+        }
+      ])
+      .select(); // return inserted row(s)
 
     if (error) {
       console.error('Error creating order:', error);
@@ -117,26 +123,27 @@ export async function createOrder(cartState: ICartState) {
 
     return data[0];
   }
-
 }
 
 export async function getOrders(): Promise<IOrder[] | null> {
-
   if(isMock) {
     return [];
   }
-
+  const { data: userData } = await supabase.auth.getUser();
+  const user = userData?.user;
+  if (!user) {
+    return [];
+  }
   const { data, error } = await supabase
     .from('orders')
     .select('*')
+    .eq('userid', user.id)
     .order('created_at', { ascending: false }); // newest first
 
   if (error) {
     console.error('Error fetching orders:', error);
     return null;
   }
-
-  console.log(data)
 
   // data is an array of orders with cartitems as JSON
   return data as IOrder[];

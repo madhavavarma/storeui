@@ -5,9 +5,11 @@ interface RightDrawerProps {
   isOpen: boolean;
   onClose: () => void;
   children: ReactNode;
+  title?: string;
 }
 
-export default function RightDrawer({ isOpen, onClose, children }: RightDrawerProps) {
+export default function RightDrawer({ isOpen, onClose, children, title }: RightDrawerProps) {
+  const headerTitle = title || 'Product Information';
   return (
     <AnimatePresence>
       {isOpen && (
@@ -36,7 +38,7 @@ export default function RightDrawer({ isOpen, onClose, children }: RightDrawerPr
           >
             {/* Header */}
             <div className="border-b flex justify-between items-center p-4 bg-[#5DBF13] text-white">
-              <h2 className="text-lg font-bold">Product Information</h2>
+              <h2 className="text-lg font-bold">{headerTitle}</h2>
               <button
                 onClick={onClose}
                 className="text-white hover:text-gray-200 text-lg"

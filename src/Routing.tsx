@@ -8,6 +8,7 @@ import ThankYouPage from "./components/pages/Checkout/ThankYou";
 import AboutUs from "./components/pages/AboutUs/AboutUs";
 import FAQPage from "./components/pages/AboutUs/Faq";
 import OrderList from "./components/pages/User/Orders";
+import ResetPassword from "./components/pages/ResetPassword";
 
 export default function Routing() {
     return (
@@ -26,6 +27,7 @@ export default function Routing() {
                 <Route path="aboutus" element={ <AboutUs />}></Route>
                 <Route path="faq" element={ <FAQPage />}></Route>
                 <Route path="orders" element={ <OrderList />}></Route>
+                <Route path="reset-password" element={<ResetPassword />} />
             </Routes>
         </Router>
     )
