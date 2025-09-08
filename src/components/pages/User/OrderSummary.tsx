@@ -185,9 +185,31 @@ export default function OrderSummary() {
     );
   };
 
+  // Status subtext mapping
+  const statusSubtext: Record<string, string> = {
+    Pending: 'We are preparing your order',
+    Shipped: 'Your order is on the way',
+    Delivered: 'Your order has been delivered',
+    Cancelled: 'Your order was cancelled',
+    // Add more as needed
+  };
+
   return (
     <div className="p-4 max-w-7xl mx-auto space-y-6">
-      
+      {/* Order Details Card */}
+      <Card className="bg-white border shadow-sm mb-2">
+        <CardContent className="p-4 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2">
+          <div className="flex flex-col">
+            <span className="text-sm text-gray-500">Order Number</span>
+            <span className="text-xl font-bold text-green-700">#{cart?.id ?? '--'}</span>
+          </div>
+          <div className="flex flex-col">
+            <span className="text-sm text-gray-500">Status</span>
+            <span className="text-base font-semibold text-green-700">{cart?.status ?? '--'}</span>
+            <span className="text-xs text-gray-400">{statusSubtext[cart?.status ?? ''] ?? ''}</span>
+          </div>
+        </CardContent>
+      </Card>
       <div className="flex justify-between items-center">
         {/* <Button
           variant="ghost"
@@ -351,6 +373,7 @@ export default function OrderSummary() {
                 value={formData.phone}
                 onChange={(e) => handleChange("phone", e.target.value)}
                 className={fieldErrors.phone ? "border-red-500" : ""}
+                disabled={!isPending}
               />
               <Input
                 type="email"
@@ -358,18 +381,21 @@ export default function OrderSummary() {
                 value={formData.email}
                 onChange={(e) => handleChange("email", e.target.value)}
                 className={fieldErrors.email ? "border-red-500" : ""}
+                disabled={!isPending}
               />
               <Input
                 type="text"
                 placeholder="WhatsApp (Optional)"
                 value={formData.whatsapp}
                 onChange={(e) => handleChange("whatsapp", e.target.value)}
+                disabled={!isPending}
               />
               <label className="flex items-center gap-2 text-sm">
                 <input
                   type="checkbox"
                   checked={sameAsPhone}
                   onChange={handleSameAsPhoneToggle}
+                  disabled={!isPending}
                 />
                 Same as phone number
               </label>
@@ -386,18 +412,21 @@ export default function OrderSummary() {
                 value={formData.address}
                 onChange={(e) => handleChange("address", e.target.value)}
                 className={fieldErrors.address ? "border-red-500" : ""}
+                disabled={!isPending}
               />
               <Input
                 placeholder="City"
                 value={formData.city}
                 onChange={(e) => handleChange("city", e.target.value)}
                 className={fieldErrors.city ? "border-red-500" : ""}
+                disabled={!isPending}
               />
               <Input
                 placeholder="Pincode"
                 value={formData.pincode}
                 onChange={(e) => handleChange("pincode", e.target.value)}
                 className={fieldErrors.pincode ? "border-red-500" : ""}
+                disabled={!isPending}
               />
             </CardContent>
           </Card>
@@ -411,6 +440,7 @@ export default function OrderSummary() {
                 value={formData.paymentMethod}
                 onValueChange={(val) => handleChange("paymentMethod", val)}
                 className="space-y-2"
+                disabled={!isPending}
               >
                 <div className="flex items-center gap-2">
                   <RadioGroupItem value="cod" id="cod" />
@@ -428,19 +458,21 @@ export default function OrderSummary() {
             </CardContent>
           </Card>
 
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.2, duration: 0.3 }}
-          >
-            <Button
-              onClick={handlePlaceOrder}
-              className="w-full bg-[#5DBF13] hover:bg-green-700 text-white rounded-xl"
-              disabled={cartitems.length === 0 || isSendingEmail}
+          {isPending && (
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.2, duration: 0.3 }}
             >
-              {isSendingEmail ? "Updating Order..." : "Update Order"}
-            </Button>
-          </motion.div>
+              <Button
+                onClick={handlePlaceOrder}
+                className="w-full bg-[#5DBF13] hover:bg-green-700 text-white rounded-xl"
+                disabled={cartitems.length === 0 || isSendingEmail}
+              >
+                {isSendingEmail ? "Updating Order..." : "Update Order"}
+              </Button>
+            </motion.div>
+          )}
 
           {isPending && (
         <>

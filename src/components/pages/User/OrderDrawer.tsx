@@ -48,21 +48,6 @@ export default function CartDrawer({ isOpen, onClose, children }: CartDrawerProp
               </button>
             </div>
 
-            {/* Cart Summary */}
-            <div className="border-b px-4 py-3 flex justify-between items-center bg-gray-100">
-            <h2 className="text-sm bg-green-100 text-green-800 px-3 py-1 rounded-full inline-block">
-              <div className="flex items-center gap-2 bg-green-50 px-3 py-1 rounded-lg text-sm text-green-800 font-medium w-fit">
-                <ShoppingBag className="w-4 h-4" />
-                {cart.cartitems?.length} Product(s)
-                <span className="mx-1">•</span>
-                <PackageCheck className="w-4 h-4" />
-                {cart.cartitems?.reduce((total, item) => total + item.quantity, 0)} Items
-              </div>
-            </h2>
-              <p className="text-lg font-bold text-[#5DBF13]">
-                ₹{cart?.totalprice?.toFixed(2)}
-              </p>
-            </div>
 
             {/* Scrollable Content */}
             <div className="flex-1 overflow-y-auto py-4 px-2">{children}</div>
