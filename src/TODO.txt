@@ -10,3 +10,13 @@ ORDER
 // Order History / Timeline (placed, processed, shipped, delivered, etc.)
 // Invoice Download Link
 // Actions (Cancel, Return, Reorder, Contact Support)
+// Rating and Reviews
+
+
+HOME
+
+Messages/Updates to customers with a scrolling Messages
+Upcomming Products
+Client Requested Products
+
+
