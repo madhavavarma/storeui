@@ -41,7 +41,7 @@ export default function MainCarousel() {
   const slides = appSettings?.branding?.slides ?? [];
 
   return (
-    <section className="bg=[#fff] w-full  relative mt-[60px]">
+    <section className="bg=[#fff] w-full  relative mt-6">
       <Carousel setApi={setApi} className="w-full h-full">
         <CarouselContent className="">
           {slides.map((slide, index) => (

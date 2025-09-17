@@ -27,12 +27,12 @@ const CategoryCarousel = () => {
   }, [swiper]);
 
   return (
-    <div className="bg-[#fff] text-center w-full py-16 px-2">
+    <div className="bg-[#fff] text-center w-full py-6 px-2">
       {/* "Choose Categories" Text in Green */}
-      <p className="text-sm text-green-500 mb-">Choose Categories</p>
+      {/* <p className="text-sm text-green-500 mb-">Choose Categories</p> */}
 
       {/* "Explore Categories" Heading */}
-      <h2 className="text-3xl font-bold text-gray-800 mb-12">Explore Categories</h2>
+      {/* <h2 className="text-3xl font-bold text-gray-800 mb-12">Explore Categories</h2> */}
 
       <div className=" mx-auto relative">
         {/* Left / Right minimal arrows */}

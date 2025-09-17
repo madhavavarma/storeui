@@ -29,7 +29,7 @@ export function NavMenu() {
     <NavigationMenu>
       <NavigationMenuList>
         <NavigationMenuItem>
-          <NavigationMenuTrigger>Shop</NavigationMenuTrigger>
+            <NavigationMenuTrigger className="uppercase font-bold text-white-700" style={{ fontSize: '12px', letterSpacing: '1.2px' }}>SHOP</NavigationMenuTrigger>
           <NavigationMenuContent>
             <ul className="grid gap-3 p-6 md:w-[400px] lg:w-[500px] lg:grid-cols-[.75fr_1fr]">
               <li className="row-span-3">
@@ -60,7 +60,7 @@ export function NavMenu() {
           </NavigationMenuContent>
         </NavigationMenuItem>
         <NavigationMenuItem>
-          <NavigationMenuTrigger>Contact</NavigationMenuTrigger>
+            <NavigationMenuTrigger className="uppercase font-bold text-white-700" style={{ fontSize: '12px', letterSpacing: '1.2px' }}>Contact</NavigationMenuTrigger>
           <NavigationMenuContent>
             <ul className="grid w-[400px] gap-3 p-4 md:w-[500px] md:grid-cols-2 lg:w-[600px] ">
               {(branding?.nav?.contact)?.map((component: any) => (
@@ -76,7 +76,7 @@ export function NavMenu() {
           </NavigationMenuContent>
         </NavigationMenuItem>
         <NavigationMenuItem>
-          <NavigationMenuTrigger>Questions</NavigationMenuTrigger>
+            <NavigationMenuTrigger className="uppercase font-bold text-white-700" style={{ fontSize: '12px', letterSpacing: '1.2px' }}>Questions</NavigationMenuTrigger>
           <NavigationMenuContent>
             <ul className="grid w-[400px] gap-3  md:w-[500px] md:grid-cols-2 lg:w-[600px] ">
               {(branding?.nav?.faq)?.map((component: any) => (

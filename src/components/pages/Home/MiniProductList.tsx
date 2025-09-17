@@ -27,11 +27,14 @@ const MiniProductList = () => {
   }, [cartItemCount]);
 
   return (
-    <div className="bg-[#fff] w-full flex flex-col items-center py-16 px-4">
+    <div className="bg-[#fff] w-full flex flex-col items-center py-2 px-4">
       {/* Section Title */}
       <div className="w-full text-center">
-        <p className="text-sm text-green-500 mb-1">Select Products</p>
-        <h2 className="text-3xl font-bold text-gray-800 mb-12">Products</h2>
+        {/* <p className="text-sm text-green-500 mb-1">Select Products</p> */}
+  <h2 className="text-2xl font-semibold text-gray-700 mb-2 tracking-tight" style={{ fontFamily: `'Dancing Script', cursive` }}>
+          Our Menu
+        </h2>
+        <div className="h-0.5 w-12 mx-auto bg-green-200 rounded-full mb-4" />
       </div>
 
       {/* Product Grid */}

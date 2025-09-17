@@ -27,7 +27,7 @@ const Product2 = ({ product }: ProductProps) => {
     >
       {/* Product Image */}
       <div
-        className="relative w-full h-48 rounded-t bg-center bg-no-repeat bg-contain"
+        className="relative w-full h-48 rounded-t bg-center bg-no-repeat bg-cover"
         style={{ backgroundImage: `url(${imageUrls[0]})` }}
       >
         {/* Labels on Image */}
@@ -65,7 +65,7 @@ const Product2 = ({ product }: ProductProps) => {
       </div>
 
         {/* Product Name */}
-        <p className="text-sm font-semibold text-gray-900 line-clamp-2 min-h-[42px]">
+        <p className="font-bold text-gray-900 line-clamp-2 min-h-[42px] uppercase" style={{ fontSize: '12px', letterSpacing: '0.1px' }}>
           {name}
         </p>
       </div>

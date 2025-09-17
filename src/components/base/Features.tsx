@@ -28,7 +28,7 @@ const Features = ({ bgColor = 'bg-gray-0' }: { bgColor?: string }) => {
     : [];
 
   return (
-    <div className={`${bgColor} mt-12 text-xs`}>
+    <div className={`${bgColor} mt-6 text-xs`}>
       <div className="flex flex-wrap justify-between gap-2">
         {featuresList.map(({ title, description, icon }, index) => (
           <div key={index} className="single_facts w-full md:w-[30%]">

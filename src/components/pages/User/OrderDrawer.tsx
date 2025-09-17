@@ -1,8 +1,5 @@
 import { ReactNode } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { useSelector } from "react-redux";
-import { IState } from "@/store/interfaces/IState";
-import { PackageCheck, ShoppingBag } from "lucide-react";
 
 interface CartDrawerProps {
   isOpen: boolean;
@@ -11,7 +8,6 @@ interface CartDrawerProps {
 }
 
 export default function CartDrawer({ isOpen, onClose, children }: CartDrawerProps) {
-  const cart = useSelector((state: IState) => state.Cart);
 //   const navigationHelper = useNavigationHelper();
 
   return (
